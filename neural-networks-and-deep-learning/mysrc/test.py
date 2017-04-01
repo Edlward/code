@@ -1,5 +1,6 @@
+import cv2
 import numpy as np
-import random
+import gzip
+import cPickle
 
-size = [10, 2, 3]
-biases = []
+a = 

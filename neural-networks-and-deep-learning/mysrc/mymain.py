@@ -1,5 +1,6 @@
 #module docstring
 import mymnist_loader as ml
+import mynetwork
 
 print('hello python')
 
@@ -27,3 +28,10 @@ print('len(validation[0][0]): ', len(validation[0][0]))
 print('validation[0][1]): ', validation[0][1])
 # x = zip(1, 2)
 # print(x)
+
+print()
+#784*100*10
+net = mynetwork.Network([784, 30, 10])
+#30:epochs, 10:mini_batch, eta:3.0
+net.SGD(train, 30, 10, 3.0, test)
+

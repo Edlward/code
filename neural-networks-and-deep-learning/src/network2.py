@@ -93,9 +93,7 @@ class Network(object):
         Note that the first layer is assumed to be an input layer, and
         by convention we won't set any biases for those neurons, since
         biases are only ever used in computing the outputs from later
-        layers.
-
-        """
+        layers."""
         self.biases = [np.random.randn(y, 1) for y in self.sizes[1:]]
         self.weights = [np.random.randn(y, x)/np.sqrt(x)
                         for x, y in zip(self.sizes[:-1], self.sizes[1:])]

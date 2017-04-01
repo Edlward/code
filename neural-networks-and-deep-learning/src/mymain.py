@@ -1,6 +1,6 @@
 import mnist_loader 
-print('hello python')
-print('1+1', 1+1)
+import network
 
 training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
-print('1+2', 1+2)
+net = network.Network([784,30,10])
+net.SGD(training_data, 30, 10, 3.0, test_data)

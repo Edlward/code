@@ -77,6 +77,14 @@ class Network(object):
             delta_nabla_b, delta_nabla_w = self.backprop(x, y)
             nabla_b = [nb+dnb for nb, dnb in zip(nabla_b, delta_nabla_b)]
             nabla_w = [nw+dnw for nw, dnw in zip(nabla_w, delta_nabla_w)]
+            
+            # print("delta_nabla_b", type(delta_nabla_b), "len", len(delta_nabla_b))
+            # print("delta_nabla_w", type(delta_nabla_w), "len", len(delta_nabla_w))
+            # print("len(delta_b[0])", len(delta_nabla_b[0]))
+            # print("len(delta_b[1])", len(delta_nabla_b[1]))
+            # print("len(delta_w[0])", len(delta_nabla_w[0]))
+            # print("len(delta_w[1])", len(delta_nabla_w[1]))
+        
         self.weights = [w-(eta/len(mini_batch))*nw
                         for w, nw in zip(self.weights, nabla_w)]
         self.biases = [b-(eta/len(mini_batch))*nb
