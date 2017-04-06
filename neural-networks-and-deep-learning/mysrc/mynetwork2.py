@@ -9,6 +9,7 @@ import sys
 #object指QuadraticCost继承的类，所有的类最终都会继承object，所以可以直接写为object
 class QuadraticCost(object):
 
+
     @staticmethod
     def fn(a, y):
         """返回代价函数的值， 已经是二范数了，再取平方"""
@@ -21,6 +22,9 @@ class QuadraticCost(object):
 
 class CrossEntropyCost(object):
     
+    def __init__(self):
+        self.__name__ = "CrossEntropyCost"
+        
     @staticmethod
     def fn(a, y):
         """返回代价函数的值"""
