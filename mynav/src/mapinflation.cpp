@@ -1,4 +1,5 @@
-#include <nav2d_navigator/MapInflationTool.h>
+#include "mapinflation.h"
+#include <nav_msgs/OccupancyGrid.h>
 
 CellData::CellData(double d, double i, unsigned int sx, unsigned int sy):distance(d), index(i), sx(sx), sy(sy){
 }
@@ -28,8 +29,6 @@ void MapInflationTool::computeCaches(unsigned int radius)
 	mCachedCosts = new char*[mCellInflationRadius + 2];
 	mCachedDistances = new double*[mCellInflationRadius + 2];
 	
-
-	//22*22的遍历
 	for(unsigned int i = 0; i < mCellInflationRadius + 2; i++)
 	{
 		mCachedCosts[i] = new char[mCellInflationRadius + 2];
@@ -37,10 +36,10 @@ void MapInflationTool::computeCaches(unsigned int radius)
 		for(unsigned int j = 0; j < mCellInflationRadius + 2; j++)
 		{
 			double d = sqrt(i*i + j*j);
-			mCachedDistances[i][j] = d;//表格与中心坐标的距离
-			d /= mCellInflationRadius;//距离归一化
+			mCachedDistances[i][j] = d;
+			d /= mCellInflationRadius;
 			if(d > 1) d = 1;
-			mCachedCosts[i][j] = (1.0 - d) * mCostObstacle;//中心为100的代价膨胀，离中心越远代价越小
+			mCachedCosts[i][j] = (1.0 - d) * mCostObstacle;
 		}
 	}
 }
@@ -70,7 +69,6 @@ inline char MapInflationTool::costLookup(int mx, int my, int src_x, int src_y)
 	}
 	return mCachedCosts[dx][dy];
 }
-
 // Main method to start the inflation on the given map in-place.
 void MapInflationTool::inflateMap(GridMap* map)
 {
@@ -92,17 +90,18 @@ void MapInflationTool::inflateMap(GridMap* map)
 	
 	for(int index = 0; index < mapSize; index++)
 	{
-		if(mGridMap->getData(index) > 0)
+		if(mGridMap->getData(index) > 0)//障碍区域保持为0
 		{
 			unsigned int sx, sy;
 			mGridMap->getCoordinates(sx, sy, index);
 			enqueueObstacle(index, sx, sy);
 		}else if(mGridMap->getData(index) == -1)
 		{
-			mInflationMarkers[index] = 1;
+			mInflationMarkers[index] = 1;//未知区域设置为1，防止被膨胀
 		} 
 	}
 	
+	//应该是从障碍点由近及远的膨胀障碍
 	// 2. Inflate them by the given inflation radius
 	int count = 0;
 	while(!mInflationQueue.empty())
@@ -124,12 +123,11 @@ void MapInflationTool::inflateMap(GridMap* map)
 	
 	ROS_DEBUG("Finished inflation. (%d cells)", count);
 }
-
 void MapInflationTool::enqueueObstacle(unsigned int index, unsigned int sx, unsigned int sy)
 {
 	unsigned int mx, my;
-	if(!mGridMap->getCoordinates(mx, my, index)) return;
-	if(mInflationMarkers[index] != 0) return;
+	if(!mGridMap->getCoordinates(mx, my, index)) return;//为什么要读取两次
+	if(mInflationMarkers[index] != 0) return;//已经膨胀过的区域不再设置
 	
 	double distance = distanceLookup(mx, my, sx, sy);
 	if(distance == 50)
@@ -138,9 +136,12 @@ void MapInflationTool::enqueueObstacle(unsigned int index, unsigned int sx, unsi
 	if(distance > mCellInflationRadius) return;
 		
 	CellData cell(distance, index, sx, sy);
-	mInflationQueue.push(cell);
-	mInflationMarkers[index] = 1;
+
+	mInflationQueue.push(cell);//把障碍都填充进cell距离为0
+
+	mInflationMarkers[index] = 1;//已经膨胀的障碍区域设置为1
+
 	char value = costLookup(mx, my, sx, sy);
-	mGridMap->setData(index, value);
+	mGridMap->setData(index, value);//这应该会存在很多重复设置
 //	ROS_DEBUG("Set cell %d cost to %d", index, value);
 }

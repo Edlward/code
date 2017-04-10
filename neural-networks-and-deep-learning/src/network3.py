@@ -91,7 +91,10 @@ class Network(object):
         """
         self.layers = layers
         self.mini_batch_size = mini_batch_size
+
+        #这是什么鬼
         self.params = [param for layer in self.layers for param in layer.params]
+        
         self.x = T.matrix("x")
         self.y = T.ivector("y")
         init_layer = self.layers[0]

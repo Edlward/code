@@ -42,7 +42,7 @@ RobotNavigator::RobotNavigator()
 	navigatorNode.param("min_replanning_period", mMinReplanningPeriod, 3.0);
 	navigatorNode.param("max_replanning_period", mMaxReplanningPeriod, 1.0);
 	mCostObstacle = 100;
-	mCostLethal = (1.0 - (mRobotRadius / mInflationRadius)) * (double)mCostObstacle;
+	mCostLethal = (1.0 - (mRobotRadius / mInflationRadius)) * (double)mCostObstacle;//50
 
 	robotNode.param("map_frame", mMapFrame, std::string("map"));
 	robotNode.param("robot_frame", mRobotFrame, std::string("robot"));
@@ -129,10 +129,10 @@ bool RobotNavigator::getMap()
 	if(mCellInflationRadius == 0)
 	{
 		ROS_INFO("Navigator is now initialized.");
-		mCellInflationRadius = mInflationRadius / mCurrentMap.getResolution();
-		mCellRobotRadius = mRobotRadius / mCurrentMap.getResolution();
+		mCellInflationRadius = mInflationRadius / mCurrentMap.getResolution(); //20 = 1.0 / 0.05
+		mCellRobotRadius = mRobotRadius / mCurrentMap.getResolution();//10 = 0.5 / 0.05 
 		mInflationTool.computeCaches(mCellInflationRadius);
-		mCurrentMap.setLethalCost(mCostLethal);
+		mCurrentMap.setLethalCost(mCostLethal);//50
 	}
 	
 	mHasNewMap = true;
@@ -183,6 +183,7 @@ bool RobotNavigator::preparePlan()
 	if(!setCurrentPosition()) return false;
 	
 	// Clear robot footprint in map
+	//
 	unsigned int x = 0, y = 0;
 	if(mCurrentMap.getCoordinates(x, y, mStartPoint))
 		for(int i = -mCellRobotRadius; i < (int)mCellRobotRadius; i++)
@@ -808,14 +809,14 @@ void RobotNavigator::receiveExploreGoal(const nav2d_navigator::ExploreGoal::Cons
 	mStatus = NAV_ST_EXPLORING;
 	unsigned int cycle = 0;
 	unsigned int lastCheck = 0;
-	unsigned int recheckCycles = mMinReplanningPeriod * FREQUENCY;
-	unsigned int recheckThrottle = mMaxReplanningPeriod * FREQUENCY;
+	unsigned int recheckCycles = mMinReplanningPeriod * FREQUENCY; // 3.0 * 5
+	unsigned int recheckThrottle = mMaxReplanningPeriod * FREQUENCY;// 1.0 * 5
 	
 	// Move to exploration target
-	Rate loopRate(FREQUENCY);
+	Rate loopRate(FREQUENCY);//5hz的频率
 	while(true)
 	{
-		// Check if we are asked to preempt
+		// Check if we are asked to preempt //mIsStopped:false
 		if(!ok() || mExploreActionServer->isPreemptRequested() || mIsStopped)
 		{
 			ROS_INFO("Exploration has been preempted externally.");
@@ -836,9 +837,10 @@ void RobotNavigator::receiveExploreGoal(const nav2d_navigator::ExploreGoal::Cons
 		
 		// Regularly recheck for exploration target
 		cycle++;
-		bool reCheck = lastCheck == 0 || cycle - lastCheck > recheckCycles;
-		bool planOk = mCurrentPlan && mCurrentPlan[mStartPoint] >= 0;
-		bool nearGoal = planOk && ((cycle - lastCheck) > recheckThrottle && mCurrentPlan[mStartPoint] <= mExplorationGoalDistance); 
+		bool reCheck = lastCheck == 0 || cycle - lastCheck > recheckCycles;//除了初始化时，以后都要过15个循环(3s)才会被设置
+		bool planOk = mCurrentPlan && mCurrentPlan[mStartPoint] >= 0;//符合路径搜索的前提条件	
+		bool nearGoal = planOk && ((cycle - lastCheck) > recheckThrottle //大于5个循环
+						&& mCurrentPlan[mStartPoint] <= mExplorationGoalDistance); //mCurrentPlan存储的是距离目标点的距离3.0m是不是有点远
 		
 		if(reCheck || nearGoal)
 		{
@@ -846,6 +848,10 @@ void RobotNavigator::receiveExploreGoal(const nav2d_navigator::ExploreGoal::Cons
 			lastCheck = cycle;
 
 			bool success = false;
+			//更新地图，更新机器人位置，膨胀地图
+			//地图每接受一次，尺寸不一定就会有变化，那么膨胀地图就没有必要
+			//膨胀地图应该每隔几秒更新，或者尺寸有变化时更新
+			//但是只有在做路径规划时才需要膨胀地图，其它时候都不需要
 			if(preparePlan())
 			{
 				int result = mExplorationPlanner->findExplorationTarget(&mCurrentMap, mStartPoint, mGoalPoint);
@@ -866,7 +872,7 @@ void RobotNavigator::receiveExploreGoal(const nav2d_navigator::ExploreGoal::Cons
 					stop();
 					ROS_INFO("Exploration has finished.");
 					return;
-				case EXPL_WAITING:
+				case EXPL_WAITING://return 的result中并没有这一项
 					mStatus = NAV_ST_WAITING;
 					{
 						nav2d_operator::cmd stopMsg;
@@ -942,14 +948,16 @@ bool RobotNavigator::setCurrentPosition()
 		ROS_ERROR("Could not get robot position: %s", ex.what());
 		return false;
 	}
-	double world_x = transform.getOrigin().x();
+	double world_x = transform.getOrigin().x();//获取机器人相对mapOrigin原点的位置
 	double world_y = transform.getOrigin().y();
 	double world_theta = getYaw(transform.getRotation());
 
+	//获得机器人相对左上角的坐标
 	unsigned int current_x = (world_x - mCurrentMap.getOriginX()) / mCurrentMap.getResolution();
 	unsigned int current_y = (world_y - mCurrentMap.getOriginY()) / mCurrentMap.getResolution();
 	unsigned int i;
 	
+	//如果地图更新了怎么搞，获取的位置不就是错的吗？？，设置位置时应该先检验地图是否更新？？
 	if(!mCurrentMap.getIndex(current_x, current_y, i))
 	{
 		if(mHasNewMap || !getMap() || !mCurrentMap.getIndex(current_x, current_y, i))
