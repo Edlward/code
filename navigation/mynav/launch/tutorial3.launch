@@ -1,0 +1,10 @@
+<launch>
+	
+	<node name="tfpublish" pkg="mynav" type="tfPublish">
+	</node>
+
+	<node name="Navigator" pkg="mynav" type="navigator">
+		<rosparam file="$(find mynav)/param/navigator.yaml"/>
+	</node>
+
+</launch>
