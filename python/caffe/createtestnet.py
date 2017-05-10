@@ -25,12 +25,12 @@ def create_deploy():
 
 netfolder = 'net/'
 with open(netfolder + 'testnotval.prototxt', 'w') as f:
-    # f.write('name:"Lenet"\n')
-    # f.write('input:"data"\n')
-    # f.write('input_dim:1\n')
-    # f.write('input_dim:1\n')
-    # f.write('input_dim:28\n')
-    # f.write('input_dim:28\n')
+    f.write('name:"Lenet"\n')
+    f.write('input:"data"\n')
+    f.write('input_dim:1\n')
+    f.write('input_dim:1\n')
+    f.write('input_dim:28\n')
+    f.write('input_dim:28\n')
     f.write(str(create_deploy()))
 
 
