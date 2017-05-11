@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/uniqueptr.dir/uniqueptr.cpp.o  -o uniqueptr -rdynamic 

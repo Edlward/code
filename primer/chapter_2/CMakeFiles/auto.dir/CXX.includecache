@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lxg/code/primer/chapter_2/auto.cpp
+iostream
+-
+cmath
+-
+typeinfo
+-
+stdio.h
+/home/lxg/code/primer/chapter_2/stdio.h
+

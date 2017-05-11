@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lxg/code/primer/dynamicmemory/uniqueptr.cpp
+iostream
+-
+vector
+-
+memory
+-
+cstdio
+-
+fstream
+-
+cassert
+-
+typeinfo
+-
+

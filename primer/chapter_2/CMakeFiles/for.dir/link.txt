@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/for.dir/for.cpp.o  -o for -rdynamic 

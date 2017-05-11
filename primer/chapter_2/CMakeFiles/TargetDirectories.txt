@@ -1,0 +1,6 @@
+/home/lxg/code/primer/chapter_2/CMakeFiles/edit_cache.dir
+/home/lxg/code/primer/chapter_2/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/primer/chapter_2/CMakeFiles/constexpr.dir
+/home/lxg/code/primer/chapter_2/CMakeFiles/auto.dir
+/home/lxg/code/primer/chapter_2/CMakeFiles/for.dir
+/home/lxg/code/primer/chapter_2/CMakeFiles/class.dir
