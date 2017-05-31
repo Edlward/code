@@ -190,13 +190,13 @@ float Temp::matchTemp(const Mat &im, Point2f centerC, float radiusC, bool circle
     static int saveNumP = 0;
     static int saveNumN = 0;
     
-    char str[40];
+    char str[50];
     if(savePositive && (coefficient < matchRatioThresh) && circleFlg)
     {
         Mat sample;
         imRoi.copyTo(sample);
         resize(sample, sample, Size(40,40));
-        sprintf(str, "positive//positive_%d.jpg", saveNumP);
+        sprintf(str, "//home//lxg//codedata//positive//positive_%d.jpg", saveNumP);
         imwrite(str, sample);
         saveNumP++;        
     }
@@ -206,7 +206,7 @@ float Temp::matchTemp(const Mat &im, Point2f centerC, float radiusC, bool circle
         imRoi.copyTo(sample);
         resize(sample, sample, Size(40,40));
         printf("sample.channel:%d\n", sample.channels());
-        sprintf(str, "negative//negative_%d.bmp", saveNumN);
+        sprintf(str, "//home//lxg//codedata//negative//negative_%d.bmp", saveNumN);
         imwrite(str, sample);
         saveNumN++;        
     }
