@@ -42,3 +42,24 @@ embark_dummies_titanic  = pd.get_dummies(titanic_df['Embarked'])
 embark_dummies_titanic.drop(['S'], axis=1, inplace=True)
 
 [kaggle参考](https://www.kaggle.com/lxghust/a-journey-through-titanic-de4d36-test/editnb)
+
+## appCategory 关系比较大，缺失值可以用get_dummies补充掉
+0      0.423841
+2      0.015487
+101    0.030474
+104    0.034928
+106    0.044643
+108    0.006938
+201    0.031498
+203    0.096585
+209    0.020328
+301    0.028042
+402    0.037568
+407    0.203723
+408    0.000000
+503    0.031987
+
+## appPlateform 关系不大
+appPlatform
+2    0.025866
+1    0.024596
