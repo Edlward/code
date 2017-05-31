@@ -63,6 +63,8 @@ X_test = varify_data
 Y_test = varify_label
 
 # Random Forests 
+# connectionType是0.115962438973
+# telecomsOperator是0.123899858079
 # connectionType和telecomsOperator结果是0.116582099373
 # connectionType和telecomsOperator和creativeID是0.236746484137
 random_forest = RandomForestRegressor(n_estimators=400)
