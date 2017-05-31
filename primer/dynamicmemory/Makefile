@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named strblob
+
+# Build rule for target.
+strblob: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 strblob
+.PHONY : strblob
+
+# fast build rule for target.
+strblob/fast:
+	$(MAKE) -f CMakeFiles/strblob.dir/build.make CMakeFiles/strblob.dir/build
+.PHONY : strblob/fast
+
+#=============================================================================
 # Target rules for targets named uniqueptr
 
 # Build rule for target.
@@ -122,6 +135,33 @@ uniqueptr: cmake_check_build_system
 uniqueptr/fast:
 	$(MAKE) -f CMakeFiles/uniqueptr.dir/build.make CMakeFiles/uniqueptr.dir/build
 .PHONY : uniqueptr/fast
+
+strblob.o: strblob.cpp.o
+
+.PHONY : strblob.o
+
+# target to build an object file
+strblob.cpp.o:
+	$(MAKE) -f CMakeFiles/strblob.dir/build.make CMakeFiles/strblob.dir/strblob.cpp.o
+.PHONY : strblob.cpp.o
+
+strblob.i: strblob.cpp.i
+
+.PHONY : strblob.i
+
+# target to preprocess a source file
+strblob.cpp.i:
+	$(MAKE) -f CMakeFiles/strblob.dir/build.make CMakeFiles/strblob.dir/strblob.cpp.i
+.PHONY : strblob.cpp.i
+
+strblob.s: strblob.cpp.s
+
+.PHONY : strblob.s
+
+# target to generate assembly for a file
+strblob.cpp.s:
+	$(MAKE) -f CMakeFiles/strblob.dir/build.make CMakeFiles/strblob.dir/strblob.cpp.s
+.PHONY : strblob.cpp.s
 
 uniqueptr.o: uniqueptr.cpp.o
 
@@ -158,7 +198,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... strblob"
 	@echo "... uniqueptr"
+	@echo "... strblob.o"
+	@echo "... strblob.i"
+	@echo "... strblob.s"
 	@echo "... uniqueptr.o"
 	@echo "... uniqueptr.i"
 	@echo "... uniqueptr.s"

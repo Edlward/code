@@ -1,3 +1,4 @@
 /home/lxg/code/primer/dynamicmemory/CMakeFiles/edit_cache.dir
 /home/lxg/code/primer/dynamicmemory/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/primer/dynamicmemory/CMakeFiles/strblob.dir
 /home/lxg/code/primer/dynamicmemory/CMakeFiles/uniqueptr.dir
