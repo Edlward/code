@@ -1,3 +1,27 @@
+## 样本分布不均衡的解决方法
+http://www.zhaokv.com/2016/01/learning-from-imbalanced-data.html
+
+## 训练集数目
+0    3656266
+1      93262
+```
+在前面，我们使用准确度这个指标来评价分类质量，可以看出，在类别不均衡时，准确度这个评价指标并不能work。因为分类器将所有的样本都分类到大类下面时，该指标值仍然会很高。即，该分类器偏向了大类这个类别的数据。
+```
+## 博客摘抄
+http://blog.csdn.net/heyongluoyao8/article/details/49408131
+八大解决方法
+1. 可以扩大数据集吗？ 
+2. 尝试其它评价指标 
+3. 对数据集进行重采样 
+4. 尝试产生人工数据样本 
+5. 尝试不同的分类算法 
+    决策树往往在类别不均衡数据上表现不错
+    adaboost
+6. 尝试对模型进行惩罚 
+    比如你的分类任务是识别那些小类，那么可以对分类器的小类样本数据增加权值，降低大类样本的权值（这种方法其实是产生了新的数据分布，即产生了新的数据集，译者注）
+    代价敏感矩阵，对学习算法进行改造
+7. 尝试一个新的角度理解问题 
+
 # train.csv 3749528,8
 instanceID，-1，clickTime，creativeID，userID，positionID，connectionType，telecomsOperator
 connectionType是wifi的激活概率肯定大

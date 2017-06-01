@@ -10,6 +10,7 @@ from scipy import sparse
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.externals import joblib
 import scipy as sp
 import zipfile
@@ -159,22 +160,24 @@ train_data, varify_data, train_label, varify_label = train_test_split(X_train, \
                             train['label'].values, train_size=0.8)
 
 print 'begin to train'
+
+# 逻辑回归
+# 在一个二分类问题中，训练集中class 1的样本数比class 2的样本数是60:1。使用逻辑回归进行分类，最后结果是其忽略了class 2，即其将所有的训练样本都分类为class 1。
 # 'connectionType', 'telecomsOperator' 0.115055742521
 # connectionType telecomsOperator, appCatorgory 0.110719227512
 # connectionType telecomsOperator, appCatorgory platform 0.109875571014,0.109831643006
 # connectionType telecomsOperator, appCatorgory platform haveBaby 28维度 0.109320333473
 # connectionType telecomsOperator, appCatorgory platform haveBaby gender 31维度  0.108233014599
-
-
-
-lr = LogisticRegression()
-lr.fit(train_data, train_label)
-proba_varify = lr.predict_proba(varify_data)[:,1]
-print logloss(varify_label,proba_varify)
+# lr = LogisticRegression()
+# lr.fit(train_data, train_label)
+# Y_pred = lr.predict_proba(varify_data)[:,1]
+# print logloss(varify_label,Y_pred)
 
 # 保存模型到本地 
 # joblib.dump(lr, 'train_model.m')
 
+
+# 决策树回归
 # dtr = DecisionTreeRegressor()
 # dtr.fit(train_data, train_label)
 # proba_varify = dtr.predict(varify_data)
@@ -191,15 +194,33 @@ Y_test = varify_label
 # telecomsOperator 全部数据集，0.115715800111
 # connectionType和telecomsOperator结果是0.114637306152
 # connectionType和telecomsOperator和creativeID是0.236746484137
-# random_forest = RandomForestRegressor(n_estimators=400)
+# connectionType telecomsOperator, appCatorgory platform haveBaby gender 31维度 0.109947102938
+# random_forest = RandomForestRegressor(n_estimators=200)
 # random_forest.fit(X_train, Y_train)
 # Y_pred = random_forest.predict(X_test)
 # # random_forest.score(X_train, Y_train)
 # print logloss(Y_test, Y_pred)
 
+# 权重换新
+weight = pd.Series(Y_train)
+cost = weight.value_counts()
+cost0 = cost[1] * 1. / cost[0]
+cost1 = 1
+weight[weight.values == 0] = 0  #cost0
+weight[weight.values == 1] = cost1
+
+# GradientBoostingRegressor
+# connectionType telecomsOperator, appCatorgory platform haveBaby gender 31维度 0.109135352106
+# connectionType telecomsOperator, appCatorgory platform haveBaby gender 更改权重后 31维度 0.621507445525
+gradient_boost = GradientBoostingRegressor()
+gradient_boost.fit(X_train, Y_train, sample_weight=weight)
+Y_pred = gradient_boost.predict(X_test)
+print logloss(Y_test, Y_pred)
+
+
 # submission
-df = pd.DataFrame({"testlabel": Y_test, "proba": proba_varify})
+df = pd.DataFrame({"testlabel": Y_test, "proba": Y_pred})
 df.sort_values("testlabel", inplace=True)
-df.to_csv("submission.csv", index=False)
-with zipfile.ZipFile("submission.zip", "w") as fout:
-    fout.write("submission.csv", compress_type=zipfile.ZIP_DEFLATED)
+df.to_csv(path + "submission.csv", index=False)
+with zipfile.ZipFile(path + "submission.zip", "w") as fout:
+    fout.write(path + "submission.csv", compress_type=zipfile.ZIP_DEFLATED)
