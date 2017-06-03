@@ -89,7 +89,8 @@ train.drop(var, axis=1,inplace=True)
 # 后面几类的概率基本相同，所以归为一类
 var = 'haveBaby'
 hab_columns = columns_tmp = ['hb0','hb1','hb2']
-train.loc[train[var] > 2] = 2
+# train.loc[train[var] > 2] = 2
+train[var][train[var] > 2] = 2
 dummy = pd.get_dummies(train[var])
 dummy.columns = columns_tmp
 train = train.join(dummy)
@@ -160,9 +161,10 @@ train_data, varify_data, train_label, varify_label = train_test_split(X_train, \
 print 'begin to train'
 # 'connectionType', 'telecomsOperator' 0.115055742521
 # connectionType telecomsOperator, appCatorgory 0.110719227512
-# connectionType telecomsOperator, appCatorgory platform 0.109875571014
-# connectionType telecomsOperator, appCatorgory platform haveBaby 0.733187823453
-# connectionType telecomsOperator, appCatorgory platform haveBaby gender 31维度 0.669087918607, 0.720009529899,0.713121562789
+# connectionType telecomsOperator, appCatorgory platform 0.109875571014,0.109831643006
+# connectionType telecomsOperator, appCatorgory platform haveBaby 28维度 0.109320333473
+# connectionType telecomsOperator, appCatorgory platform haveBaby gender 31维度  0.108233014599
+
 
 
 lr = LogisticRegression()
