@@ -2,11 +2,10 @@
 import re
 import requests
 
-path = "/home/lxg/codedata/upperbody/"
+# path = "/home/lxg/codedata/upperbody5/"
+path = "/home/lxg/codedata/upperbody/360/"
 
 def dowmloadPic(html,keyword,page):
-
-
     pic_url = re.findall('"objURL":"(.*?)",',html,re.S)
     i = page*100
     print '找到关键词:'+keyword+'的图片，现在开始下载图片...'
@@ -19,7 +18,10 @@ def dowmloadPic(html,keyword,page):
 
             print '【错误】当前图片无法下载'
             continue
-        string = path+"pedestrian"+'_'+str(i) + '.jpg'
+        string = path + "pedestrian_360_" + str(i) + ".jpg"
+        # string = path+"road"+'_'+str(i) + '.jpg'
+        # string = path+"pedestrian_5"+'_'+str(i) + '.jpg'
+        
         #resolve the problem of encode, make sure that chinese name could be store
         fp = open(string.decode('utf-8').encode('cp936'),'wb')
         fp.write(pic.content)
@@ -30,11 +32,21 @@ def dowmloadPic(html,keyword,page):
 
 if __name__ == '__main__':
     # word = raw_input("Input key word: ")
-    word = "路人"
-    for i in range(10):
+    # word = "路人"
+    # word = "路人抓拍"
+    # word = "行人"
+    # word = "教师　行人"
+    # word = "夏季路人"
+    # word = "社区街道"
+    word = "街头路人"
+
+    
+    for i in range(1):
         pn = str(i * 20)
         i = i + 1
-        url = 'https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word='+word+'&pn='+str(pn)+'&gsm=50&ct=&ic=0&lm=-1&width=0&height=0'
+        # url = 'https://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word='+word+'&pn='+str(pn)+'&gsm=50&ct=&ic=0&lm=-1&width=0&height=0'
+        url = "http://image.so.com/i?src=360pic_normal&z=1&i=0&cmg=6d2809fd05f68b0557b2beca7711c07c&q=%E8%A1%8C%E4%BA%BA&t=s"
+        # url = 'http://image.so.com/i?q='+word+'&src=srp'
         result = requests.get(url)
         dowmloadPic(result.text, word, i)
 # http://image.baidu.com/search/flip?tn=baiduimage&ie=utf-8&word='+word+'pn='+str(pn)+'&gsm=8c&ct=&ic=0&lm=-1&width=0&height=0

@@ -36,6 +36,7 @@ def getManyPages(keyword,pages):
                       'gsm': '1e',
                       '1488942260214': ''
                   })
+                  
     url = 'https://image.baidu.com/search/acjson'
     urls = []
     for i in params:
@@ -53,7 +54,7 @@ def getImg(dataList, localPath):
     for list in dataList:
         for i in list:
             if i.get('thumbURL') != None:
-                print('正在下载：%s' % i.get('thumbURL'))
+                print'正在下载:',i.get('thumbURL')
                 ir = requests.get(i.get('thumbURL'))
                 open(localPath + '%d.jpg' % x, 'wb').write(ir.content)
                 x += 1
@@ -61,5 +62,5 @@ def getImg(dataList, localPath):
                 print('图片链接不存在')
 
 if __name__ == '__main__':
-    dataList = getManyPages('王尼玛',10)  # 参数1:关键字，参数2:要下载的页数
-    getImg(dataList,'/home/lxg/codedata/upperbody/') # 参数2:指定保存的路径
+    dataList = getManyPages('路人',10)  # 参数1:关键字，参数2:要下载的页数
+    getImg(dataList,'/home/lxg/codedata/upperbody/baidu/b_') # 参数2:指定保存的路径
