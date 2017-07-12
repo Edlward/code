@@ -183,7 +183,7 @@ Mat get_hogdescriptor_visual_image(Mat& origImg,
   
     return visual_image;  
   
-    }  
+}  
   
   
 int main()  

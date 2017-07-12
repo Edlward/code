@@ -115,12 +115,21 @@ if __name__ == '__main__':
     # word = "街头路人"
     # word = "街头行人"
     # word = "行人"
-    word = "上海街头路人"
+    # word = "上海街头路人"
+
+    # 负样本
+    # word = "武汉"
+    # word = "武汉街道"
+    # word = "武汉市井"
+    # word = "上海市井"
+    # word = "腾讯办公环境"
+    # word = "百度办公环境"
+    word = "人人办公环境"
     
     
     
     path = "/home/lxg/codedata/upperbody/"
-    dirpath = mkDir(path + "results7")
+    dirpath = mkDir(path + "hard/neg7")
 
     urls = buildUrls(word)
     index = 0
