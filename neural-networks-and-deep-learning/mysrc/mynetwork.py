@@ -97,7 +97,7 @@ class Network(object):
             activation = sigmoid(z)
             activations.append(activation)
         # print('backprop')
-        # backward pass，zs[-1]是最后一层网络的输出
+        # backward pass，zs[-1]是最后一层网络的输出，第一层网络参数梯度的计算呢？？
         delta = self.cost_derivative(activations[-1], y) * \
                 sigmoid_prime(zs[-1])
         nabla_b[-1] = delta

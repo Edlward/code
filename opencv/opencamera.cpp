@@ -30,10 +30,10 @@ int main(int argc, char **argv)
     // printf("cap_prop_mode: %f\n", cap.get(CAP_PROP_MODE));
     // cap.set(CAP_PROP_MODE, CAP_MODE_GRAY);
     // printf("cap_prop_mode: %f\n", cap.get(CAP_PROP_MODE));
-    int mode = cap.get(CAP_PROP_MODE);
-    printf("camera mode:%d\n", mode);
-    int fps = cap.get(CAP_PROP_FPS);
-    printf("frames per second(fps): %d\n", fps);
+    // int mode = cap.get(CAP_PROP_MODE);
+    // printf("camera mode:%d\n", mode);
+    // int fps = cap.get(CAP_PROP_FPS);
+    // printf("frames per second(fps): %d\n", fps);
 
     Mat src;
     cap >> src;
