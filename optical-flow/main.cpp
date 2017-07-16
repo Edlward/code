@@ -56,8 +56,8 @@ int main(int argc, char **argv)
 	}
 
 	VideoCapture cap;
-	// cap.open(cap_index);
-	cap.open("/home/lxg/codedata/live.avi");
+	cap.open(cap_index);
+	// cap.open("/home/lxg/codedata/live.avi");
 	if(!cap.isOpened())
 	{
 		fprintf(stderr, "Can't initialize cam!\n");

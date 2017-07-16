@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-using namespace std;
 #include <vector>
+#include <algorithm>
 #include <opencv2/opencv.hpp>
 #include "xtofFindCorner.h"
 #include "xtofglobal.h"
@@ -13,6 +13,8 @@ using namespace std;
 #define MINEIGENVAL			0		//最小的特征值
 
 using namespace cv;
+using namespace std;
+
 
 static void cornerEigenValsVecs(const Mat& src, Mat& eigenv, int block_size,
 	int aperture_size, int op_type, double k ,

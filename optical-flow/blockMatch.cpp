@@ -7,7 +7,7 @@ using namespace cv;
 void OpticalFlow::blockOpticalFlow()
 {
     // 均匀生成所跟踪的块
-    getUniformCorner(11, corner_second);
+    getUniformCorner(2, corner_second);
     
     corner_first.resize(corner_second.size());
     

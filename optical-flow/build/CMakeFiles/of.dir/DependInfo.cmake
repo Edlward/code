@@ -12,8 +12,8 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/local/include/opencv"
-  "/usr/local/include"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lxg/code/optical-flow/blockMatch.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/blockMatch.cpp.o"
@@ -30,8 +30,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/local/include/opencv"
-  "/usr/local/include"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv"
   )
 
 # Targets to which this target links.
