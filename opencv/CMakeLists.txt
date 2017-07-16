@@ -3,7 +3,9 @@ project(myapp)
 add_definitions(-std=c++11) 
 find_package(OpenCV REQUIRED)
 
-add_executable(opencamera opencamera.cpp)
-target_link_libraries(opencamera ${OpenCV_LIBS})
+add_executable(openCamera openCamera.cpp)
+target_link_libraries(openCamera ${OpenCV_LIBS})
 
+add_executable(saveCamera saveCamera.cpp)
+target_link_libraries(saveCamera ${OpenCV_LIBS})
 

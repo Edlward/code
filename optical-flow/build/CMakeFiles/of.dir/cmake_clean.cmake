@@ -7,6 +7,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/of.dir/xtofFindCorner.cpp.o"
   "CMakeFiles/of.dir/readSonar.c.o"
   "CMakeFiles/of.dir/main.cpp.o"
+  "CMakeFiles/of.dir/opticalFlow.cpp.o"
+  "CMakeFiles/of.dir/tool.cpp.o"
+  "CMakeFiles/of.dir/blockMatch.cpp.o"
   "of.pdb"
   "of"
 )

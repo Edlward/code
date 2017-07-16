@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/lxg/code/optical-flow/build
 CMakeFiles/of.dir/all:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/depend
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=10,11,12,13,14,15,16,17,18 "Built target of"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target of"
 .PHONY : CMakeFiles/of.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/of.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/of.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/of.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
 .PHONY : CMakeFiles/of.dir/rule
@@ -93,43 +93,6 @@ CMakeFiles/of.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/of.dir/clean
-
-.PHONY : clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/MotionDetect.dir
-
-# All Build rule for target.
-CMakeFiles/MotionDetect.dir/all:
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/depend
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target MotionDetect"
-.PHONY : CMakeFiles/MotionDetect.dir/all
-
-# Include target in all.
-all: CMakeFiles/MotionDetect.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/MotionDetect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 9
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/MotionDetect.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
-.PHONY : CMakeFiles/MotionDetect.dir/rule
-
-# Convenience name for target.
-MotionDetect: CMakeFiles/MotionDetect.dir/rule
-
-.PHONY : MotionDetect
-
-# clean rule for target.
-CMakeFiles/MotionDetect.dir/clean:
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/clean
-.PHONY : CMakeFiles/MotionDetect.dir/clean
-
-# clean rule for target.
-clean: CMakeFiles/MotionDetect.dir/clean
 
 .PHONY : clean
 

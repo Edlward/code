@@ -249,6 +249,78 @@ CMakeFiles/of.dir/main.cpp.o.provides: CMakeFiles/of.dir/main.cpp.o.requires
 CMakeFiles/of.dir/main.cpp.o.provides.build: CMakeFiles/of.dir/main.cpp.o
 
 
+CMakeFiles/of.dir/opticalFlow.cpp.o: CMakeFiles/of.dir/flags.make
+CMakeFiles/of.dir/opticalFlow.cpp.o: ../opticalFlow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/of.dir/opticalFlow.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/of.dir/opticalFlow.cpp.o -c /home/lxg/code/optical-flow/opticalFlow.cpp
+
+CMakeFiles/of.dir/opticalFlow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/of.dir/opticalFlow.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/code/optical-flow/opticalFlow.cpp > CMakeFiles/of.dir/opticalFlow.cpp.i
+
+CMakeFiles/of.dir/opticalFlow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/of.dir/opticalFlow.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/code/optical-flow/opticalFlow.cpp -o CMakeFiles/of.dir/opticalFlow.cpp.s
+
+CMakeFiles/of.dir/opticalFlow.cpp.o.requires:
+
+.PHONY : CMakeFiles/of.dir/opticalFlow.cpp.o.requires
+
+CMakeFiles/of.dir/opticalFlow.cpp.o.provides: CMakeFiles/of.dir/opticalFlow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/opticalFlow.cpp.o.provides.build
+.PHONY : CMakeFiles/of.dir/opticalFlow.cpp.o.provides
+
+CMakeFiles/of.dir/opticalFlow.cpp.o.provides.build: CMakeFiles/of.dir/opticalFlow.cpp.o
+
+
+CMakeFiles/of.dir/tool.cpp.o: CMakeFiles/of.dir/flags.make
+CMakeFiles/of.dir/tool.cpp.o: ../tool.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/of.dir/tool.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/of.dir/tool.cpp.o -c /home/lxg/code/optical-flow/tool.cpp
+
+CMakeFiles/of.dir/tool.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/of.dir/tool.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/code/optical-flow/tool.cpp > CMakeFiles/of.dir/tool.cpp.i
+
+CMakeFiles/of.dir/tool.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/of.dir/tool.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/code/optical-flow/tool.cpp -o CMakeFiles/of.dir/tool.cpp.s
+
+CMakeFiles/of.dir/tool.cpp.o.requires:
+
+.PHONY : CMakeFiles/of.dir/tool.cpp.o.requires
+
+CMakeFiles/of.dir/tool.cpp.o.provides: CMakeFiles/of.dir/tool.cpp.o.requires
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/tool.cpp.o.provides.build
+.PHONY : CMakeFiles/of.dir/tool.cpp.o.provides
+
+CMakeFiles/of.dir/tool.cpp.o.provides.build: CMakeFiles/of.dir/tool.cpp.o
+
+
+CMakeFiles/of.dir/blockMatch.cpp.o: CMakeFiles/of.dir/flags.make
+CMakeFiles/of.dir/blockMatch.cpp.o: ../blockMatch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/of.dir/blockMatch.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/of.dir/blockMatch.cpp.o -c /home/lxg/code/optical-flow/blockMatch.cpp
+
+CMakeFiles/of.dir/blockMatch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/of.dir/blockMatch.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/code/optical-flow/blockMatch.cpp > CMakeFiles/of.dir/blockMatch.cpp.i
+
+CMakeFiles/of.dir/blockMatch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/of.dir/blockMatch.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/code/optical-flow/blockMatch.cpp -o CMakeFiles/of.dir/blockMatch.cpp.s
+
+CMakeFiles/of.dir/blockMatch.cpp.o.requires:
+
+.PHONY : CMakeFiles/of.dir/blockMatch.cpp.o.requires
+
+CMakeFiles/of.dir/blockMatch.cpp.o.provides: CMakeFiles/of.dir/blockMatch.cpp.o.requires
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/blockMatch.cpp.o.provides.build
+.PHONY : CMakeFiles/of.dir/blockMatch.cpp.o.provides
+
+CMakeFiles/of.dir/blockMatch.cpp.o.provides.build: CMakeFiles/of.dir/blockMatch.cpp.o
+
+
 # Object files for target of
 of_OBJECTS = \
 "CMakeFiles/of.dir/xtofAffine2D.cpp.o" \
@@ -258,7 +330,10 @@ of_OBJECTS = \
 "CMakeFiles/of.dir/xtofCameraHeight.cpp.o" \
 "CMakeFiles/of.dir/xtofFindCorner.cpp.o" \
 "CMakeFiles/of.dir/readSonar.c.o" \
-"CMakeFiles/of.dir/main.cpp.o"
+"CMakeFiles/of.dir/main.cpp.o" \
+"CMakeFiles/of.dir/opticalFlow.cpp.o" \
+"CMakeFiles/of.dir/tool.cpp.o" \
+"CMakeFiles/of.dir/blockMatch.cpp.o"
 
 # External object files for target of
 of_EXTERNAL_OBJECTS =
@@ -271,6 +346,9 @@ of: CMakeFiles/of.dir/xtofCameraHeight.cpp.o
 of: CMakeFiles/of.dir/xtofFindCorner.cpp.o
 of: CMakeFiles/of.dir/readSonar.c.o
 of: CMakeFiles/of.dir/main.cpp.o
+of: CMakeFiles/of.dir/opticalFlow.cpp.o
+of: CMakeFiles/of.dir/tool.cpp.o
+of: CMakeFiles/of.dir/blockMatch.cpp.o
 of: CMakeFiles/of.dir/build.make
 of: /usr/local/lib/libopencv_videostab.so.2.4.9
 of: /usr/local/lib/libopencv_ts.a
@@ -292,7 +370,7 @@ of: /usr/local/lib/libopencv_imgproc.so.2.4.9
 of: /usr/local/lib/libopencv_flann.so.2.4.9
 of: /usr/local/lib/libopencv_core.so.2.4.9
 of: CMakeFiles/of.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable of"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable of"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/of.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -308,6 +386,9 @@ CMakeFiles/of.dir/requires: CMakeFiles/of.dir/xtofCameraHeight.cpp.o.requires
 CMakeFiles/of.dir/requires: CMakeFiles/of.dir/xtofFindCorner.cpp.o.requires
 CMakeFiles/of.dir/requires: CMakeFiles/of.dir/readSonar.c.o.requires
 CMakeFiles/of.dir/requires: CMakeFiles/of.dir/main.cpp.o.requires
+CMakeFiles/of.dir/requires: CMakeFiles/of.dir/opticalFlow.cpp.o.requires
+CMakeFiles/of.dir/requires: CMakeFiles/of.dir/tool.cpp.o.requires
+CMakeFiles/of.dir/requires: CMakeFiles/of.dir/blockMatch.cpp.o.requires
 
 .PHONY : CMakeFiles/of.dir/requires
 

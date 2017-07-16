@@ -1,3 +1,4 @@
 /home/lxg/code/opencv/build/CMakeFiles/edit_cache.dir
 /home/lxg/code/opencv/build/CMakeFiles/rebuild_cache.dir
-/home/lxg/code/opencv/build/CMakeFiles/opencamera.dir
+/home/lxg/code/opencv/build/CMakeFiles/saveCamera.dir
+/home/lxg/code/opencv/build/CMakeFiles/openCamera.dir

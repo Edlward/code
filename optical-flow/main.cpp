@@ -15,7 +15,7 @@ using namespace std;
 #include <iostream>
 #include <iomanip>
 #include <time.h>
-
+#include "opticalFlow.h"
 
 extern "C"{
 #include "readSonar.h"
@@ -23,28 +23,6 @@ extern "C"{
 };
 
 using namespace cv;
-
-struct Camera
-{
-	int width;
-	int height;
-
-	Rect roi;
-	float scale;
-};
-
-class OpticalFlow
-{
-
-};
-// #define  CAMERA_WIDTH   640
-// #define  CAMERA_HEIGHT  480
-
-// #define  IMG_SELECT_X 220	//视频截取图像左上角x坐标
-// #define  IMG_SELECT_Y 140        //视频截取图像左上角y坐标
-// #define  IMG_SELECT_WIDTH 200   //视频截取图像宽度
-// #define  IMG_SELECT_LENGTH 200  //视频截取图像长度
-// #define  IMG_SCALE 0.5          //视频截取图像缩放比例
 
 TermCriteria cornerTermcrit(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.03);//迭代次数和迭代精度
 Mat imgPrev;                    //前一帧图像，最新从视频流获取到的在前面
@@ -61,21 +39,25 @@ float g_cameraShiftY = 0.0f;
 float cameraShiftSumX = 0.0f, cameraShiftSumY = 0.0f;
 double sumTime;
 
-Camera camera;
+
 
 int xtofOpticalFlow();
 
 int main(int argc, char **argv)
 {
-	camera.scale = 0.5;
-	camera.roi.width = 100;
-	camera.roi.height = 100;
-
+	OpticalFlow of;
+	Camera *camera = of.camera;
+	
 	/* init camera */
-	VideoCapture cap;
+	int cap_index = 0;
+	if(argc > 1)
+	{
+		sscanf(argv[1], "%d", &cap_index);
+	}
 
-	cap.open(1);
-	//cap = VideoCapture("video3ss.avi");
+	VideoCapture cap;
+	// cap.open(cap_index);
+	cap.open("/home/lxg/codedata/live.avi");
 	if(!cap.isOpened())
 	{
 		fprintf(stderr, "Can't initialize cam!\n");
@@ -85,47 +67,40 @@ int main(int argc, char **argv)
     {
         fprintf(stderr, "open camera successd\n");
     }
-	camera.width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
-	camera.height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
-	if(camera.width < camera.roi.width || 
-		camera.height < camera.roi.height)
+	camera->width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
+	camera->height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
+	if(camera->width < camera->roi.width || 
+		camera->height < camera->roi.height)
 	{
 		printf("camera roi is larger than camera\n");
 		return -1;
 	}
-	camera.roi.x = (camera.width - camera.roi.width) / 2;
-	camera.roi.y = (camera.height - camera.roi.height) / 2;
+	camera->roi.x = (camera->width - camera->roi.width) / 2;
+	camera->roi.y = (camera->height - camera->roi.height) / 2;
 
 	/* Get first frame */	
-	Mat frame,image;
-	cap >> frame;
-	if(frame.empty())
-    {
-		fprintf(stderr,"Get frame failed.\n");
-		return -1;
-	}
-	fprintf(stderr,"get first frame\n");
+	// Mat image;
+	// cap >> frame;
+	// if(frame.empty())
+    // {
+	// 	fprintf(stderr,"Get frame failed.\n");
+	// 	return -1;
+	// }
+	// fprintf(stderr,"get first frame\n");
 
-	image = frame(camera.roi);
-	fprintf(stderr, "frame(rect)\n");
-	Mat cameraMapX, cameraMapY;
-	xtofCameraCorrect(image.size(), cameraMapX, cameraMapY);//矫正矩阵求解
-	//remap(image, image, cameraMapX, cameraMapY, INTER_LINEAR);//图像摄像机畸变矫正
+	// image = frame(camera->roi);
+	// fprintf(stderr, "frame(rect)\n");
+	// Mat cameraMapX, cameraMapY;
+	// xtofCameraCorrect(image.size(), cameraMapX, cameraMapY);//矫正矩阵求解
+	// //remap(image, image, cameraMapX, cameraMapY, INTER_LINEAR);//图像摄像机畸变矫正
+	// resize(image, image, Size(), camera->scale, camera->scale);
+	// cvtColor(image, imgPost, COLOR_BGR2GRAY);//准备后一张图片
 	
-	fprintf(stderr,"xtofCameraCorrect\n");
-
-	resize(image, image, Size(), camera.scale, camera.scale);
+	// maxLevelNum = buildOpticalFlowPyramid(imgPost, imgPyrPost, Size(WIN_SIZE, WIN_SIZE), maxLevelNum, false);
 	
-	fprintf(stderr, "resize\n");
-	cvtColor(image, imgPost, COLOR_BGR2GRAY);//准备后一张图片
-	
-	fprintf(stderr,"cvtColor\n");
-
-	maxLevelNum = buildOpticalFlowPyramid(imgPost, imgPyrPost, Size(WIN_SIZE, WIN_SIZE), maxLevelNum, false);
-    int fd = 0;
+	Mat frame;
     while (1)
 	{
-		
 		
 		cap >> frame;
 		if (frame.empty())
@@ -133,14 +108,20 @@ int main(int argc, char **argv)
 			fprintf(stderr,"video3ss.avi end\n");
 			break;
 		}
-		image = frame(camera.roi);
-		//remap(image, image, cameraMapX, cameraMapY, INTER_LINEAR);//图像摄像机畸变矫正
-		resize(image, image, Size(), camera.scale, camera.scale);
-		cvtColor(image, imgPrev, COLOR_BGR2GRAY);
+		of.sendFrame(frame);
+		of.getOf();
+
+		char c = waitKey(1);
+		if(c == 27)
+		{
+			break;
+		}
+		// image = frame(camera.roi);
+		// //remap(image, image, cameraMapX, cameraMapY, INTER_LINEAR);//图像摄像机畸变矫正
+		// resize(image, image, Size(), camera.scale, camera.scale);
+		// cvtColor(image, imgPrev, COLOR_BGR2GRAY);
 		
-		xtofOpticalFlow();
-		
-		
+		// xtofOpticalFlow();
 	}
 	cap.release();
 	return 0;
@@ -148,6 +129,8 @@ int main(int argc, char **argv)
 
 int xtofOpticalFlow()
 {
+	Camera camera;
+
 	vector<Point2f> cornerPrev, cornerPost;
 	vector<uchar> cornerStatus;//
 	vector<float> cornerErr; //

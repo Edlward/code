@@ -9,7 +9,7 @@ using namespace std;
 
 #define CORNER_QUALITY			0.01	        //角点置信度，与最大值的乘积作为阈值
 #define MIN_CORNER_DISTANCE		10		//角点之间的最小分布距离
-#define MAX_CORNER_NUM			30		//角点的最大数目
+#define MAX_CORNER_NUM			150//30		//角点的最大数目
 #define MINEIGENVAL			0		//最小的特征值
 
 using namespace cv;
@@ -26,6 +26,8 @@ template<typename T> struct greaterThanPtr
 {
 	bool operator()(const T* a, const T* b) const { return *a > *b; }
 };
+
+
 
 int xtofCornerToTrack(cv::InputArray _image, cv::OutputArray _corners, cv::InputArray _mask, int blockSize)
 {
@@ -187,12 +189,6 @@ int xtofCornerToTrack(cv::InputArray _image, cv::OutputArray _corners, cv::Input
 }
 
 /****************************************************************************************
-* File: xtofFindCorner.cpp
-* Name: cornerBlockGet
-* Input:    
-* Output:
-* Function:  
-* Date: 2016/07/07 22:38
 *****************************************************************************************/
 void cornerBlockGet(Mat &img, Size imgsize, Mat mask, vector<const float *> &tmpCorners)
 {

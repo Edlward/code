@@ -111,44 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named opencamera
+# Target rules for targets named saveCamera
 
 # Build rule for target.
-opencamera: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 opencamera
-.PHONY : opencamera
+saveCamera: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 saveCamera
+.PHONY : saveCamera
 
 # fast build rule for target.
-opencamera/fast:
-	$(MAKE) -f CMakeFiles/opencamera.dir/build.make CMakeFiles/opencamera.dir/build
-.PHONY : opencamera/fast
+saveCamera/fast:
+	$(MAKE) -f CMakeFiles/saveCamera.dir/build.make CMakeFiles/saveCamera.dir/build
+.PHONY : saveCamera/fast
 
-opencamera.o: opencamera.cpp.o
+#=============================================================================
+# Target rules for targets named openCamera
 
-.PHONY : opencamera.o
+# Build rule for target.
+openCamera: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 openCamera
+.PHONY : openCamera
+
+# fast build rule for target.
+openCamera/fast:
+	$(MAKE) -f CMakeFiles/openCamera.dir/build.make CMakeFiles/openCamera.dir/build
+.PHONY : openCamera/fast
+
+openCamera.o: openCamera.cpp.o
+
+.PHONY : openCamera.o
 
 # target to build an object file
-opencamera.cpp.o:
-	$(MAKE) -f CMakeFiles/opencamera.dir/build.make CMakeFiles/opencamera.dir/opencamera.cpp.o
-.PHONY : opencamera.cpp.o
+openCamera.cpp.o:
+	$(MAKE) -f CMakeFiles/openCamera.dir/build.make CMakeFiles/openCamera.dir/openCamera.cpp.o
+.PHONY : openCamera.cpp.o
 
-opencamera.i: opencamera.cpp.i
+openCamera.i: openCamera.cpp.i
 
-.PHONY : opencamera.i
+.PHONY : openCamera.i
 
 # target to preprocess a source file
-opencamera.cpp.i:
-	$(MAKE) -f CMakeFiles/opencamera.dir/build.make CMakeFiles/opencamera.dir/opencamera.cpp.i
-.PHONY : opencamera.cpp.i
+openCamera.cpp.i:
+	$(MAKE) -f CMakeFiles/openCamera.dir/build.make CMakeFiles/openCamera.dir/openCamera.cpp.i
+.PHONY : openCamera.cpp.i
 
-opencamera.s: opencamera.cpp.s
+openCamera.s: openCamera.cpp.s
 
-.PHONY : opencamera.s
+.PHONY : openCamera.s
 
 # target to generate assembly for a file
-opencamera.cpp.s:
-	$(MAKE) -f CMakeFiles/opencamera.dir/build.make CMakeFiles/opencamera.dir/opencamera.cpp.s
-.PHONY : opencamera.cpp.s
+openCamera.cpp.s:
+	$(MAKE) -f CMakeFiles/openCamera.dir/build.make CMakeFiles/openCamera.dir/openCamera.cpp.s
+.PHONY : openCamera.cpp.s
+
+saveCamera.o: saveCamera.cpp.o
+
+.PHONY : saveCamera.o
+
+# target to build an object file
+saveCamera.cpp.o:
+	$(MAKE) -f CMakeFiles/saveCamera.dir/build.make CMakeFiles/saveCamera.dir/saveCamera.cpp.o
+.PHONY : saveCamera.cpp.o
+
+saveCamera.i: saveCamera.cpp.i
+
+.PHONY : saveCamera.i
+
+# target to preprocess a source file
+saveCamera.cpp.i:
+	$(MAKE) -f CMakeFiles/saveCamera.dir/build.make CMakeFiles/saveCamera.dir/saveCamera.cpp.i
+.PHONY : saveCamera.cpp.i
+
+saveCamera.s: saveCamera.cpp.s
+
+.PHONY : saveCamera.s
+
+# target to generate assembly for a file
+saveCamera.cpp.s:
+	$(MAKE) -f CMakeFiles/saveCamera.dir/build.make CMakeFiles/saveCamera.dir/saveCamera.cpp.s
+.PHONY : saveCamera.cpp.s
 
 # Help Target
 help:
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... opencamera"
-	@echo "... opencamera.o"
-	@echo "... opencamera.i"
-	@echo "... opencamera.s"
+	@echo "... saveCamera"
+	@echo "... openCamera"
+	@echo "... openCamera.o"
+	@echo "... openCamera.i"
+	@echo "... openCamera.s"
+	@echo "... saveCamera.o"
+	@echo "... saveCamera.i"
+	@echo "... saveCamera.s"
 .PHONY : help
 
 

@@ -16,7 +16,10 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/lxg/code/optical-flow/blockMatch.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/blockMatch.cpp.o"
   "/home/lxg/code/optical-flow/main.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/main.cpp.o"
+  "/home/lxg/code/optical-flow/opticalFlow.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/opticalFlow.cpp.o"
+  "/home/lxg/code/optical-flow/tool.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/tool.cpp.o"
   "/home/lxg/code/optical-flow/xtofAffine2D.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/xtofAffine2D.cpp.o"
   "/home/lxg/code/optical-flow/xtofCalcPyrlk.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/xtofCalcPyrlk.cpp.o"
   "/home/lxg/code/optical-flow/xtofCameraCorrect.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/xtofCameraCorrect.cpp.o"

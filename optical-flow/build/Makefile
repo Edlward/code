@@ -123,46 +123,6 @@ of/fast:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/build
 .PHONY : of/fast
 
-#=============================================================================
-# Target rules for targets named MotionDetect
-
-# Build rule for target.
-MotionDetect: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 MotionDetect
-.PHONY : MotionDetect
-
-# fast build rule for target.
-MotionDetect/fast:
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/build
-.PHONY : MotionDetect/fast
-
-MotionDetect.o: MotionDetect.cpp.o
-
-.PHONY : MotionDetect.o
-
-# target to build an object file
-MotionDetect.cpp.o:
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/MotionDetect.cpp.o
-.PHONY : MotionDetect.cpp.o
-
-MotionDetect.i: MotionDetect.cpp.i
-
-.PHONY : MotionDetect.i
-
-# target to preprocess a source file
-MotionDetect.cpp.i:
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/MotionDetect.cpp.i
-.PHONY : MotionDetect.cpp.i
-
-MotionDetect.s: MotionDetect.cpp.s
-
-.PHONY : MotionDetect.s
-
-# target to generate assembly for a file
-MotionDetect.cpp.s:
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/MotionDetect.cpp.s
-.PHONY : MotionDetect.cpp.s
-
 PilotData.o: PilotData.c.o
 
 .PHONY : PilotData.o
@@ -170,7 +130,6 @@ PilotData.o: PilotData.c.o
 # target to build an object file
 PilotData.c.o:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/PilotData.c.o
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/PilotData.c.o
 .PHONY : PilotData.c.o
 
 PilotData.i: PilotData.c.i
@@ -180,7 +139,6 @@ PilotData.i: PilotData.c.i
 # target to preprocess a source file
 PilotData.c.i:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/PilotData.c.i
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/PilotData.c.i
 .PHONY : PilotData.c.i
 
 PilotData.s: PilotData.c.s
@@ -190,8 +148,34 @@ PilotData.s: PilotData.c.s
 # target to generate assembly for a file
 PilotData.c.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/PilotData.c.s
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/PilotData.c.s
 .PHONY : PilotData.c.s
+
+blockMatch.o: blockMatch.cpp.o
+
+.PHONY : blockMatch.o
+
+# target to build an object file
+blockMatch.cpp.o:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/blockMatch.cpp.o
+.PHONY : blockMatch.cpp.o
+
+blockMatch.i: blockMatch.cpp.i
+
+.PHONY : blockMatch.i
+
+# target to preprocess a source file
+blockMatch.cpp.i:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/blockMatch.cpp.i
+.PHONY : blockMatch.cpp.i
+
+blockMatch.s: blockMatch.cpp.s
+
+.PHONY : blockMatch.s
+
+# target to generate assembly for a file
+blockMatch.cpp.s:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/blockMatch.cpp.s
+.PHONY : blockMatch.cpp.s
 
 main.o: main.cpp.o
 
@@ -220,6 +204,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+opticalFlow.o: opticalFlow.cpp.o
+
+.PHONY : opticalFlow.o
+
+# target to build an object file
+opticalFlow.cpp.o:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/opticalFlow.cpp.o
+.PHONY : opticalFlow.cpp.o
+
+opticalFlow.i: opticalFlow.cpp.i
+
+.PHONY : opticalFlow.i
+
+# target to preprocess a source file
+opticalFlow.cpp.i:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/opticalFlow.cpp.i
+.PHONY : opticalFlow.cpp.i
+
+opticalFlow.s: opticalFlow.cpp.s
+
+.PHONY : opticalFlow.s
+
+# target to generate assembly for a file
+opticalFlow.cpp.s:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/opticalFlow.cpp.s
+.PHONY : opticalFlow.cpp.s
+
 readSonar.o: readSonar.c.o
 
 .PHONY : readSonar.o
@@ -227,7 +238,6 @@ readSonar.o: readSonar.c.o
 # target to build an object file
 readSonar.c.o:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/readSonar.c.o
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/readSonar.c.o
 .PHONY : readSonar.c.o
 
 readSonar.i: readSonar.c.i
@@ -237,7 +247,6 @@ readSonar.i: readSonar.c.i
 # target to preprocess a source file
 readSonar.c.i:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/readSonar.c.i
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/readSonar.c.i
 .PHONY : readSonar.c.i
 
 readSonar.s: readSonar.c.s
@@ -247,8 +256,34 @@ readSonar.s: readSonar.c.s
 # target to generate assembly for a file
 readSonar.c.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/readSonar.c.s
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/readSonar.c.s
 .PHONY : readSonar.c.s
+
+tool.o: tool.cpp.o
+
+.PHONY : tool.o
+
+# target to build an object file
+tool.cpp.o:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/tool.cpp.o
+.PHONY : tool.cpp.o
+
+tool.i: tool.cpp.i
+
+.PHONY : tool.i
+
+# target to preprocess a source file
+tool.cpp.i:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/tool.cpp.i
+.PHONY : tool.cpp.i
+
+tool.s: tool.cpp.s
+
+.PHONY : tool.s
+
+# target to generate assembly for a file
+tool.cpp.s:
+	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/tool.cpp.s
+.PHONY : tool.cpp.s
 
 xtofAffine2D.o: xtofAffine2D.cpp.o
 
@@ -257,7 +292,6 @@ xtofAffine2D.o: xtofAffine2D.cpp.o
 # target to build an object file
 xtofAffine2D.cpp.o:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofAffine2D.cpp.o
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofAffine2D.cpp.o
 .PHONY : xtofAffine2D.cpp.o
 
 xtofAffine2D.i: xtofAffine2D.cpp.i
@@ -267,7 +301,6 @@ xtofAffine2D.i: xtofAffine2D.cpp.i
 # target to preprocess a source file
 xtofAffine2D.cpp.i:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofAffine2D.cpp.i
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofAffine2D.cpp.i
 .PHONY : xtofAffine2D.cpp.i
 
 xtofAffine2D.s: xtofAffine2D.cpp.s
@@ -277,7 +310,6 @@ xtofAffine2D.s: xtofAffine2D.cpp.s
 # target to generate assembly for a file
 xtofAffine2D.cpp.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofAffine2D.cpp.s
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofAffine2D.cpp.s
 .PHONY : xtofAffine2D.cpp.s
 
 xtofCalcPyrlk.o: xtofCalcPyrlk.cpp.o
@@ -287,7 +319,6 @@ xtofCalcPyrlk.o: xtofCalcPyrlk.cpp.o
 # target to build an object file
 xtofCalcPyrlk.cpp.o:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCalcPyrlk.cpp.o
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCalcPyrlk.cpp.o
 .PHONY : xtofCalcPyrlk.cpp.o
 
 xtofCalcPyrlk.i: xtofCalcPyrlk.cpp.i
@@ -297,7 +328,6 @@ xtofCalcPyrlk.i: xtofCalcPyrlk.cpp.i
 # target to preprocess a source file
 xtofCalcPyrlk.cpp.i:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCalcPyrlk.cpp.i
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCalcPyrlk.cpp.i
 .PHONY : xtofCalcPyrlk.cpp.i
 
 xtofCalcPyrlk.s: xtofCalcPyrlk.cpp.s
@@ -307,7 +337,6 @@ xtofCalcPyrlk.s: xtofCalcPyrlk.cpp.s
 # target to generate assembly for a file
 xtofCalcPyrlk.cpp.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCalcPyrlk.cpp.s
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCalcPyrlk.cpp.s
 .PHONY : xtofCalcPyrlk.cpp.s
 
 xtofCameraCorrect.o: xtofCameraCorrect.cpp.o
@@ -317,7 +346,6 @@ xtofCameraCorrect.o: xtofCameraCorrect.cpp.o
 # target to build an object file
 xtofCameraCorrect.cpp.o:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCameraCorrect.cpp.o
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCameraCorrect.cpp.o
 .PHONY : xtofCameraCorrect.cpp.o
 
 xtofCameraCorrect.i: xtofCameraCorrect.cpp.i
@@ -327,7 +355,6 @@ xtofCameraCorrect.i: xtofCameraCorrect.cpp.i
 # target to preprocess a source file
 xtofCameraCorrect.cpp.i:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCameraCorrect.cpp.i
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCameraCorrect.cpp.i
 .PHONY : xtofCameraCorrect.cpp.i
 
 xtofCameraCorrect.s: xtofCameraCorrect.cpp.s
@@ -337,7 +364,6 @@ xtofCameraCorrect.s: xtofCameraCorrect.cpp.s
 # target to generate assembly for a file
 xtofCameraCorrect.cpp.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCameraCorrect.cpp.s
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCameraCorrect.cpp.s
 .PHONY : xtofCameraCorrect.cpp.s
 
 xtofCameraHeight.o: xtofCameraHeight.cpp.o
@@ -347,7 +373,6 @@ xtofCameraHeight.o: xtofCameraHeight.cpp.o
 # target to build an object file
 xtofCameraHeight.cpp.o:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCameraHeight.cpp.o
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCameraHeight.cpp.o
 .PHONY : xtofCameraHeight.cpp.o
 
 xtofCameraHeight.i: xtofCameraHeight.cpp.i
@@ -357,7 +382,6 @@ xtofCameraHeight.i: xtofCameraHeight.cpp.i
 # target to preprocess a source file
 xtofCameraHeight.cpp.i:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCameraHeight.cpp.i
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCameraHeight.cpp.i
 .PHONY : xtofCameraHeight.cpp.i
 
 xtofCameraHeight.s: xtofCameraHeight.cpp.s
@@ -367,7 +391,6 @@ xtofCameraHeight.s: xtofCameraHeight.cpp.s
 # target to generate assembly for a file
 xtofCameraHeight.cpp.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofCameraHeight.cpp.s
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofCameraHeight.cpp.s
 .PHONY : xtofCameraHeight.cpp.s
 
 xtofFindCorner.o: xtofFindCorner.cpp.o
@@ -377,7 +400,6 @@ xtofFindCorner.o: xtofFindCorner.cpp.o
 # target to build an object file
 xtofFindCorner.cpp.o:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofFindCorner.cpp.o
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofFindCorner.cpp.o
 .PHONY : xtofFindCorner.cpp.o
 
 xtofFindCorner.i: xtofFindCorner.cpp.i
@@ -387,7 +409,6 @@ xtofFindCorner.i: xtofFindCorner.cpp.i
 # target to preprocess a source file
 xtofFindCorner.cpp.i:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofFindCorner.cpp.i
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofFindCorner.cpp.i
 .PHONY : xtofFindCorner.cpp.i
 
 xtofFindCorner.s: xtofFindCorner.cpp.s
@@ -397,7 +418,6 @@ xtofFindCorner.s: xtofFindCorner.cpp.s
 # target to generate assembly for a file
 xtofFindCorner.cpp.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/xtofFindCorner.cpp.s
-	$(MAKE) -f CMakeFiles/MotionDetect.dir/build.make CMakeFiles/MotionDetect.dir/xtofFindCorner.cpp.s
 .PHONY : xtofFindCorner.cpp.s
 
 # Help Target
@@ -409,19 +429,24 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... of"
-	@echo "... MotionDetect"
-	@echo "... MotionDetect.o"
-	@echo "... MotionDetect.i"
-	@echo "... MotionDetect.s"
 	@echo "... PilotData.o"
 	@echo "... PilotData.i"
 	@echo "... PilotData.s"
+	@echo "... blockMatch.o"
+	@echo "... blockMatch.i"
+	@echo "... blockMatch.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... opticalFlow.o"
+	@echo "... opticalFlow.i"
+	@echo "... opticalFlow.s"
 	@echo "... readSonar.o"
 	@echo "... readSonar.i"
 	@echo "... readSonar.s"
+	@echo "... tool.o"
+	@echo "... tool.i"
+	@echo "... tool.s"
 	@echo "... xtofAffine2D.o"
 	@echo "... xtofAffine2D.i"
 	@echo "... xtofAffine2D.s"
