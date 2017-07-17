@@ -10,7 +10,11 @@ void OpticalFlow::blockOpticalFlow()
     double t = (double)getTickCount();
 
     // 均匀生成所跟踪的块
+<<<<<<< HEAD
     getUniformCorner(5, corner_second);
+=======
+    getUniformCorner(2, corner_second);
+>>>>>>> 89ef38db2c7318e26fcabdf35eb05158aff0707e
     
     corner_first.resize(corner_second.size());
     corner_status.resize(corner_second.size());

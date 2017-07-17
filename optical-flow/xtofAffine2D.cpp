@@ -255,15 +255,18 @@ bool Affine2DEstimator::runRANSAC(const CvMat* m1, const CvMat* m2, CvMat* model
 	{
 		if (mask != mask0)
 		{
-			//cvCopy(mask, mask0);
-			mask0 = cvCloneMat(mask);
+			cvCopy(mask, mask0);
+			// mask0 = cvCloneMat(mask);
 		}	
 		result = true;
 
 		//用最小二乘法重新计算放射变换矩阵
-		//Mat maskTmp(mask0);
-		Mat maskTmp = cvCloneMat(mask0);
-		//Mat maskTmp(mask0->rows, mask0->cols, CV_32F, mask0->data.fl);
+		// Mat maskTmp = Mat(mask0);
+		// Mat maskTmp = cvCloneMat(mask0);
+		// Mat maskTmp;
+		// cvCopy(mask0, maskTmp);
+
+		Mat maskTmp(mask0->rows, mask0->cols, CV_32F, mask0->data.fl);
 		cv::Mat_<cv::Vec<uchar,1> >::iterator it = maskTmp.begin<cv::Vec<uchar,1> >();
 		cv::Mat_<cv::Vec<uchar,1> >::iterator itend = maskTmp.end<cv::Vec<uchar,1> >();
 
