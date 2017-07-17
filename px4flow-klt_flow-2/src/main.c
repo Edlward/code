@@ -321,7 +321,7 @@ int main(void)
 			while(global_data.param[PARAM_VIDEO_ONLY])
 			{
 				dcmi_restart_calibration_routine();
-//Á¬ĞøµÃµ½Á½ÕÅÍ¼£¬½øĞĞÔËËã
+//è¿ç»­å¾—åˆ°ä¸¤å¼ å›¾ï¼Œè¿›è¡Œè¿ç®—
 				/* waiting for first quarter of image */
 				while(get_frame_counter() < 2){}
 				dma_copy_image_buffers(&current_image, &previous_image, FULL_IMAGE_SIZE, 1);
@@ -332,7 +332,7 @@ int main(void)
 
 				/* waiting for all image parts */
 				while(get_frame_counter() < 4){}
-//·¢ËÍĞ£ÕıÍ¼Ïñ£¿£¿ÔõÃ´Ğ£ÕıµÄ£¿£¿
+//å‘é€æ ¡æ­£å›¾åƒï¼Ÿï¼Ÿæ€ä¹ˆæ ¡æ­£çš„ï¼Ÿï¼Ÿ
 				send_calibration_image(&previous_image, &current_image);
 
 				if (global_data.param[PARAM_SYSTEM_SEND_STATE])
@@ -345,7 +345,7 @@ int main(void)
 				LEDToggle(LED_COM);
 			}
 
-			dcmi_restart_calibration_routine();//¸´Î»Í¼ÏñÖ¡¼ÆÊı
+			dcmi_restart_calibration_routine();//å¤ä½å›¾åƒå¸§è®¡æ•°
 			LEDOff(LED_COM);
 		}
 
@@ -353,7 +353,7 @@ int main(void)
 
 		/* new gyroscope data */
 		float x_rate_sensor, y_rate_sensor, z_rate_sensor;
-		int16_t gyro_temp;//ÎÂ¶È
+		int16_t gyro_temp;//æ¸©åº¦
 		gyro_read(&x_rate_sensor, &y_rate_sensor, &z_rate_sensor,&gyro_temp);
 
 		/* gyroscope coordinate transformation */
@@ -362,7 +362,7 @@ int main(void)
 		float z_rate = z_rate_sensor; // z is correct
 
 		/* calculate focal_length in pixel */
-                //Ö÷Ñ­»·Àï·ÅÕâ¸öÊÇÊ²Ã´ÒâË¼£¿»¹»á¶Ô½¹Âğ£¿
+                //ä¸»å¾ªç¯é‡Œæ”¾è¿™ä¸ªæ˜¯ä»€ä¹ˆæ„æ€ï¼Ÿè¿˜ä¼šå¯¹ç„¦å—ï¼Ÿ
 		const float focal_length_px = (global_data.param[PARAM_FOCAL_LENGTH_MM]) / (4.0f * 6.0f) * 1000.0f; //original focal lenght: 12mm pixelsize: 6um, binning 4 enabled
 
 		/* get sonar data */
@@ -375,7 +375,7 @@ int main(void)
 			dma_copy_image_buffers(&current_image, &previous_image, image_size, 1);
 
 			/* compute optical flow */
-                        //¼ÆËã¹âÁ÷£¬ÏÈ¼ÆËã¹âÁ÷£¬ÔÙ×öĞı×ª²¹³¥£¬»òÕß£¬ÏÈ»Ö¸´Í¼ÏñÔÙ¼ÆËã¹âÁ÷
+                        //è®¡ç®—å…‰æµï¼Œå…ˆè®¡ç®—å…‰æµï¼Œå†åšæ—‹è½¬è¡¥å¿ï¼Œæˆ–è€…ï¼Œå…ˆæ¢å¤å›¾åƒå†è®¡ç®—å…‰æµ
                         qual = compute_klt(previous_image, current_image, x_rate, y_rate, z_rate, &pixel_flow_x, &pixel_flow_y);
 
 			if (sonar_distance_filtered > 5.0f || sonar_distance_filtered == 0.0f)
@@ -394,19 +394,19 @@ int main(void)
 			 * x / f = X / Z
 			 * y / f = Y / Z
 			 */
-			float flow_compx = pixel_flow_x / focal_length_px / (get_time_between_images() / 1000000.0f);//Êµ¼Ê¹âÁ÷¼ÆËã
+			float flow_compx = pixel_flow_x / focal_length_px / (get_time_between_images() / 1000000.0f);//å®é™…å…‰æµè®¡ç®—
 			float flow_compy = pixel_flow_y / focal_length_px / (get_time_between_images() / 1000000.0f);
 
 			/* integrate velocity and output values only if distance is valid */
 			if (distance_valid)
 			{
 				/* calc velocity (negative of flow values scaled with distance) */
-				float new_velocity_x = - flow_compx * sonar_distance_filtered;//x,y·½ÏòÊµ¼Ê¶ÔµØÒÆ¶¯ËÙ¶È
+				float new_velocity_x = - flow_compx * sonar_distance_filtered;//x,yæ–¹å‘å®é™…å¯¹åœ°ç§»åŠ¨é€Ÿåº¦
 				float new_velocity_y = - flow_compy * sonar_distance_filtered;
 
 				time_since_last_sonar_update = (get_boot_time_us()- get_sonar_measure_time());
 
-				if (qual > 0)//¹âÁ÷ÓĞĞ§ĞÔ
+				if (qual > 0)//å…‰æµæœ‰æ•ˆæ€§
 				{
 					velocity_x_sum += new_velocity_x;
 					velocity_y_sum += new_velocity_y;
@@ -451,7 +451,7 @@ int main(void)
 		}
 
 		counter++;
-//¼ÆËãÍê³É
+//è®¡ç®—å®Œæˆ
 		if(global_data.param[PARAM_SENSOR_POSITION] == BOTTOM)
 		{
 			/* send bottom flow if activated */
@@ -468,13 +468,13 @@ int main(void)
 				ground_distance = sonar_distance_raw;
 			}
 
-			//update I2C transmitbuffer//Êı¾İ´«µ½ÄÄ£¿£¿£¿
-                        //pixel_flow_x£¬ÏàÁÚÁ½Ö¡Ö®¼äx·½ÏòÏñËØ¹âÁ÷
-                        //pixel_flow_y£¬ÏàÁÚÁ½Ö¡Ö®¼äy·½ÏòÏñËØ¹âÁ÷
-                        //velocity_x_sum/valid_frame_count£¬ÇóÁËÒ»´ÎÆ½¾ù£¿£¿£¿
-                        //velocity_y_sum/valid_frame_count£¬
-                        //qual£¬Êı¾İ¿É¿¿¶È£¬¹âÁ÷Ëã·¨·µ»ØÖµ
-                        //ground_distanceÓëµØÃæµÄ¸ß¶È
+			//update I2C transmitbuffer//æ•°æ®ä¼ åˆ°å“ªï¼Ÿï¼Ÿï¼Ÿ
+                        //pixel_flow_xï¼Œç›¸é‚»ä¸¤å¸§ä¹‹é—´xæ–¹å‘åƒç´ å…‰æµ
+                        //pixel_flow_yï¼Œç›¸é‚»ä¸¤å¸§ä¹‹é—´yæ–¹å‘åƒç´ å…‰æµ
+                        //velocity_x_sum/valid_frame_countï¼Œæ±‚äº†ä¸€æ¬¡å¹³å‡ï¼Ÿï¼Ÿï¼Ÿ
+                        //velocity_y_sum/valid_frame_countï¼Œ
+                        //qualï¼Œæ•°æ®å¯é åº¦ï¼Œå…‰æµç®—æ³•è¿”å›å€¼
+                        //ground_distanceä¸åœ°é¢çš„é«˜åº¦
                         update_TX_buffer(pixel_flow_x, pixel_flow_y, velocity_x_sum/valid_frame_count, velocity_y_sum/valid_frame_count, qual,
                         ground_distance, x_rate, y_rate, z_rate, gyro_temp);
 
@@ -498,20 +498,20 @@ int main(void)
 
 
 				// send flow
-                                //get_boot_time_us()ÏµÍ³Æô¶¯Ê±¼ä
-                                //global_data.param[PARAM_SENSOR_ID]£¿£¿
-                                //pixel_flow_x_sum * 10.0fÏñËØ¾àÀë
+                                //get_boot_time_us()ç³»ç»Ÿå¯åŠ¨æ—¶é—´
+                                //global_data.param[PARAM_SENSOR_ID]ï¼Ÿï¼Ÿ
+                                //pixel_flow_x_sum * 10.0fåƒç´ è·ç¦»
                                 //pixel_flow_y_sum * 10.0f
-                                //flow_comp_m_x¶ÔµØÊµ¼ÊÒÆ¶¯¾àÀë
+                                //flow_comp_m_xå¯¹åœ°å®é™…ç§»åŠ¨è·ç¦»
                                 //flow_comp_m_y
-                                //qual¹âÁ÷Êı¾İ¿ÉĞÅ¶È
-                                //ground_distanceÓëµØÃæ¾àÀë
+                                //qualå…‰æµæ•°æ®å¯ä¿¡åº¦
+                                //ground_distanceä¸åœ°é¢è·ç¦»
 				mavlink_msg_optical_flow_send(MAVLINK_COMM_0, get_boot_time_us(), global_data.param[PARAM_SENSOR_ID],
 						pixel_flow_x_sum * 10.0f, pixel_flow_y_sum * 10.0f,
 						flow_comp_m_x, flow_comp_m_y, qual, ground_distance);
-                                //get_boot_time_us()ÏµÍ³Æô¶¯Ê±¼ä
-                                //global_data.param[PARAM_SENSOR_ID]£¿£¿
-                                //integration_timespan¼¸´ÎÇóÆ½¾ù·¢ËÍÊı¾İµÄÏà¸ôÊ±¼ä
+                                //get_boot_time_us()ç³»ç»Ÿå¯åŠ¨æ—¶é—´
+                                //global_data.param[PARAM_SENSOR_ID]ï¼Ÿï¼Ÿ
+                                //integration_timespanå‡ æ¬¡æ±‚å¹³å‡å‘é€æ•°æ®çš„ç›¸éš”æ—¶é—´
                                 //accumulated_flow_x
                                 //accumulated_flow_y
 				mavlink_msg_optical_flow_rad_send(MAVLINK_COMM_0, get_boot_time_us(), global_data.param[PARAM_SENSOR_ID],

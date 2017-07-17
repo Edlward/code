@@ -335,11 +335,11 @@ void cv::detail::LKTrackerInvoker::operator()(const Range& range) const
 				nextPts[ptidx] -= delta*0.5f;
 				break;
 			}
-			float max_pixel_delta = 2.5f;
-			if(std::abs(delta.x) > max_pixel_delta || std::abs(delta.y) > max_pixel_delta)
-			{
-				status[ptidx] = false;
-			}
+			// float max_pixel_delta = 2.5f;
+			// if(std::abs(delta.x) > max_pixel_delta || std::abs(delta.y) > max_pixel_delta)
+			// {
+			// 	status[ptidx] = false;
+			// }
 			
 			prevDelta = delta;
 		}

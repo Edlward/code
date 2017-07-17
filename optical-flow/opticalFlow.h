@@ -3,6 +3,8 @@
 
 #include <opencv2/opencv.hpp>
 #include <vector>
+#include <string>
+
 #include "blockMatch.h"
 
 struct Camera
@@ -13,6 +15,9 @@ struct Camera
 	float scale;
 
 	cv::Rect roi;
+	cv::Mat im_src;
+
+	Camera();
 };
 
 class OpticalFlow
@@ -20,14 +25,16 @@ class OpticalFlow
 public:
 	Camera *camera;
 
-	OpticalFlow();
+	OpticalFlow(Camera *_c, std::string _win_name);
 	~OpticalFlow();
 	
-	void sendFrame(const cv::Mat &im);
-	void getOf();
+	void sendFrame(const cv::Mat &im, int flg);
+	void getOf(int flg);
 
 
 private:
+	std::string win_name;
+
 	double fps;
 	double time[4];
 	float pixel_dis[2];
@@ -60,7 +67,7 @@ private:
 
 	Blockof blockof;
 	void blockOpticalFlow();
-	void blockMatch(const cv::Point2f &p, cv::Point2f &p2);
+	void blockMatch(const cv::Point2f &p, cv::Point2f &p2, uchar &flg);
 };
 
 #endif

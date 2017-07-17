@@ -11,7 +11,6 @@ void debugDrawCurve(float x, float y)
 	Size winSize(700, 400);
 	Mat im = Mat::zeros(winSize, CV_8UC3);
 	
-	
 	static int imX[curve_size];
 	static int imY[curve_size];
 
@@ -48,7 +47,7 @@ void debugDrawCurve(float x, float y)
 	imshow("curve", im);
 }
 /****************************************************************
- * 
+ * 使用eigen库计算放射变换
 ****************************************************************/
 void eigenAffine(const vector<Point2f> &src, const vector<Point2f> &dst, float *dis)
 {
@@ -73,4 +72,50 @@ void eigenAffine(const vector<Point2f> &src, const vector<Point2f> &dst, float *
     dis[0] = trans(0,2);
     dis[1] = trans(1,2);
     // cout << "eigen\n" << trans << endl;
+}
+
+
+/****************************************************************
+ * 图像预处理
+****************************************************************/
+void btPreprocess(Mat &src)
+{
+    Mat isc(src.cols, src.rows, CV_8UC1);
+
+    int max = 0xff;
+    int min = 0;
+    int x_step = 2;
+    int y_step = 2;
+
+    for(int i = 0; i < src.rows-y_step; ++i)
+    {
+        uchar *p_src1 = src.ptr(i);
+        uchar *p_src2 = src.ptr(i+y_step) + x_step;
+        
+        uchar *p_dst = isc.ptr(i);
+        for(int j = 0; j < src.cols - x_step; ++j)
+        {
+            if(*p_src1 < *p_src2)
+            {
+                *p_dst = min;
+            }
+            else
+            {
+                *p_dst = max;
+            }
+			p_src1++;
+			p_src2++;
+			p_dst++;
+        }
+    }
+    swap(src, isc);
+	// isc.copyTo(src);
+}
+
+/****************************************************************
+ * 直方图做统计，计算适合的全局运动量
+****************************************************************/
+void histAffine(vector<Point2f> &p_src, vector<Point2f>  &p_dst, vector<uchar> &status)
+{
+
 }

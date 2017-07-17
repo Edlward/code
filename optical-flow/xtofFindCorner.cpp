@@ -9,7 +9,7 @@ using namespace std;
 
 #define CORNER_QUALITY			0.01	        //角点置信度，与最大值的乘积作为阈值
 #define MIN_CORNER_DISTANCE		10		//角点之间的最小分布距离
-#define MAX_CORNER_NUM			150//30		//角点的最大数目
+#define MAX_CORNER_NUM			100//30		//角点的最大数目
 #define MINEIGENVAL			0		//最小的特征值
 
 using namespace cv;
@@ -87,7 +87,7 @@ int xtofCornerToTrack(cv::InputArray _image, cv::OutputArray _corners, cv::Input
 	//	}
 	//}//不使用膨胀操作结束
 	
-	sort(tmpCorners, greaterThanPtr<float>());//对角点排序
+	cv::sort(tmpCorners, greaterThanPtr<float>());//对角点排序
 #endif
 	vector<Point2f> corners;
 	size_t i, j, total = tmpCorners.size(), ncorners = 0;
@@ -234,7 +234,7 @@ void cornerBlockGet(Mat &img, Size imgsize, Mat mask, vector<const float *> &tmp
 				}
 			}
 
-			sort(cornerTmp, greaterThanPtr<float>());//对角点排序
+			cv::sort(cornerTmp, greaterThanPtr<float>());//对角点排序
 			
 			corners.push_back(cornerTmp);
 			

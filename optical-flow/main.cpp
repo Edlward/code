@@ -41,13 +41,14 @@ double sumTime;
 
 
 
-int xtofOpticalFlow();
-
 int main(int argc, char **argv)
 {
-	OpticalFlow of;
-	Camera *camera = of.camera;
-	
+
+	Camera *camera = new Camera;
+
+	OpticalFlow of(camera, "binary");
+
+	OpticalFlow of2(camera, "gray");
 	/* init camera */
 	int cap_index = 0;
 	if(argc > 1)
@@ -56,8 +57,8 @@ int main(int argc, char **argv)
 	}
 
 	VideoCapture cap;
-	// cap.open(cap_index);
-	cap.open("/home/lxg/codedata/live.avi");
+	cap.open(cap_index);
+	// cap.open("/home/lxg/codedata/live.avi");
 	if(!cap.isOpened())
 	{
 		fprintf(stderr, "Can't initialize cam!\n");
@@ -78,27 +79,9 @@ int main(int argc, char **argv)
 	camera->roi.x = (camera->width - camera->roi.width) / 2;
 	camera->roi.y = (camera->height - camera->roi.height) / 2;
 
-	/* Get first frame */	
-	// Mat image;
-	// cap >> frame;
-	// if(frame.empty())
-    // {
-	// 	fprintf(stderr,"Get frame failed.\n");
-	// 	return -1;
-	// }
-	// fprintf(stderr,"get first frame\n");
-
-	// image = frame(camera->roi);
-	// fprintf(stderr, "frame(rect)\n");
-	// Mat cameraMapX, cameraMapY;
-	// xtofCameraCorrect(image.size(), cameraMapX, cameraMapY);//矫正矩阵求解
-	// //remap(image, image, cameraMapX, cameraMapY, INTER_LINEAR);//图像摄像机畸变矫正
-	// resize(image, image, Size(), camera->scale, camera->scale);
-	// cvtColor(image, imgPost, COLOR_BGR2GRAY);//准备后一张图片
-	
-	// maxLevelNum = buildOpticalFlowPyramid(imgPost, imgPyrPost, Size(WIN_SIZE, WIN_SIZE), maxLevelNum, false);
 	
 	Mat frame;
+
     while (1)
 	{
 		
@@ -108,8 +91,12 @@ int main(int argc, char **argv)
 			fprintf(stderr,"video3ss.avi end\n");
 			break;
 		}
-		of.sendFrame(frame);
-		of.getOf();
+
+		of.sendFrame(frame, 0);
+		of.getOf(1);
+
+		of2.sendFrame(frame, 0);
+		of2.getOf(2);
 
 		char c = waitKey(1);
 		if(c == 27)
@@ -124,6 +111,7 @@ int main(int argc, char **argv)
 		// xtofOpticalFlow();
 	}
 	cap.release();
+	delete camera;
 	return 0;
 }
 

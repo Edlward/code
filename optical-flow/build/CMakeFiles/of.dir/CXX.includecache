@@ -13,6 +13,8 @@ opticalFlow.h
 /home/lxg/code/optical-flow/opticalFlow.h
 blockMatch.h
 /home/lxg/code/optical-flow/blockMatch.h
+cstdio
+-
 
 /home/lxg/code/optical-flow/blockMatch.h
 
@@ -74,6 +76,8 @@ tool.h
 opencv2/opencv.hpp
 -
 vector
+-
+string
 -
 blockMatch.h
 /home/lxg/code/optical-flow/blockMatch.h
