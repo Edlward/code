@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
+set(OpenCV_DIR "/home/lxg/app/opencv-2.4.9/build")
+
 add_definitions(-std=c++11)
 project( MotionDetect )
 find_package( OpenCV REQUIRED)
