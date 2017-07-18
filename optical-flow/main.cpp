@@ -95,8 +95,8 @@ int main(int argc, char **argv)
 		of.sendFrame(frame, 0);
 		of.getOf(1);
 
-		of2.sendFrame(frame, 0);
-		of2.getOf(2);
+		of2.sendFrame(frame, 1);
+		of2.getOf(1);
 
 		char c = waitKey(1);
 		if(c == 27)
