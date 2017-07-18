@@ -8,9 +8,37 @@ CMakeFiles/of.dir/readSonar.c.o
  /home/lxg/code/optical-flow/readSonar.c
  /home/lxg/code/optical-flow/readSonar.h
 CMakeFiles/of.dir/blockMatch.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/blockMatch.cpp
  /home/lxg/code/optical-flow/blockMatch.h
  /home/lxg/code/optical-flow/opticalFlow.h
+<<<<<<< HEAD
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp
  /usr/local/include/opencv2/contrib/openfabmap.hpp
@@ -38,7 +66,36 @@ CMakeFiles/of.dir/blockMatch.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 CMakeFiles/of.dir/main.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/PilotData.h
  /home/lxg/code/optical-flow/blockMatch.h
  /home/lxg/code/optical-flow/main.cpp
@@ -50,6 +107,7 @@ CMakeFiles/of.dir/main.cpp.o
  /home/lxg/code/optical-flow/xtofCameraHeight.h
  /home/lxg/code/optical-flow/xtofFindCorner.h
  /home/lxg/code/optical-flow/xtofglobal.h
+<<<<<<< HEAD
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp
  /usr/local/include/opencv2/contrib/openfabmap.hpp
@@ -77,7 +135,36 @@ CMakeFiles/of.dir/main.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 CMakeFiles/of.dir/opticalFlow.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/blockMatch.h
  /home/lxg/code/optical-flow/opticalFlow.cpp
  /home/lxg/code/optical-flow/opticalFlow.h
@@ -87,6 +174,7 @@ CMakeFiles/of.dir/opticalFlow.cpp.o
  /home/lxg/code/optical-flow/xtofCameraCorrect.h
  /home/lxg/code/optical-flow/xtofCameraHeight.h
  /home/lxg/code/optical-flow/xtofFindCorner.h
+<<<<<<< HEAD
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp
  /usr/local/include/opencv2/contrib/openfabmap.hpp
@@ -114,9 +202,39 @@ CMakeFiles/of.dir/opticalFlow.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 CMakeFiles/of.dir/tool.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/tool.cpp
  /home/lxg/code/optical-flow/tool.h
+<<<<<<< HEAD
  /usr/local/include/eigen3/Eigen/Cholesky
  /usr/local/include/eigen3/Eigen/Core
  /usr/local/include/eigen3/Eigen/Dense
@@ -425,9 +543,39 @@ CMakeFiles/of.dir/tool.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 CMakeFiles/of.dir/xtofAffine2D.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/xtofAffine2D.cpp
  /home/lxg/code/optical-flow/xtofAffine2D.h
+<<<<<<< HEAD
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp
  /usr/local/include/opencv2/contrib/openfabmap.hpp
@@ -455,10 +603,40 @@ CMakeFiles/of.dir/xtofAffine2D.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 CMakeFiles/of.dir/xtofCalcPyrlk.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/xtofCalcPyrlk.cpp
  /home/lxg/code/optical-flow/xtofCalcPyrlk.h
  /home/lxg/code/optical-flow/xtofglobal.h
+<<<<<<< HEAD
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp
  /usr/local/include/opencv2/contrib/openfabmap.hpp
@@ -486,10 +664,40 @@ CMakeFiles/of.dir/xtofCalcPyrlk.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 CMakeFiles/of.dir/xtofCameraCorrect.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/xtofCameraCorrect.cpp
  /home/lxg/code/optical-flow/xtofCameraCorrect.h
  /home/lxg/code/optical-flow/xtofglobal.h
+<<<<<<< HEAD
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp
  /usr/local/include/opencv2/contrib/openfabmap.hpp
@@ -517,13 +725,43 @@ CMakeFiles/of.dir/xtofCameraCorrect.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 CMakeFiles/of.dir/xtofCameraHeight.cpp.o
  /home/lxg/code/optical-flow/xtofCameraHeight.cpp
  /home/lxg/code/optical-flow/xtofCameraHeight.h
 CMakeFiles/of.dir/xtofFindCorner.cpp.o
+ /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
+ /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/contrib.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/openfabmap.hpp
+ /home/lxg/app/opencv-2.4.9/modules/contrib/include/opencv2/contrib/retina.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/mat.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/operations.hpp
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/version.hpp
+ /home/lxg/app/opencv-2.4.9/modules/features2d/include/opencv2/features2d/features2d.hpp
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/config.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/defines.h
+ /home/lxg/app/opencv-2.4.9/modules/flann/include/opencv2/flann/miniflann.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui.hpp
+ /home/lxg/app/opencv-2.4.9/modules/highgui/include/opencv2/highgui/highgui_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc.hpp
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/imgproc_c.h
+ /home/lxg/app/opencv-2.4.9/modules/imgproc/include/opencv2/imgproc/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
+ /home/lxg/app/opencv-2.4.9/modules/objdetect/include/opencv2/objdetect/objdetect.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo.hpp
+ /home/lxg/app/opencv-2.4.9/modules/photo/include/opencv2/photo/photo_c.h
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/background_segm.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
+ /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/optical-flow/xtofFindCorner.cpp
  /home/lxg/code/optical-flow/xtofFindCorner.h
  /home/lxg/code/optical-flow/xtofglobal.h
+<<<<<<< HEAD
  /usr/local/include/opencv2/calib3d/calib3d.hpp
  /usr/local/include/opencv2/contrib/contrib.hpp
  /usr/local/include/opencv2/contrib/openfabmap.hpp
@@ -551,3 +789,5 @@ CMakeFiles/of.dir/xtofFindCorner.cpp.o
  /usr/local/include/opencv2/video/background_segm.hpp
  /usr/local/include/opencv2/video/tracking.hpp
  /usr/local/include/opencv2/video/video.hpp
+=======
+>>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
