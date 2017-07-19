@@ -48,6 +48,8 @@ OpticalFlow::OpticalFlow(Camera *_c, string _win_name):
     fprintf(stream, "max_level:%d\n", level_num);
 
     namedWindow(win_name.c_str(), WINDOW_AUTOSIZE);
+
+    transform_sum.setIdentity();
 }
 
 /****************************************************************
@@ -100,7 +102,7 @@ void OpticalFlow::getOf(int flg)
         }
     }
 
-    // computeAffine();
+    computeAffine();
 
     time[3] = ((double)getTickCount() - t) / getTickFrequency() * 1000;
     

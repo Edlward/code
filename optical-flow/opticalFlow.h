@@ -4,6 +4,7 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 #include <string>
+#include <eigen3/Eigen/Core>
 
 #include "blockMatch.h"
 
@@ -38,6 +39,8 @@ private:
 	double fps;
 	double time[4];
 	float pixel_dis[2];
+	Eigen::Matrix3f transform_sum;
+
 	float max_pixel_delta;
 
 
