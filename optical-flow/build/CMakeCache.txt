@@ -177,14 +177,10 @@ OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
 //Path where release 3rdpaty OpenCV dependencies are located
 OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=
 
-<<<<<<< HEAD
 OpenCV_CONFIG_PATH:FILEPATH=/usr/local/share/OpenCV
 
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/usr/local/share/OpenCV
-=======
-OpenCV_CONFIG_PATH:FILEPATH=/home/lxg/app/opencv-2.4.9/build
->>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 
 //Path where debug OpenCV libraries are located
 OpenCV_LIB_DIR_DBG:PATH=
@@ -322,11 +318,6 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-<<<<<<< HEAD
-//Details about finding OpenCV
-FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/opt/ros/kinetic][v3.2.0()]
-=======
->>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
 //ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_DBG
 OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT

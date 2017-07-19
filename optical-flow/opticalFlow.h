@@ -39,7 +39,7 @@ private:
 	double fps;
 	double time[4];
 	float pixel_dis[2];
-	Eigen::Matrix3f transform_sum;
+	Eigen::Matrix3f trans_sum;
 
 	float max_pixel_delta;
 

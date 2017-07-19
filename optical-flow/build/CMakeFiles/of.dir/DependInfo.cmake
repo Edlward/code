@@ -12,33 +12,8 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-<<<<<<< HEAD
   "/usr/local/include/opencv"
   "/usr/local/include"
-=======
-  "/home/lxg/app/opencv-2.4.9/build"
-  "/home/lxg/app/opencv-2.4.9/include"
-  "/home/lxg/app/opencv-2.4.9/include/opencv"
-  "/home/lxg/app/opencv-2.4.9/modules/core/include"
-  "/home/lxg/app/opencv-2.4.9/modules/flann/include"
-  "/home/lxg/app/opencv-2.4.9/modules/imgproc/include"
-  "/home/lxg/app/opencv-2.4.9/modules/highgui/include"
-  "/home/lxg/app/opencv-2.4.9/modules/features2d/include"
-  "/home/lxg/app/opencv-2.4.9/modules/calib3d/include"
-  "/home/lxg/app/opencv-2.4.9/modules/ml/include"
-  "/home/lxg/app/opencv-2.4.9/modules/video/include"
-  "/home/lxg/app/opencv-2.4.9/modules/legacy/include"
-  "/home/lxg/app/opencv-2.4.9/modules/objdetect/include"
-  "/home/lxg/app/opencv-2.4.9/modules/photo/include"
-  "/home/lxg/app/opencv-2.4.9/modules/gpu/include"
-  "/home/lxg/app/opencv-2.4.9/modules/ocl/include"
-  "/home/lxg/app/opencv-2.4.9/modules/nonfree/include"
-  "/home/lxg/app/opencv-2.4.9/modules/contrib/include"
-  "/home/lxg/app/opencv-2.4.9/modules/stitching/include"
-  "/home/lxg/app/opencv-2.4.9/modules/superres/include"
-  "/home/lxg/app/opencv-2.4.9/modules/ts/include"
-  "/home/lxg/app/opencv-2.4.9/modules/videostab/include"
->>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lxg/code/optical-flow/blockMatch.cpp" "/home/lxg/code/optical-flow/build/CMakeFiles/of.dir/blockMatch.cpp.o"
@@ -55,33 +30,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-<<<<<<< HEAD
   "/usr/local/include/opencv"
   "/usr/local/include"
-=======
-  "/home/lxg/app/opencv-2.4.9/build"
-  "/home/lxg/app/opencv-2.4.9/include"
-  "/home/lxg/app/opencv-2.4.9/include/opencv"
-  "/home/lxg/app/opencv-2.4.9/modules/core/include"
-  "/home/lxg/app/opencv-2.4.9/modules/flann/include"
-  "/home/lxg/app/opencv-2.4.9/modules/imgproc/include"
-  "/home/lxg/app/opencv-2.4.9/modules/highgui/include"
-  "/home/lxg/app/opencv-2.4.9/modules/features2d/include"
-  "/home/lxg/app/opencv-2.4.9/modules/calib3d/include"
-  "/home/lxg/app/opencv-2.4.9/modules/ml/include"
-  "/home/lxg/app/opencv-2.4.9/modules/video/include"
-  "/home/lxg/app/opencv-2.4.9/modules/legacy/include"
-  "/home/lxg/app/opencv-2.4.9/modules/objdetect/include"
-  "/home/lxg/app/opencv-2.4.9/modules/photo/include"
-  "/home/lxg/app/opencv-2.4.9/modules/gpu/include"
-  "/home/lxg/app/opencv-2.4.9/modules/ocl/include"
-  "/home/lxg/app/opencv-2.4.9/modules/nonfree/include"
-  "/home/lxg/app/opencv-2.4.9/modules/contrib/include"
-  "/home/lxg/app/opencv-2.4.9/modules/stitching/include"
-  "/home/lxg/app/opencv-2.4.9/modules/superres/include"
-  "/home/lxg/app/opencv-2.4.9/modules/ts/include"
-  "/home/lxg/app/opencv-2.4.9/modules/videostab/include"
->>>>>>> 8932d2fc710bf98f53f6e2f4e1b0bd4aaa4b13ce
   )
 
 # Targets to which this target links.
