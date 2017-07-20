@@ -14,7 +14,7 @@
 #define  TRUE	1
 #define  FALSE	0
 
-#define FILE_VIDEO 	"/dev/video1"
+#define FILE_VIDEO 	"/dev/video0"
 #define BMP      	"/home/lxg/codedata/image_bmp.bmp"
 #define YUV			"/home/lxg/codedata/image_yuv.yuv"
 
@@ -22,7 +22,7 @@
 #define  IMAGEHEIGHT   480
 
 static   int      fd;
-static   struct   v4l2_capability   cap;
+static   struct   v4l2_capability   cap;  //摄像头的一些自身提供的信息，及支持的操作
 struct v4l2_fmtdesc fmtdesc;
 struct v4l2_format fmt,fmtack;
 struct v4l2_streamparm setfps;  
@@ -32,11 +32,12 @@ enum v4l2_buf_type type;
 unsigned char frame_buffer[IMAGEWIDTH*IMAGEHEIGHT*3];
 
 
+// 指针类型的结构体
 struct buffer
 {
 	void * start;
 	unsigned int length;
-} * buffers;
+} * buffers; 
  
 int init_v4l2(void)
 {
@@ -73,9 +74,14 @@ int init_v4l2(void)
 		{
 			printf("Device %s: supports streaming.\n",FILE_VIDEO);
 		}
+
+		if ((cap.capabilities & V4L2_CAP_VIDEO_OVERLAY) == V4L2_CAP_VIDEO_OVERLAY)
+		{
+			printf("Device %s: supports overlay.\n", FILE_VIDEO);
+		}
 	} 
 	
-	//emu all support fmt
+	//emu(enumerate) all support fmt
 	fmtdesc.index=0;
 	fmtdesc.type=V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	printf("Support format:\n");
@@ -85,7 +91,10 @@ int init_v4l2(void)
 		fmtdesc.index++;
 	}
 	
-    //set fmt
+	printf("description of the camera end\n");
+
+	
+    //set fmt(formate)
     fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
 	fmt.fmt.pix.height = IMAGEHEIGHT;
