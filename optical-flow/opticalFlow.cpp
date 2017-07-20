@@ -48,6 +48,8 @@ OpticalFlow::OpticalFlow(Camera *_c, string _win_name):
     fprintf(stream, "max_level:%d\n", level_num);
 
     namedWindow(win_name.c_str(), WINDOW_AUTOSIZE);
+
+    trans_sum.setIdentity();
 }
 
 /****************************************************************
@@ -101,7 +103,10 @@ void OpticalFlow::getOf(int flg)
     }
 
     computeAffine();
+<<<<<<< HEAD
     lowPassFilter(pixel_dis, pixel_dis);
+=======
+>>>>>>> 4633dcbd8b1138109af016e7780c4b69225dc4b7
 
     time[3] = ((double)getTickCount() - t) / getTickFrequency() * 1000;
     
@@ -170,8 +175,13 @@ void OpticalFlow::computeAffine()
 	{
         // Mat tmp = findFundamentalMat(corner_firstc, corner_secondc);
         // cout << endl << tmp << endl;
-        eigenAffine(corner_firstc, corner_secondc, pixel_dis);
+        Eigen::Matrix3f trans_tmp;
+        eigenAffine(corner_firstc, corner_secondc, trans_tmp);
 
+        pixel_dis[0] = trans_tmp(0,2);
+        pixel_dis[1] = trans_tmp(1,2);
+        trans_sum = trans_tmp * trans_sum;
+        
 		// xtofAffine2D(corner_firstc, corner_secondc, affine, affine_inliner, 2, 0.96);
         // pixel_dis[0] = affine.at<double>(0,2);
         // pixel_dis[1] = affine.at<double>(1,2);
@@ -219,7 +229,13 @@ void OpticalFlow::show()
         circle(tmp, p_center_of, 1, color_err, 1);
         line(tmp, p_center, p_center_of, color_err);
     }
+<<<<<<< HEAD
     debugDrawCurve(pixel_dis[0], pixel_dis[1]);
+=======
+    //debugDrawCurve(pixel_dis[0], pixel_dis[1]);
+    debugDrawCurve(trans_sum(0,2), trans_sum(1,2));
+
+>>>>>>> 4633dcbd8b1138109af016e7780c4b69225dc4b7
 
     resize(tmp, tmp, Size(400,400));
 
@@ -244,6 +260,8 @@ void OpticalFlow::message()
     // fprintf(stream, "fps:%3.f\t", fps);
     fprintf(stream, "dx: %1.4f,%1.4f", std::abs(pixel_dis[0]), std::abs(pixel_dis[1]));
     fprintf(stream, "\n");
+    cout << trans_sum << endl;
+    
 }
 /****************************************************************
  * 

@@ -99,7 +99,11 @@ int main(int argc, char **argv)
 		of.sendFrame(frame, 0); //是否做Bt预处理
 		of.getOf(1); //是用LK或者块匹配
 
+<<<<<<< HEAD
 		// of2.sendFrame(frame, 1); //binary
+=======
+		// of2.sendFrame(frame, 1);
+>>>>>>> 4633dcbd8b1138109af016e7780c4b69225dc4b7
 		// of2.getOf(1);
 
 		char c = waitKey(1);

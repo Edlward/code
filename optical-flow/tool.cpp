@@ -1,4 +1,3 @@
-#include <eigen3/Eigen/Eigen>
 #include "tool.h"
 
 using namespace cv;
@@ -7,7 +6,7 @@ using namespace std;
 /****************************************************************
  * 使用eigen库计算放射变换
 ****************************************************************/
-void eigenAffine(const vector<Point2f> &src, const vector<Point2f> &dst, float *dis)
+void eigenAffine(const vector<Point2f> &src, const vector<Point2f> &dst, Eigen::Matrix3f &trans)
 {
     Eigen::MatrixXf e_src(2, src.size());
     Eigen::MatrixXf e_dst(2, dst.size());
@@ -25,10 +24,7 @@ void eigenAffine(const vector<Point2f> &src, const vector<Point2f> &dst, float *
     }
     
     // 对于2D点的仿射变换矩阵是3*3矩阵
-    Eigen::Matrix3f trans;
     trans = Eigen::umeyama(e_src, e_dst, false);
-    dis[0] = trans(0,2);
-    dis[1] = trans(1,2);
     // cout << "eigen\n" << trans << endl;
 }
 
