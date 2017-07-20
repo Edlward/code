@@ -4,48 +4,6 @@
 using namespace cv;
 using namespace std;
 
-const int curve_size = 201;
-
-void debugDrawCurve(float x, float y)
-{
-	Size winSize(700, 400);
-	Mat im = Mat::zeros(winSize, CV_8UC3);
-	
-	static int imX[curve_size];
-	static int imY[curve_size];
-
-	int arrayLength = curve_size - 1;
-	int max = 150, min = -150;
-
-	x *= 10;
-	y *= 10;
-	if (x > max) x = max;
-	if (x < min) x = min;
-	if (y > max) y = max;
-	if (y < min) y = min;
-
-	imX[arrayLength] = (int)(x + winSize.height / 2);
-	imY[arrayLength] = (int)(y + winSize.height / 2);
-
-	for (int i = 0; i < arrayLength; ++i)
-	{
-		imX[i] = imX[i + 1];
-		imY[i] = imY[i + 1];
-	}
-	
-	line(im, Point2d(0, winSize.height / 2), Point2d(winSize.width, winSize.height / 2), Scalar(255,255,255));
-	line(im, Point2d(0, winSize.height / 2 + max), Point2d(winSize.width, winSize.height / 2 + max), Scalar(255, 255, 255));
-	line(im, Point2d(0, winSize.height / 2 + min), Point2d(winSize.width, winSize.height / 2 + min), Scalar(255, 255, 255));
-
-	for (int i = arrayLength; i > 0; --i)
-	{
-		line(im, Point2d(i * 3, imX[i]), Point2d((i - 1) * 3, imX[i - 1]), Scalar(0, 0, 255), 1);
-		line(im, Point2d(i * 3, imY[i]), Point2d((i - 1) * 3, imY[i - 1]), Scalar(0, 255, 0), 1);
-		circle(im, Point2d(i * 3, imX[i]), 2, Scalar(0, 0, 255), -1, 8);
-		circle(im, Point2d(i * 3, imY[i]), 2, Scalar(0, 255, 0), -1, 8);
-	}
-	imshow("curve", im);
-}
 /****************************************************************
  * 使用eigen库计算放射变换
 ****************************************************************/
@@ -84,8 +42,8 @@ void btPreprocess(Mat &src)
 
     int max = 0xff;
     int min = 0;
-    int x_step = 2;
-    int y_step = 2;
+    int x_step = 1;
+    int y_step = 3;
 
     for(int i = 0; i < src.rows-y_step; ++i)
     {
@@ -118,4 +76,95 @@ void btPreprocess(Mat &src)
 void histAffine(vector<Point2f> &p_src, vector<Point2f>  &p_dst, vector<uchar> &status)
 {
 
+}
+/*************************************************************
+ * 
+**************************************************************/
+void lowPassFilter(float *src, float *dst)
+{
+    static float src_last[3][2] = {0};
+    float a0 = 0.8, a1 = 0.1, a2 = 0.1;
+    float src_media[2];
+
+    src_media[0] = src[0];
+    src_media[1] = src[1];
+
+#define MEDIA_FILTER
+
+#ifdef MEDIA_FILTER
+    // x中值滤波
+    if(src[0] < src_last[0][0])
+    {
+        if(src[0] < src_last[1][0])
+        {
+            if(src_last[0][0] < src_last[1][0])
+            {
+                src_media[0] = src_last[0][0];
+            }
+            else
+            {
+                src_media[0] = src_last[1][0];
+            }
+        }
+    }
+    else
+    {
+        if(src[0] > src_last[1][0])
+        {
+            if(src_last[0][0] < src_last[1][0])
+            {
+                src_media[0] = src_last[1][0];
+            }
+            else
+            {
+                src_media[0] = src_last[0][0];
+            }
+        }
+    }
+
+    // y中值滤波
+    if(src[1] < src_last[0][1])
+    {
+        if(src[1] < src_last[1][1])
+        {
+            if(src_last[0][1] < src_last[1][1])
+            {
+                src_media[1] = src_last[0][1];
+            }
+            else
+            {
+                src_media[1] = src_last[1][1];
+            }
+        }
+    }
+    else
+    {
+        if(src[1] > src_last[1][1])
+        {
+            if(src_last[0][1] < src_last[1][1])
+            {
+                src_media[1] = src_last[1][1];
+            }
+            else
+            {
+                src_media[1] = src_last[0][1];
+            }
+        }
+    }
+#endif
+
+
+    // 因为src 和dst可能是同一个地址，所以要先保存原来的数据
+    src_last[2][0] = src_last[1][0];
+    src_last[1][0] = src_last[0][0];
+    src_last[0][0] = src[0];
+
+    src_last[2][1] = src_last[1][1];
+    src_last[1][1] = src_last[0][1];
+    src_last[0][1] = src[1];
+
+    
+    // 低通滤波
+    dst[0] = src_media[0] * a0 + src_last[1][0] * a1 + src_last[2][0] * a2;
+    dst[1] = src_media[1] * a0 + src_last[1][1] * a1 + src_last[2][1] * a2;
 }

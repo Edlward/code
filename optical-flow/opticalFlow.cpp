@@ -100,7 +100,8 @@ void OpticalFlow::getOf(int flg)
         }
     }
 
-    // computeAffine();
+    computeAffine();
+    lowPassFilter(pixel_dis, pixel_dis);
 
     time[3] = ((double)getTickCount() - t) / getTickFrequency() * 1000;
     
@@ -163,6 +164,7 @@ void OpticalFlow::computeAffine()
     Mat affine_inliner;
 	affine_inliner.create(1,corner_firstc.size(),CV_8U);
 	affine_inliner.setTo(1);
+
 	//仿射变换矩阵求取	
 	if(corner_firstc.size() > 5)
 	{
@@ -176,6 +178,9 @@ void OpticalFlow::computeAffine()
         
         // cout << "ransac\n" <<  affine << endl;
 	}
+
+    fprintf(stream, "corner correct %s, %d\n", win_name.c_str(), (int)corner_firstc.size());
+
     time[2] = ((double)getTickCount() - t) / getTickFrequency()*1000;
 }
 /****************************************************************
@@ -189,6 +194,8 @@ void OpticalFlow::show()
 
     Scalar color(0,255,0);
     Scalar color_err(0,0,255);
+    
+    
     for(int i=0; i < corner_second.size(); ++i)
     {
         if(corner_status[i])
@@ -212,7 +219,7 @@ void OpticalFlow::show()
         circle(tmp, p_center_of, 1, color_err, 1);
         line(tmp, p_center, p_center_of, color_err);
     }
-    //debugDrawCurve(pixel_dis[0], pixel_dis[1]);
+    debugDrawCurve(pixel_dis[0], pixel_dis[1]);
 
     resize(tmp, tmp, Size(400,400));
 
@@ -230,7 +237,7 @@ void OpticalFlow::show()
 ****************************************************************/
 void OpticalFlow::message()
 {
-    // fprintf(stream, "%s ", win_name.c_str());
+    fprintf(stream, "%s ", win_name.c_str());
     // fprintf(stream, "level_num:%d \t", (int)impyr_second.size());
     fprintf(stream, "cornerNum:%d\t", (int)corner_second.size());
     fprintf(stream, "time:%-3.2f %-3.2f %3.2f   %3.2f \t", time[0], time[1], time[2], time[3]);
@@ -269,3 +276,44 @@ void OpticalFlow::getUniformCorner(int num, vector<Point2f> &corner)
     }
 }
 
+
+void OpticalFlow::debugDrawCurve(float x, float y)
+{
+	Size winSize(700, 400);
+	Mat im = Mat::zeros(winSize, CV_8UC3);
+	
+	static int imX[curve_size];
+	static int imY[curve_size];
+
+	int arrayLength = curve_size - 1;
+	int max = 150, min = -150;
+
+	x *= 10;
+	y *= 10;
+	if (x > max) x = max;
+	if (x < min) x = min;
+	if (y > max) y = max;
+	if (y < min) y = min;
+
+	imX[arrayLength] = (int)(x + winSize.height / 2);
+	imY[arrayLength] = (int)(y + winSize.height / 2);
+
+	for (int i = 0; i < arrayLength; ++i)
+	{
+		imX[i] = imX[i + 1];
+		imY[i] = imY[i + 1];
+	}
+	
+	line(im, Point2d(0, winSize.height / 2), Point2d(winSize.width, winSize.height / 2), Scalar(255,255,255));
+	line(im, Point2d(0, winSize.height / 2 + max), Point2d(winSize.width, winSize.height / 2 + max), Scalar(255, 255, 255));
+	line(im, Point2d(0, winSize.height / 2 + min), Point2d(winSize.width, winSize.height / 2 + min), Scalar(255, 255, 255));
+
+	for (int i = arrayLength; i > 0; --i)
+	{
+		line(im, Point2d(i * 3, imX[i]), Point2d((i - 1) * 3, imX[i - 1]), Scalar(0, 0, 255), 1);
+		line(im, Point2d(i * 3, imY[i]), Point2d((i - 1) * 3, imY[i - 1]), Scalar(0, 255, 0), 1);
+		circle(im, Point2d(i * 3, imX[i]), 2, Scalar(0, 0, 255), -1, 8);
+		circle(im, Point2d(i * 3, imY[i]), 2, Scalar(0, 255, 0), -1, 8);
+	}
+	imshow((win_name + "_curve").c_str(), im);
+}

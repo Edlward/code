@@ -7,6 +7,7 @@
 void debugDrawCurve(float x, float y);
 void eigenAffine(const std::vector<cv::Point2f> &src, const std::vector<cv::Point2f> &dst, float *dis);
 void btPreprocess(cv::Mat &src);
+void lowPassFilter(float *src, float *dst);
 
 
 #endif

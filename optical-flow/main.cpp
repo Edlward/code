@@ -46,9 +46,9 @@ int main(int argc, char **argv)
 
 	Camera *camera = new Camera;
 
-	OpticalFlow of(camera, "binary");
+	OpticalFlow of(camera, "gray");
 
-	OpticalFlow of2(camera, "gray");
+	OpticalFlow of2(camera, "binary");
 	/* init camera */
 	int cap_index = 0;
 	if(argc > 1)
@@ -58,6 +58,9 @@ int main(int argc, char **argv)
 
 	VideoCapture cap;
 	cap.open(cap_index);
+
+	cap.set(CV_CAP_PROP_FPS, 30);
+	
 	// cap.open("/home/lxg/codedata/live.avi");
 	if(!cap.isOpened())
 	{
@@ -68,6 +71,7 @@ int main(int argc, char **argv)
     {
         fprintf(stderr, "open camera successd\n");
     }
+	// cap.get()
 	camera->width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
 	camera->height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
 	if(camera->width < camera->roi.width || 
@@ -92,11 +96,11 @@ int main(int argc, char **argv)
 			break;
 		}
 
-		of.sendFrame(frame, 0);
-		of.getOf(1);
+		of.sendFrame(frame, 0); //是否做Bt预处理
+		of.getOf(1); //是用LK或者块匹配
 
-		of2.sendFrame(frame, 0);
-		of2.getOf(2);
+		// of2.sendFrame(frame, 1); //binary
+		// of2.getOf(1);
 
 		char c = waitKey(1);
 		if(c == 27)

@@ -7,6 +7,8 @@
 
 #include "blockMatch.h"
 
+const int curve_size = 201;
+
 struct Camera
 {
 	int win_size;
@@ -58,12 +60,18 @@ private:
 	std::vector<uchar> corner_status;
 	std::vector<float> corner_err;
 	
+
+	int imX[curve_size];
+	int imY[curve_size];
+
+
 	void findCorner();
 	void trackCorner();
 	void computeAffine();
 	void show();
 	void message();
 	void getUniformCorner(int num, std::vector<cv::Point2f> &corner);
+	void debugDrawCurve(float x, float y);
 
 	Blockof blockof;
 	void blockOpticalFlow();
