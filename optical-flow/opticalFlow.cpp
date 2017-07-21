@@ -227,7 +227,7 @@ void OpticalFlow::show()
         line(tmp, p_center, p_center_of, color_err);
     }
     
-    //debugDrawCurve(pixel_dis[0], pixel_dis[1]);
+    // debugDrawCurve(pixel_dis[0], pixel_dis[1]);
     debugDrawCurve(trans_sum(0,2), trans_sum(1,2));
 
 

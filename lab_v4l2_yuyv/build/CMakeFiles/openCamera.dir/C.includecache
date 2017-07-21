@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lxg/code/lab_v4l2_yuyv/v4l2grab.c
+unistd.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+fcntl.h
+-
+stdio.h
+-
+sys/ioctl.h
+-
+stdlib.h
+-
+sys/mman.h
+-
+linux/types.h
+-
+linux/videodev2.h
+-
+v4l2grab.h
+/home/lxg/code/lab_v4l2_yuyv/v4l2grab.h
+
+/home/lxg/code/lab_v4l2_yuyv/v4l2grab.h
+stdio.h
+-
+

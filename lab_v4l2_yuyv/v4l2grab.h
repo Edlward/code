@@ -81,6 +81,9 @@ int closeVideo();
 //data 用来存储数据的空间, size空间大小
 void getVideoData(unsigned char *data, int size);
  
+int cameraRead( unsigned char **data, int *w, int *h);
+extern struct v4l2_buffer buf;
+
 #if defined(__cplusplus)
 }
 
