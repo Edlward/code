@@ -79,6 +79,12 @@ int init_v4l2(void)
 		{
 			printf("Device %s: supports overlay.\n", FILE_VIDEO);
 		}
+		else
+		{
+			printf("Device %s: don't support overlay.\n", FILE_VIDEO);
+		}
+
+		
 	} 
 	
 	//emu(enumerate) all support fmt
@@ -154,6 +160,7 @@ int v4l2_grab(void)
 		buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 		buf.memory = V4L2_MEMORY_MMAP;
 		buf.index = n_buffers;
+
 		//query buffers
 		if (ioctl (fd, VIDIOC_QUERYBUF, &buf) == -1)
 		{
@@ -162,8 +169,9 @@ int v4l2_grab(void)
 		}
 
 		buffers[n_buffers].length = buf.length;
+
 		//map
-		buffers[n_buffers].start = mmap(NULL,buf.length,PROT_READ |PROT_WRITE, MAP_SHARED, fd, buf.m.offset);
+		buffers[n_buffers].start = mmap(NULL, buf.length, PROT_READ |PROT_WRITE, MAP_SHARED, fd, buf.m.offset);
 		if (buffers[n_buffers].start == MAP_FAILED)
 		{
 			printf("buffer map error\n");
