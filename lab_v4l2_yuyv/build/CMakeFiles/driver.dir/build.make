@@ -116,6 +116,25 @@ driver_EXTERNAL_OBJECTS =
 driver: CMakeFiles/driver.dir/driver.c.o
 driver: CMakeFiles/driver.dir/driverPakage.cpp.o
 driver: CMakeFiles/driver.dir/build.make
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_videostab.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ts.a
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_superres.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_stitching.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_contrib.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_nonfree.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ocl.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_gpu.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_photo.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_objdetect.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_legacy.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_video.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ml.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_calib3d.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_features2d.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_highgui.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_imgproc.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_flann.so.2.4.9
+driver: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_core.so.2.4.9
 driver: CMakeFiles/driver.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/code/lab_v4l2_yuyv/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable driver"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/driver.dir/link.txt --verbose=$(VERBOSE)

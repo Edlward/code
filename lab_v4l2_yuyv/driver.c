@@ -319,10 +319,6 @@ void start_capturing (int fd, io_method io, unsigned int n_buffers, Buffer *buff
     enum v4l2_buf_type type;
 
     switch (io) {
-    case IO_METHOD_READ:
-        /* Nothing to do. */
-        break;
-
     case IO_METHOD_MMAP:
         for (i = 0; i < n_buffers; ++i) {
             struct v4l2_buffer buf;
@@ -366,6 +362,147 @@ void start_capturing (int fd, io_method io, unsigned int n_buffers, Buffer *buff
             errno_exit ("VIDIOC_STREAMON");
 
         break;
+    case IO_METHOD_READ:
+        /* Nothing to do. */
+        break;
     }
-    printf("start capture");
+    printf("start capture\n");
+}
+static void process_image (const void *p)
+{
+    fputc ('.', stdout);
+    fflush (stdout);
+}
+
+static int read_frame (int fd, io_method io, unsigned int n_buffers, Buffer *buffers )
+{
+    struct v4l2_buffer buf;
+    unsigned int i;
+
+    switch (io) 
+    {
+        case IO_METHOD_MMAP:
+            CLEAR (buf);
+
+            buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+            buf.memory = V4L2_MEMORY_MMAP;
+
+            if (-1 == xioctl (fd, VIDIOC_DQBUF, &buf)) {
+                switch (errno) {
+                case EAGAIN:
+                    return 0;
+
+                case EIO:
+                    /* Could ignore EIO, see spec. */
+
+                    /* fall through */
+
+                default:
+                    errno_exit ("VIDIOC_DQBUF");
+                }
+            }
+
+            assert (buf.index < n_buffers);
+
+            process_image (buffers[buf.index].start);
+
+            if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))
+                errno_exit ("VIDIOC_QBUF");
+
+            break;
+
+        case IO_METHOD_USERPTR:
+            CLEAR (buf);
+
+            buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+            buf.memory = V4L2_MEMORY_USERPTR;
+
+            if (-1 == xioctl (fd, VIDIOC_DQBUF, &buf)) {
+                switch (errno) {
+                case EAGAIN:
+                    return 0;
+
+                case EIO:
+                    /* Could ignore EIO, see spec. */
+
+                    /* fall through */
+
+                default:
+                    errno_exit ("VIDIOC_DQBUF");
+                }
+            }
+
+            for (i = 0; i < n_buffers; ++i)
+                if (buf.m.userptr == (unsigned long) buffers[i].start
+                        && buf.length == buffers[i].length)
+                    break;
+
+            assert (i < n_buffers);
+
+            process_image ((void *) buf.m.userptr);
+
+            if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))
+                errno_exit ("VIDIOC_QBUF");
+
+            break;
+
+        case IO_METHOD_READ:
+            if (-1 == read (fd, buffers[0].start, buffers[0].length)) {
+                switch (errno) {
+                case EAGAIN:
+                    return 0;
+
+                case EIO:
+                    /* Could ignore EIO, see spec. */
+
+                    /* fall through */
+
+                default:
+                    errno_exit ("read");
+                }
+            }
+
+            process_image (buffers[0].start);
+
+            break;
+    }
+
+    return 1;
+}
+
+int read_mmap_frame(int fd, unsigned int n_buffers, unsigned char *p_data, 
+                    Buffer *buffers, struct v4l2_buffer *buf,
+                    int w, int h)
+{
+    if (-1 == xioctl (fd, VIDIOC_DQBUF, buf)) 
+    {
+        switch (errno) {
+        case EAGAIN:
+            return -1;
+        case EIO:
+            /* Could ignore EIO, see spec. */
+            /* fall through */
+        default:
+            errno_exit ("VIDIOC_DQBUF");
+        }
+    }
+    assert (buf->index < n_buffers);
+    
+    //yuyv2gray
+	unsigned char *p2 = (unsigned char *)buffers[buf->index].start;
+	for(int i = 0; i < h; ++i)
+	{
+		for(int j = 0; j < w; ++j)
+		{
+			*p_data = *p2;
+			++p_data;
+			++p2;
+			++p2;
+		}
+	}
+
+
+    if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))
+        errno_exit ("VIDIOC_QBUF");    
+    return 0;
 }

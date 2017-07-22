@@ -9,5 +9,7 @@ add_executable(openCamera main.cpp v4l2grab.c)
 target_link_libraries(openCamera ${OpenCV_LIBS})
 
 add_executable(driver driver.c driverPakage.cpp)
+target_link_libraries(driver ${OpenCV_LIBS})
+
 
 
