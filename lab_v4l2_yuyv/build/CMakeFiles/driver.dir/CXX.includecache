@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lxg/code/lab_v4l2_yuyv/driver.h
+sys/types.h
+-
+
+/home/lxg/code/lab_v4l2_yuyv/driverPakage.cpp
+driverPakage.h
+/home/lxg/code/lab_v4l2_yuyv/driverPakage.h
+
+/home/lxg/code/lab_v4l2_yuyv/driverPakage.h
+string
+-
+driver.h
+/home/lxg/code/lab_v4l2_yuyv/driver.h
+

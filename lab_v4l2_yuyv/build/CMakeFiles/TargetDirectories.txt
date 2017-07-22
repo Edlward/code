@@ -1,3 +1,4 @@
-/home/lxg/code/lab_v4l2_yuyv/build/CMakeFiles/edit_cache.dir
 /home/lxg/code/lab_v4l2_yuyv/build/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/lab_v4l2_yuyv/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/lab_v4l2_yuyv/build/CMakeFiles/driver.dir
 /home/lxg/code/lab_v4l2_yuyv/build/CMakeFiles/openCamera.dir

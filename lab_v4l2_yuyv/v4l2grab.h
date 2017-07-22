@@ -83,6 +83,8 @@ void getVideoData(unsigned char *data, int size);
  
 int cameraRead( unsigned char **data, int *w, int *h);
 extern struct v4l2_buffer buf;
+int init_v4l2(void);
+int close_v4l2(void);
 
 #if defined(__cplusplus)
 }

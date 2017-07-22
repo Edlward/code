@@ -49,6 +49,8 @@ int main(int argc, char **argv)
 	OpticalFlow of(camera, "gray");
 
 	OpticalFlow of2(camera, "binary");
+
+
 	/* init camera */
 	int cap_index = 0;
 	if(argc > 1)
@@ -58,9 +60,6 @@ int main(int argc, char **argv)
 
 	VideoCapture cap;
 	cap.open(cap_index);
-
-	cap.set(CV_CAP_PROP_FPS, 30);
-	
 	// cap.open("/home/lxg/codedata/live.avi");
 	if(!cap.isOpened())
 	{
@@ -80,6 +79,7 @@ int main(int argc, char **argv)
 		printf("camera roi is larger than camera\n");
 		return -1;
 	}
+	printf("camera width: %d, height:%d\n", camera->width, camera->height);
 	camera->roi.x = (camera->width - camera->roi.width) / 2;
 	camera->roi.y = (camera->height - camera->roi.height) / 2;
 

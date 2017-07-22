@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/lxg/code/lab_v4l2_yuyv/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named driver
+
+# Build rule for target.
+driver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 driver
+.PHONY : driver
+
+# fast build rule for target.
+driver/fast:
+	$(MAKE) -f CMakeFiles/driver.dir/build.make CMakeFiles/driver.dir/build
+.PHONY : driver/fast
+
+#=============================================================================
 # Target rules for targets named openCamera
 
 # Build rule for target.
@@ -122,6 +135,60 @@ openCamera: cmake_check_build_system
 openCamera/fast:
 	$(MAKE) -f CMakeFiles/openCamera.dir/build.make CMakeFiles/openCamera.dir/build
 .PHONY : openCamera/fast
+
+driver.o: driver.c.o
+
+.PHONY : driver.o
+
+# target to build an object file
+driver.c.o:
+	$(MAKE) -f CMakeFiles/driver.dir/build.make CMakeFiles/driver.dir/driver.c.o
+.PHONY : driver.c.o
+
+driver.i: driver.c.i
+
+.PHONY : driver.i
+
+# target to preprocess a source file
+driver.c.i:
+	$(MAKE) -f CMakeFiles/driver.dir/build.make CMakeFiles/driver.dir/driver.c.i
+.PHONY : driver.c.i
+
+driver.s: driver.c.s
+
+.PHONY : driver.s
+
+# target to generate assembly for a file
+driver.c.s:
+	$(MAKE) -f CMakeFiles/driver.dir/build.make CMakeFiles/driver.dir/driver.c.s
+.PHONY : driver.c.s
+
+driverPakage.o: driverPakage.cpp.o
+
+.PHONY : driverPakage.o
+
+# target to build an object file
+driverPakage.cpp.o:
+	$(MAKE) -f CMakeFiles/driver.dir/build.make CMakeFiles/driver.dir/driverPakage.cpp.o
+.PHONY : driverPakage.cpp.o
+
+driverPakage.i: driverPakage.cpp.i
+
+.PHONY : driverPakage.i
+
+# target to preprocess a source file
+driverPakage.cpp.i:
+	$(MAKE) -f CMakeFiles/driver.dir/build.make CMakeFiles/driver.dir/driverPakage.cpp.i
+.PHONY : driverPakage.cpp.i
+
+driverPakage.s: driverPakage.cpp.s
+
+.PHONY : driverPakage.s
+
+# target to generate assembly for a file
+driverPakage.cpp.s:
+	$(MAKE) -f CMakeFiles/driver.dir/build.make CMakeFiles/driver.dir/driverPakage.cpp.s
+.PHONY : driverPakage.cpp.s
 
 main.o: main.cpp.o
 
@@ -183,9 +250,16 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... driver"
 	@echo "... openCamera"
+	@echo "... driver.o"
+	@echo "... driver.i"
+	@echo "... driver.s"
+	@echo "... driverPakage.o"
+	@echo "... driverPakage.i"
+	@echo "... driverPakage.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

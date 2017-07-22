@@ -104,7 +104,9 @@ int init_v4l2(void)
 	printf("Support format:\n");
 	while(ioctl(fd,VIDIOC_ENUM_FMT,&fmtdesc)!=-1)
 	{
-		printf("\t%d.%s\n",fmtdesc.index+1,fmtdesc.description);
+		printf("\t%d.%s  ",fmtdesc.index+1,fmtdesc.description);
+		printf("\t%ud\n",fmtdesc.pixelformat);
+		
 		fmtdesc.index++;
 	}
 	
@@ -114,10 +116,12 @@ int init_v4l2(void)
 	
 	// can not get camera default set before set parameter
 	
-    //set fmt(formate)
+    //set fmt(formate)  v4l2_format fmt,fmtack;
     fmt.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     // fmt.type = V4L2_BUF_TYPE_VIDEO_OUTPUT;  //没有这个功能
 	fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
+	// fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUV422P; //不支持
+
 	fmt.fmt.pix.height = IMAGEHEIGHT;
 	fmt.fmt.pix.width = IMAGEWIDTH;
 	fmt.fmt.pix.field = V4L2_FIELD_INTERLACED;//视频通常是隔行扫描，也可以只要高或低，
@@ -150,8 +154,27 @@ int init_v4l2(void)
 	setfps.parm.capture.timeperframe.denominator = 10;
 	
 	printf("init %s \t[OK]\n",FILE_VIDEO);
-	    
-	return TRUE;
+
+	// struct v4l2_frequency fre;
+	// if(ioctl(fd, VIDIOC_G_FREQUENCY, &fre) == -1)
+	// {
+	// 	printf("get frequncy fail\n");
+	// 	return FALSE;
+	// }
+	// else
+	// {
+	// 	printf("frequency %d", fre.frequency);
+	// }
+
+	struct v4l2_standard vstd;
+	vstd.index = 0;
+	printf("frame period request\n");
+	while(ioctl(fd, VIDIOC_ENUMSTD, &vstd) != -1)
+	{
+		printf("video standard %s\n", vstd.name);
+		printf("frameperiod %d", vstd.frameperiod.numerator / vstd.frameperiod.denominator);
+		vstd.index++;
+	}
 }
 
 int v4l2_grab(void)
@@ -161,15 +184,15 @@ int v4l2_grab(void)
 	//request for 4 buffers 
 	req.count=4; // the request may be not satisfied because lack of memory in the device
 	req.type=V4L2_BUF_TYPE_VIDEO_CAPTURE;
-	req.memory=V4L2_MEMORY_MMAP;// set user pointer i/o or memory map
+	req.memory=V4L2_MEMORY_MMAP; // set user pointer i/o or memory map
 
-	// initiate memory mapping or user pointer i/o
-	if(ioctl(fd,VIDIOC_REQBUFS,&req)==-1)
+	// initiate memory mapping or user pointer i/o // 
+	if(ioctl(fd,VIDIOC_REQBUFS,&req)==-1) //kernel space 
 	{
 		printf("request for buffers error\n");
 	}
 
-	//mmap for buffers
+	//mmap for buffers, user space 
 	buffers = malloc(req.count*sizeof (*buffers));
 	if (!buffers) 
 	{
@@ -201,7 +224,7 @@ int v4l2_grab(void)
 		}
 	}
 		
-	//queue exchange a buffer with the driver
+	// start capturing , queue exchange a buffer with the driver
 	for (n_buffers = 0; n_buffers < req.count; n_buffers++)
 	{
 		buf.index = n_buffers;
@@ -211,7 +234,7 @@ int v4l2_grab(void)
 	type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
 	ioctl (fd, VIDIOC_STREAMON, &type);
 	
-	ioctl(fd, VIDIOC_DQBUF, &buf); //清空
+	ioctl(fd, VIDIOC_DQBUF, &buf); //read data
 
     printf("grab yuyv OK\n");
 	return(TRUE);
@@ -231,6 +254,7 @@ int yuyv_2_rgb888(void)
     {
     	for(j=0;j<320;j++)
     	{
+			// each four bytes is two pixels
     		y1 = *( pointer + (i*320+j)*4);
     		u  = *( pointer + (i*320+j)*4 + 1);
     		y2 = *( pointer + (i*320+j)*4 + 2);
@@ -284,6 +308,22 @@ int yuyv_2_rgb888(void)
     }
     printf("change to RGB OK \n");
 }
+void yuyv2gray(void)
+{
+	unsigned char *p1 = frame_buffer;
+	unsigned char *p2 = buffers[0].start;
+		
+	for(int i = 0; i < IMAGEHEIGHT; ++i)
+	{
+		for(int j = 0; j < IMAGEWIDTH; ++j)
+		{
+			*p1 = *p2;
+			++p1;
+			++p2;
+			++p2;
+		}
+	}
+}
 
 int close_v4l2(void)
 {
@@ -298,68 +338,11 @@ int close_v4l2(void)
 
 int cameraRead( unsigned char **data, int *w, int *h)
 {
-
-    FILE * fp1,* fp2;
-
-    BITMAPFILEHEADER   bf;
-    BITMAPINFOHEADER   bi;
-   
-
-    fp1 = fopen(BMP, "wb");
-    if(!fp1)
-	{
-		printf("open "BMP"error\n");
-		return(FALSE);
-	}
-	
-	fp2 = fopen(YUV, "wb");
-    if(!fp2)
-	{
-		printf("open "YUV"error\n");
-		return(FALSE);
-	}
-
-	if(init_v4l2() == FALSE) 
-	{
-     	return(FALSE);
-	}
-	
-	//Set BITMAPINFOHEADER
-	bi.biSize = 40;
-	bi.biWidth = IMAGEWIDTH;
-	bi.biHeight = IMAGEHEIGHT;
-	bi.biPlanes = 1;
-	bi.biBitCount = 24;
-	bi.biCompression = 0;
-	bi.biSizeImage = IMAGEWIDTH*IMAGEHEIGHT*3;
-	bi.biXPelsPerMeter = 0;
-	bi.biYPelsPerMeter = 0;
-	bi.biClrUsed = 0;
-	bi.biClrImportant = 0;
- 
-
-    //Set BITMAPFILEHEADER
-    bf.bfType = 0x4d42;
-    bf.bfSize = 54 + bi.biSizeImage;     
-	bf.bfReserved = 0;
-    bf.bfOffBits = 54;
-    
     v4l2_grab();
-    // fwrite(buffers[0].start, 640*480*2, 1, fp2);
-    // printf("save "YUV"OK\n");
-    
-    // yuyv_2_rgb888();
-    // fwrite(&bf, 14, 1, fp1);
-    // fwrite(&bi, 40, 1, fp1);    
-    // fwrite(frame_buffer, bi.biSizeImage, 1, fp1);
-    // printf("save "BMP"OK\n");
-    
-    
-    // fclose(fp1);
-    // fclose(fp2);
-    close_v4l2();
-    
-	*data = (unsigned char *)buffers[0].start;
+    yuyv2gray();
+
+	// *data = (unsigned char *)buffers[0].start;
+	*data = frame_buffer;
 
 	if(data == NULL)
 	{
