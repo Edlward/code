@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(myapp)
+
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+
 #set(OpenCV_DIR "/home/lxg/app/opencv-2.4.9/build")
 
 #add_definitions(-std=c++11) 

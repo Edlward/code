@@ -604,7 +604,7 @@ static const struct option
 
 int main(int argc,  char ** argv)
 {
-    dev_name = "/dev/video";
+    dev_name = "/dev/video1";
 
     for (;;) {
         int index;

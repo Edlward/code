@@ -11,6 +11,7 @@ V4l2Camera::V4l2Camera()
     n_buffers = 4;
     buffer = NULL;
     
+    buf.index = 0;
     buf.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
     buf.memory = V4L2_MEMORY_MMAP;
     init_device(&width, &height, fd, io, &n_buffers, &buffer);
@@ -22,13 +23,13 @@ V4l2Camera::~V4l2Camera()
     stop_capturing(fd, IO_METHOD_MMAP);
     uninit_device(IO_METHOD_MMAP, n_buffers, buffer); //free 会segment fault
     close_device(fd);
-    free(buffer);
+    // free(buffer);
 }
 
 void V4l2Camera::init()
 {
-     cv::imread("/home/lxg/codedata/test.jpg");
-    // im.create(height, width, CV_8UC1);
+    //  cv::imread("/home/lxg/codedata/test.jpg");
+    im.create(height, width, CV_8UC1);
     // printf("init height %d, width %d\n", im.rows, im.cols);
     // if(im.empty())
     // {
@@ -56,33 +57,29 @@ int main(int argc, char **argv)
 {
     V4l2Camera camera;
     camera.init();
+    camera.grab();
+
+    cv::Mat src;
+    src.create(camera.height, camera.width, CV_8UC1);
     
-    cv::Mat src = cv::imread("/home/lxg/codedata/test.jpg");
-    // cv::Mat src = cv::Mat::zeros(camera.width, camera.height, CV_8UC1);
-    // printf("src height %d, width %d\n", camera.height, camera.width);
-    // src.create(camera.height, camera.width, CV_8UC1);
-    // src.release();
+    int count = 0;
+    while(1)
+    {
+        if(camera.grab())
+        {
+            // printf("error\n");
+            // continue;
+        }
+        // camera.get(src);
 
-    // int count = 0;
-    cv::imshow("src", src);
-    cv::waitKey(1);
-    // printf("come to while\n");
-    // while(1)
-    // {
-    //     if(camera.grab())
-    //     {
-    //         // printf("error\n");
-    //         continue;
-    //     }
-    //     camera.get(src);
-
-    //     // cv::imshow("camera", src);
-    //     cv::waitKey(0);
-
-    //     ++count;
-    //     if(count > 3)
-    //     {
-    //         break;
-    //     } 
-    // }
+        cv::imshow("camera", camera.im);
+        char key = cv::waitKey(1);
+    
+        ++count;
+        printf("%d\n", count);
+        if(key == 27)
+        {
+            break;
+        } 
+    }
 }

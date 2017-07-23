@@ -3,13 +3,13 @@
 
 # compile C with /usr/bin/cc
 # compile CXX with /usr/bin/c++
-C_FLAGS =  
+C_FLAGS = -g  
 
 C_DEFINES = 
 
 C_INCLUDES = -I/home/lxg/app/include/opencv -I/home/lxg/app/include 
 
-CXX_FLAGS =  
+CXX_FLAGS =  -O0 -Wall -g -ggdb  
 
 CXX_DEFINES = 
 

@@ -8,13 +8,14 @@
 extern "C"
 {
     #include "driver.h"
-}
+};
 
 class V4l2Camera
 {
 public:
     int width;
     int height;
+    cv::Mat im;
 
     
     void init();
@@ -30,7 +31,6 @@ private:
     unsigned int n_buffers;
     Buffer *buffer;
     struct v4l2_buffer buf;
-    cv::Mat im;
     
 };
 

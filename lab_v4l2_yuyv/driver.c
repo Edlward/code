@@ -477,39 +477,64 @@ int read_mmap_frame(int fd, unsigned int n_buffers, unsigned char *p_data,
                     Buffer *buffers, struct v4l2_buffer *buf,
                     int w, int h)
 {
-    printf("read mmap successfully\n");
-    
+    printf("come into read\n");
+
+    fd_set fds;
+
+    // 等待读取完毕    
+    // struct timeval tv;
+    // int r;
+    // FD_ZERO (&fds);
+    // FD_SET (fd, &fds);
+    // /* Timeout. */
+    // tv.tv_sec = 2;
+    // tv.tv_usec = 0;
+    // r = select (fd + 1, &fds, NULL, NULL, &tv);
+    // if (-1 == r) {
+    //     if (EINTR == errno)
+    //         printf("error");
+    //     errno_exit ("select");
+    // }
+    // if (0 == r) {
+    //     fprintf (stderr, "select timeout\n");
+    //     exit (EXIT_FAILURE);
+    // }
+
     if (-1 == xioctl (fd, VIDIOC_DQBUF, buf)) 
     {
-        switch (errno) {
-        case EAGAIN:
-            return -1;
-        case EIO:
-            /* Could ignore EIO, see spec. */
-            /* fall through */
-        default:
-            errno_exit ("VIDIOC_DQBUF");
+        switch (errno) 
+        {
+            case EAGAIN:
+                return -1;
+            case EIO:
+                /* Could ignore EIO, see spec. */
+                /* fall through */
+            default:
+                errno_exit ("VIDIOC_DQBUF");
         }
     }
     assert (buf->index < n_buffers);
     
     //yuyv2gray
-	unsigned char *p2 = (unsigned char *)buffers[buf->index].start;
-	for(int i = 0; i < h; ++i)
-	{
-		for(int j = 0; j < w; ++j)
-		{
-			*p_data = *p2;
-			++p_data;
-			++p2;
-			++p2;
-		}
-	}
+    unsigned char *p2 = (unsigned char *)buffers[buf->index].start;
+    for(int i = 0; i < h; ++i)
+    {
+    	for(int j = 0; j < w; ++j)
+    	{
+    		*p_data = *p2;
+    		++p_data;
+    		++p2;
+    		++p2;
+    	}
+    }
 
 
-    if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))
+    if (-1 == xioctl (fd, VIDIOC_QBUF, buf))
         errno_exit ("VIDIOC_QBUF");    
+
     printf("read mmap successfully\n");
+    
+    buf->index = (buf->index + 1) % n_buffers;
     return 0;
 }
 

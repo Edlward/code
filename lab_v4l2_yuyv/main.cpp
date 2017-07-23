@@ -37,7 +37,7 @@ int main()
 
         imshow("device", im);
         key = waitKey(1);
-        if(key == 27 || count > 2)
+        if(key == 27 || count > 100000)
         {
             break;
         }
