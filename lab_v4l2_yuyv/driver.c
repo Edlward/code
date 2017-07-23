@@ -71,8 +71,9 @@ static void errno_exit (const char *s)
     exit (EXIT_FAILURE);
 }
 
-static void init_mmap (int fd, unsigned int n_buffers, Buffer **buffers )
+static void init_mmap (int fd, unsigned int *n_buffers_tmp, Buffer **buffers )
 {
+    unsigned int n_buffers = *n_buffers_tmp;
     struct v4l2_requestbuffers req;
 
     CLEAR (req);
@@ -98,7 +99,8 @@ static void init_mmap (int fd, unsigned int n_buffers, Buffer **buffers )
     }
 
     // 申请的只是用来存储指针的？？这就是映射
-    *buffers = (Buffer *)calloc (req.count, sizeof (*buffers));
+    *buffers = (Buffer *)calloc (req.count, sizeof (**buffers));
+    printf("calloc %d sizeof(*buffers):%d\n", req.count, sizeof(**buffers));
 
     if (!buffers) {
         fprintf (stderr, "Out of memory\n");
@@ -128,10 +130,11 @@ static void init_mmap (int fd, unsigned int n_buffers, Buffer **buffers )
         if (MAP_FAILED == (*buffers)[n_buffers].start)
             errno_exit ("mmap");
     }
+    *n_buffers_tmp = req.count;
     printf("memory map successfullly\n");
 }
 
-void init_device(int *width, int *height,  int fd, io_method io, unsigned int n_buffers, Buffer **buffers)
+void init_device(int *width, int *height,  int fd, io_method io, unsigned int *n_buffers, Buffer **buffers)
 {
     struct v4l2_capability cap;
     struct v4l2_cropcap cropcap;
@@ -474,6 +477,8 @@ int read_mmap_frame(int fd, unsigned int n_buffers, unsigned char *p_data,
                     Buffer *buffers, struct v4l2_buffer *buf,
                     int w, int h)
 {
+    printf("read mmap successfully\n");
+    
     if (-1 == xioctl (fd, VIDIOC_DQBUF, buf)) 
     {
         switch (errno) {
@@ -504,5 +509,61 @@ int read_mmap_frame(int fd, unsigned int n_buffers, unsigned char *p_data,
 
     if (-1 == xioctl (fd, VIDIOC_QBUF, &buf))
         errno_exit ("VIDIOC_QBUF");    
+    printf("read mmap successfully\n");
     return 0;
+}
+
+
+void stop_capturing(int fd, io_method io)
+{
+    enum v4l2_buf_type type;
+
+    switch (io) {
+    case IO_METHOD_READ:
+        /* Nothing to do. */
+        break;
+
+    case IO_METHOD_MMAP:
+    case IO_METHOD_USERPTR:
+        type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+
+        if (-1 == xioctl (fd, VIDIOC_STREAMOFF, &type))
+            errno_exit ("VIDIOC_STREAMOFF");
+
+        break;
+    }
+}
+
+
+void uninit_device(io_method io, unsigned int n_buffers, Buffer *buffers )
+{
+    unsigned int i;
+
+    switch (io) {
+    case IO_METHOD_READ:
+        free (buffers[0].start);
+        break;
+
+    case IO_METHOD_MMAP:
+        for (i = 0; i < n_buffers; ++i)
+            if (-1 == munmap (buffers[i].start, buffers[i].length))
+                errno_exit ("munmap");
+        // free(buffers);
+        break;
+
+    case IO_METHOD_USERPTR:
+        for (i = 0; i < n_buffers; ++i)
+            free (buffers[i].start);
+        break;
+    }
+
+    free (buffers);
+}
+
+void close_device(int fd)
+{
+    printf("close fd:%d\n", fd);
+
+    if (-1 == close (fd))
+        errno_exit ("close");
 }

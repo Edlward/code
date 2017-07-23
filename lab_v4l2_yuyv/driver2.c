@@ -24,18 +24,27 @@
 
 #include <linux/videodev2.h>
 
-#include "driver.h"
-
 #define CLEAR(x) memset (&(x), 0, sizeof (x))
 
+typedef enum {
+    IO_METHOD_READ,
+    IO_METHOD_MMAP,
+    IO_METHOD_USERPTR,
+} io_method;
 
-// static char * dev_name = NULL;
-// static io_method io = IO_METHOD_MMAP;
-// static int fd = -1;
-// struct buffer * buffers = NULL;
-// static unsigned int n_buffers = 0;
+struct buffer {
+    void *                  start;
+    size_t                  length;
+};
 
-static void errno_exit (const char *s)
+static char *           dev_name        = NULL;
+static io_method        io              = IO_METHOD_MMAP;
+static int              fd              = -1;
+struct buffer *         buffers         = NULL;
+static unsigned int     n_buffers       = 0;
+
+static void
+errno_exit                      (const char *           s)
 {
     fprintf (stderr, "%s error %d, %s\n",
              s, errno, strerror (errno));
@@ -43,7 +52,10 @@ static void errno_exit (const char *s)
     exit (EXIT_FAILURE);
 }
 
-static int xioctl (int fd, int request, void *arg)
+static int
+xioctl                          (int                    fd,
+                                 int                    request,
+                                 void *                 arg)
 {
     int r;
 
@@ -53,13 +65,15 @@ static int xioctl (int fd, int request, void *arg)
     return r;
 }
 
-static void process_image (const void *p)
+static void
+process_image                   (const void *           p)
 {
     fputc ('.', stdout);
     fflush (stdout);
 }
 
-static int read_frame (int fd, io_method io, unsigned int n_buffers, buffer * buffers )
+static int
+read_frame                      (void)
 {
     struct v4l2_buffer buf;
     unsigned int i;
@@ -154,7 +168,8 @@ static int read_frame (int fd, io_method io, unsigned int n_buffers, buffer * bu
     return 1;
 }
 
-static void mainloop (int fd, io_method io, unsigned int n_buffers, buffer * buffers )
+static void
+mainloop                        (void)
 {
     unsigned int count;
 
@@ -187,7 +202,7 @@ static void mainloop (int fd, io_method io, unsigned int n_buffers, buffer * buf
                 exit (EXIT_FAILURE);
             }
 
-            if (read_frame (fd, io, n_buffers, buffers))
+            if (read_frame ())
                 break;
 
             /* EAGAIN - continue select loop. */
@@ -195,7 +210,8 @@ static void mainloop (int fd, io_method io, unsigned int n_buffers, buffer * buf
     }
 }
 
-static void stop_capturing(int fd, io_method io)
+static void
+stop_capturing                  (void)
 {
     enum v4l2_buf_type type;
 
@@ -215,7 +231,8 @@ static void stop_capturing(int fd, io_method io)
     }
 }
 
-void start_capturing (int fd, io_method io, unsigned int n_buffers, buffer * buffers )
+static void
+start_capturing                 (void)
 {
     unsigned int i;
     enum v4l2_buf_type type;
@@ -269,10 +286,10 @@ void start_capturing (int fd, io_method io, unsigned int n_buffers, buffer * buf
 
         break;
     }
-    printf("start capture");
 }
 
-static void uninit_device(io_method io, unsigned int n_buffers, buffer * buffers )
+static void
+uninit_device                   (void)
 {
     unsigned int i;
 
@@ -296,7 +313,8 @@ static void uninit_device(io_method io, unsigned int n_buffers, buffer * buffers
     free (buffers);
 }
 
-static void init_read(unsigned int buffer_size, buffer * buffers)
+static void
+init_read                       (unsigned int           buffer_size)
 {
     buffers = (struct buffer *)calloc (1, sizeof (*buffers));
 
@@ -314,7 +332,8 @@ static void init_read(unsigned int buffer_size, buffer * buffers)
     }
 }
 
-static void init_mmap (char *dev_name, int fd, unsigned int n_buffers, buffer * buffers )
+static void
+init_mmap                       (void)
 {
     struct v4l2_requestbuffers req;
 
@@ -372,7 +391,8 @@ static void init_mmap (char *dev_name, int fd, unsigned int n_buffers, buffer * 
     }
 }
 
-static void init_userp(unsigned int buffer_size, char *dev_name, int fd, unsigned int n_buffers, buffer * buffers )
+static void
+init_userp                      (unsigned int           buffer_size)
 {
     struct v4l2_requestbuffers req;
 
@@ -392,7 +412,7 @@ static void init_userp(unsigned int buffer_size, char *dev_name, int fd, unsigne
         }
     }
 
-    buffers = (struct buffer *)calloc (4, sizeof (*buffers));
+    buffers =(struct buffer *) calloc (4, sizeof (*buffers));
 
     if (!buffers) {
         fprintf (stderr, "Out of memory\n");
@@ -410,7 +430,8 @@ static void init_userp(unsigned int buffer_size, char *dev_name, int fd, unsigne
     }
 }
 
-void init_device(int *width, int *height, char *dev_name, int fd, io_method io, unsigned int n_buffers, buffer * buffers)
+static void
+init_device                     (void)
 {
     struct v4l2_capability cap;
     struct v4l2_cropcap cropcap;
@@ -427,66 +448,33 @@ void init_device(int *width, int *height, char *dev_name, int fd, io_method io, 
             errno_exit ("VIDIOC_QUERYCAP");
         }
     }
-    else
-	{
-     	printf("driver:\t\t%s\n",cap.driver);
-     	printf("card:\t\t%s\n",cap.card);
-     	printf("bus_info:\t%s\n",cap.bus_info);
-     	printf("version:\t%d\n",cap.version);
-     	printf("capabilities:\t%x\n",cap.capabilities);
-    }
-
 
     if (!(cap.capabilities & V4L2_CAP_VIDEO_CAPTURE)) {
         fprintf (stderr, "%s is no video capture device\n",
                  dev_name);
         exit (EXIT_FAILURE);
     }
-    else
-    {
-        printf("device support video capture\n");
-    }
 
-    if(!(cap.capabilities & V4L2_CAP_VIDEO_OUTPUT))
-    {
-        printf("device don't support video output\n");
-    }
-    else
-    {
-        printf("device support video output\n");
-    }
+    switch (io) {
+    case IO_METHOD_READ:
+        if (!(cap.capabilities & V4L2_CAP_READWRITE)) {
+            fprintf (stderr, "%s does not support read i/o\n",
+                     dev_name);
+            exit (EXIT_FAILURE);
+        }
 
-    if(!(cap.capabilities & V4L2_CAP_VIDEO_OVERLAY))
-    {
-        printf("device don't support video overlay\n");
+        break;
+
+    case IO_METHOD_MMAP:
+    case IO_METHOD_USERPTR:
+        if (!(cap.capabilities & V4L2_CAP_STREAMING)) {
+            fprintf (stderr, "%s does not support streaming i/o\n",
+                     dev_name);
+            exit (EXIT_FAILURE);
+        }
+
+        break;
     }
-    else
-    {
-        printf("device support video overlay\n");
-    }
-    
-    switch (io) 
-    {
-        case IO_METHOD_READ:
-            if (!(cap.capabilities & V4L2_CAP_READWRITE)) {
-                fprintf (stderr, "%s does not support read i/o\n",
-                         dev_name);
-                exit (EXIT_FAILURE);
-            }
-
-            break;
-
-        case IO_METHOD_MMAP:
-        case IO_METHOD_USERPTR:
-            if (!(cap.capabilities & V4L2_CAP_STREAMING)) {
-                fprintf (stderr, "%s does not support streaming i/o\n",
-                         dev_name);
-                exit (EXIT_FAILURE);
-            }
-
-            break;
-    }
-
 
 
     /* Select video input, video standard and tune here. */
@@ -503,7 +491,7 @@ void init_device(int *width, int *height, char *dev_name, int fd, io_method io, 
         if (-1 == xioctl (fd, VIDIOC_S_CROP, &crop)) {
             switch (errno) {
             case EINVAL:
-                printf("Cropping not supported\n");
+                /* Cropping not supported. */
                 break;
             default:
                 /* Errors ignored. */
@@ -512,10 +500,8 @@ void init_device(int *width, int *height, char *dev_name, int fd, io_method io, 
         }
     } else {
         /* Errors ignored. */
-        printf("error\n");
     }
 
-    /*set video formate*/
 
     CLEAR (fmt);
 
@@ -540,23 +526,21 @@ void init_device(int *width, int *height, char *dev_name, int fd, io_method io, 
 
     switch (io) {
     case IO_METHOD_READ:
-        init_read (fmt.fmt.pix.sizeimage, buffers);
+        init_read (fmt.fmt.pix.sizeimage);
         break;
 
     case IO_METHOD_MMAP:
-        init_mmap (dev_name, fd, n_buffers, buffers);
+        init_mmap ();
         break;
 
     case IO_METHOD_USERPTR:
-        init_userp (fmt.fmt.pix.sizeimage, dev_name, fd, n_buffers, buffers);
+        init_userp (fmt.fmt.pix.sizeimage);
         break;
     }
-    *width = fmt.fmt.pix.width;
-    *height = fmt.fmt.pix.height;
-    printf("device init successfully\n");
 }
 
-static void close_device(int fd)
+static void
+close_device                    (void)
 {
     if (-1 == close (fd))
         errno_exit ("close");
@@ -564,7 +548,8 @@ static void close_device(int fd)
     fd = -1;
 }
 
-void open_device(char *dev_name, int *fd)
+static void
+open_device                     (void)
 {
     struct stat st;
 
@@ -579,17 +564,19 @@ void open_device(char *dev_name, int *fd)
         exit (EXIT_FAILURE);
     }
 
-    *fd = open (dev_name, O_RDWR /* required */ | O_NONBLOCK, 0);
+    fd = open (dev_name, O_RDWR /* required */ | O_NONBLOCK, 0);
 
-    if (-1 == *fd) {
+    if (-1 == fd) {
         fprintf (stderr, "Cannot open '%s': %d, %s\n",
                  dev_name, errno, strerror (errno));
         exit (EXIT_FAILURE);
     }
-    printf("camera open successfully\n");
 }
 
-static void usage(FILE *fp, int argc, char **argv)
+static void
+usage                           (FILE *                 fp,
+                                 int                    argc,
+                                 char **                argv)
 {
     fprintf (fp,
              "Usage: %s [options]\n\n"
@@ -605,20 +592,19 @@ static void usage(FILE *fp, int argc, char **argv)
 
 static const char short_options [] = "d:hmru";
 
-static const struct option long_options [] = {
+static const struct option
+        long_options [] = {
 { "device",     required_argument,      NULL,           'd' },
 { "help",       no_argument,            NULL,           'h' },
 { "mmap",       no_argument,            NULL,           'm' },
 { "read",       no_argument,            NULL,           'r' },
 { "userp",      no_argument,            NULL,           'u' },
-{ 0, 0, 0, 0 } };
+{ 0, 0, 0, 0 }
+};
 
-int main(int argc, char **argv)
+int main(int argc,  char ** argv)
 {
-    char *dev_name = "/dev/video1";
-    io_method io = IO_METHOD_MMAP;
-    unsigned int n_buffers = 0;
-    struct buffer * buffers = NULL;
+    dev_name = "/dev/video";
 
     for (;;) {
         int index;
@@ -631,52 +617,49 @@ int main(int argc, char **argv)
         if (-1 == c)
             break;
 
-        switch (c) 
-        {
+        switch (c) {
+        case 0: /* getopt_long() flag */
+            break;
 
-            case 0: /* getopt_long() flag */
-                break;
-    
-            case 'd':
-                dev_name = optarg;
-                break;
-    
-            case 'h':
-                usage (stdout, argc, argv);
-                exit (EXIT_SUCCESS);
-    
-            case 'm':
-                io = IO_METHOD_MMAP;
-                break;
-    
-            case 'r':
-                io = IO_METHOD_READ;
-                break;
-    
-            case 'u':
-                io = IO_METHOD_USERPTR;
-                break;
-    
-            default:
-                usage (stderr, argc, argv);
-                exit (EXIT_FAILURE);
+        case 'd':
+            dev_name = optarg;
+            break;
+
+        case 'h':
+            usage (stdout, argc, argv);
+            exit (EXIT_SUCCESS);
+
+        case 'm':
+            io = IO_METHOD_MMAP;
+            break;
+
+        case 'r':
+            io = IO_METHOD_READ;
+            break;
+
+        case 'u':
+            io = IO_METHOD_USERPTR;
+            break;
+
+        default:
+            usage (stderr, argc, argv);
+            exit (EXIT_FAILURE);
         }
     }
-    int fd;
-    open_device (dev_name, &fd);
 
-    int w, h;
-    init_device (&w, &h, dev_name, fd, io, n_buffers, buffers);
+    open_device ();
 
-    start_capturing (fd, io, n_buffers, buffers);
+    init_device ();
 
-    mainloop (fd, io, n_buffers, buffers);
+    start_capturing ();
 
-    stop_capturing (fd, io);
+    mainloop ();
 
-    uninit_device (io, n_buffers, buffers);
+    stop_capturing ();
 
-    close_device (fd);
+    uninit_device ();
+
+    close_device ();
 
     exit (EXIT_SUCCESS);
 

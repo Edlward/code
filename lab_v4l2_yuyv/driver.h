@@ -17,9 +17,13 @@ typedef struct BufferCell Buffer;
 
 
 void open_device(const char *name, int *fd);
-void init_device(int *width, int *height, int fd, io_method io, unsigned int n_buffers, Buffer **buffers);
+void init_device(int *width, int *height, int fd, io_method io, 
+                    unsigned int *n_buffers, Buffer **buffers);
 void start_capturing (int fd, io_method io, unsigned int n_buffers, Buffer * buffers );
 int read_mmap_frame(int fd, unsigned int n_buffers, unsigned char *p_data, 
                     Buffer *buffers, struct v4l2_buffer *buf, int w, int h);
+void stop_capturing(int fd, io_method io);
+void uninit_device(io_method io, unsigned int n_buffers, Buffer * buffers );
+void close_device(int fd);
 
 #endif

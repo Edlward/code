@@ -13,17 +13,15 @@ extern "C"
 class V4l2Camera
 {
 public:
-    V4l2Camera();
-    ~V4l2Camera();
-
     int width;
     int height;
 
-    cv::Mat im;
     
     void init();
     bool grab();
     void get(cv::Mat &src);
+    V4l2Camera();
+    ~V4l2Camera();
 private:
 
     int fd;
@@ -32,6 +30,8 @@ private:
     unsigned int n_buffers;
     Buffer *buffer;
     struct v4l2_buffer buf;
+    cv::Mat im;
+    
 };
 
 #endif
