@@ -7,11 +7,11 @@ C_FLAGS = -g
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/lxg/app/include/opencv -I/home/lxg/app/include 
+C_INCLUDES = -I/usr/local/include/opencv -I/usr/local/include 
 
 CXX_FLAGS =  -O0 -Wall -g -ggdb  
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/lxg/app/include/opencv -I/home/lxg/app/include 
+CXX_INCLUDES = -I/usr/local/include/opencv -I/usr/local/include 
 

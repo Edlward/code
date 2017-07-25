@@ -1,17 +1,15 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
-  "CXX"
+  "C"
   )
 # The set of files for implicit dependencies of each language:
-set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lxg/code/opencv/opencamera.cpp" "/home/lxg/code/opencv/build/CMakeFiles/opencamera.dir/opencamera.cpp.o"
+set(CMAKE_DEPENDS_CHECK_C
+  "/home/lxg/code/cmake/t2/src/main.c" "/home/lxg/code/cmake/t2/build/bin/CMakeFiles/hello.dir/main.c.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
-set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/local/include/opencv"
-  "/usr/local/include"
+set(CMAKE_C_TARGET_INCLUDE_PATH
   )
 
 # Targets to which this target links.

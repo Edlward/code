@@ -1,0 +1,5 @@
+/home/lxg/code/cmake/t2/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/cmake/t2/build/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/cmake/t2/build/bin/CMakeFiles/edit_cache.dir
+/home/lxg/code/cmake/t2/build/bin/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/cmake/t2/build/bin/CMakeFiles/hello.dir

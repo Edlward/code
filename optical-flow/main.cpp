@@ -79,7 +79,8 @@ int main(int argc, char **argv)
 		printf("camera roi is larger than camera\n");
 		return -1;
 	}
-	printf("camera width: %d, height:%d\n", camera->width, camera->height);
+	int fps = cap.get(CV_CAP_PROP_FPS);
+	printf("camera width: %d, height:%d fps:%d\n", camera->width, camera->height, fps);
 	camera->roi.x = (camera->width - camera->roi.width) / 2;
 	camera->roi.y = (camera->height - camera->roi.height) / 2;
 

@@ -25,6 +25,9 @@
 #include <linux/videodev2.h>
 
 #include "driver.h"
+#define VID_TYPE_SCALES         128     /* Scalable */
+#define VID_TYPE_MONOCHROME     256     /* Monochrome only */
+#define VID_TYPE_SUBCAPTURE     512     /* Can capture subareas of the image */
 
 #define CLEAR(x) memset (&(x), 0, sizeof (x))
 
@@ -189,7 +192,23 @@ void init_device(int *width, int *height,  int fd, io_method io, unsigned int *n
     {
         printf("\tdevice support video overlay\n");
     }
-    
+    if(!(cap.capabilities & VID_TYPE_SUBCAPTURE))
+    {
+        printf("\tdevice don't support video subcrop\n");
+    }
+    else
+    {
+        printf("\tdevice support video subcrop\n");
+    }
+    if(!(cap.capabilities & VID_TYPE_SCALES))
+    {
+        printf("\tdevice don't support video scale\n");
+    }
+    else
+    {
+        printf("\tdevice support video scale\n");
+    }
+
 
     //emu(enumerate) all support fmt
     struct v4l2_fmtdesc fmtdesc;
@@ -239,22 +258,74 @@ void init_device(int *width, int *height,  int fd, io_method io, unsigned int *n
     CLEAR (cropcap);
 
     cropcap.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+    if (0 == xioctl (fd, VIDIOC_CROPCAP, &cropcap)) 
+    {
 
-    if (0 == xioctl (fd, VIDIOC_CROPCAP, &cropcap)) {
+        printf("support camera cropcap\n");
+        printf("\tvidioc_cropcap bounds leftup x:%d,y:%d,w:%d,h:%d\n", cropcap.bounds.left, 
+                        cropcap.bounds.top, cropcap.bounds.width, cropcap.bounds.height);
+
+        printf("\tvidioc_cropcap defrect leftup x:%d,y:%d,w:%d,h:%d\n", cropcap.defrect.left, 
+                        cropcap.defrect.top, cropcap.defrect.width, cropcap.defrect.height);
+
+        printf("\tvidioc_cropcap pixelaspect num:%d, dem:%d\n", cropcap.pixelaspect.numerator,
+                        cropcap.pixelaspect.denominator);
+
+        CLEAR(crop);
         crop.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-        crop.c = cropcap.defrect; /* reset to default */
+        // crop.c = cropcap.defrect; /* reset to default */
+        crop.c.left = 0;
+        crop.c.top = 0;
+        crop.c.width = 120;
+        crop.c.height = 100;
 
-        if (-1 == xioctl (fd, VIDIOC_S_CROP, &crop)) {
-            switch (errno) {
-            case EINVAL:
-                printf("Cropping not supported\n");
-                break;
-            default:
-                /* Errors ignored. */
-                break;
+        if (0 != xioctl (fd, VIDIOC_S_CROP, &crop)) 
+        {
+            printf("\tVIDEOC_S_CROP fail\n");
+            switch (errno) 
+            {
+                case EINVAL:
+                    printf("\t\tCropping not supported\n");
+                    break;
+                default:
+                    /* Errors ignored. */
+                    printf("\t\terror ignored\n");
+                    break;
             }
         }
-    } else {
+        else
+        {
+            printf("\tVIDEOC_S_CROP success\n");
+        }
+
+        // CLEAR (crop);
+        crop.type = V4L2_BUF_TYPE_VIDEO_CAPTURE;
+
+        if (0 != xioctl (fd, VIDIOC_G_CROP, &crop)) 
+        {
+            printf("\tVIDEOC_G_CROP fail\n");
+            switch (errno) 
+            {
+                case EINVAL:
+                    printf("\t\tCropping not supported\n");
+                    break;
+                default:
+                    /* Errors ignored. */
+                    printf("\terror ignored\n");
+                    break;
+            }
+            printf("\t\tleftup x:%d,y:%d,w:%d,h:%d\n", crop.c.left, 
+                        crop.c.top, crop.c.width, crop.c.height);
+        }
+        else
+        {
+            printf("\tleftup x:%d,y:%d,w:%d,h:%d\n", crop.c.left, 
+                        crop.c.top, crop.c.width, crop.c.height);
+            printf("\tVIDEOC_G_CROP success\n");
+        }
+    } 
+    else 
+    {
         /* Errors ignored. */
         printf("error\n");
     }
@@ -264,8 +335,12 @@ void init_device(int *width, int *height,  int fd, io_method io, unsigned int *n
     CLEAR (fmt);
 
     fmt.type                = V4L2_BUF_TYPE_VIDEO_CAPTURE;
-    fmt.fmt.pix.width       = 640;
-    fmt.fmt.pix.height      = 480;
+    
+    fmt.fmt.pix.width       = crop.c.width; //640; //cropcap.defrect.width >> 1;
+    fmt.fmt.pix.height      = crop.c.height; //480; //cropcap.defrect.height >> 1;
+    // fmt.fmt.pix.width       = 640; //cropcap.defrect.width >> 1;
+    // fmt.fmt.pix.height      = 480; //cropcap.defrect.height >> 1;
+
     fmt.fmt.pix.pixelformat = V4L2_PIX_FMT_YUYV;
     fmt.fmt.pix.field       = V4L2_FIELD_INTERLACED;
 
@@ -477,64 +552,74 @@ int read_mmap_frame(int fd, unsigned int n_buffers, unsigned char *p_data,
                     Buffer *buffers, struct v4l2_buffer *buf,
                     int w, int h)
 {
-    printf("come into read\n");
-
-    fd_set fds;
-
-    // 等待读取完毕    
-    // struct timeval tv;
-    // int r;
-    // FD_ZERO (&fds);
-    // FD_SET (fd, &fds);
-    // /* Timeout. */
-    // tv.tv_sec = 2;
-    // tv.tv_usec = 0;
-    // r = select (fd + 1, &fds, NULL, NULL, &tv);
-    // if (-1 == r) {
-    //     if (EINTR == errno)
-    //         printf("error");
-    //     errno_exit ("select");
-    // }
-    // if (0 == r) {
-    //     fprintf (stderr, "select timeout\n");
-    //     exit (EXIT_FAILURE);
-    // }
-
-    if (-1 == xioctl (fd, VIDIOC_DQBUF, buf)) 
-    {
-        switch (errno) 
-        {
-            case EAGAIN:
-                return -1;
-            case EIO:
-                /* Could ignore EIO, see spec. */
-                /* fall through */
-            default:
-                errno_exit ("VIDIOC_DQBUF");
+    for(;;)
+    {    
+        // 等待读取完毕    
+        fd_set fds;
+        struct timeval tv;
+        int r;
+        FD_ZERO (&fds);
+        FD_SET (fd, &fds);
+        /* Timeout. */
+        tv.tv_sec = 2;
+        tv.tv_usec = 0;
+        r = select (fd + 1, &fds, NULL, NULL, &tv);//为什么是fd+1，不阻塞怎么会有延时作用
+        if (-1 == r) {
+            if (EINTR == errno)
+                printf("error");
+            errno_exit ("select");
         }
+        if (0 == r) {
+            fprintf (stderr, "select timeout\n");
+            exit (EXIT_FAILURE);
+        }
+
+        if (-1 == xioctl (fd, VIDIOC_DQBUF, buf)) 
+        {
+            // ++buf->index;
+            // if(buf->index == n_buffers)
+            // {
+            //     buf->index = 0;
+            // }   
+            // printf("buf_index:%d", buf->index);
+            // return 1;
+
+            switch (errno) 
+            {
+                case EAGAIN:
+                    // return -1;
+                case EIO:
+                    /* Could ignore EIO, see spec. */
+                    /* fall through */
+                default:
+                    errno_exit ("VIDIOC_DQBUF");
+            }
+            continue;
+        }
+        break;
     }
     assert (buf->index < n_buffers);
-    
+
     //yuyv2gray
     unsigned char *p2 = (unsigned char *)buffers[buf->index].start;
-    for(int i = 0; i < h; ++i)
+    unsigned int length = buffers[0].length / 2, i = 0;
+    for(; i < length; ++i)
     {
-    	for(int j = 0; j < w; ++j)
-    	{
     		*p_data = *p2;
     		++p_data;
     		++p2;
     		++p2;
-    	}
     }
-
-
+    // memcpy(p_data, p2, length);
     if (-1 == xioctl (fd, VIDIOC_QBUF, buf))
-        errno_exit ("VIDIOC_QBUF");    
+        errno_exit ("VIDIOC_QBUF"); 
 
-    printf("read mmap successfully\n");
-    
-    buf->index = (buf->index + 1) % n_buffers;
+    ++buf->index;
+    if(buf->index == n_buffers)
+    {
+        buf->index = 0;
+    }   
+    // printf("buf_index:%d", buf->index);
     return 0;
 }
 
