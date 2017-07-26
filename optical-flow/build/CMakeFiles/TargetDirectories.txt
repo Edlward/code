@@ -1,3 +1,8 @@
 /home/lxg/code/optical-flow/build/CMakeFiles/edit_cache.dir
 /home/lxg/code/optical-flow/build/CMakeFiles/rebuild_cache.dir
 /home/lxg/code/optical-flow/build/CMakeFiles/of.dir
+/home/lxg/code/optical-flow/build/driver/CMakeFiles/edit_cache.dir
+/home/lxg/code/optical-flow/build/driver/CMakeFiles/openCamera.dir
+/home/lxg/code/optical-flow/build/driver/CMakeFiles/driver.dir
+/home/lxg/code/optical-flow/build/driver/CMakeFiles/cameraDriver.dir
+/home/lxg/code/optical-flow/build/driver/CMakeFiles/rebuild_cache.dir

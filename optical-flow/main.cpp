@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-using namespace std;
 #include <vector>
 #include "xtofglobal.h"
 #include "xtofFindCorner.h"
@@ -17,12 +16,16 @@ using namespace std;
 #include <time.h>
 #include "opticalFlow.h"
 
+#include "driver/driverPakage.h"
+
 extern "C"{
 #include "readSonar.h"
 #include "PilotData.h"
 };
 
 using namespace cv;
+using namespace std;
+
 
 TermCriteria cornerTermcrit(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.03);//迭代次数和迭代精度
 Mat imgPrev;                    //前一帧图像，最新从视频流获取到的在前面
@@ -58,56 +61,71 @@ int main(int argc, char **argv)
 		sscanf(argv[1], "%d", &cap_index);
 	}
 
-	VideoCapture cap;
+	//使用opencv自带的摄像头驱动
+	// VideoCapture cap;
+	// cap.open(cap_index);
+	// // cap.open("/home/lxg/codedata/live.avi");
+	// if(!cap.isOpened())
+	// {
+	// 	fprintf(stderr, "Can't initialize cam!\n");
+	// 	return -1;
+	// }
+    // else
+    // {
+    //     fprintf(stderr, "open camera successd\n");
+    // }
+	// camera->width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
+	// camera->height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
+	// int fps = cap.get(CV_CAP_PROP_FPS);
+	// printf("camera width: %d, height:%d fps:%d\n", camera->width, camera->height, fps);
+	/*使用opencv videocapture结束*/
+
+	// 使用v4l2camera
+	Mat frame;
+	
+	V4l2Camera cap;
 	cap.open(cap_index);
-	// cap.open("/home/lxg/codedata/live.avi");
-	if(!cap.isOpened())
-	{
-		fprintf(stderr, "Can't initialize cam!\n");
-		return -1;
-	}
-    else
-    {
-        fprintf(stderr, "open camera successd\n");
-    }
-	// cap.get()
-	camera->width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
-	camera->height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
+	cap.init(frame);
+
+	camera->width = cap.width;
+	camera->height = cap.height;
+	/*使用v4l2camera结束*/
+
 	if(camera->width < camera->roi.width || 
 		camera->height < camera->roi.height)
 	{
 		printf("camera roi is larger than camera\n");
 		return -1;
 	}
-	int fps = cap.get(CV_CAP_PROP_FPS);
-	printf("camera width: %d, height:%d fps:%d\n", camera->width, camera->height, fps);
 	camera->roi.x = (camera->width - camera->roi.width) / 2;
 	camera->roi.y = (camera->height - camera->roi.height) / 2;
-
 	
-	Mat frame;
 
     while (1)
 	{
-		
-		cap >> frame;
+		// cap >> frame;
+		cap.get(frame);
 		if (frame.empty())
 		{
 			fprintf(stderr,"video3ss.avi end\n");
 			break;
 		}
-
-		of.sendFrame(frame, 0); //是否做Bt预处理
-		of.getOf(1); //是用LK或者块匹配
+		
+		of.sendFrame(frame, 0); //是否做Bt预处理，传送的需要是单通道图像
+		of.getOf(3); //1opencvLK 2块匹配 3.lkt
 
 		// of2.sendFrame(frame, 1); //binary
-		// of2.sendFrame(frame, 1);
-		// of2.getOf(1);
+		of2.sendFrame(frame, 0);
+		of2.getOf(1);
 
 		char c = waitKey(1);
 		if(c == 27)
 		{
 			break;
+		}
+		else if(c == 's')
+		{
+			waitKey(0);
 		}
 		// image = frame(camera.roi);
 		// //remap(image, image, cameraMapX, cameraMapY, INTER_LINEAR);//图像摄像机畸变矫正
@@ -116,7 +134,7 @@ int main(int argc, char **argv)
 		
 		// xtofOpticalFlow();
 	}
-	cap.release();
+	// cap.release();
 	delete camera;
 	return 0;
 }

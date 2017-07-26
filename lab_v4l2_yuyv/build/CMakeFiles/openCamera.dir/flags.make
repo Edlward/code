@@ -7,11 +7,11 @@ C_FLAGS = -g
 
 C_DEFINES = 
 
-C_INCLUDES = -I/usr/local/include/opencv -I/usr/local/include 
+C_INCLUDES = -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv 
 
 CXX_FLAGS =  -O0 -Wall -g -ggdb  
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include/opencv -I/usr/local/include 
+CXX_INCLUDES = -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv 
 

@@ -29,7 +29,7 @@ V4l2Camera::~V4l2Camera()
 void V4l2Camera::init()
 {
     im.create(height, width, CV_8UC1);
-    // printf("init height %d, width %d\n", im.rows, im.cols);
+    printf("init height %d, width %d\n", im.rows, im.cols);
     // if(im.empty())
     // {
     //     printf("empty image after create\n");
@@ -54,6 +54,7 @@ int main(int argc, char **argv)
 
     cv::Mat src;
     src.create(camera.height, camera.width, CV_8UC1);
+    printf("src height %d, width %d\n", src.rows, src.cols);
     
     int count = 0;
     double t = 0.f;

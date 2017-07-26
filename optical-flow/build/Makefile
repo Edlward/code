@@ -123,6 +123,45 @@ of/fast:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/build
 .PHONY : of/fast
 
+#=============================================================================
+# Target rules for targets named openCamera
+
+# Build rule for target.
+openCamera: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 openCamera
+.PHONY : openCamera
+
+# fast build rule for target.
+openCamera/fast:
+	$(MAKE) -f driver/CMakeFiles/openCamera.dir/build.make driver/CMakeFiles/openCamera.dir/build
+.PHONY : openCamera/fast
+
+#=============================================================================
+# Target rules for targets named driver
+
+# Build rule for target.
+driver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 driver
+.PHONY : driver
+
+# fast build rule for target.
+driver/fast:
+	$(MAKE) -f driver/CMakeFiles/driver.dir/build.make driver/CMakeFiles/driver.dir/build
+.PHONY : driver/fast
+
+#=============================================================================
+# Target rules for targets named cameraDriver
+
+# Build rule for target.
+cameraDriver: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cameraDriver
+.PHONY : cameraDriver
+
+# fast build rule for target.
+cameraDriver/fast:
+	$(MAKE) -f driver/CMakeFiles/cameraDriver.dir/build.make driver/CMakeFiles/cameraDriver.dir/build
+.PHONY : cameraDriver/fast
+
 PilotData.o: PilotData.c.o
 
 .PHONY : PilotData.o
@@ -429,6 +468,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... of"
+	@echo "... openCamera"
+	@echo "... driver"
+	@echo "... cameraDriver"
 	@echo "... PilotData.o"
 	@echo "... PilotData.i"
 	@echo "... PilotData.s"

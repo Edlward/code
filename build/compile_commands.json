@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/lxg/code/build",
+  "command": "/usr/bin/c++     -g   -o CMakeFiles/sdf.dir/main.cpp.o -c /home/lxg/code/main.cpp",
+  "file": "/home/lxg/code/main.cpp"
+}
+]

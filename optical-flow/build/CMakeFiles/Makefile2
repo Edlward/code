@@ -63,10 +63,10 @@ CMAKE_BINARY_DIR = /home/lxg/code/optical-flow/build
 # Target rules for target CMakeFiles/of.dir
 
 # All Build rule for target.
-CMakeFiles/of.dir/all:
+CMakeFiles/of.dir/all: driver/CMakeFiles/cameraDriver.dir/all
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/depend
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target of"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18,19 "Built target of"
 .PHONY : CMakeFiles/of.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/of.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/of.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 15
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/of.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
 .PHONY : CMakeFiles/of.dir/rule
@@ -93,6 +93,139 @@ CMakeFiles/of.dir/clean:
 
 # clean rule for target.
 clean: CMakeFiles/of.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory driver
+
+# Convenience name for "all" pass in the directory.
+driver/all: driver/CMakeFiles/openCamera.dir/all
+driver/all: driver/CMakeFiles/driver.dir/all
+driver/all: driver/CMakeFiles/cameraDriver.dir/all
+
+.PHONY : driver/all
+
+# Convenience name for "clean" pass in the directory.
+driver/clean: driver/CMakeFiles/openCamera.dir/clean
+driver/clean: driver/CMakeFiles/driver.dir/clean
+driver/clean: driver/CMakeFiles/cameraDriver.dir/clean
+
+.PHONY : driver/clean
+
+# Convenience name for "preinstall" pass in the directory.
+driver/preinstall:
+
+.PHONY : driver/preinstall
+
+#=============================================================================
+# Target rules for target driver/CMakeFiles/openCamera.dir
+
+# All Build rule for target.
+driver/CMakeFiles/openCamera.dir/all:
+	$(MAKE) -f driver/CMakeFiles/openCamera.dir/build.make driver/CMakeFiles/openCamera.dir/depend
+	$(MAKE) -f driver/CMakeFiles/openCamera.dir/build.make driver/CMakeFiles/openCamera.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=20,21,22 "Built target openCamera"
+.PHONY : driver/CMakeFiles/openCamera.dir/all
+
+# Include target in all.
+all: driver/CMakeFiles/openCamera.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+driver/CMakeFiles/openCamera.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 driver/CMakeFiles/openCamera.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
+.PHONY : driver/CMakeFiles/openCamera.dir/rule
+
+# Convenience name for target.
+openCamera: driver/CMakeFiles/openCamera.dir/rule
+
+.PHONY : openCamera
+
+# clean rule for target.
+driver/CMakeFiles/openCamera.dir/clean:
+	$(MAKE) -f driver/CMakeFiles/openCamera.dir/build.make driver/CMakeFiles/openCamera.dir/clean
+.PHONY : driver/CMakeFiles/openCamera.dir/clean
+
+# clean rule for target.
+clean: driver/CMakeFiles/openCamera.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target driver/CMakeFiles/driver.dir
+
+# All Build rule for target.
+driver/CMakeFiles/driver.dir/all:
+	$(MAKE) -f driver/CMakeFiles/driver.dir/build.make driver/CMakeFiles/driver.dir/depend
+	$(MAKE) -f driver/CMakeFiles/driver.dir/build.make driver/CMakeFiles/driver.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=4,5,6,7 "Built target driver"
+.PHONY : driver/CMakeFiles/driver.dir/all
+
+# Include target in all.
+all: driver/CMakeFiles/driver.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+driver/CMakeFiles/driver.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 driver/CMakeFiles/driver.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
+.PHONY : driver/CMakeFiles/driver.dir/rule
+
+# Convenience name for target.
+driver: driver/CMakeFiles/driver.dir/rule
+
+.PHONY : driver
+
+# clean rule for target.
+driver/CMakeFiles/driver.dir/clean:
+	$(MAKE) -f driver/CMakeFiles/driver.dir/build.make driver/CMakeFiles/driver.dir/clean
+.PHONY : driver/CMakeFiles/driver.dir/clean
+
+# clean rule for target.
+clean: driver/CMakeFiles/driver.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target driver/CMakeFiles/cameraDriver.dir
+
+# All Build rule for target.
+driver/CMakeFiles/cameraDriver.dir/all:
+	$(MAKE) -f driver/CMakeFiles/cameraDriver.dir/build.make driver/CMakeFiles/cameraDriver.dir/depend
+	$(MAKE) -f driver/CMakeFiles/cameraDriver.dir/build.make driver/CMakeFiles/cameraDriver.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=1,2,3 "Built target cameraDriver"
+.PHONY : driver/CMakeFiles/cameraDriver.dir/all
+
+# Include target in all.
+all: driver/CMakeFiles/cameraDriver.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+driver/CMakeFiles/cameraDriver.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 driver/CMakeFiles/cameraDriver.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
+.PHONY : driver/CMakeFiles/cameraDriver.dir/rule
+
+# Convenience name for target.
+cameraDriver: driver/CMakeFiles/cameraDriver.dir/rule
+
+.PHONY : cameraDriver
+
+# clean rule for target.
+driver/CMakeFiles/cameraDriver.dir/clean:
+	$(MAKE) -f driver/CMakeFiles/cameraDriver.dir/build.make driver/CMakeFiles/cameraDriver.dir/clean
+.PHONY : driver/CMakeFiles/cameraDriver.dir/clean
+
+# clean rule for target.
+clean: driver/CMakeFiles/cameraDriver.dir/clean
 
 .PHONY : clean
 

@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lxg/code/optical-flow/driver/driver.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+assert.h
+-
+getopt.h
+-
+fcntl.h
+-
+unistd.h
+-
+errno.h
+-
+sys/stat.h
+-
+sys/types.h
+-
+sys/time.h
+-
+sys/mman.h
+-
+sys/ioctl.h
+-
+asm/types.h
+-
+linux/videodev2.h
+-
+driver.h
+/home/lxg/code/optical-flow/driver/driver.h
+
+/home/lxg/code/optical-flow/driver/driver.h
+sys/types.h
+-
+

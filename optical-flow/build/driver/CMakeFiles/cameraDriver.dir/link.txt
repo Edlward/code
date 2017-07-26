@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcameraDriver.a  CMakeFiles/cameraDriver.dir/driver.c.o CMakeFiles/cameraDriver.dir/driverPakage.cpp.o
+/usr/bin/ranlib libcameraDriver.a

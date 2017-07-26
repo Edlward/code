@@ -1,5 +1,4 @@
 #include "opticalFlow.h"
-
 #include "xtofFindCorner.h"
 #include "xtofCalcPyrlk.h"
 #include "xtofAffine2D.h"
@@ -33,7 +32,7 @@ OpticalFlow::OpticalFlow(Camera *_c, string _win_name):
 {
     stream = stdout;
     // stream = fopen("/home/lxg/codedata/ofdata.txt", "w");
-
+    frame_num = 0;
     camera = _c;
 
     max_pixel_delta = 2.5f; //函数没有放在类内，所以此处更改不起作用
@@ -50,6 +49,9 @@ OpticalFlow::OpticalFlow(Camera *_c, string _win_name):
     namedWindow(win_name.c_str(), WINDOW_AUTOSIZE);
 
     trans_sum.setIdentity();
+
+    tc = KLTCreateTrackingContext();
+    KLTPrintTrackingContext(tc);
 }
 
 /****************************************************************
@@ -57,12 +59,13 @@ OpticalFlow::OpticalFlow(Camera *_c, string _win_name):
 ****************************************************************/
 void OpticalFlow::sendFrame(const Mat &im, int flg)
 {
+    ++frame_num;
     cv::swap(im_first, im_second);
     swap(impyr_first, impyr_second);
 
-    Mat tmp;
-    cvtColor(im(camera->roi), tmp, CV_RGB2GRAY);
-    resize(tmp, im_first, Size(), camera->scale, camera->scale); 
+    // Mat tmp;
+    // cvtColor(im(camera->roi), tmp, CV_RGB2GRAY);
+    resize(im(camera->roi), im_first, Size(), camera->scale, camera->scale); 
     im_first.copyTo(camera->im_src);
     
     if(flg)
@@ -84,18 +87,17 @@ void OpticalFlow::getOf(int flg)
     switch(flg)
     {
         case 1:
-        {
             // LK光流
             findCorner();
             trackCorner();
             break;
-        }
         case 2:
-        {
             // 块匹配光流
             blockOpticalFlow();
             break;
-        }
+        case 3:
+            stanKlt();
+            break;        
         default:
         {
             fprintf(stream, "the method for computing optical flow choose is none\n");
@@ -104,13 +106,55 @@ void OpticalFlow::getOf(int flg)
 
     computeAffine();
     lowPassFilter(pixel_dis, pixel_dis);
-
+    if(frame_num == 9)
+    {   
+        trans_sum.setIdentity();
+    }
     time[3] = ((double)getTickCount() - t) / getTickFrequency() * 1000;
     
     show();
     message();
 }
-
+/****************************************************************
+ * 
+****************************************************************/
+void OpticalFlow::stanKlt()
+{
+    int nFeatures = 100;
+    KLT_FeatureList fl;
+    fl = KLTCreateFeatureList(nFeatures);
+    
+    unsigned char *img1 = im_first.data;
+    unsigned char *img2 = im_second.data;
+    int nrows = im_first.rows;
+    int ncols = im_first.cols;
+    KLTSelectGoodFeatures(tc, img1, ncols, nrows, fl); 
+    corner_first.resize(nFeatures);
+    for(int i = 0; i < nFeatures; ++i)
+    {
+        corner_first[i].x = fl->feature[i]->x;
+        corner_first[i].y = fl->feature[i]->y;
+    }   
+    KLTTrackFeatures(tc, img1, img2, ncols, nrows, fl);
+    corner_second.resize(nFeatures);
+    corner_status.resize(nFeatures);
+    for(int i = 0; i < nFeatures; ++i)
+    {
+        corner_second[i].x = fl->feature[i]->x;
+        corner_second[i].y = fl->feature[i]->y;
+        if(0 == fl->feature[i]->val)
+        {
+            corner_status[i] = 1;
+        }
+        else
+        {
+            corner_status[i] = 0;
+        }
+        // printf("flg:%d cornerFirst x:%f, y:%f, second x:%f, y:%f \n", 
+        //         corner_status[i], corner_first[i].x, corner_first[i].y, 
+        //         corner_second[i].x, corner_second[i].y);
+    }
+}
 /****************************************************************
  * 
 ****************************************************************/
@@ -153,7 +197,9 @@ void OpticalFlow::computeAffine()
     {
         return;
     }
-    findFundamentalMat(corner_first, corner_second, FM_RANSAC, 2, 0.99, corner_status);
+
+    // 可屏蔽有的光流算法已经设置了错误跟踪的状态
+    // findFundamentalMat(corner_first, corner_second, FM_RANSAC, 2, 0.99, corner_status);
 	for (int i = 0; i < corner_status.size(); i++)
 	{
 		if (corner_status[i])
@@ -203,8 +249,9 @@ void OpticalFlow::show()
     Scalar color_err(0,0,255);
     
     
-    for(int i=0; i < corner_second.size(); ++i)
+    for(int i = 0; i < corner_second.size(); ++i)
     {
+        // 正确跟踪
         if(corner_status[i])
         {
             circle(tmp, corner_first[i], 1, color, 1);
@@ -237,7 +284,7 @@ void OpticalFlow::show()
     {
         static int save_num = 0;
         string path = "/home/lxg/codedata/opticalFlow/";
-        imwrite((path + to_string(save_num) + ".jpg").c_str(), tmp);
+        imwrite((path + std::to_string(save_num) + ".jpg").c_str(), tmp);
         save_num++;
     }
     imshow(win_name.c_str(), tmp);
@@ -294,9 +341,6 @@ void OpticalFlow::debugDrawCurve(float x, float y)
 	Size winSize(700, 400);
 	Mat im = Mat::zeros(winSize, CV_8UC3);
 	
-	static int imX[curve_size];
-	static int imY[curve_size];
-
 	int arrayLength = curve_size - 1;
 	int max = 150, min = -150;
 

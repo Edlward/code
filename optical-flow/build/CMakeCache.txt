@@ -177,16 +177,22 @@ OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
 //Path where release 3rdpaty OpenCV dependencies are located
 OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=
 
-OpenCV_CONFIG_PATH:FILEPATH=/usr/local/share/OpenCV
-
-//The directory containing a CMake configuration file for OpenCV.
-OpenCV_DIR:PATH=/usr/local/share/OpenCV
+OpenCV_CONFIG_PATH:FILEPATH=/home/lxg/app/opencv-2.4.9/build
 
 //Path where debug OpenCV libraries are located
 OpenCV_LIB_DIR_DBG:PATH=
 
 //Path where release OpenCV libraries are located
 OpenCV_LIB_DIR_OPT:PATH=
+
+//Dependencies for the target
+cameraDriver_LIB_DEPENDS:STATIC=general;opencv_videostab;general;opencv_video;general;opencv_ts;general;opencv_superres;general;opencv_stitching;general;opencv_photo;general;opencv_ocl;general;opencv_objdetect;general;opencv_nonfree;general;opencv_ml;general;opencv_legacy;general;opencv_imgproc;general;opencv_highgui;general;opencv_gpu;general;opencv_flann;general;opencv_features2d;general;opencv_core;general;opencv_contrib;general;opencv_calib3d;general;opencv_videostab;general;opencv_video;general;opencv_ts;general;opencv_superres;general;opencv_stitching;general;opencv_photo;general;opencv_ocl;general;opencv_objdetect;general;opencv_nonfree;general;opencv_ml;general;opencv_legacy;general;opencv_imgproc;general;opencv_highgui;general;opencv_gpu;general;opencv_flann;general;opencv_features2d;general;opencv_core;general;opencv_contrib;general;opencv_calib3d;
+
+//Value Computed by CMake
+myapp_BINARY_DIR:STATIC=/home/lxg/code/optical-flow/build/driver
+
+//Value Computed by CMake
+myapp_SOURCE_DIR:STATIC=/home/lxg/code/optical-flow/driver
 
 
 ########################
@@ -279,7 +285,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
