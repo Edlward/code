@@ -162,33 +162,6 @@ cameraDriver/fast:
 	$(MAKE) -f driver/CMakeFiles/cameraDriver.dir/build.make driver/CMakeFiles/cameraDriver.dir/build
 .PHONY : cameraDriver/fast
 
-PilotData.o: PilotData.c.o
-
-.PHONY : PilotData.o
-
-# target to build an object file
-PilotData.c.o:
-	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/PilotData.c.o
-.PHONY : PilotData.c.o
-
-PilotData.i: PilotData.c.i
-
-.PHONY : PilotData.i
-
-# target to preprocess a source file
-PilotData.c.i:
-	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/PilotData.c.i
-.PHONY : PilotData.c.i
-
-PilotData.s: PilotData.c.s
-
-.PHONY : PilotData.s
-
-# target to generate assembly for a file
-PilotData.c.s:
-	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/PilotData.c.s
-.PHONY : PilotData.c.s
-
 blockMatch.o: blockMatch.cpp.o
 
 .PHONY : blockMatch.o
@@ -269,33 +242,6 @@ opticalFlow.s: opticalFlow.cpp.s
 opticalFlow.cpp.s:
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/opticalFlow.cpp.s
 .PHONY : opticalFlow.cpp.s
-
-readSonar.o: readSonar.c.o
-
-.PHONY : readSonar.o
-
-# target to build an object file
-readSonar.c.o:
-	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/readSonar.c.o
-.PHONY : readSonar.c.o
-
-readSonar.i: readSonar.c.i
-
-.PHONY : readSonar.i
-
-# target to preprocess a source file
-readSonar.c.i:
-	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/readSonar.c.i
-.PHONY : readSonar.c.i
-
-readSonar.s: readSonar.c.s
-
-.PHONY : readSonar.s
-
-# target to generate assembly for a file
-readSonar.c.s:
-	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/readSonar.c.s
-.PHONY : readSonar.c.s
 
 tool.o: tool.cpp.o
 
@@ -471,9 +417,6 @@ help:
 	@echo "... openCamera"
 	@echo "... driver"
 	@echo "... cameraDriver"
-	@echo "... PilotData.o"
-	@echo "... PilotData.i"
-	@echo "... PilotData.s"
 	@echo "... blockMatch.o"
 	@echo "... blockMatch.i"
 	@echo "... blockMatch.s"
@@ -483,9 +426,6 @@ help:
 	@echo "... opticalFlow.o"
 	@echo "... opticalFlow.i"
 	@echo "... opticalFlow.s"
-	@echo "... readSonar.o"
-	@echo "... readSonar.i"
-	@echo "... readSonar.s"
 	@echo "... tool.o"
 	@echo "... tool.i"
 	@echo "... tool.s"

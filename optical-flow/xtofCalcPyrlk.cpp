@@ -116,7 +116,7 @@ int xtofCalcPyrlk(vector<Mat> &prevPyr, vector<Mat> &nextPyr,
 #else
 		typedef cv::detail::LKTrackerInvoker LKTrackerInvoker;
 #endif
-
+		// parallel_for_使用了并行 计算
 		parallel_for_(Range(0, npoints), LKTrackerInvoker(prevPyr[level * lvlStep1], derivI,
 			nextPyr[level * lvlStep2], prevPts, nextPts,
 			status, err,

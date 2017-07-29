@@ -4,7 +4,7 @@
 #include "xtofAffine2D.h"
 #include "xtofCameraHeight.h"
 #include "xtofCameraCorrect.h"
-
+#include <string>
 #include "tool.h"
 
 using namespace std;
@@ -128,6 +128,7 @@ void OpticalFlow::stanKlt()
     unsigned char *img2 = im_second.data;
     int nrows = im_first.rows;
     int ncols = im_first.cols;
+
     KLTSelectGoodFeatures(tc, img1, ncols, nrows, fl); 
     corner_first.resize(nFeatures);
     for(int i = 0; i < nFeatures; ++i)
@@ -135,6 +136,14 @@ void OpticalFlow::stanKlt()
         corner_first[i].x = fl->feature[i]->x;
         corner_first[i].y = fl->feature[i]->y;
     }   
+
+    // getUniformCorner(10, corner_first);
+    // for(int i = 0; i < corner_first.size(); ++i)
+    // {
+    //     fl->feature[i]->x = corner_first[i].x;
+    //     fl->feature[i]->y = corner_first[i].y;
+    // }
+
     KLTTrackFeatures(tc, img1, img2, ncols, nrows, fl);
     corner_second.resize(nFeatures);
     corner_status.resize(nFeatures);
@@ -260,7 +269,7 @@ void OpticalFlow::show()
         else
         {
             circle(tmp, corner_first[i], 1, color_err, 1);
-            line(tmp, corner_first[i], corner_second[i], color_err);
+            // line(tmp, corner_first[i], corner_second[i], color_err);
         }
     }
     if(true)
@@ -284,7 +293,9 @@ void OpticalFlow::show()
     {
         static int save_num = 0;
         string path = "/home/lxg/codedata/opticalFlow/";
-        imwrite((path + std::to_string(save_num) + ".jpg").c_str(), tmp);
+        char str_num[10];
+        sprintf(str_num, "%s", save_num);
+        imwrite((path + string(str_num) + ".jpg").c_str(), tmp);
         save_num++;
     }
     imshow(win_name.c_str(), tmp);
@@ -372,4 +383,10 @@ void OpticalFlow::debugDrawCurve(float x, float y)
 		circle(im, Point2d(i * 3, imY[i]), 2, Scalar(0, 255, 0), -1, 8);
 	}
 	imshow((win_name + "_curve").c_str(), im);
+}
+
+
+void OpticalFlow::disVote()
+{
+    
 }

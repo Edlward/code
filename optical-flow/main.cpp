@@ -112,11 +112,11 @@ int main(int argc, char **argv)
 		}
 		
 		of.sendFrame(frame, 0); //是否做Bt预处理，传送的需要是单通道图像
-		of.getOf(3); //1opencvLK 2块匹配 3.lkt
+		of.getOf(1); //1opencvLK 2块匹配 3.lkt(代码 存在内存泄露)
 
 		// of2.sendFrame(frame, 1); //binary
-		of2.sendFrame(frame, 0);
-		of2.getOf(1);
+		// of2.sendFrame(frame, 0);
+		// of2.getOf(1);
 
 		char c = waitKey(1);
 		if(c == 27)

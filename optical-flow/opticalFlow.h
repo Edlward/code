@@ -75,6 +75,9 @@ private:
 	void message();
 	void getUniformCorner(int num, std::vector<cv::Point2f> &corner);
 	void debugDrawCurve(float x, float y);
+	
+	// 位移投票
+	void disVote();
 
 	// 块匹配
 	Blockof blockof;
