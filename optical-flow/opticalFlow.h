@@ -77,7 +77,7 @@ private:
 	void debugDrawCurve(float x, float y);
 	
 	// 位移投票
-	void disVote();
+	void meanshift();
 
 	// 块匹配
 	Blockof blockof;

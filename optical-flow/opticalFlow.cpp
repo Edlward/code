@@ -104,6 +104,9 @@ void OpticalFlow::getOf(int flg)
         }
     }
 
+    // 聚类
+    meanshift();
+
     computeAffine();
     lowPassFilter(pixel_dis, pixel_dis);
     if(frame_num == 9)
@@ -209,7 +212,7 @@ void OpticalFlow::computeAffine()
 
     // 可屏蔽有的光流算法已经设置了错误跟踪的状态
     // findFundamentalMat(corner_first, corner_second, FM_RANSAC, 2, 0.99, corner_status);
-	for (int i = 0; i < corner_status.size(); i++)
+	for (size_t i = 0; i < corner_status.size(); i++)
 	{
 		if (corner_status[i])
 		{
@@ -258,7 +261,7 @@ void OpticalFlow::show()
     Scalar color_err(0,0,255);
     
     
-    for(int i = 0; i < corner_second.size(); ++i)
+    for(size_t i = 0; i < corner_second.size(); ++i)
     {
         // 正确跟踪
         if(corner_status[i])
@@ -386,7 +389,69 @@ void OpticalFlow::debugDrawCurve(float x, float y)
 }
 
 
-void OpticalFlow::disVote()
+void OpticalFlow::meanshift()
 {
+    vector<Point2f> corner_dist;
+    vector<Point2f> corner_dist_tmp;
+    vector<bool> center_flg;
+    corner_dist.resize(corner_first.size());
+    corner_dist_tmp.resize(corner_first.size());
+    center_flg.resize(corner_first.size());
     
+    for(size_t i = 0; i < corner_dist.size(); ++i)
+    {
+        center_flg[i] = false;
+        corner_dist[i] = corner_first[i] - corner_second[i];
+        corner_dist_tmp[i] = corner_first[i] - corner_second[i];
+    }
+
+    float class_distance = 1.f; //把小于这个距离的点当作一个类别
+    float min_distance = 0.2;  //每次偏移的最小距离
+    float max_min_distance = min_distance + 1; //保留每轮更新的最大偏移
+    int counter = 0;
+    float dist = 0.f;
+
+    while(max_min_distance > min_distance)
+    {
+        ++counter;
+        int max_shift = 0;
+        for(size_t i = 0; i < center_flg.size(); ++i)
+        {
+            if(center_flg[i])    
+            {
+                continue;
+            } 
+            Point2f shift_sum(0.f,0.f);
+            int shift_count = 0;
+            for(size_t j = 0; j < center_flg.size(); ++j)
+            {
+                // opencv 计算二范数
+                dist = norm(corner_dist[i] - corner_dist[j]);
+                if(dist < class_distance)
+                {
+                    ++shift_count;
+                    shift_sum = shift_sum + corner_dist[i] - corner_dist[j];
+                }
+            }
+            if(!shift_count)
+            {
+                shift_sum = shift_sum * (1.0f / shift_count);
+            }
+
+            int shift_sum_dist = norm(shift_sum);
+            if(shift_sum_dist > max_shift)
+            {
+                max_shift = shift_sum_dist;
+            }
+            if(shift_sum_dist < min_distance)
+            {
+                center_flg[i] = true;
+                continue;
+            }
+            corner_dist[i] -= shift_sum;
+        }
+
+        max_min_distance = max_shift;
+    }
+    // 根据corner_dist归类
 }
