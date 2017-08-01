@@ -16,8 +16,8 @@ using namespace cv;
 Camera::Camera()
 {
     scale = 1.f;
-    roi.width = 200;
-    roi.height = 200;
+    roi.width = 100;
+    roi.height = 100;
     win_size = 21;
 }
 
@@ -105,7 +105,7 @@ void OpticalFlow::getOf(int flg)
     }
 
     // 聚类
-    meanshift();
+    // meanshift();
 
     computeAffine();
     lowPassFilter(pixel_dis, pixel_dis);
@@ -286,8 +286,8 @@ void OpticalFlow::show()
         line(tmp, p_center, p_center_of, color_err);
     }
     
-    // debugDrawCurve(pixel_dis[0], pixel_dis[1]);
-    debugDrawCurve(trans_sum(0,2), trans_sum(1,2));
+    debugDrawCurve(pixel_dis[0], pixel_dis[1]);
+    // debugDrawCurve(trans_sum(0,2), trans_sum(1,2));
 
 
     resize(tmp, tmp, Size(400,400));
@@ -297,7 +297,7 @@ void OpticalFlow::show()
         static int save_num = 0;
         string path = "/home/lxg/codedata/opticalFlow/";
         char str_num[10];
-        sprintf(str_num, "%s", save_num);
+        sprintf(str_num, "%d", save_num);
         imwrite((path + string(str_num) + ".jpg").c_str(), tmp);
         save_num++;
     }
