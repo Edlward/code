@@ -300,6 +300,7 @@ of: CMakeFiles/of.dir/blockMatch.cpp.o
 of: CMakeFiles/of.dir/build.make
 of: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ts.a
 of: driver/libcameraDriver.a
+of: klt/libklt.a
 of: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_videostab.so.2.4.9
 of: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ts.a
 of: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_superres.so.2.4.9

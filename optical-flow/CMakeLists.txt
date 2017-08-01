@@ -9,9 +9,12 @@ set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
 set(CMAKE_CXX_FLAGS -std=c++11)
 project( MotionDetect )
 find_package( OpenCV REQUIRED)
+
 add_subdirectory(driver)
+add_subdirectory(klt)
+
 include_directories(driver)
-link_directories(${PROJECT_SOURCE_DIR}/build/driver/ ${PROJECT_SOURCE_DIR})
+link_directories(${PROJECT_SOURCE_DIR}/build/driver/ ${PROJECT_SOURCE_DIR}/klt/)
 
 set(SRC_LIST xtofAffine2D.cpp xtofCalcPyrlk.cpp xtofCameraCorrect.cpp xtofCameraHeight.cpp xtofFindCorner.cpp)
 

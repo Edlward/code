@@ -278,8 +278,8 @@ void init_device(int *width, int *height,  int fd, io_method io, unsigned int *n
         crop.c.top = 0;
         // crop.c.width = 300;
         // crop.c.height = 300;
-        crop.c.width = 100;
-        crop.c.height = 100;
+        crop.c.width = V4l2_camera_width;
+        crop.c.height = V4l2_camera_height;
 
         if (0 != xioctl (fd, VIDIOC_S_CROP, &crop)) 
         {

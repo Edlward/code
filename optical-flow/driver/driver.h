@@ -26,4 +26,7 @@ void stop_capturing(int fd, io_method io);
 void uninit_device(io_method io, unsigned int n_buffers, Buffer * buffers );
 void close_device(int fd);
 
+const int V4l2_camera_width = 100;
+const int V4l2_camera_height = 100; 
+
 #endif
