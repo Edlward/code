@@ -12,10 +12,14 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "../driver/CMakeLists.txt"
+<<<<<<< HEAD
   "/usr/local/share/OpenCV/OpenCVConfig-version.cmake"
   "/usr/local/share/OpenCV/OpenCVConfig.cmake"
   "/usr/local/share/OpenCV/OpenCVModules-release.cmake"
   "/usr/local/share/OpenCV/OpenCVModules.cmake"
+=======
+  "../klt/CMakeLists.txt"
+>>>>>>> 71ff7dea29ff823bc17588ac7a0660213b9e1f1b
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCommonLanguageInclude.cmake"
@@ -43,6 +47,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "driver/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "klt/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -51,4 +56,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "driver/CMakeFiles/openCamera.dir/DependInfo.cmake"
   "driver/CMakeFiles/driver.dir/DependInfo.cmake"
   "driver/CMakeFiles/cameraDriver.dir/DependInfo.cmake"
+  "klt/CMakeFiles/klt.dir/DependInfo.cmake"
+  "klt/CMakeFiles/opencvKLT.dir/DependInfo.cmake"
   )

@@ -1,3 +1,0 @@
-/home/lxg/code/klt/opencvklt/build/CMakeFiles/edit_cache.dir
-/home/lxg/code/klt/opencvklt/build/CMakeFiles/rebuild_cache.dir
-/home/lxg/code/klt/opencvklt/build/CMakeFiles/opencvKLT.dir

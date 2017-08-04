@@ -16,8 +16,8 @@ using namespace cv;
 Camera::Camera()
 {
     scale = 1.f;
-    roi.width = 200;
-    roi.height = 200;
+    roi.width = 100;
+    roi.height = 100;
     win_size = 21;
 }
 
@@ -105,7 +105,7 @@ void OpticalFlow::getOf(int flg)
     }
 
     // 聚类
-    meanshift();
+    // meanshift();
 
     computeAffine();
     lowPassFilter(pixel_dis, pixel_dis);

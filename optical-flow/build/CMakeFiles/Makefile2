@@ -64,9 +64,10 @@ CMAKE_BINARY_DIR = /home/lxg/code/optical-flow/build
 
 # All Build rule for target.
 CMakeFiles/of.dir/all: driver/CMakeFiles/cameraDriver.dir/all
+CMakeFiles/of.dir/all: klt/CMakeFiles/klt.dir/all
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/depend
 	$(MAKE) -f CMakeFiles/of.dir/build.make CMakeFiles/of.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17 "Built target of"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=19,20,21,22,23,24,25,26,27,28 "Built target of"
 .PHONY : CMakeFiles/of.dir/all
 
 # Include target in all.
@@ -76,7 +77,7 @@ all: CMakeFiles/of.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/of.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 24
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/of.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
 .PHONY : CMakeFiles/of.dir/rule
@@ -125,7 +126,7 @@ driver/preinstall:
 driver/CMakeFiles/openCamera.dir/all:
 	$(MAKE) -f driver/CMakeFiles/openCamera.dir/build.make driver/CMakeFiles/openCamera.dir/depend
 	$(MAKE) -f driver/CMakeFiles/openCamera.dir/build.make driver/CMakeFiles/openCamera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=18,19,20 "Built target openCamera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=29,30,31 "Built target openCamera"
 .PHONY : driver/CMakeFiles/openCamera.dir/all
 
 # Include target in all.
@@ -226,6 +227,100 @@ driver/CMakeFiles/cameraDriver.dir/clean:
 
 # clean rule for target.
 clean: driver/CMakeFiles/cameraDriver.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory klt
+
+# Convenience name for "all" pass in the directory.
+klt/all: klt/CMakeFiles/klt.dir/all
+klt/all: klt/CMakeFiles/opencvKLT.dir/all
+
+.PHONY : klt/all
+
+# Convenience name for "clean" pass in the directory.
+klt/clean: klt/CMakeFiles/klt.dir/clean
+klt/clean: klt/CMakeFiles/opencvKLT.dir/clean
+
+.PHONY : klt/clean
+
+# Convenience name for "preinstall" pass in the directory.
+klt/preinstall:
+
+.PHONY : klt/preinstall
+
+#=============================================================================
+# Target rules for target klt/CMakeFiles/klt.dir
+
+# All Build rule for target.
+klt/CMakeFiles/klt.dir/all:
+	$(MAKE) -f klt/CMakeFiles/klt.dir/build.make klt/CMakeFiles/klt.dir/depend
+	$(MAKE) -f klt/CMakeFiles/klt.dir/build.make klt/CMakeFiles/klt.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18 "Built target klt"
+.PHONY : klt/CMakeFiles/klt.dir/all
+
+# Include target in all.
+all: klt/CMakeFiles/klt.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+klt/CMakeFiles/klt.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 11
+	$(MAKE) -f CMakeFiles/Makefile2 klt/CMakeFiles/klt.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
+.PHONY : klt/CMakeFiles/klt.dir/rule
+
+# Convenience name for target.
+klt: klt/CMakeFiles/klt.dir/rule
+
+.PHONY : klt
+
+# clean rule for target.
+klt/CMakeFiles/klt.dir/clean:
+	$(MAKE) -f klt/CMakeFiles/klt.dir/build.make klt/CMakeFiles/klt.dir/clean
+.PHONY : klt/CMakeFiles/klt.dir/clean
+
+# clean rule for target.
+clean: klt/CMakeFiles/klt.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target klt/CMakeFiles/opencvKLT.dir
+
+# All Build rule for target.
+klt/CMakeFiles/opencvKLT.dir/all: klt/CMakeFiles/klt.dir/all
+	$(MAKE) -f klt/CMakeFiles/opencvKLT.dir/build.make klt/CMakeFiles/opencvKLT.dir/depend
+	$(MAKE) -f klt/CMakeFiles/opencvKLT.dir/build.make klt/CMakeFiles/opencvKLT.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/optical-flow/build/CMakeFiles --progress-num=32,33 "Built target opencvKLT"
+.PHONY : klt/CMakeFiles/opencvKLT.dir/all
+
+# Include target in all.
+all: klt/CMakeFiles/opencvKLT.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+klt/CMakeFiles/opencvKLT.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 13
+	$(MAKE) -f CMakeFiles/Makefile2 klt/CMakeFiles/opencvKLT.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/optical-flow/build/CMakeFiles 0
+.PHONY : klt/CMakeFiles/opencvKLT.dir/rule
+
+# Convenience name for target.
+opencvKLT: klt/CMakeFiles/opencvKLT.dir/rule
+
+.PHONY : opencvKLT
+
+# clean rule for target.
+klt/CMakeFiles/opencvKLT.dir/clean:
+	$(MAKE) -f klt/CMakeFiles/opencvKLT.dir/build.make klt/CMakeFiles/opencvKLT.dir/clean
+.PHONY : klt/CMakeFiles/opencvKLT.dir/clean
+
+# clean rule for target.
+clean: klt/CMakeFiles/opencvKLT.dir/clean
 
 .PHONY : clean
 

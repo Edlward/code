@@ -162,6 +162,32 @@ cameraDriver/fast:
 	$(MAKE) -f driver/CMakeFiles/cameraDriver.dir/build.make driver/CMakeFiles/cameraDriver.dir/build
 .PHONY : cameraDriver/fast
 
+#=============================================================================
+# Target rules for targets named klt
+
+# Build rule for target.
+klt: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 klt
+.PHONY : klt
+
+# fast build rule for target.
+klt/fast:
+	$(MAKE) -f klt/CMakeFiles/klt.dir/build.make klt/CMakeFiles/klt.dir/build
+.PHONY : klt/fast
+
+#=============================================================================
+# Target rules for targets named opencvKLT
+
+# Build rule for target.
+opencvKLT: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opencvKLT
+.PHONY : opencvKLT
+
+# fast build rule for target.
+opencvKLT/fast:
+	$(MAKE) -f klt/CMakeFiles/opencvKLT.dir/build.make klt/CMakeFiles/opencvKLT.dir/build
+.PHONY : opencvKLT/fast
+
 blockMatch.o: blockMatch.cpp.o
 
 .PHONY : blockMatch.o
@@ -417,6 +443,8 @@ help:
 	@echo "... openCamera"
 	@echo "... driver"
 	@echo "... cameraDriver"
+	@echo "... klt"
+	@echo "... opencvKLT"
 	@echo "... blockMatch.o"
 	@echo "... blockMatch.i"
 	@echo "... blockMatch.s"

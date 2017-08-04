@@ -1,13 +1,25 @@
+<<<<<<< HEAD
 set(CMAKE_HOST_SYSTEM "Linux-4.10.0-28-generic")
 set(CMAKE_HOST_SYSTEM_NAME "Linux")
 set(CMAKE_HOST_SYSTEM_VERSION "4.10.0-28-generic")
+=======
+set(CMAKE_HOST_SYSTEM "Linux-4.4.0-87-generic")
+set(CMAKE_HOST_SYSTEM_NAME "Linux")
+set(CMAKE_HOST_SYSTEM_VERSION "4.4.0-87-generic")
+>>>>>>> 71ff7dea29ff823bc17588ac7a0660213b9e1f1b
 set(CMAKE_HOST_SYSTEM_PROCESSOR "x86_64")
 
 
 
+<<<<<<< HEAD
 set(CMAKE_SYSTEM "Linux-4.10.0-28-generic")
 set(CMAKE_SYSTEM_NAME "Linux")
 set(CMAKE_SYSTEM_VERSION "4.10.0-28-generic")
+=======
+set(CMAKE_SYSTEM "Linux-4.4.0-87-generic")
+set(CMAKE_SYSTEM_NAME "Linux")
+set(CMAKE_SYSTEM_VERSION "4.4.0-87-generic")
+>>>>>>> 71ff7dea29ff823bc17588ac7a0660213b9e1f1b
 set(CMAKE_SYSTEM_PROCESSOR "x86_64")
 
 set(CMAKE_CROSSCOMPILING "FALSE")

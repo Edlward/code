@@ -6,3 +6,7 @@
 /home/lxg/code/optical-flow/build/driver/CMakeFiles/driver.dir
 /home/lxg/code/optical-flow/build/driver/CMakeFiles/cameraDriver.dir
 /home/lxg/code/optical-flow/build/driver/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/optical-flow/build/klt/CMakeFiles/edit_cache.dir
+/home/lxg/code/optical-flow/build/klt/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/optical-flow/build/klt/CMakeFiles/klt.dir
+/home/lxg/code/optical-flow/build/klt/CMakeFiles/opencvKLT.dir

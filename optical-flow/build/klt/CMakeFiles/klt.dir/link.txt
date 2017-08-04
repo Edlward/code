@@ -1,0 +1,2 @@
+/usr/bin/ar qc libklt.a  CMakeFiles/klt.dir/convolve.c.o CMakeFiles/klt.dir/error.c.o CMakeFiles/klt.dir/pnmio.c.o CMakeFiles/klt.dir/pyramid.c.o CMakeFiles/klt.dir/selectGoodFeatures.c.o CMakeFiles/klt.dir/storeFeatures.c.o CMakeFiles/klt.dir/trackFeatures.c.o CMakeFiles/klt.dir/klt.c.o CMakeFiles/klt.dir/klt_util.c.o CMakeFiles/klt.dir/writeFeatures.c.o
+/usr/bin/ranlib libklt.a
