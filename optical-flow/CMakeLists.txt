@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 # 192.168.31.62
 # dell电脑使用
-set(OpenCV_DIR "/home/lxg/app/opencv-2.4.9/build")
+# set(OpenCV_DIR "/home/lxg/app/opencv-2.4.9/build")
 
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")

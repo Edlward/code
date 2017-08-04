@@ -23,6 +23,7 @@ struct Camera
 	Camera();
 };
 
+
 class OpticalFlow
 {
 public:
@@ -58,6 +59,10 @@ private:
 
 	std::vector<cv::Point2f> corner_first;
     std::vector<cv::Point2f> corner_second;    
+
+	std::vector<cv::Point2f> corner_firstc;
+    std::vector<cv::Point2f> corner_secondc;
+
 	std::vector<uchar> corner_status;
 	std::vector<float> corner_err;
 

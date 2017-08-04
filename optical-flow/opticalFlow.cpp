@@ -116,7 +116,7 @@ void OpticalFlow::getOf(int flg)
     time[3] = ((double)getTickCount() - t) / getTickFrequency() * 1000;
     
     show();
-    message();
+    //message();
 }
 /****************************************************************
  * 
@@ -199,8 +199,7 @@ void OpticalFlow::computeAffine()
 {
     double t = (double)getTickCount();
     
-    vector<Point2f> corner_firstc;
-    vector<Point2f> corner_secondc;
+
 
     corner_firstc.clear();
     corner_secondc.clear();
@@ -286,8 +285,8 @@ void OpticalFlow::show()
         line(tmp, p_center, p_center_of, color_err);
     }
     
-    // debugDrawCurve(pixel_dis[0], pixel_dis[1]);
-    debugDrawCurve(trans_sum(0,2), trans_sum(1,2));
+    debugDrawCurve(pixel_dis[0], pixel_dis[1]);
+    // debugDrawCurve(trans_sum(0,2), trans_sum(1,2));
 
 
     resize(tmp, tmp, Size(400,400));
@@ -297,7 +296,7 @@ void OpticalFlow::show()
         static int save_num = 0;
         string path = "/home/lxg/codedata/opticalFlow/";
         char str_num[10];
-        sprintf(str_num, "%s", save_num);
+        sprintf(str_num, "%d", save_num);
         imwrite((path + string(str_num) + ".jpg").c_str(), tmp);
         save_num++;
     }
@@ -405,16 +404,19 @@ void OpticalFlow::meanshift()
         corner_dist_tmp[i] = corner_first[i] - corner_second[i];
     }
 
-    float class_distance = 1.f; //把小于这个距离的点当作一个类别
-    float min_distance = 0.2;  //每次偏移的最小距离
+    float class_distance = 3.f; //把小于这个距离的点当作一个类别
+    float min_distance = 0.002;  //每次偏移的最小距离
     float max_min_distance = min_distance + 1; //保留每轮更新的最大偏移
     int counter = 0;
     float dist = 0.f;
 
+    // printf("\n\n");
     while(max_min_distance > min_distance)
     {
         ++counter;
-        int max_shift = 0;
+        float max_shift = 0.f;
+        // printf("iterate count:%d\n", counter);
+
         for(size_t i = 0; i < center_flg.size(); ++i)
         {
             if(center_flg[i])    
@@ -426,19 +428,19 @@ void OpticalFlow::meanshift()
             for(size_t j = 0; j < center_flg.size(); ++j)
             {
                 // opencv 计算二范数
-                dist = norm(corner_dist[i] - corner_dist[j]);
+                dist = norm(corner_dist[i] - corner_dist_tmp[j]);
                 if(dist < class_distance)
                 {
                     ++shift_count;
-                    shift_sum = shift_sum + corner_dist[i] - corner_dist[j];
+                    shift_sum = shift_sum + corner_dist[i] - corner_dist_tmp[j];
                 }
             }
-            if(!shift_count)
+            if(shift_count)
             {
                 shift_sum = shift_sum * (1.0f / shift_count);
             }
 
-            int shift_sum_dist = norm(shift_sum);
+            float shift_sum_dist = norm(shift_sum);
             if(shift_sum_dist > max_shift)
             {
                 max_shift = shift_sum_dist;
@@ -452,6 +454,92 @@ void OpticalFlow::meanshift()
         }
 
         max_min_distance = max_shift;
+        // printf("max_min_distance:%f\n", max_min_distance);
+
     }
-    // 根据corner_dist归类
+
+    // for(const auto &iter:center_flg)
+    // {
+    //     cout << iter << "\t";
+    // }
+    // printf("\n");
+
+    // for(const auto &iter:corner_dist)
+    // {
+    //     printf("%f,%f\t\n", iter.x, iter.y);
+    // }
+    // printf("\n");
+    
+
+    // 根据center归类,统计类别数，归类
+    vector<Point2i> sc; //shift class
+    vector<int> sc_num;
+    vector<int> sc_flg(corner_dist.size()); //类别标签
+    Point2i ptmp;
+    sc.clear();
+    for(size_t i = 0; i < corner_dist.size(); ++i)
+    {
+        ptmp.x = floor(corner_dist[i].x * 1000);
+        ptmp.y = floor(corner_dist[i].y * 1000);
+
+        size_t j = 0;
+        bool flg = false;
+        for(; j < sc.size(); ++j)
+        {
+            if(ptmp == sc[j])
+            {
+                sc_flg[i] = j;
+                ++sc_num[j];
+                flg = true;
+                break;
+            }
+        }
+        if(!flg)
+        {
+            sc_flg[i] = (int)sc.size();
+            sc_num.push_back(1);
+            sc.push_back(ptmp);
+        }
+    }
+
+    // printf("sc_num:%d\n", (int)sc_num.size());
+    // for(size_t i = 0; i < sc_num.size(); ++i)
+    // {
+    //     printf("order:%d num:%d x:%d,y:%d\n", (int)i, (int)sc_num[i], 
+    //             sc[i].x, sc[i].y);
+    // }   
+    // printf("class flag:\n");
+    // for(const auto &iter:sc_flg)
+    // {
+    //     printf("%d\t", iter);
+    // } 
+    // printf("\n");
+    
+
+    //冒泡排序求类别数目最大值
+    int max_num = 0;
+    int max_index;
+    for(size_t i = 0; i < sc_num.size(); ++i)
+    {
+        if(max_num < sc_num[i])
+        {
+            max_index = i;
+            max_num = sc_num[i]; 
+        }
+    }
+    // printf("index:%d, num:%d\n", max_index, max_num);
+
+
+    // 选取成员数目最多的类为实际位移
+    for(size_t i = 0; i < corner_status.size(); ++i)
+    {
+        if(max_index == sc_flg[i])
+        {
+            corner_status[i] = true;
+        }
+        else
+        {
+            corner_status[i] = false;
+        }
+    }
 }

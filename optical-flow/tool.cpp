@@ -11,13 +11,13 @@ void eigenAffine(const vector<Point2f> &src, const vector<Point2f> &dst, Eigen::
     Eigen::MatrixXf e_src(2, src.size());
     Eigen::MatrixXf e_dst(2, dst.size());
 
-    for(int i=0; i < src.size(); ++i)
+    for(size_t i=0; i < src.size(); ++i)
     {
         e_src(0, i) = src[i].x;
         e_src(1, i) = src[i].y;
     }
     
-    for(int i=0; i < dst.size(); ++i)
+    for(size_t i=0; i < dst.size(); ++i)
     {
         e_dst(0, i) = dst[i].x;
         e_dst(1, i) = dst[i].y;
