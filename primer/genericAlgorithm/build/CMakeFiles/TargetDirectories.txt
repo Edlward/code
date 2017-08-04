@@ -1,0 +1,4 @@
+/home/lxg/code/primer/genericAlgorithm/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/primer/genericAlgorithm/build/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/primer/genericAlgorithm/build/CMakeFiles/iterator.dir
+/home/lxg/code/primer/genericAlgorithm/build/CMakeFiles/lamda.dir

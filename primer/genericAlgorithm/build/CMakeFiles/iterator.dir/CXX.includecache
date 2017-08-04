@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lxg/code/primer/genericAlgorithm/iterator.cpp
+algorithm
+-
+vector
+-
+iostream
+-
+cmath
+-
+typeinfo
+-
+
