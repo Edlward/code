@@ -1,0 +1,3 @@
+/home/lxg/code/backgroundSubstraction/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/backgroundSubstraction/build/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/backgroundSubstraction/build/CMakeFiles/bs.dir
