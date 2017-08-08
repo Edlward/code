@@ -60,39 +60,112 @@ CMAKE_SOURCE_DIR = /home/lxg/code/backgroundSubstraction
 CMAKE_BINARY_DIR = /home/lxg/code/backgroundSubstraction/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/bs.dir
+# Directory level rules for directory back
+
+# Convenience name for "all" pass in the directory.
+back/all: back/CMakeFiles/bs.dir/all
+
+.PHONY : back/all
+
+# Convenience name for "clean" pass in the directory.
+back/clean: back/CMakeFiles/bs.dir/clean
+
+.PHONY : back/clean
+
+# Convenience name for "preinstall" pass in the directory.
+back/preinstall:
+
+.PHONY : back/preinstall
+
+#=============================================================================
+# Target rules for target back/CMakeFiles/bs.dir
 
 # All Build rule for target.
-CMakeFiles/bs.dir/all:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/depend
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/build
+back/CMakeFiles/bs.dir/all:
+	$(MAKE) -f back/CMakeFiles/bs.dir/build.make back/CMakeFiles/bs.dir/depend
+	$(MAKE) -f back/CMakeFiles/bs.dir/build.make back/CMakeFiles/bs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=1,2,3,4 "Built target bs"
-.PHONY : CMakeFiles/bs.dir/all
+.PHONY : back/CMakeFiles/bs.dir/all
 
 # Include target in all.
-all: CMakeFiles/bs.dir/all
+all: back/CMakeFiles/bs.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/bs.dir/rule: cmake_check_build_system
+back/CMakeFiles/bs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/bs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 back/CMakeFiles/bs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 0
-.PHONY : CMakeFiles/bs.dir/rule
+.PHONY : back/CMakeFiles/bs.dir/rule
 
 # Convenience name for target.
-bs: CMakeFiles/bs.dir/rule
+bs: back/CMakeFiles/bs.dir/rule
 
 .PHONY : bs
 
 # clean rule for target.
-CMakeFiles/bs.dir/clean:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/clean
-.PHONY : CMakeFiles/bs.dir/clean
+back/CMakeFiles/bs.dir/clean:
+	$(MAKE) -f back/CMakeFiles/bs.dir/build.make back/CMakeFiles/bs.dir/clean
+.PHONY : back/CMakeFiles/bs.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/bs.dir/clean
+clean: back/CMakeFiles/bs.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory videoSurveilance
+
+# Convenience name for "all" pass in the directory.
+videoSurveilance/all: videoSurveilance/CMakeFiles/vs.dir/all
+
+.PHONY : videoSurveilance/all
+
+# Convenience name for "clean" pass in the directory.
+videoSurveilance/clean: videoSurveilance/CMakeFiles/vs.dir/clean
+
+.PHONY : videoSurveilance/clean
+
+# Convenience name for "preinstall" pass in the directory.
+videoSurveilance/preinstall:
+
+.PHONY : videoSurveilance/preinstall
+
+#=============================================================================
+# Target rules for target videoSurveilance/CMakeFiles/vs.dir
+
+# All Build rule for target.
+videoSurveilance/CMakeFiles/vs.dir/all:
+	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/depend
+	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=5,6,7 "Built target vs"
+.PHONY : videoSurveilance/CMakeFiles/vs.dir/all
+
+# Include target in all.
+all: videoSurveilance/CMakeFiles/vs.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+videoSurveilance/CMakeFiles/vs.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 videoSurveilance/CMakeFiles/vs.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 0
+.PHONY : videoSurveilance/CMakeFiles/vs.dir/rule
+
+# Convenience name for target.
+vs: videoSurveilance/CMakeFiles/vs.dir/rule
+
+.PHONY : vs
+
+# clean rule for target.
+videoSurveilance/CMakeFiles/vs.dir/clean:
+	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/clean
+.PHONY : videoSurveilance/CMakeFiles/vs.dir/clean
+
+# clean rule for target.
+clean: videoSurveilance/CMakeFiles/vs.dir/clean
 
 .PHONY : clean
 

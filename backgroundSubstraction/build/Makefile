@@ -120,89 +120,21 @@ bs: cmake_check_build_system
 
 # fast build rule for target.
 bs/fast:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/build
+	$(MAKE) -f back/CMakeFiles/bs.dir/build.make back/CMakeFiles/bs.dir/build
 .PHONY : bs/fast
 
-backstraction.o: backstraction.cpp.o
+#=============================================================================
+# Target rules for targets named vs
 
-.PHONY : backstraction.o
+# Build rule for target.
+vs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vs
+.PHONY : vs
 
-# target to build an object file
-backstraction.cpp.o:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/backstraction.cpp.o
-.PHONY : backstraction.cpp.o
-
-backstraction.i: backstraction.cpp.i
-
-.PHONY : backstraction.i
-
-# target to preprocess a source file
-backstraction.cpp.i:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/backstraction.cpp.i
-.PHONY : backstraction.cpp.i
-
-backstraction.s: backstraction.cpp.s
-
-.PHONY : backstraction.s
-
-# target to generate assembly for a file
-backstraction.cpp.s:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/backstraction.cpp.s
-.PHONY : backstraction.cpp.s
-
-camera.o: camera.cpp.o
-
-.PHONY : camera.o
-
-# target to build an object file
-camera.cpp.o:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/camera.cpp.o
-.PHONY : camera.cpp.o
-
-camera.i: camera.cpp.i
-
-.PHONY : camera.i
-
-# target to preprocess a source file
-camera.cpp.i:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/camera.cpp.i
-.PHONY : camera.cpp.i
-
-camera.s: camera.cpp.s
-
-.PHONY : camera.s
-
-# target to generate assembly for a file
-camera.cpp.s:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/camera.cpp.s
-.PHONY : camera.cpp.s
-
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/bs.dir/build.make CMakeFiles/bs.dir/main.cpp.s
-.PHONY : main.cpp.s
+# fast build rule for target.
+vs/fast:
+	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/build
+.PHONY : vs/fast
 
 # Help Target
 help:
@@ -213,15 +145,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... bs"
-	@echo "... backstraction.o"
-	@echo "... backstraction.i"
-	@echo "... backstraction.s"
-	@echo "... camera.o"
-	@echo "... camera.i"
-	@echo "... camera.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... vs"
 .PHONY : help
 
 

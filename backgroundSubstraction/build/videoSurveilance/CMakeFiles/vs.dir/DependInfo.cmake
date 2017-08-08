@@ -4,9 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lxg/code/backgroundSubstraction/backstraction.cpp" "/home/lxg/code/backgroundSubstraction/build/CMakeFiles/bs.dir/backstraction.cpp.o"
-  "/home/lxg/code/backgroundSubstraction/camera.cpp" "/home/lxg/code/backgroundSubstraction/build/CMakeFiles/bs.dir/camera.cpp.o"
-  "/home/lxg/code/backgroundSubstraction/main.cpp" "/home/lxg/code/backgroundSubstraction/build/CMakeFiles/bs.dir/main.cpp.o"
+  "/home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.cpp" "/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o"
+  "/home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp" "/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

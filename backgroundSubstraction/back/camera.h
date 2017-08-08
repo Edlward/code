@@ -9,6 +9,9 @@ public:
     Camera();
     ~Camera();
     void open(int argc, char **argv);
+    void get(cv::Mat &im);
+private:
+    cv::Mat im_tmp;
 };
 
 #endif

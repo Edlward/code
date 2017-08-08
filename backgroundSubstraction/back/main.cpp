@@ -12,6 +12,10 @@ int main(int argc, char **argv)
     namedWindow("src", 0);
     namedWindow("ffg", 0);
 
+    resizeWindow("src", 640, 400);
+    resizeWindow("ffg", 640, 400);
+    
+
     Backstraction bs;
     Mat im;
     Mat result;
@@ -19,14 +23,14 @@ int main(int argc, char **argv)
 
     while(1)
     {
-        camera.cap >> im;
+        camera.get(im);
 
         bs.subtraction(im, result);
 
         imshow("src", im);
         imshow("ffg", result);
         
-        key = waitKey(1);
+        key = waitKey(2);
         if(key == 27)
         {
             break;

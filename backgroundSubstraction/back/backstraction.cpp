@@ -14,7 +14,7 @@ void Backstraction::prepareBackFrame(const Mat &src)
 
 void Backstraction::subtraction(const Mat &f1, Mat &result)
 {
-    if(f1.empty())
+    if(f2.empty())
     {
         prepareBackFrame(f1);
     }

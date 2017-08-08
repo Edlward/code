@@ -1,3 +1,8 @@
 /home/lxg/code/backgroundSubstraction/build/CMakeFiles/edit_cache.dir
 /home/lxg/code/backgroundSubstraction/build/CMakeFiles/rebuild_cache.dir
-/home/lxg/code/backgroundSubstraction/build/CMakeFiles/bs.dir
+/home/lxg/code/backgroundSubstraction/build/back/CMakeFiles/edit_cache.dir
+/home/lxg/code/backgroundSubstraction/build/back/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/backgroundSubstraction/build/back/CMakeFiles/bs.dir
+/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/edit_cache.dir
+/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir

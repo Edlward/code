@@ -11,9 +11,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/lxg/app/opencv-2.4.9/build/OpenCVConfig.cmake"
   "/home/lxg/app/opencv-2.4.9/build/OpenCVModules.cmake"
   "../CMakeLists.txt"
+  "../back/CMakeLists.txt"
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
+  "../videoSurveilance/CMakeLists.txt"
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCommonLanguageInclude.cmake"
@@ -40,9 +42,12 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "back/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "videoSurveilance/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/bs.dir/DependInfo.cmake"
+  "back/CMakeFiles/bs.dir/DependInfo.cmake"
+  "videoSurveilance/CMakeFiles/vs.dir/DependInfo.cmake"
   )

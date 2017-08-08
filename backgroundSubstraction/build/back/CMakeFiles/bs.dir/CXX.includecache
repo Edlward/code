@@ -256,27 +256,27 @@ opencv2/video/tracking.hpp
 opencv2/video/background_segm.hpp
 /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/opencv2/video/background_segm.hpp
 
-/home/lxg/code/backgroundSubstraction/backstraction.cpp
+/home/lxg/code/backgroundSubstraction/back/backstraction.cpp
 backstraction.h
-/home/lxg/code/backgroundSubstraction/backstraction.h
+/home/lxg/code/backgroundSubstraction/back/backstraction.h
 
-/home/lxg/code/backgroundSubstraction/backstraction.h
+/home/lxg/code/backgroundSubstraction/back/backstraction.h
 opencv2/opencv.hpp
 -
 
-/home/lxg/code/backgroundSubstraction/camera.cpp
+/home/lxg/code/backgroundSubstraction/back/camera.cpp
 camera.h
-/home/lxg/code/backgroundSubstraction/camera.h
+/home/lxg/code/backgroundSubstraction/back/camera.h
 
-/home/lxg/code/backgroundSubstraction/camera.h
+/home/lxg/code/backgroundSubstraction/back/camera.h
 opencv2/opencv.hpp
 -
 
-/home/lxg/code/backgroundSubstraction/main.cpp
+/home/lxg/code/backgroundSubstraction/back/main.cpp
 opencv2/opencv.hpp
 -
 camera.h
-/home/lxg/code/backgroundSubstraction/camera.h
+/home/lxg/code/backgroundSubstraction/back/camera.h
 backstraction.h
-/home/lxg/code/backgroundSubstraction/backstraction.h
+/home/lxg/code/backgroundSubstraction/back/backstraction.h
 

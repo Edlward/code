@@ -23,9 +23,17 @@ void Camera::open(int argc, char **argv)
         num = 1;
     }
 
-    cap.open(num);
+    std::string video = "/home/lxg/codedata/customer/test.mp4";
+    cap.open(video.c_str());
     if(!cap.isOpened())
     {
         throw std::runtime_error("can not open camera");
     }
+}
+
+void Camera::get(Mat &im)
+{
+    cap >> im_tmp;
+    
+    cvtColor(im_tmp, im, CV_RGB2GRAY);
 }
