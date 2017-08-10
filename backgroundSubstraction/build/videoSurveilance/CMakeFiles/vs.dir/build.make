@@ -81,62 +81,36 @@ videoSurveilance/CMakeFiles/vs.dir/main.cpp.o.provides: videoSurveilance/CMakeFi
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o.provides.build: videoSurveilance/CMakeFiles/vs.dir/main.cpp.o
 
 
-videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o: videoSurveilance/CMakeFiles/vs.dir/flags.make
-videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o: ../videoSurveilance/countBlobTrack.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o"
-	cd /home/lxg/code/backgroundSubstraction/build/videoSurveilance && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vs.dir/countBlobTrack.cpp.o -c /home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.cpp
-
-videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vs.dir/countBlobTrack.cpp.i"
-	cd /home/lxg/code/backgroundSubstraction/build/videoSurveilance && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.cpp > CMakeFiles/vs.dir/countBlobTrack.cpp.i
-
-videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vs.dir/countBlobTrack.cpp.s"
-	cd /home/lxg/code/backgroundSubstraction/build/videoSurveilance && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.cpp -o CMakeFiles/vs.dir/countBlobTrack.cpp.s
-
-videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.requires:
-
-.PHONY : videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.requires
-
-videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.provides: videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.requires
-	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.provides.build
-.PHONY : videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.provides
-
-videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.provides.build: videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o
-
-
 # Object files for target vs
 vs_OBJECTS = \
-"CMakeFiles/vs.dir/main.cpp.o" \
-"CMakeFiles/vs.dir/countBlobTrack.cpp.o"
+"CMakeFiles/vs.dir/main.cpp.o"
 
 # External object files for target vs
 vs_EXTERNAL_OBJECTS =
 
 vs: videoSurveilance/CMakeFiles/vs.dir/main.cpp.o
-vs: videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o
 vs: videoSurveilance/CMakeFiles/vs.dir/build.make
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_videostab.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ts.a
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_superres.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_stitching.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_contrib.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_nonfree.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ocl.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_gpu.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_photo.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_objdetect.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_legacy.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_video.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_ml.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_calib3d.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_features2d.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_highgui.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_imgproc.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_flann.so.2.4.9
-vs: /home/lxg/app/opencv-2.4.9/build/lib/libopencv_core.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_videostab.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_ts.a
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_superres.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_stitching.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_contrib.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_nonfree.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_ocl.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_gpu.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_photo.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_objdetect.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_legacy.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_video.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_ml.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_calib3d.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_features2d.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_highgui.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_imgproc.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_flann.so.2.4.9
+vs: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_core.so.2.4.9
 vs: videoSurveilance/CMakeFiles/vs.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../vs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ../vs"
 	cd /home/lxg/code/backgroundSubstraction/build/videoSurveilance && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vs.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -145,7 +119,6 @@ videoSurveilance/CMakeFiles/vs.dir/build: vs
 .PHONY : videoSurveilance/CMakeFiles/vs.dir/build
 
 videoSurveilance/CMakeFiles/vs.dir/requires: videoSurveilance/CMakeFiles/vs.dir/main.cpp.o.requires
-videoSurveilance/CMakeFiles/vs.dir/requires: videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o.requires
 
 .PHONY : videoSurveilance/CMakeFiles/vs.dir/requires
 

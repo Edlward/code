@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/vs.dir/main.cpp.o"
-  "CMakeFiles/vs.dir/countBlobTrack.cpp.o"
   "../vs.pdb"
   "../vs"
 )

@@ -125,33 +125,6 @@ vs/fast:
 	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/build
 .PHONY : vs/fast
 
-countBlobTrack.o: countBlobTrack.cpp.o
-
-.PHONY : countBlobTrack.o
-
-# target to build an object file
-countBlobTrack.cpp.o:
-	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o
-.PHONY : countBlobTrack.cpp.o
-
-countBlobTrack.i: countBlobTrack.cpp.i
-
-.PHONY : countBlobTrack.i
-
-# target to preprocess a source file
-countBlobTrack.cpp.i:
-	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.i
-.PHONY : countBlobTrack.cpp.i
-
-countBlobTrack.s: countBlobTrack.cpp.s
-
-.PHONY : countBlobTrack.s
-
-# target to generate assembly for a file
-countBlobTrack.cpp.s:
-	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.s
-.PHONY : countBlobTrack.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -188,9 +161,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... vs"
-	@echo "... countBlobTrack.o"
-	@echo "... countBlobTrack.i"
-	@echo "... countBlobTrack.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

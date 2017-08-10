@@ -136,6 +136,19 @@ vs/fast:
 	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/build
 .PHONY : vs/fast
 
+#=============================================================================
+# Target rules for targets named sample
+
+# Build rule for target.
+sample: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample
+.PHONY : sample
+
+# fast build rule for target.
+sample/fast:
+	$(MAKE) -f opencvTest/CMakeFiles/sample.dir/build.make opencvTest/CMakeFiles/sample.dir/build
+.PHONY : sample/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -146,6 +159,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... bs"
 	@echo "... vs"
+	@echo "... sample"
 .PHONY : help
 
 

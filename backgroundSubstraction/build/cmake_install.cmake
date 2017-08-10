@@ -36,6 +36,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/lxg/code/backgroundSubstraction/build/back/cmake_install.cmake")
   include("/home/lxg/code/backgroundSubstraction/build/videoSurveilance/cmake_install.cmake")
+  include("/home/lxg/code/backgroundSubstraction/build/opencvTest/cmake_install.cmake")
 
 endif()
 

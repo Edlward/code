@@ -4,14 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.cpp" "/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir/countBlobTrack.cpp.o"
   "/home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp" "/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/lxg/app/opencv-2.4.9/build"
+  "/home/lxg/app/opencv-2.4.9/debug"
   "/home/lxg/app/opencv-2.4.9/include"
   "/home/lxg/app/opencv-2.4.9/include/opencv"
   "/home/lxg/app/opencv-2.4.9/modules/core/include"

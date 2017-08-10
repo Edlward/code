@@ -6,3 +6,6 @@
 /home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/edit_cache.dir
 /home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/rebuild_cache.dir
 /home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir
+/home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/edit_cache.dir
+/home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/sample.dir

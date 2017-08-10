@@ -12,7 +12,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/lxg/app/opencv-2.4.9/build"
+  "/home/lxg/app/opencv-2.4.9/debug"
   "/home/lxg/app/opencv-2.4.9/include"
   "/home/lxg/app/opencv-2.4.9/include/opencv"
   "/home/lxg/app/opencv-2.4.9/modules/core/include"

@@ -7,14 +7,15 @@ set(CMAKE_DEPENDS_GENERATOR "Unix Makefiles")
 # The top level Makefile was generated from the following files:
 set(CMAKE_MAKEFILE_DEPENDS
   "CMakeCache.txt"
-  "/home/lxg/app/opencv-2.4.9/build/OpenCVConfig-version.cmake"
-  "/home/lxg/app/opencv-2.4.9/build/OpenCVConfig.cmake"
-  "/home/lxg/app/opencv-2.4.9/build/OpenCVModules.cmake"
+  "/home/lxg/app/opencv-2.4.9/debug/OpenCVConfig-version.cmake"
+  "/home/lxg/app/opencv-2.4.9/debug/OpenCVConfig.cmake"
+  "/home/lxg/app/opencv-2.4.9/debug/OpenCVModules.cmake"
   "../CMakeLists.txt"
   "../back/CMakeLists.txt"
   "CMakeFiles/3.5.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
+  "../opencvTest/CMakeLists.txt"
   "../videoSurveilance/CMakeLists.txt"
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
@@ -44,10 +45,12 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "back/CMakeFiles/CMakeDirectoryInformation.cmake"
   "videoSurveilance/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "opencvTest/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "back/CMakeFiles/bs.dir/DependInfo.cmake"
   "videoSurveilance/CMakeFiles/vs.dir/DependInfo.cmake"
+  "opencvTest/CMakeFiles/sample.dir/DependInfo.cmake"
   )

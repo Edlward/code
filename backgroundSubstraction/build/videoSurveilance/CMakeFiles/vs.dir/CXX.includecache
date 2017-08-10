@@ -212,6 +212,22 @@ opencv2/core/core_c.h
 stdio.h
 -
 
+/home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/legacy.hpp
+opencv2/imgproc/imgproc.hpp
+/home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/opencv2/imgproc/imgproc.hpp
+opencv2/imgproc/imgproc_c.h
+/home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/opencv2/imgproc/imgproc_c.h
+opencv2/features2d/features2d.hpp
+/home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/opencv2/features2d/features2d.hpp
+opencv2/calib3d/calib3d.hpp
+/home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/opencv2/calib3d/calib3d.hpp
+opencv2/ml/ml.hpp
+/home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/opencv2/ml/ml.hpp
+iosfwd
+-
+limits
+-
+
 /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/ml.hpp
 opencv2/core/core.hpp
 /home/lxg/app/opencv-2.4.9/modules/ml/include/opencv2/ml/opencv2/core/core.hpp
@@ -262,19 +278,11 @@ opencv2/video/tracking.hpp
 opencv2/video/background_segm.hpp
 /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/opencv2/video/background_segm.hpp
 
-/home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.cpp
-countBlobTrack.h
-/home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.h
-
-/home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp
 opencv2/opencv.hpp
 -
 opencv2/legacy/blobtrack.hpp
 -
-
-/home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp
-opencv2/opencv.hpp
+opencv2/legacy/legacy.hpp
 -
-countBlobTrack.h
-/home/lxg/code/backgroundSubstraction/videoSurveilance/countBlobTrack.h
 
