@@ -18,8 +18,8 @@ typedef struct CvBlobTrackAuto
 int main(int argc, char **argv)
 {
     VideoCapture cap;
-    // cap.open("/home/lxg/codedata/walmat.mp4");
-    cap.open("/home/lxg/codedata/track.avi");
+    cap.open("/home/lxg/codedata/walmat.mp4");
+    // cap.open("/home/lxg/codedata/track.avi");
     
     if(!cap.isOpened())
     {
@@ -77,6 +77,23 @@ int main(int argc, char **argv)
             }
             cvNamedWindow("mask");
             cvShowImage("mask", pfg_image);
+        }
+
+        // process pfg_image 
+        {
+            CvSize s = cvSize(pfg_image->width, pfg_image->height);
+            IplImage *pfg_tmp = cvCreateImage(s, pfg_image->depth, pfg_image->nChannels);
+            
+            IplConvKernel *conv = cvCreateStructuringElementEx(5, 5, 3, 3, MORPH_RECT);
+            // for(int i = 0; i < 2; ++i)
+            {
+                cvDilate(pfg_tmp, pfg_image, 0, 1);
+                cvErode(pfg_image, pfg_tmp, conv, 2);
+            }
+            
+            cvShowImage("dilate", pfg_image);
+            cvReleaseImage(&pfg_tmp);
+            cvReleaseStructuringElement(&conv);
         }
 
         // track blob

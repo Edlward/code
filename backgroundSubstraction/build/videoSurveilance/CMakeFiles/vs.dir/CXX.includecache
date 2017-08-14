@@ -285,7 +285,11 @@ opencv2/opencv.hpp
 -
 
 /home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
+opencv2/opencv.hpp
+-
 opencv2/legacy/blobtrack.hpp
+-
+vector
 -
 
 /home/lxg/code/backgroundSubstraction/videoSurveilance/fgvibe.h
