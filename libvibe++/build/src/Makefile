@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lxg/codetest/libvibe++
+CMAKE_SOURCE_DIR = /home/lxg/code/libvibe++
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lxg/codetest/libvibe++/build
+CMAKE_BINARY_DIR = /home/lxg/code/libvibe++/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -91,8 +91,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -124,14 +124,14 @@ install/local/fast: install/local
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/lxg/codetest/libvibe++/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/codetest/libvibe++/build/CMakeFiles /home/lxg/codetest/libvibe++/build/src/CMakeFiles/progress.marks
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/codetest/libvibe++/build/CMakeFiles 0
+	cd /home/lxg/code/libvibe++/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles /home/lxg/code/libvibe++/build/src/CMakeFiles/progress.marks
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -141,22 +141,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/lxg/codetest/libvibe++/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/lxg/code/libvibe++/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/vibe++.dir/rule:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/vibe++.dir/rule
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/vibe++.dir/rule
 .PHONY : src/CMakeFiles/vibe++.dir/rule
 
 # Convenience name for target.
@@ -166,12 +166,12 @@ vibe++: src/CMakeFiles/vibe++.dir/rule
 
 # fast build rule for target.
 vibe++/fast:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/build
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/build
 .PHONY : vibe++/fast
 
 # Convenience name for target.
 src/CMakeFiles/vibe++_static.dir/rule:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/vibe++_static.dir/rule
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/vibe++_static.dir/rule
 .PHONY : src/CMakeFiles/vibe++_static.dir/rule
 
 # Convenience name for target.
@@ -181,7 +181,7 @@ vibe++_static: src/CMakeFiles/vibe++_static.dir/rule
 
 # fast build rule for target.
 vibe++_static/fast:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/build
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/build
 .PHONY : vibe++_static/fast
 
 libvibe++/common/ViBeBase.o: libvibe++/common/ViBeBase.cpp.o
@@ -190,8 +190,8 @@ libvibe++/common/ViBeBase.o: libvibe++/common/ViBeBase.cpp.o
 
 # target to build an object file
 libvibe++/common/ViBeBase.cpp.o:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/libvibe++/common/ViBeBase.cpp.o
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/libvibe++/common/ViBeBase.cpp.o
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/libvibe++/common/ViBeBase.cpp.o
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/libvibe++/common/ViBeBase.cpp.o
 .PHONY : libvibe++/common/ViBeBase.cpp.o
 
 libvibe++/common/ViBeBase.i: libvibe++/common/ViBeBase.cpp.i
@@ -200,8 +200,8 @@ libvibe++/common/ViBeBase.i: libvibe++/common/ViBeBase.cpp.i
 
 # target to preprocess a source file
 libvibe++/common/ViBeBase.cpp.i:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/libvibe++/common/ViBeBase.cpp.i
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/libvibe++/common/ViBeBase.cpp.i
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/libvibe++/common/ViBeBase.cpp.i
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/libvibe++/common/ViBeBase.cpp.i
 .PHONY : libvibe++/common/ViBeBase.cpp.i
 
 libvibe++/common/ViBeBase.s: libvibe++/common/ViBeBase.cpp.s
@@ -210,8 +210,8 @@ libvibe++/common/ViBeBase.s: libvibe++/common/ViBeBase.cpp.s
 
 # target to generate assembly for a file
 libvibe++/common/ViBeBase.cpp.s:
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/libvibe++/common/ViBeBase.cpp.s
-	cd /home/lxg/codetest/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/libvibe++/common/ViBeBase.cpp.s
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++.dir/build.make src/CMakeFiles/vibe++.dir/libvibe++/common/ViBeBase.cpp.s
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f src/CMakeFiles/vibe++_static.dir/build.make src/CMakeFiles/vibe++_static.dir/libvibe++/common/ViBeBase.cpp.s
 .PHONY : libvibe++/common/ViBeBase.cpp.s
 
 # Help Target
@@ -242,6 +242,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/lxg/codetest/libvibe++/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/lxg/code/libvibe++/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

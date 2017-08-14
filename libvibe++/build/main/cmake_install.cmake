@@ -1,4 +1,4 @@
-# Install script for directory: /home/lxg/codetest/libvibe++/main
+# Install script for directory: /home/lxg/code/libvibe++/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

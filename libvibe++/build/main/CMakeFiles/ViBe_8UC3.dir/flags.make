@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS =  -Wall -Wextra -pedantic -g -std=gnu++0x  
 
-CXX_DEFINES = 
+CXX_DEFINES = -DOPENCV_3
 
-CXX_INCLUDES = -I/home/lxg/codetest/libvibe++/src -isystem /usr/local/include/opencv -isystem /usr/local/include 
+CXX_INCLUDES = -I/home/lxg/code/libvibe++/src -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv 
 

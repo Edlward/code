@@ -1,0 +1,12 @@
+/usr/local/include/libvibe++/system/types.h
+/usr/local/include/libvibe++/system/inline.h
+/usr/local/include/libvibe++/ViBe.t
+/usr/local/include/libvibe++/metaprograms/SwapPixels.h
+/usr/local/include/libvibe++/metaprograms/CopyPixel.h
+/usr/local/include/libvibe++/metaprograms/DistanceL1.h
+/usr/local/include/libvibe++/math/AbsoluteValue.h
+/usr/local/include/libvibe++/distances/Manhattan.h
+/usr/local/include/libvibe++/ViBe.h
+/usr/local/include/libvibe++/common/ViBeTemplateBase.t
+/usr/local/include/libvibe++/common/ViBeTemplateBase.h
+/usr/local/include/libvibe++/common/ViBeBase.h

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lxg/codetest/libvibe++
+CMAKE_SOURCE_DIR = /home/lxg/code/libvibe++
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lxg/codetest/libvibe++/build
+CMAKE_BINARY_DIR = /home/lxg/code/libvibe++/build
 
 # Include any dependencies generated for this target.
 include main/CMakeFiles/ViBe_8UC1.dir/depend.make
@@ -59,16 +59,16 @@ include main/CMakeFiles/ViBe_8UC1.dir/flags.make
 
 main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o: main/CMakeFiles/ViBe_8UC1.dir/flags.make
 main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o: ../main/ViBe_8UC1.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/codetest/libvibe++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o"
-	cd /home/lxg/codetest/libvibe++/build/main && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o -c /home/lxg/codetest/libvibe++/main/ViBe_8UC1.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/code/libvibe++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o"
+	cd /home/lxg/code/libvibe++/build/main && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o -c /home/lxg/code/libvibe++/main/ViBe_8UC1.cpp
 
 main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.i"
-	cd /home/lxg/codetest/libvibe++/build/main && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/codetest/libvibe++/main/ViBe_8UC1.cpp > CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.i
+	cd /home/lxg/code/libvibe++/build/main && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/code/libvibe++/main/ViBe_8UC1.cpp > CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.i
 
 main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.s"
-	cd /home/lxg/codetest/libvibe++/build/main && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/codetest/libvibe++/main/ViBe_8UC1.cpp -o CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.s
+	cd /home/lxg/code/libvibe++/build/main && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/code/libvibe++/main/ViBe_8UC1.cpp -o CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.s
 
 main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o.requires:
 
@@ -91,28 +91,51 @@ ViBe_8UC1_EXTERNAL_OBJECTS =
 main/ViBe_8UC1: main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o
 main/ViBe_8UC1: main/CMakeFiles/ViBe_8UC1.dir/build.make
 main/ViBe_8UC1: src/libvibe++.a
-main/ViBe_8UC1: /usr/local/lib/libopencv_videostab.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_ts.a
-main/ViBe_8UC1: /usr/local/lib/libopencv_superres.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_stitching.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_contrib.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_nonfree.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_ocl.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_gpu.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_photo.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_objdetect.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_legacy.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_video.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_ml.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_calib3d.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_features2d.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_highgui.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_imgproc.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_flann.so.2.4.9
-main/ViBe_8UC1: /usr/local/lib/libopencv_core.so.2.4.9
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_superres3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_face3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_plot3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_reg3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_text3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_shape3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_video3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_viz3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_flann3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_ml3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_photo3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
+main/ViBe_8UC1: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
 main/ViBe_8UC1: main/CMakeFiles/ViBe_8UC1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/codetest/libvibe++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ViBe_8UC1"
-	cd /home/lxg/codetest/libvibe++/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ViBe_8UC1.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/code/libvibe++/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable ViBe_8UC1"
+	cd /home/lxg/code/libvibe++/build/main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ViBe_8UC1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 main/CMakeFiles/ViBe_8UC1.dir/build: main/ViBe_8UC1
@@ -124,10 +147,10 @@ main/CMakeFiles/ViBe_8UC1.dir/requires: main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.
 .PHONY : main/CMakeFiles/ViBe_8UC1.dir/requires
 
 main/CMakeFiles/ViBe_8UC1.dir/clean:
-	cd /home/lxg/codetest/libvibe++/build/main && $(CMAKE_COMMAND) -P CMakeFiles/ViBe_8UC1.dir/cmake_clean.cmake
+	cd /home/lxg/code/libvibe++/build/main && $(CMAKE_COMMAND) -P CMakeFiles/ViBe_8UC1.dir/cmake_clean.cmake
 .PHONY : main/CMakeFiles/ViBe_8UC1.dir/clean
 
 main/CMakeFiles/ViBe_8UC1.dir/depend:
-	cd /home/lxg/codetest/libvibe++/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lxg/codetest/libvibe++ /home/lxg/codetest/libvibe++/main /home/lxg/codetest/libvibe++/build /home/lxg/codetest/libvibe++/build/main /home/lxg/codetest/libvibe++/build/main/CMakeFiles/ViBe_8UC1.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/lxg/code/libvibe++/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/lxg/code/libvibe++ /home/lxg/code/libvibe++/main /home/lxg/code/libvibe++/build /home/lxg/code/libvibe++/build/main /home/lxg/code/libvibe++/build/main/CMakeFiles/ViBe_8UC1.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : main/CMakeFiles/ViBe_8UC1.dir/depend
 

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/lxg/codetest/libvibe++
+CMAKE_SOURCE_DIR = /home/lxg/code/libvibe++
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/lxg/codetest/libvibe++/build
+CMAKE_BINARY_DIR = /home/lxg/code/libvibe++/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -113,8 +113,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -124,9 +124,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/codetest/libvibe++/build/CMakeFiles /home/lxg/codetest/libvibe++/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles /home/lxg/code/libvibe++/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/codetest/libvibe++/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -181,19 +181,6 @@ vibe++_static/fast:
 .PHONY : vibe++_static/fast
 
 #=============================================================================
-# Target rules for targets named ViBe_8UC3
-
-# Build rule for target.
-ViBe_8UC3: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ViBe_8UC3
-.PHONY : ViBe_8UC3
-
-# fast build rule for target.
-ViBe_8UC3/fast:
-	$(MAKE) -f main/CMakeFiles/ViBe_8UC3.dir/build.make main/CMakeFiles/ViBe_8UC3.dir/build
-.PHONY : ViBe_8UC3/fast
-
-#=============================================================================
 # Target rules for targets named ViBe_8UC1
 
 # Build rule for target.
@@ -205,6 +192,19 @@ ViBe_8UC1: cmake_check_build_system
 ViBe_8UC1/fast:
 	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/build
 .PHONY : ViBe_8UC1/fast
+
+#=============================================================================
+# Target rules for targets named ViBe_8UC3
+
+# Build rule for target.
+ViBe_8UC3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ViBe_8UC3
+.PHONY : ViBe_8UC3
+
+# fast build rule for target.
+ViBe_8UC3/fast:
+	$(MAKE) -f main/CMakeFiles/ViBe_8UC3.dir/build.make main/CMakeFiles/ViBe_8UC3.dir/build
+.PHONY : ViBe_8UC3/fast
 
 # Help Target
 help:
@@ -220,8 +220,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... vibe++"
 	@echo "... vibe++_static"
-	@echo "... ViBe_8UC3"
 	@echo "... ViBe_8UC1"
+	@echo "... ViBe_8UC3"
 .PHONY : help
 
 

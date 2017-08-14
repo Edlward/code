@@ -136,10 +136,10 @@ videoSurveilance/preinstall:
 # Target rules for target videoSurveilance/CMakeFiles/vs.dir
 
 # All Build rule for target.
-videoSurveilance/CMakeFiles/vs.dir/all:
+videoSurveilance/CMakeFiles/vs.dir/all: opencvTest/libvibe/CMakeFiles/vibe++.dir/all
 	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/depend
 	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=7,8 "Built target vs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=11,12,13 "Built target vs"
 .PHONY : videoSurveilance/CMakeFiles/vs.dir/all
 
 # Include target in all.
@@ -149,7 +149,7 @@ all: videoSurveilance/CMakeFiles/vs.dir/all
 
 # Build rule for subdir invocation for target.
 videoSurveilance/CMakeFiles/vs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 5
 	$(MAKE) -f CMakeFiles/Makefile2 videoSurveilance/CMakeFiles/vs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 0
 .PHONY : videoSurveilance/CMakeFiles/vs.dir/rule
@@ -174,16 +174,18 @@ clean: videoSurveilance/CMakeFiles/vs.dir/clean
 
 # Convenience name for "all" pass in the directory.
 opencvTest/all: opencvTest/CMakeFiles/sample.dir/all
+opencvTest/all: opencvTest/libvibe/all
 
 .PHONY : opencvTest/all
 
 # Convenience name for "clean" pass in the directory.
 opencvTest/clean: opencvTest/CMakeFiles/sample.dir/clean
+opencvTest/clean: opencvTest/libvibe/clean
 
 .PHONY : opencvTest/clean
 
 # Convenience name for "preinstall" pass in the directory.
-opencvTest/preinstall:
+opencvTest/preinstall: opencvTest/libvibe/preinstall
 
 .PHONY : opencvTest/preinstall
 
@@ -191,7 +193,7 @@ opencvTest/preinstall:
 # Target rules for target opencvTest/CMakeFiles/sample.dir
 
 # All Build rule for target.
-opencvTest/CMakeFiles/sample.dir/all:
+opencvTest/CMakeFiles/sample.dir/all: opencvTest/libvibe/CMakeFiles/vibe++.dir/all
 	$(MAKE) -f opencvTest/CMakeFiles/sample.dir/build.make opencvTest/CMakeFiles/sample.dir/depend
 	$(MAKE) -f opencvTest/CMakeFiles/sample.dir/build.make opencvTest/CMakeFiles/sample.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=5,6 "Built target sample"
@@ -204,7 +206,7 @@ all: opencvTest/CMakeFiles/sample.dir/all
 
 # Build rule for subdir invocation for target.
 opencvTest/CMakeFiles/sample.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 opencvTest/CMakeFiles/sample.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 0
 .PHONY : opencvTest/CMakeFiles/sample.dir/rule
@@ -221,6 +223,100 @@ opencvTest/CMakeFiles/sample.dir/clean:
 
 # clean rule for target.
 clean: opencvTest/CMakeFiles/sample.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory opencvTest/libvibe
+
+# Convenience name for "all" pass in the directory.
+opencvTest/libvibe/all: opencvTest/libvibe/CMakeFiles/vibe++.dir/all
+opencvTest/libvibe/all: opencvTest/libvibe/CMakeFiles/vibe++_static.dir/all
+
+.PHONY : opencvTest/libvibe/all
+
+# Convenience name for "clean" pass in the directory.
+opencvTest/libvibe/clean: opencvTest/libvibe/CMakeFiles/vibe++.dir/clean
+opencvTest/libvibe/clean: opencvTest/libvibe/CMakeFiles/vibe++_static.dir/clean
+
+.PHONY : opencvTest/libvibe/clean
+
+# Convenience name for "preinstall" pass in the directory.
+opencvTest/libvibe/preinstall:
+
+.PHONY : opencvTest/libvibe/preinstall
+
+#=============================================================================
+# Target rules for target opencvTest/libvibe/CMakeFiles/vibe++.dir
+
+# All Build rule for target.
+opencvTest/libvibe/CMakeFiles/vibe++.dir/all:
+	$(MAKE) -f opencvTest/libvibe/CMakeFiles/vibe++.dir/build.make opencvTest/libvibe/CMakeFiles/vibe++.dir/depend
+	$(MAKE) -f opencvTest/libvibe/CMakeFiles/vibe++.dir/build.make opencvTest/libvibe/CMakeFiles/vibe++.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=7,8 "Built target vibe++"
+.PHONY : opencvTest/libvibe/CMakeFiles/vibe++.dir/all
+
+# Include target in all.
+all: opencvTest/libvibe/CMakeFiles/vibe++.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+opencvTest/libvibe/CMakeFiles/vibe++.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 opencvTest/libvibe/CMakeFiles/vibe++.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 0
+.PHONY : opencvTest/libvibe/CMakeFiles/vibe++.dir/rule
+
+# Convenience name for target.
+vibe++: opencvTest/libvibe/CMakeFiles/vibe++.dir/rule
+
+.PHONY : vibe++
+
+# clean rule for target.
+opencvTest/libvibe/CMakeFiles/vibe++.dir/clean:
+	$(MAKE) -f opencvTest/libvibe/CMakeFiles/vibe++.dir/build.make opencvTest/libvibe/CMakeFiles/vibe++.dir/clean
+.PHONY : opencvTest/libvibe/CMakeFiles/vibe++.dir/clean
+
+# clean rule for target.
+clean: opencvTest/libvibe/CMakeFiles/vibe++.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target opencvTest/libvibe/CMakeFiles/vibe++_static.dir
+
+# All Build rule for target.
+opencvTest/libvibe/CMakeFiles/vibe++_static.dir/all:
+	$(MAKE) -f opencvTest/libvibe/CMakeFiles/vibe++_static.dir/build.make opencvTest/libvibe/CMakeFiles/vibe++_static.dir/depend
+	$(MAKE) -f opencvTest/libvibe/CMakeFiles/vibe++_static.dir/build.make opencvTest/libvibe/CMakeFiles/vibe++_static.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=9,10 "Built target vibe++_static"
+.PHONY : opencvTest/libvibe/CMakeFiles/vibe++_static.dir/all
+
+# Include target in all.
+all: opencvTest/libvibe/CMakeFiles/vibe++_static.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+opencvTest/libvibe/CMakeFiles/vibe++_static.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 opencvTest/libvibe/CMakeFiles/vibe++_static.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 0
+.PHONY : opencvTest/libvibe/CMakeFiles/vibe++_static.dir/rule
+
+# Convenience name for target.
+vibe++_static: opencvTest/libvibe/CMakeFiles/vibe++_static.dir/rule
+
+.PHONY : vibe++_static
+
+# clean rule for target.
+opencvTest/libvibe/CMakeFiles/vibe++_static.dir/clean:
+	$(MAKE) -f opencvTest/libvibe/CMakeFiles/vibe++_static.dir/build.make opencvTest/libvibe/CMakeFiles/vibe++_static.dir/clean
+.PHONY : opencvTest/libvibe/CMakeFiles/vibe++_static.dir/clean
+
+# clean rule for target.
+clean: opencvTest/libvibe/CMakeFiles/vibe++_static.dir/clean
 
 .PHONY : clean
 

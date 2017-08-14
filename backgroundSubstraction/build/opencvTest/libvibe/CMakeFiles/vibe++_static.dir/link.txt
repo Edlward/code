@@ -1,0 +1,2 @@
+/usr/bin/ar qc ../../libvibe++.a  CMakeFiles/vibe++_static.dir/libvibe++/common/ViBeBase.cpp.o
+/usr/bin/ranlib ../../libvibe++.a

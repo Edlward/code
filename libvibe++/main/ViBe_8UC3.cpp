@@ -46,7 +46,7 @@ int main(int argc, char** argv) {
   // }
 
   /* Parameterization of ViBe. */
-  typedef ViBeSequential<3, Manhattan<3> >                                ViBe;
+  typedef ViBeSequential<3, Manhattan<3> >               ViBe;
 
   /* Random seed. */
   srand(time(NULL));

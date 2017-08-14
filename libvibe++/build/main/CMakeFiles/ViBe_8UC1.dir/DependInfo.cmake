@@ -4,20 +4,25 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/lxg/codetest/libvibe++/main/ViBe_8UC1.cpp" "/home/lxg/codetest/libvibe++/build/main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o"
+  "/home/lxg/code/libvibe++/main/ViBe_8UC1.cpp" "/home/lxg/code/libvibe++/build/main/CMakeFiles/ViBe_8UC1.dir/ViBe_8UC1.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
+
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "OPENCV_3"
+  )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
-  "/usr/local/include/opencv"
-  "/usr/local/include"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/lxg/codetest/libvibe++/build/src/CMakeFiles/vibe++_static.dir/DependInfo.cmake"
+  "/home/lxg/code/libvibe++/build/src/CMakeFiles/vibe++_static.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

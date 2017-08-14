@@ -1,3 +1,5 @@
+#include "fgvibe.h"
+
 #include "opencv2/video/background_segm.hpp"
 #include "opencv2/legacy/blobtrack.hpp"
 #include "opencv2/legacy/legacy.hpp"
@@ -21,6 +23,7 @@
 static CvFGDetector* cvCreateFGDetector0      () { return cvCreateFGDetectorBase(CV_BG_MODEL_FGD,        NULL); }
 static CvFGDetector* cvCreateFGDetector0Simple() { return cvCreateFGDetectorBase(CV_BG_MODEL_FGD_SIMPLE, NULL); }
 static CvFGDetector* cvCreateFGDetector1      () { return cvCreateFGDetectorBase(CV_BG_MODEL_MOG,        NULL); }
+static CvFGDetector* createFgDetectorVibe     () { return new Fgvibe; };
 
 typedef struct DefModule_FGDetector
 {
@@ -34,6 +37,7 @@ DefModule_FGDetector FGDetector_Modules[] =
     {cvCreateFGDetector0,"FG_0","Foreground Object Detection from Videos Containing Complex Background. ACM MM2003."},
     {cvCreateFGDetector0Simple,"FG_0S","Simplified version of FG_0"},
     {cvCreateFGDetector1,"FG_1","Adaptive background mixture models for real-time tracking. CVPR1999"},
+    {createFgDetectorVibe, "vibe", "vibe test"},
     {NULL,NULL,NULL}
 };
 
@@ -139,7 +143,7 @@ static int RunBlobTrackingAuto( CvCapture* pCap, CvBlobTrackerAuto* pTracker,cha
     //cvNamedWindow( "FG", 0 );
 
     /* Main loop: */
-    for( FrameNum=0; pCap && (key=cvWaitKey(OneFrameProcess?0:1))!=27;
+    for( FrameNum=0; pCap && (key=cvWaitKey(OneFrameProcess?0:20))!=27;
          FrameNum++)
     {   /* Main loop: */
         IplImage*   pImg  = NULL;
@@ -158,12 +162,21 @@ static int RunBlobTrackingAuto( CvCapture* pCap, CvBlobTrackerAuto* pTracker,cha
         /* CvBlobTrackerAuto Process: */
         pTracker->Process(pImg, pMask);
         
+        // show foreground
         {
             IplImage*    pI = pTracker->GetFGMask();
-
             cvNamedWindow( "fg_0");
             cvShowImage( "fg_0",pI );
         }
+        printf("blobNum:%d\n", pTracker->GetBlobNum());
+        std::cout << "cout blobNum: " << pTracker->GetBlobNum() << std::endl;
+        
+        if(key == 27)
+        {
+            break;
+        }
+
+
         if(fgavi_name)
         if(pTracker->GetFGMask())
         {   /* Debug FG: */
@@ -543,8 +556,8 @@ int main(int argc, char* argv[])
         if( bta_name && MY_STRICMP(bta_name,pBTAnalysisModule->nickname)==0 ) break;
 
     /* Create source video: */
-    if(avi_name)
-        pCap = cvCaptureFromFile(avi_name);
+    // if(avi_name)
+        pCap = cvCaptureFromFile("/home/lxg/codedata/track.avi");
 
     if(pCap==NULL)
     {

@@ -1,4 +1,4 @@
-# Install script for directory: /home/lxg/codetest/libvibe++/src
+# Install script for directory: /home/lxg/code/libvibe++/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,7 +40,7 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Runtime
            FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvibe++.so"
            RPATH "")
     endif()
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/lxg/codetest/libvibe++/build/src/libvibe++.so")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES "/home/lxg/code/libvibe++/build/src/libvibe++.so")
     if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvibe++.so" AND
        NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libvibe++.so")
       if(CMAKE_INSTALL_DO_STRIP)
@@ -52,7 +52,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Development")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/lxg/codetest/libvibe++/build/src/libvibe++.a")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "/home/lxg/code/libvibe++/build/src/libvibe++.a")
   endif("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Rr][Ee][Ll][Ee][Aa][Ss][Ee])$")
 endif()
 
@@ -62,6 +62,6 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Develop
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/lxg/codetest/libvibe++/src/libvibe++" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/[^/]*\\.t$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/lxg/code/libvibe++/src/libvibe++" FILES_MATCHING REGEX "/[^/]*\\.h$" REGEX "/[^/]*\\.t$")
 endif()
 

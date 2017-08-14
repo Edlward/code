@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall -Wextra -pedantic -g -fPIC
 
 CXX_DEFINES = -Dvibe___EXPORTS
 
-CXX_INCLUDES = -I/home/lxg/codetest/libvibe++/src 
+CXX_INCLUDES = -I/home/lxg/code/libvibe++/src 
 

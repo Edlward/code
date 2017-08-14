@@ -58,6 +58,7 @@ int main(int argc, char** argv) {
   int32_t width  = decoder.get(CV_CAP_PROP_FRAME_WIDTH);
 
   ViBe* vibe = NULL;
+  
   cv::Mat bwFrame(height, width, CV_8UC1);
   cv::Mat segmentationMap(height, width, CV_8UC1);
   bool firstFrame = true;

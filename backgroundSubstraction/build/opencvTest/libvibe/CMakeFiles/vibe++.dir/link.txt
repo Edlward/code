@@ -1,0 +1,1 @@
+/usr/bin/c++  -fPIC   -shared -Wl,-soname,libvibe++.so -o ../../libvibe++.so CMakeFiles/vibe++.dir/libvibe++/common/ViBeBase.cpp.o 

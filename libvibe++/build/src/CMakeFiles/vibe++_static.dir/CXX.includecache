@@ -6,21 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/home/lxg/codetest/libvibe++/src/libvibe++/common/ViBeBase.cpp
+/home/lxg/code/libvibe++/src/libvibe++/common/ViBeBase.cpp
 algorithm
 -
 cstddef
 -
 ViBeBase.h
-/home/lxg/codetest/libvibe++/src/libvibe++/common/ViBeBase.h
+/home/lxg/code/libvibe++/src/libvibe++/common/ViBeBase.h
 
-/home/lxg/codetest/libvibe++/src/libvibe++/common/ViBeBase.h
+/home/lxg/code/libvibe++/src/libvibe++/common/ViBeBase.h
 iostream
 -
 ../system/types.h
-/home/lxg/codetest/libvibe++/src/libvibe++/system/types.h
+/home/lxg/code/libvibe++/src/libvibe++/system/types.h
 
-/home/lxg/codetest/libvibe++/src/libvibe++/system/types.h
+/home/lxg/code/libvibe++/src/libvibe++/system/types.h
 boost/cstdint.hpp
 -
 

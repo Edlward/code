@@ -95,6 +95,7 @@ sample: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_ts.a
 sample: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_superres.so.2.4.9
 sample: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_stitching.so.2.4.9
 sample: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_contrib.so.2.4.9
+sample: libvibe++.so
 sample: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_nonfree.so.2.4.9
 sample: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_ocl.so.2.4.9
 sample: /home/lxg/app/opencv-2.4.9/debug/lib/libopencv_gpu.so.2.4.9

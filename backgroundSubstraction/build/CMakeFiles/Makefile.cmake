@@ -16,6 +16,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.5.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.5.1/CMakeSystem.cmake"
   "../opencvTest/CMakeLists.txt"
+  "../opencvTest/libvibe/CMakeLists.txt"
   "../videoSurveilance/CMakeLists.txt"
   "/usr/share/cmake-3.5/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.5/Modules/CMakeCXXInformation.cmake"
@@ -46,6 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "back/CMakeFiles/CMakeDirectoryInformation.cmake"
   "videoSurveilance/CMakeFiles/CMakeDirectoryInformation.cmake"
   "opencvTest/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "opencvTest/libvibe/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -53,4 +55,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "back/CMakeFiles/bs.dir/DependInfo.cmake"
   "videoSurveilance/CMakeFiles/vs.dir/DependInfo.cmake"
   "opencvTest/CMakeFiles/sample.dir/DependInfo.cmake"
+  "opencvTest/libvibe/CMakeFiles/vibe++.dir/DependInfo.cmake"
+  "opencvTest/libvibe/CMakeFiles/vibe++_static.dir/DependInfo.cmake"
   )

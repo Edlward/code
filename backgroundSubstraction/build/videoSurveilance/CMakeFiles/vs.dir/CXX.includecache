@@ -278,6 +278,28 @@ opencv2/video/tracking.hpp
 opencv2/video/background_segm.hpp
 /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/opencv2/video/background_segm.hpp
 
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.cpp
+blobDetectorPeople.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
+opencv2/opencv.hpp
+-
+
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
+opencv2/legacy/blobtrack.hpp
+-
+
+/home/lxg/code/backgroundSubstraction/videoSurveilance/fgvibe.h
+opencv2/opencv.hpp
+-
+opencv2/legacy/blobtrack.hpp
+-
+libvibe++/ViBe.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/libvibe++/ViBe.h
+libvibe++/distances/Manhattan.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/libvibe++/distances/Manhattan.h
+libvibe++/system/types.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/libvibe++/system/types.h
+
 /home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp
 opencv2/opencv.hpp
 -
@@ -285,4 +307,8 @@ opencv2/legacy/blobtrack.hpp
 -
 opencv2/legacy/legacy.hpp
 -
+fgvibe.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/fgvibe.h
+blobDetectorPeople.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
 

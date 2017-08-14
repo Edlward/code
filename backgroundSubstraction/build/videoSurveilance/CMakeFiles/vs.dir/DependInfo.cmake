@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.cpp" "/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.o"
   "/home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp" "/home/lxg/code/backgroundSubstraction/build/videoSurveilance/CMakeFiles/vs.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -36,6 +37,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/lxg/code/backgroundSubstraction/build/opencvTest/libvibe/CMakeFiles/vibe++.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.
