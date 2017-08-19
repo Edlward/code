@@ -38,9 +38,9 @@ int main(int argc, char **argv)
     CvBlobTracker *m_bt = cvCreateBlobTrackerMS();
     // CvBlobTracker *m_bt = cvCreateBlobTrackerList(); // has parameter
 
-    // CvBlobDetector *m_bd = cvCreateBlobDetectorSimple();
+    CvBlobDetector *m_bd = cvCreateBlobDetectorSimple();
     // CvBlobDetector *m_bd = cvCreateBlobDetectorCC();
-    CvBlobDetector *m_bd = new BlobDetectorPeople;
+    // CvBlobDetector *m_bd = new BlobDetectorPeople;
     
     CvBlobTrackGen *m_btg = cvCreateModuleBlobTrackGenYML();
 
