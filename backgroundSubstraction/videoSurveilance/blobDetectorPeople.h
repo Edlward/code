@@ -5,23 +5,22 @@
 #include <opencv2/legacy/blobtrack.hpp>
 #include <vector>
 
-#define EBD_FRAME_NUM 5
+#define EBD_FRAME_NUM 3
 
+// copy from opencv CvBlobDetectorSimple()
 class BlobDetectorPeople: public CvBlobDetector
 {
 public:
     BlobDetectorPeople();
-    ~BlobDetectorPeople();
-    int DetectNewBlob(IplImage * pimg, IplImage *pfg, CvBlobSeq *p_newlist, CvBlobSeq *p_oldlist);
+   ~BlobDetectorPeople();
+    int DetectNewBlob(IplImage* pImg, IplImage* pFGMask, CvBlobSeq* pNewBlobList, CvBlobSeq* pOldBlobList);
     void Release(){delete this;}
 
 protected:
-    std::vector<std::vector<cv::Point> > m_lastcontour;
-    // IplImage*       m_pMaskBlobNew;
-    // IplImage*       m_pMaskBlobExist;
-    // /* Lists of connected components detected on previous frames: */
-    // CvBlobSeq*      m_pBlobLists[EBD_FRAME_NUM];
-
+    IplImage*       m_pMaskBlobNew;
+    IplImage*       m_pMaskBlobExist;
+    /* Lists of connected components detected on previous frames: */
+    CvBlobSeq*      m_pBlobLists[EBD_FRAME_NUM];
 };
 
 #endif

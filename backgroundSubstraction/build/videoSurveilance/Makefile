@@ -196,6 +196,33 @@ blobDetectorPeople.cpp.s:
 	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.s
 .PHONY : blobDetectorPeople.cpp.s
 
+blobTrackDraw.o: blobTrackDraw.cpp.o
+
+.PHONY : blobTrackDraw.o
+
+# target to build an object file
+blobTrackDraw.cpp.o:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.o
+.PHONY : blobTrackDraw.cpp.o
+
+blobTrackDraw.i: blobTrackDraw.cpp.i
+
+.PHONY : blobTrackDraw.i
+
+# target to preprocess a source file
+blobTrackDraw.cpp.i:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.i
+.PHONY : blobTrackDraw.cpp.i
+
+blobTrackDraw.s: blobTrackDraw.cpp.s
+
+.PHONY : blobTrackDraw.s
+
+# target to generate assembly for a file
+blobTrackDraw.cpp.s:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.s
+.PHONY : blobTrackDraw.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -239,6 +266,9 @@ help:
 	@echo "... blobDetectorPeople.o"
 	@echo "... blobDetectorPeople.i"
 	@echo "... blobDetectorPeople.s"
+	@echo "... blobTrackDraw.o"
+	@echo "... blobTrackDraw.i"
+	@echo "... blobTrackDraw.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

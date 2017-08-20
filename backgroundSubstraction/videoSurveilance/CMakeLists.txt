@@ -8,5 +8,5 @@ set(CMAKE_CXX_FLAGS -std=c++11)
 
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 
-add_executable(vs main.cpp blobDetectorPeople.cpp)
+add_executable(vs main.cpp blobDetectorPeople.cpp blobTrackDraw.cpp)
 target_link_libraries(vs ${OpenCV_LIBS} vibe++)

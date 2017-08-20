@@ -32,6 +32,13 @@ videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.o
  /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.cpp
  /home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
+ /home/lxg/code/backgroundSubstraction/videoSurveilance/globalSet.h
+videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.o
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+ /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+ /home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/blobtrack.hpp
+ /home/lxg/code/backgroundSubstraction/videoSurveilance/blobTrackDraw.cpp
+ /home/lxg/code/backgroundSubstraction/videoSurveilance/blobTrackDraw.h
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o
  /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
  /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
@@ -63,5 +70,6 @@ videoSurveilance/CMakeFiles/vs.dir/main.cpp.o
  /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
  /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
  /home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
+ /home/lxg/code/backgroundSubstraction/videoSurveilance/blobTrackDraw.h
  /home/lxg/code/backgroundSubstraction/videoSurveilance/fgvibe.h
  /home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp

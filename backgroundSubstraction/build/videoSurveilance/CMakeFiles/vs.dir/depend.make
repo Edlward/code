@@ -31,6 +31,13 @@ videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.o: /home/lxg/app/openc
 videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.o: /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
 videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.o: ../videoSurveilance/blobDetectorPeople.cpp
 videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.o: ../videoSurveilance/blobDetectorPeople.h
+videoSurveilance/CMakeFiles/vs.dir/blobDetectorPeople.cpp.o: ../videoSurveilance/globalSet.h
+
+videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.o: /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/core_c.h
+videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.o: /home/lxg/app/opencv-2.4.9/modules/core/include/opencv2/core/types_c.h
+videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.o: /home/lxg/app/opencv-2.4.9/modules/legacy/include/opencv2/legacy/blobtrack.hpp
+videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.o: ../videoSurveilance/blobTrackDraw.cpp
+videoSurveilance/CMakeFiles/vs.dir/blobTrackDraw.cpp.o: ../videoSurveilance/blobTrackDraw.h
 
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: /home/lxg/app/opencv-2.4.9/include/opencv2/opencv.hpp
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: /home/lxg/app/opencv-2.4.9/modules/calib3d/include/opencv2/calib3d/calib3d.hpp
@@ -62,6 +69,7 @@ videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: /home/lxg/app/opencv-2.4.9/module
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/tracking.hpp
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: /home/lxg/app/opencv-2.4.9/modules/video/include/opencv2/video/video.hpp
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: ../videoSurveilance/blobDetectorPeople.h
+videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: ../videoSurveilance/blobTrackDraw.h
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: ../videoSurveilance/fgvibe.h
 videoSurveilance/CMakeFiles/vs.dir/main.cpp.o: ../videoSurveilance/main.cpp
 

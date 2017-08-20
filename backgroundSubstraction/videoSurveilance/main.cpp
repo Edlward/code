@@ -2,9 +2,10 @@
 // #include "countBlobTrack.h"
 #include <opencv2/legacy/blobtrack.hpp>
 #include <opencv2/legacy/legacy.hpp>
+
 #include "fgvibe.h"
 #include "blobDetectorPeople.h"
-
+#include "blobTrackDraw.h"
 using namespace cv;
 
 /* Special extended blob structure for auto blob tracking: */
@@ -35,14 +36,19 @@ int main(int argc, char **argv)
     // CvFGDetector *fg = cvCreateFGDetectorBase(CV_BG_MODEL_MOG, NULL);
     // CvFGDetector *fg = cvCreateFGDetectorBase(CV_BG_MODEL_FGD_SIMPLE, NULL);
     CvFGDetector *m_fg = new Fgvibe;
-    CvBlobTracker *m_bt = cvCreateBlobTrackerMS();
-    // CvBlobTracker *m_bt = cvCreateBlobTrackerList(); // has parameter
 
-    CvBlobDetector *m_bd = cvCreateBlobDetectorSimple();
+    // CvBlobTracker *m_bt = cvCreateBlobTrackerMS();
+    // CvBlobTracker *m_bt = cvCreateBlobTrackerList(); // has parameter
+    CvBlobTracker *m_bt = cvCreateBlobTrackerCC();
+
+    // CvBlobDetector *m_bd = cvCreateBlobDetectorSimple();
     // CvBlobDetector *m_bd = cvCreateBlobDetectorCC();
-    // CvBlobDetector *m_bd = new BlobDetectorPeople;
+    CvBlobDetector *m_bd = new BlobDetectorPeople;
     
-    CvBlobTrackGen *m_btg = cvCreateModuleBlobTrackGenYML();
+    // CvBlobTrackGen *m_btg = cvCreateModuleBlobTrackGenYML();
+    // CvBlobTrackGen *m_btg = cvCreateModuleBlobTrackGen1();
+    // BlobTrackDraw *m_btg = new BlobTrackDraw;
+    
 
     Mat im;
     char key = 0;
@@ -61,6 +67,11 @@ int main(int argc, char **argv)
         double t = (double)getTickCount();
 
         cap >> im;
+        if(im.empty())
+        {
+            printf("video end\n");
+            break;
+        }
         // cvtColor(im, im, CV_RGB2GRAY);
 
         IplImage im_src;
@@ -69,6 +80,10 @@ int main(int argc, char **argv)
         // foreground get
         IplImage *pfg_image = NULL;
         {
+            // CvSize s = cvSize(pfg_image->width, pfg_image->height);
+            // IplImage *pgray = cvCreateImage(s, 8, 1);
+            // cvCvtColor(im_src, pgray, CV_RGB2GRAY);
+
             m_fg->Process(&im_src);
             pfg_image = m_fg->GetMask();
             if(pfg_image == NULL)
@@ -80,24 +95,27 @@ int main(int argc, char **argv)
         }
 
         // process pfg_image 
+        if(0)
         {
             CvSize s = cvSize(pfg_image->width, pfg_image->height);
             IplImage *pfg_tmp = cvCreateImage(s, pfg_image->depth, pfg_image->nChannels);
-            
-            IplConvKernel *conv = cvCreateStructuringElementEx(5, 5, 3, 3, MORPH_RECT);
+            // IplConvKernel *conv = cvCreateStructuringElementEx(5, 5, 3, 3, MORPH_RECT);
             // for(int i = 0; i < 2; ++i)
             {
-                cvDilate(pfg_tmp, pfg_image, 0, 1);
-                cvErode(pfg_image, pfg_tmp, conv, 2);
+                cvDilate(pfg_image, pfg_tmp, 0, 1);
+                cvErode(pfg_tmp, pfg_image, 0, 1);
             }
             
             cvShowImage("dilate", pfg_image);
             cvReleaseImage(&pfg_tmp);
-            cvReleaseStructuringElement(&conv);
+            // cvReleaseStructuringElement(&conv);
         }
 
         // track blob
+        if(1)
         {
+            double t = (double)getTickCount();
+
             m_bt->Process(&im_src, pfg_image);
             for(int i = blob_list.GetBlobNum(); i > 0; --i)
             {
@@ -108,40 +126,40 @@ int main(int argc, char **argv)
                 m_bt->ProcessBlob(idx, pb, &im_src, pfg_image);
                 pb->ID = blob_id;
             }
+
+            printf("track:%f ", ((double)getTickCount() - t) / getTickFrequency());
         }
 
-        // // blob track generator
-        // if(m_btg)
-        // {
-        //     for(int i = blob_list.GetBlobNum(); i > 0; --i)
-        //     {
-        //         CvBlob *pb = blob_list.GetBlob(i-1);
-        //         m_btg->AddBlob(pb);
-        //     }
-        //     m_btg->Process(&im_src, pfg_image);
-        // }
-
         // blob deleter
-        if(0)
+        if(1)
         {
-            for(int i = blob_list.GetBlobNum(); i > 0; --i)
-            {
-                CvBlobTrackAuto *pb = (CvBlobTrackAuto *)blob_list.GetBlob(i-1);
+            int w = pfg_image->width;
+            int h = pfg_image->height;
 
-                int Good = 0;
-                int w = pfg_image->width;
-                int h = pfg_image->height;
+            int border = 10;
+
+            for(int i = 0; i < blob_list.GetBlobNum(); ++i)
+            {
+                CvBlobTrackAuto *pb = (CvBlobTrackAuto*)blob_list.GetBlob(i);
+
+                if(pb->blob.x < border || pb->blob.y < border || 
+                    pb->blob.x + pb->blob.w/2 > w - border || pb->blob.y+pb->blob.h/2 > h - border)
+                {
+                    m_bt->DelBlobByID(CV_BLOB_ID(pb));
+                    blob_list.DelBlob(i);
+                    i--;
+                    continue;
+                }
+
                 CvRect r = CV_BLOB_RECT(pb);
                 CvMat mat;
                 double aver = 0;
                 double area = CV_BLOB_WX(pb) * CV_BLOB_WY(pb);
-                
+
                 if(r.x < 0){r.width += r.x;r.x = 0;}
                 if(r.y < 0){r.height += r.y;r.y = 0;}
                 if(r.x+r.width>=w){r.width = w-r.x-1;}
                 if(r.y+r.height>=h){r.height = h-r.y-1;}
-
-
                 if(r.width > 4 && r.height > 4 && r.x < w && r.y < h &&
                     r.x >=0 && r.y >=0 &&
                     r.x+r.width < w && r.y+r.height < h && area > 0)
@@ -150,38 +168,14 @@ int main(int argc, char **argv)
                     aver = 1.0f * sum / area;
                     /* if mask in blob area exists then its blob OK*/
                     // if(aver > 0.1*255) Good = 1;
-                    if(aver > 5) Good = 1;
+                    if(aver < 25)
+                    {
+                        m_bt->DelBlobByID(CV_BLOB_ID(pb));
+                        blob_list.DelBlob(i);
+                        i--;    
+                    }
                 }
-                else
-                {
-                    pb->BadFrames += 2;
-                }
-
-                if(Good)
-                {
-                    pb->BadFrames = 0;
-                }
-                else
-                {
-                    pb->BadFrames++;
-                }
-            } // next blob
-
-            /* Check error count: */
-            for(int i = 0; i < blob_list.GetBlobNum(); ++i)
-            {
-                CvBlobTrackAuto *pb = (CvBlobTrackAuto*)blob_list.GetBlob(i);
-
-                if(pb->BadFrames > 3)
-                {   /* Delete such objects */
-                    /* from tracker...     */
-                    m_bt->DelBlobByID(CV_BLOB_ID(pb));
-
-                    /* ... and from local list: */
-                    blob_list.DelBlob(i);
-                    i--;
-                }
-            }   /* Check error count for next blob. */
+            }
         }   /*  Blob deleter. */
 
         // update blobs
@@ -189,6 +183,7 @@ int main(int argc, char **argv)
         {
             m_bt->Update(&im_src, pfg_image);
         }
+
 
         // detect new blob
         {
@@ -220,9 +215,27 @@ int main(int argc, char **argv)
                 if(pmask != pfg_image) cvReleaseImage(&pmask);
             }
             printf("detectBlob:%d ", new_blob_list.GetBlobNum());
+
+            // show detected new blob
+            if(1)
+            {
+                IplImage *imtmp = cvCloneImage(&im_src);
+
+                for(int i = new_blob_list.GetBlobNum(); i > 0; --i)
+                {
+                    CvBlob *pb = new_blob_list.GetBlob(i-1);
+                    CvRect rect = CV_BLOB_RECT(pb);
+                    cvRectangleR(imtmp, rect, CV_RGB(0,255,0), 1, CV_AA, 0);
+                    cvShowImage("showNewBlob", imtmp);
+                    // waitKey(0);
+                }
+                cvReleaseImage(&imtmp);
+            }
         }
 
+
         // debug track
+        if(1)
         {
             CvFont font;
             int line_type = CV_AA;
@@ -253,26 +266,48 @@ int main(int argc, char **argv)
                 if(r.y < 0){r.height += r.y;r.y = 0;}
                 if(r.x+r.width>=w){r.width = w-r.x-1;}
                 if(r.y+r.height>=h){r.height = h-r.y-1;}
-                int sum = cvSum(cvGetSubRect(pfg_image, &mat, r)).val[0];
                 
+                int sum = 0;
+                if(r.width > 4 && r.height > 4 && r.x < w && r.y < h &&
+                    r.x >=0 && r.y >=0 && r.x+r.width < w && r.y+r.height < h && area > 0)
+                {
+                    sum = cvSum(cvGetSubRect(pfg_image, &mat, r)).val[0];
+                }
                 CvBlobTrackAuto *pbtmp = (CvBlobTrackAuto *)blob_list.GetBlob(i-1);
 
                 p.x >>= 8;
                 p.y >>= 8;
                 s.width >>= 8;
                 s.height >>= 8;
-                sprintf(str,"%03d,%3.f,%3.f,%d",CV_BLOB_ID(pb), pb->w, pb->h, pbtmp->BadFrames);
+                sprintf(str,"%03d,%3.f,%3.f",CV_BLOB_ID(pb), pb->w, pb->h);
+                // sprintf(str,"%03d,%3.f,%3.f,%d",CV_BLOB_ID(pb), pb->w, pb->h, pbtmp->BadFrames);
+                
                 cvGetTextSize( str, &font, &text_size, NULL );
                 p.y -= s.height;
                 cvPutText( pi, str, p, &font, CV_RGB(0,255,255));
             }
-
-
-            // cvShowImage("debug", pi);
+            cvShowImage("debug", pi);
+            cvReleaseImage(&pi);
         }
 
-        printf("blobNum:%d  ", blob_list.GetBlobNum());
+        // blob track generator, this do nothing help
+        // if(m_btg)
+        // {
+        //     for(int i = blob_list.GetBlobNum(); i > 0; --i)
+        //     {
+        //         CvBlob *pb = blob_list.GetBlob(i-1);
+        //         m_btg->AddBlob(pb);
+        //     }
+        //     m_btg->Process(&im_src, pfg_image);
 
+        //     IplImage *btg_src = cvCloneImage(&im_src);
+        //     m_btg->drawTrack(btg_src);
+        //     cvShowImage("blobtrack", btg_src);
+        //     cvWaitKey(1);
+        //     CvRealseImage(btg_src);
+        // }
+
+        printf("blobNum:%d  ", blob_list.GetBlobNum());
 
         t = ((double)getTickCount() - t) / getTickFrequency();
         // printf("%d\n", im_src.width);

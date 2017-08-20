@@ -281,6 +281,8 @@ opencv2/video/background_segm.hpp
 /home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.cpp
 blobDetectorPeople.h
 /home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
+globalSet.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/globalSet.h
 opencv2/opencv.hpp
 -
 
@@ -290,6 +292,14 @@ opencv2/opencv.hpp
 opencv2/legacy/blobtrack.hpp
 -
 vector
+-
+
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobTrackDraw.cpp
+blobTrackDraw.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobTrackDraw.h
+
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobTrackDraw.h
+opencv2/legacy/blobtrack.hpp
 -
 
 /home/lxg/code/backgroundSubstraction/videoSurveilance/fgvibe.h
@@ -304,6 +314,8 @@ libvibe++/distances/Manhattan.h
 libvibe++/system/types.h
 /home/lxg/code/backgroundSubstraction/videoSurveilance/libvibe++/system/types.h
 
+/home/lxg/code/backgroundSubstraction/videoSurveilance/globalSet.h
+
 /home/lxg/code/backgroundSubstraction/videoSurveilance/main.cpp
 opencv2/opencv.hpp
 -
@@ -315,4 +327,6 @@ fgvibe.h
 /home/lxg/code/backgroundSubstraction/videoSurveilance/fgvibe.h
 blobDetectorPeople.h
 /home/lxg/code/backgroundSubstraction/videoSurveilance/blobDetectorPeople.h
+blobTrackDraw.h
+/home/lxg/code/backgroundSubstraction/videoSurveilance/blobTrackDraw.h
 
