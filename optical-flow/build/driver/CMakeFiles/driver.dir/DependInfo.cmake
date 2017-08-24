@@ -11,8 +11,8 @@ set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/lxg/app/include/opencv"
-  "/home/lxg/app/include"
+  "/usr/local/include/opencv"
+  "/usr/local/include"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/lxg/code/optical-flow/driver/driverMain.cpp" "/home/lxg/code/optical-flow/build/driver/CMakeFiles/driver.dir/driverMain.cpp.o"
@@ -22,8 +22,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/lxg/app/include/opencv"
-  "/home/lxg/app/include"
+  "/usr/local/include/opencv"
+  "/usr/local/include"
   )
 
 # Targets to which this target links.

@@ -96,6 +96,7 @@ void OpticalFlow::getOf(int flg)
             blockOpticalFlow();
             break;
         case 3:
+            // wiki 上一个开源的lk算法
             stanKlt();
             break;        
         default:
@@ -104,19 +105,26 @@ void OpticalFlow::getOf(int flg)
         }
     }
 
-    // 聚类
+    // 根据聚类排除跟踪点中的异常点
     // meanshift();
 
     computeAffine();
     lowPassFilter(pixel_dis, pixel_dis);
-    if(frame_num == 9)
+
+    // 每计算相邻的9幅图像的结果，输出一次
+    if(frame_num == 3)
     {   
+        // frame_num = 0;
+        pixel_sum[0] = trans_sum(0,2);
+        pixel_sum[1] = trans_sum(1,2);
+        
         trans_sum.setIdentity();
     }
+    
     time[3] = ((double)getTickCount() - t) / getTickFrequency() * 1000;
     
     show();
-    //message();
+    message();
 }
 /****************************************************************
  * 
@@ -199,8 +207,6 @@ void OpticalFlow::computeAffine()
 {
     double t = (double)getTickCount();
     
-
-
     corner_firstc.clear();
     corner_secondc.clear();
 	//成功跟踪角点提取
@@ -247,6 +253,7 @@ void OpticalFlow::computeAffine()
 
     time[2] = ((double)getTickCount() - t) / getTickFrequency()*1000;
 }
+
 /****************************************************************
  * 显示角点，及跟踪效果
 ****************************************************************/
@@ -274,6 +281,7 @@ void OpticalFlow::show()
             // line(tmp, corner_first[i], corner_second[i], color_err);
         }
     }
+
     if(true)
     {
         Point2f p_center, p_center_of;
@@ -285,9 +293,12 @@ void OpticalFlow::show()
         line(tmp, p_center, p_center_of, color_err);
     }
     
-    debugDrawCurve(pixel_dis[0], pixel_dis[1]);
-    // debugDrawCurve(trans_sum(0,2), trans_sum(1,2));
-
+    // 相邻两帧之间的位移
+    // debugDrawCurve(pixel_dis[0], pixel_dis[1]); 
+    // 相隔多帧图像之间的位移
+    // debugDrawCurve(pixel_sum[0], pixel_sum[1]); 
+    // 总位移
+    debugDrawCurve(trans_sum(0,2), trans_sum(1,2)); 
 
     resize(tmp, tmp, Size(400,400));
 

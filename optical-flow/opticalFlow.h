@@ -27,7 +27,9 @@ struct Camera
 class OpticalFlow
 {
 public:
-	float pixel_dis[2];
+	float pixel_dis[2]; // 相邻两帧图像之间的位移
+	float pixel_sum[2]; // 相隔多帧图像之间的位移
+
 	Camera *camera;
 
 	OpticalFlow(Camera *_c, std::string _win_name);
@@ -39,10 +41,11 @@ public:
 
 private:
 	std::string win_name;
+
 	int frame_num;
 	double fps;
 	double time[4];
-	Eigen::Matrix3f trans_sum;
+	Eigen::Matrix3f trans_sum; // 转移矩阵乘积的结果
 
 	float max_pixel_delta;
 

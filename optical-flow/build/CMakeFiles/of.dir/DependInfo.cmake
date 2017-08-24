@@ -18,8 +18,8 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/lxg/app/include/opencv"
-  "/home/lxg/app/include"
+  "/usr/local/include/opencv"
+  "/usr/local/include"
   "../driver"
   )
 
