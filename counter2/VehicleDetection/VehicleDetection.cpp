@@ -23,10 +23,10 @@ double th2 =0.6;
 double th3 =1.5;
 double th4 =20;
 
-double beta1  0.4;
-double beta2  0.6;
-double Th     0.5; 
-double Ts     0.l;
+double beta1  =0.4;
+double beta2  =0.6;
+double Th     =0.5; 
+double Ts     =0.l;
 
 //line parameters
 int upLine   =110;
