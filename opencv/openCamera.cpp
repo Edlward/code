@@ -20,7 +20,13 @@ int main(int argc, char **argv)
     {
         sscanf(argv[1], "%d", &cnum);
     }
-    cap.open(cnum);
+    // cap.open(cnum);
+    // cap.open("rtsp://admin:admin@127.0.0.1:554/h264/ch1/sub/av_stream");
+    // cap.open("rtsp://127.0.0.1:554/av_stream");
+    cap.open("http://127.0.0.1:8080/?action=stream");
+    
+    
+    
     if(!cap.isOpened())
     {
         printf("can not open camera %d\n", cnum);
