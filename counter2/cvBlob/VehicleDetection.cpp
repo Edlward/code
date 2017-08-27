@@ -1,5 +1,4 @@
-﻿#include "stdafx.h"
-#include <cvblob.h>
+﻿#include <cvblob.h>
 #include <opencv2/videoio.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/video.hpp>

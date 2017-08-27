@@ -17,8 +17,6 @@
 // along with cvBlob.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "stdafx.h"
-
 #include <cmath>
 #include <iostream>
 using namespace std;

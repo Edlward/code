@@ -17,8 +17,6 @@
 // along with cvBlob.  If not, see <http://www.gnu.org/licenses/>.
 //
 
-#include "stdafx.h"
-
 #include <climits>
 
 #define _USE_MATH_DEFINES

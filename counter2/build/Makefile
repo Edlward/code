@@ -58,8 +58,8 @@ CMAKE_BINARY_DIR = /home/lxg/code/counter2/build
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -123,59 +123,32 @@ count/fast:
 	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/build
 .PHONY : count/fast
 
-VehicleDetection/VehicleDetection.o: VehicleDetection/VehicleDetection.cpp.o
+cvBlob/VehicleDetection.o: cvBlob/VehicleDetection.cpp.o
 
-.PHONY : VehicleDetection/VehicleDetection.o
-
-# target to build an object file
-VehicleDetection/VehicleDetection.cpp.o:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/VehicleDetection/VehicleDetection.cpp.o
-.PHONY : VehicleDetection/VehicleDetection.cpp.o
-
-VehicleDetection/VehicleDetection.i: VehicleDetection/VehicleDetection.cpp.i
-
-.PHONY : VehicleDetection/VehicleDetection.i
-
-# target to preprocess a source file
-VehicleDetection/VehicleDetection.cpp.i:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/VehicleDetection/VehicleDetection.cpp.i
-.PHONY : VehicleDetection/VehicleDetection.cpp.i
-
-VehicleDetection/VehicleDetection.s: VehicleDetection/VehicleDetection.cpp.s
-
-.PHONY : VehicleDetection/VehicleDetection.s
-
-# target to generate assembly for a file
-VehicleDetection/VehicleDetection.cpp.s:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/VehicleDetection/VehicleDetection.cpp.s
-.PHONY : VehicleDetection/VehicleDetection.cpp.s
-
-VehicleDetection/stdafx.o: VehicleDetection/stdafx.cpp.o
-
-.PHONY : VehicleDetection/stdafx.o
+.PHONY : cvBlob/VehicleDetection.o
 
 # target to build an object file
-VehicleDetection/stdafx.cpp.o:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/VehicleDetection/stdafx.cpp.o
-.PHONY : VehicleDetection/stdafx.cpp.o
+cvBlob/VehicleDetection.cpp.o:
+	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/VehicleDetection.cpp.o
+.PHONY : cvBlob/VehicleDetection.cpp.o
 
-VehicleDetection/stdafx.i: VehicleDetection/stdafx.cpp.i
+cvBlob/VehicleDetection.i: cvBlob/VehicleDetection.cpp.i
 
-.PHONY : VehicleDetection/stdafx.i
+.PHONY : cvBlob/VehicleDetection.i
 
 # target to preprocess a source file
-VehicleDetection/stdafx.cpp.i:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/VehicleDetection/stdafx.cpp.i
-.PHONY : VehicleDetection/stdafx.cpp.i
+cvBlob/VehicleDetection.cpp.i:
+	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/VehicleDetection.cpp.i
+.PHONY : cvBlob/VehicleDetection.cpp.i
 
-VehicleDetection/stdafx.s: VehicleDetection/stdafx.cpp.s
+cvBlob/VehicleDetection.s: cvBlob/VehicleDetection.cpp.s
 
-.PHONY : VehicleDetection/stdafx.s
+.PHONY : cvBlob/VehicleDetection.s
 
 # target to generate assembly for a file
-VehicleDetection/stdafx.cpp.s:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/VehicleDetection/stdafx.cpp.s
-.PHONY : VehicleDetection/stdafx.cpp.s
+cvBlob/VehicleDetection.cpp.s:
+	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/VehicleDetection.cpp.s
+.PHONY : cvBlob/VehicleDetection.cpp.s
 
 cvBlob/cvaux.o: cvBlob/cvaux.cpp.o
 
@@ -339,60 +312,6 @@ cvBlob/cvtrack.cpp.s:
 	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/cvtrack.cpp.s
 .PHONY : cvBlob/cvtrack.cpp.s
 
-cvBlob/dllmain.o: cvBlob/dllmain.cpp.o
-
-.PHONY : cvBlob/dllmain.o
-
-# target to build an object file
-cvBlob/dllmain.cpp.o:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/dllmain.cpp.o
-.PHONY : cvBlob/dllmain.cpp.o
-
-cvBlob/dllmain.i: cvBlob/dllmain.cpp.i
-
-.PHONY : cvBlob/dllmain.i
-
-# target to preprocess a source file
-cvBlob/dllmain.cpp.i:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/dllmain.cpp.i
-.PHONY : cvBlob/dllmain.cpp.i
-
-cvBlob/dllmain.s: cvBlob/dllmain.cpp.s
-
-.PHONY : cvBlob/dllmain.s
-
-# target to generate assembly for a file
-cvBlob/dllmain.cpp.s:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/dllmain.cpp.s
-.PHONY : cvBlob/dllmain.cpp.s
-
-cvBlob/stdafx.o: cvBlob/stdafx.cpp.o
-
-.PHONY : cvBlob/stdafx.o
-
-# target to build an object file
-cvBlob/stdafx.cpp.o:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/stdafx.cpp.o
-.PHONY : cvBlob/stdafx.cpp.o
-
-cvBlob/stdafx.i: cvBlob/stdafx.cpp.i
-
-.PHONY : cvBlob/stdafx.i
-
-# target to preprocess a source file
-cvBlob/stdafx.cpp.i:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/stdafx.cpp.i
-.PHONY : cvBlob/stdafx.cpp.i
-
-cvBlob/stdafx.s: cvBlob/stdafx.cpp.s
-
-.PHONY : cvBlob/stdafx.s
-
-# target to generate assembly for a file
-cvBlob/stdafx.cpp.s:
-	$(MAKE) -f CMakeFiles/count.dir/build.make CMakeFiles/count.dir/cvBlob/stdafx.cpp.s
-.PHONY : cvBlob/stdafx.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -402,12 +321,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... count"
-	@echo "... VehicleDetection/VehicleDetection.o"
-	@echo "... VehicleDetection/VehicleDetection.i"
-	@echo "... VehicleDetection/VehicleDetection.s"
-	@echo "... VehicleDetection/stdafx.o"
-	@echo "... VehicleDetection/stdafx.i"
-	@echo "... VehicleDetection/stdafx.s"
+	@echo "... cvBlob/VehicleDetection.o"
+	@echo "... cvBlob/VehicleDetection.i"
+	@echo "... cvBlob/VehicleDetection.s"
 	@echo "... cvBlob/cvaux.o"
 	@echo "... cvBlob/cvaux.i"
 	@echo "... cvBlob/cvaux.s"
@@ -426,12 +342,6 @@ help:
 	@echo "... cvBlob/cvtrack.o"
 	@echo "... cvBlob/cvtrack.i"
 	@echo "... cvBlob/cvtrack.s"
-	@echo "... cvBlob/dllmain.o"
-	@echo "... cvBlob/dllmain.i"
-	@echo "... cvBlob/dllmain.s"
-	@echo "... cvBlob/stdafx.o"
-	@echo "... cvBlob/stdafx.i"
-	@echo "... cvBlob/stdafx.s"
 .PHONY : help
 
 

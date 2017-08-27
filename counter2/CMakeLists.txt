@@ -8,7 +8,6 @@ find_package(OpenCV)
 include_directories(cvBlob)
 
 aux_source_directory(cvBlob SRC_LIST)
-aux_source_directory(VehicleDetection SRC_LIST2)
 
 message(STATUS "test")
 
