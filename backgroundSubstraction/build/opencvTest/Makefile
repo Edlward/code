@@ -89,6 +89,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -110,17 +121,6 @@ install/local: preinstall
 install/local/fast: install/local
 
 .PHONY : install/local/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -169,6 +169,75 @@ sample/fast:
 	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/sample.dir/build.make opencvTest/CMakeFiles/sample.dir/build
 .PHONY : sample/fast
 
+# Convenience name for target.
+opencvTest/CMakeFiles/vibeclass.dir/rule:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f CMakeFiles/Makefile2 opencvTest/CMakeFiles/vibeclass.dir/rule
+.PHONY : opencvTest/CMakeFiles/vibeclass.dir/rule
+
+# Convenience name for target.
+vibeclass: opencvTest/CMakeFiles/vibeclass.dir/rule
+
+.PHONY : vibeclass
+
+# fast build rule for target.
+vibeclass/fast:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/build
+.PHONY : vibeclass/fast
+
+libvibe/libvibe++/common/ViBeBase.o: libvibe/libvibe++/common/ViBeBase.cpp.o
+
+.PHONY : libvibe/libvibe++/common/ViBeBase.o
+
+# target to build an object file
+libvibe/libvibe++/common/ViBeBase.cpp.o:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/libvibe/libvibe++/common/ViBeBase.cpp.o
+.PHONY : libvibe/libvibe++/common/ViBeBase.cpp.o
+
+libvibe/libvibe++/common/ViBeBase.i: libvibe/libvibe++/common/ViBeBase.cpp.i
+
+.PHONY : libvibe/libvibe++/common/ViBeBase.i
+
+# target to preprocess a source file
+libvibe/libvibe++/common/ViBeBase.cpp.i:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/libvibe/libvibe++/common/ViBeBase.cpp.i
+.PHONY : libvibe/libvibe++/common/ViBeBase.cpp.i
+
+libvibe/libvibe++/common/ViBeBase.s: libvibe/libvibe++/common/ViBeBase.cpp.s
+
+.PHONY : libvibe/libvibe++/common/ViBeBase.s
+
+# target to generate assembly for a file
+libvibe/libvibe++/common/ViBeBase.cpp.s:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/libvibe/libvibe++/common/ViBeBase.cpp.s
+.PHONY : libvibe/libvibe++/common/ViBeBase.cpp.s
+
+main.o: main.cpp.o
+
+.PHONY : main.o
+
+# target to build an object file
+main.cpp.o:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/main.cpp.o
+.PHONY : main.cpp.o
+
+main.i: main.cpp.i
+
+.PHONY : main.i
+
+# target to preprocess a source file
+main.cpp.i:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/main.cpp.i
+.PHONY : main.cpp.i
+
+main.s: main.cpp.s
+
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.cpp.s:
+	cd /home/lxg/code/backgroundSubstraction/build && $(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/main.cpp.s
+.PHONY : main.cpp.s
+
 sample.o: sample.cpp.o
 
 .PHONY : sample.o
@@ -206,9 +275,16 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... sample"
+	@echo "... edit_cache"
+	@echo "... vibeclass"
 	@echo "... install/strip"
 	@echo "... install/local"
-	@echo "... edit_cache"
+	@echo "... libvibe/libvibe++/common/ViBeBase.o"
+	@echo "... libvibe/libvibe++/common/ViBeBase.i"
+	@echo "... libvibe/libvibe++/common/ViBeBase.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 	@echo "... sample.o"
 	@echo "... sample.i"
 	@echo "... sample.s"

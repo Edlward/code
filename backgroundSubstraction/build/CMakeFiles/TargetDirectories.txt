@@ -22,9 +22,10 @@
 /home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/list_install_components.dir
 /home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/rebuild_cache.dir
 /home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/sample.dir
+/home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/edit_cache.dir
+/home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/vibeclass.dir
 /home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/install/strip.dir
 /home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/install/local.dir
-/home/lxg/code/backgroundSubstraction/build/opencvTest/CMakeFiles/edit_cache.dir
 /home/lxg/code/backgroundSubstraction/build/opencvTest/libvibe/CMakeFiles/install.dir
 /home/lxg/code/backgroundSubstraction/build/opencvTest/libvibe/CMakeFiles/list_install_components.dir
 /home/lxg/code/backgroundSubstraction/build/opencvTest/libvibe/CMakeFiles/rebuild_cache.dir

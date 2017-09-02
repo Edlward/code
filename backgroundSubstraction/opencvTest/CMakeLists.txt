@@ -13,3 +13,8 @@ SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR})
 
 add_executable(sample sample.cpp )
 target_link_libraries(sample ${OpenCV_LIBS} vibe++)
+
+
+add_executable(vibeclass main.cpp  libvibe/libvibe++/common/ViBeBase.cpp)
+# target_link_libraries(vibeclass ${OpenCV_LIBS} vibe++)
+target_link_libraries(vibeclass ${OpenCV_LIBS})
