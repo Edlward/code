@@ -1,3 +1,0 @@
-/home/lxg/code/leetcode/CMakeFiles/edit_cache.dir
-/home/lxg/code/leetcode/CMakeFiles/rebuild_cache.dir
-/home/lxg/code/leetcode/CMakeFiles/myapp.dir

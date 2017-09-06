@@ -1,5 +1,0 @@
-/home/lxg/code/designpattern/factory/CMakeFiles/edit_cache.dir
-/home/lxg/code/designpattern/factory/CMakeFiles/simplefactory.dir
-/home/lxg/code/designpattern/factory/CMakeFiles/factorymethod.dir
-/home/lxg/code/designpattern/factory/CMakeFiles/abstractfactory.dir
-/home/lxg/code/designpattern/factory/CMakeFiles/rebuild_cache.dir
