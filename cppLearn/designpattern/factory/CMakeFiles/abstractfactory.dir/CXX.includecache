@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lxg/code/designpattern/factory/abstractfactory.cpp
+abstractfactory.h
+/home/lxg/code/designpattern/factory/abstractfactory.h
+
+/home/lxg/code/designpattern/factory/abstractfactory.h
+iostream
+-
+

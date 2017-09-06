@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/simplefactory.dir/simplefactory.cpp.o  -o simplefactory -rdynamic 
