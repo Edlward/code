@@ -19,8 +19,10 @@ typedef struct CvBlobTrackAuto
 int main(int argc, char **argv)
 {
     VideoCapture cap;
-    cap.open("/home/lxg/codedata/walmat.mp4");
+    // cap.open("/home/lxg/codedata/walmat.mp4");
     // cap.open("/home/lxg/codedata/track.avi");
+    cap.open("/home/lxg/codedata/video1.avi");
+    
     
     if(!cap.isOpened())
     {
@@ -316,7 +318,7 @@ int main(int argc, char **argv)
         // imshow("src", im);
         // cvShowImage("track", &im_src);
 
-        key = waitKey(1);
+        key = waitKey(10);
         if(key == 's')
         {
             waitKey(0);

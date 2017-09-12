@@ -27,7 +27,7 @@ namespace ViBe {
   class ViBeSequential : public ViBeTemplateBase<ViBeSequential<Channels, Distance> > {
     protected:
 
-      typedef ViBeTemplateBase<ViBeSequential<Channels, Distance> >       Base;
+      typedef ViBeTemplateBase<ViBeSequential<Channels, Distance> > Base;
 
     public:
 

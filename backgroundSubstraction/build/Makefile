@@ -194,6 +194,19 @@ sample/fast:
 .PHONY : sample/fast
 
 #=============================================================================
+# Target rules for targets named vibeclass
+
+# Build rule for target.
+vibeclass: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vibeclass
+.PHONY : vibeclass
+
+# fast build rule for target.
+vibeclass/fast:
+	$(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/build
+.PHONY : vibeclass/fast
+
+#=============================================================================
 # Target rules for targets named vibe++
 
 # Build rule for target.
@@ -234,6 +247,7 @@ help:
 	@echo "... bs"
 	@echo "... vs"
 	@echo "... sample"
+	@echo "... vibeclass"
 	@echo "... vibe++"
 	@echo "... vibe++_static"
 .PHONY : help

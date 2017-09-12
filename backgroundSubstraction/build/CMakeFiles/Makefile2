@@ -139,7 +139,7 @@ videoSurveilance/preinstall:
 videoSurveilance/CMakeFiles/vs.dir/all: opencvTest/libvibe/CMakeFiles/vibe++.dir/all
 	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/depend
 	$(MAKE) -f videoSurveilance/CMakeFiles/vs.dir/build.make videoSurveilance/CMakeFiles/vs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=11,12,13,14 "Built target vs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=14,15,16,17 "Built target vs"
 .PHONY : videoSurveilance/CMakeFiles/vs.dir/all
 
 # Include target in all.
@@ -174,12 +174,14 @@ clean: videoSurveilance/CMakeFiles/vs.dir/clean
 
 # Convenience name for "all" pass in the directory.
 opencvTest/all: opencvTest/CMakeFiles/sample.dir/all
+opencvTest/all: opencvTest/CMakeFiles/vibeclass.dir/all
 opencvTest/all: opencvTest/libvibe/all
 
 .PHONY : opencvTest/all
 
 # Convenience name for "clean" pass in the directory.
 opencvTest/clean: opencvTest/CMakeFiles/sample.dir/clean
+opencvTest/clean: opencvTest/CMakeFiles/vibeclass.dir/clean
 opencvTest/clean: opencvTest/libvibe/clean
 
 .PHONY : opencvTest/clean
@@ -223,6 +225,43 @@ opencvTest/CMakeFiles/sample.dir/clean:
 
 # clean rule for target.
 clean: opencvTest/CMakeFiles/sample.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target opencvTest/CMakeFiles/vibeclass.dir
+
+# All Build rule for target.
+opencvTest/CMakeFiles/vibeclass.dir/all:
+	$(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/depend
+	$(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/backgroundSubstraction/build/CMakeFiles --progress-num=11,12,13 "Built target vibeclass"
+.PHONY : opencvTest/CMakeFiles/vibeclass.dir/all
+
+# Include target in all.
+all: opencvTest/CMakeFiles/vibeclass.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+opencvTest/CMakeFiles/vibeclass.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 opencvTest/CMakeFiles/vibeclass.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/backgroundSubstraction/build/CMakeFiles 0
+.PHONY : opencvTest/CMakeFiles/vibeclass.dir/rule
+
+# Convenience name for target.
+vibeclass: opencvTest/CMakeFiles/vibeclass.dir/rule
+
+.PHONY : vibeclass
+
+# clean rule for target.
+opencvTest/CMakeFiles/vibeclass.dir/clean:
+	$(MAKE) -f opencvTest/CMakeFiles/vibeclass.dir/build.make opencvTest/CMakeFiles/vibeclass.dir/clean
+.PHONY : opencvTest/CMakeFiles/vibeclass.dir/clean
+
+# clean rule for target.
+clean: opencvTest/CMakeFiles/vibeclass.dir/clean
 
 .PHONY : clean
 

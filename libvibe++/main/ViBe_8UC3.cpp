@@ -22,7 +22,7 @@
 #include <ctime>
 #include <iostream>
 
-#ifndef    OPENCV_3
+#ifndef  OPENCV_3
 #include <cv.h>
 #include <highgui.h>
 #else

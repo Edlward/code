@@ -18,13 +18,23 @@ XMLElement *queryElemByName(XMLElement *elem, const char *name)
     return elem;
 }
 
+
+
 void write(XMLDocument *xml, std::string name, int value)
 {
-    // 插入节点
-    XMLElement *elem1 = xml->NewElement(name.c_str());
-    elem1->SetName(name.c_str());   //相当于更改节点的名字
-    elem1->SetText(value);        //给节点添加文本节点
-    xml->InsertEndChild(elem1);
+    XMLElement *elem = xml->FirstChildElement(name.c_str());
+    
+    if(elem != nullptr) // xml内已有这个节点，只需修改值
+    {
+        elem->SetText(value);
+    }
+    else // 插入节点
+    {
+        XMLElement *elem1 = xml->NewElement(name.c_str());
+        elem1->SetName(name.c_str());   //相当于更改节点的名字
+        elem1->SetText(value);        //给节点添加文本节点
+        xml->InsertEndChild(elem1);
+    }
 }
 
 void read(XMLDocument *xml, std::string name, int &value)
@@ -41,30 +51,120 @@ void read(XMLDocument *xml, std::string name, int &value)
     }
 }
 
-int main()
+
+
+
+void write(XMLDocument *xml, std::string name, double value)
+{
+    XMLElement *elem = xml->FirstChildElement(name.c_str());
+    
+    if(elem != nullptr) // xml内已有这个节点，只需修改值
+    {
+        elem->SetText(value);
+    }
+    else // 插入节点
+    {
+        XMLElement *elem1 = xml->NewElement(name.c_str());
+        elem1->SetName(name.c_str());   //相当于更改节点的名字
+        elem1->SetText(value);        //给节点添加文本节点
+        xml->InsertEndChild(elem1);
+    }
+}
+
+
+void read(XMLDocument *xml, std::string name, double &value)
+{
+    XMLElement *elem = xml->FirstChildElement(name.c_str());
+    
+    if(elem != nullptr)
+    {
+        elem->QueryDoubleText(&value);
+    }
+    else
+    {
+        printf("can not find %s\n", name.c_str());
+    }
+}
+
+
+
+void write(XMLDocument *xml, std::string name, std::string value)
+{
+    XMLElement *elem = xml->FirstChildElement(name.c_str());
+    
+    if(elem != nullptr) // xml内已有这个节点，只需修改值
+    {
+        elem->SetText(value.c_str());
+    }
+    else // 插入节点
+    {
+        XMLElement *elem1 = xml->NewElement(name.c_str());
+        elem1->SetName(name.c_str());   //相当于更改节点的名字
+        elem1->SetText(value.c_str());   //给节点添加文本节点
+        xml->InsertEndChild(elem1);
+    }
+}
+
+void read(XMLDocument *xml, std::string name, const char *value)
+{
+    XMLElement *elem = xml->FirstChildElement(name.c_str());
+    
+    if(elem != nullptr)
+    {
+        value = elem->GetText();
+        printf("string %s\n", value);
+    }
+    else
+    {
+        printf("can not find %s\n", name.c_str());
+    }
+}
+
+bool loadFile(XMLDocument **rxml, std::string xmlname)
 {
     XMLDocument *xml = new XMLDocument();
-    std::string xmlname = "test.xml";
 
     if(xml->LoadFile(xmlname.c_str()))
     {
         XMLDeclaration *decla = xml->NewDeclaration();
         xml->InsertEndChild(decla);
         printf("load fault\n");
+        *rxml = xml;
+        return false;
     }
     else
     {
+        *rxml = xml;
         printf("load sucsessful\n");
+        return true;
     }
-    
-    // write(xml, "fps", 30);
+}
 
+
+int main()
+{
+    XMLDocument *xml;
+    std::string xmlname = "test.xml";
+
+    loadFile(&xml, xmlname);
+
+    // write(xml, "fps", 30);
+    // write(xml, "beta1", 0.2);
+    // write(xml, "url", "https://");
 
     // 搜寻节点
-    int value;
-    std::string name = "fps";
-    read(xml, name, value);
-    printf("%s: %d\n", name.c_str(), value);
+    // int value;
+    // std::string name = "fps";
+    // read(xml, name, value);
+    // printf("%s: %d\n", name.c_str(), value);
+
+    // double dvalue;
+    // std::string dname = "beta1";
+    // read(xml, dname, dvalue);
+    // printf("%s: %f\n", dname.c_str(), dvalue);
+
+    const char *str = NULL;
+    read(xml, "url", str);
 
     xml->SaveFile(xmlname.c_str());
 }
