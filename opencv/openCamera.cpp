@@ -24,8 +24,11 @@ int main(int argc, char **argv)
     // cap.open("rtsp://admin:admin@127.0.0.1:554/h264/ch1/sub/av_stream");
     // cap.open("rtsp://127.0.0.1:554/av_stream");
     // cap.open("http://127.0.0.1:8080/?action=stream");
+<<<<<<< HEAD
+=======
     
     
+>>>>>>> 13fb842a150735da856e68987527fbbe15d84351
     
     if(!cap.isOpened())
     {
@@ -41,7 +44,15 @@ int main(int argc, char **argv)
 
     // cap.set(CV_CAP_PROP_FRAME_WIDTH, 110 ); //不起作用
     // cap.set(CV_CAP_PROP_FRAME_HEIGHT, 100 );
+<<<<<<< HEAD
+    int hue = cap.get(CV_CAP_PROP_HUE);
+    printf("hue %d\n", hue);
+    
+    int exposure = cap.get(CV_CAP_PROP_AUTO_EXPOSURE);
+    printf("exposure %d\n", exposure);
+=======
     // cap.set(CV_CAP_PROP_EXPOSURE, 0);
+>>>>>>> 13fb842a150735da856e68987527fbbe15d84351
 
     int fps = cap.get(CV_CAP_PROP_FPS);
     printf("frames per second(fps): %d\n", fps);

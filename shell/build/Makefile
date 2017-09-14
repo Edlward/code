@@ -123,6 +123,86 @@ readlist/fast:
 	$(MAKE) -f CMakeFiles/readlist.dir/build.make CMakeFiles/readlist.dir/build
 .PHONY : readlist/fast
 
+#=============================================================================
+# Target rules for targets named aflw
+
+# Build rule for target.
+aflw: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 aflw
+.PHONY : aflw
+
+# fast build rule for target.
+aflw/fast:
+	$(MAKE) -f CMakeFiles/aflw.dir/build.make CMakeFiles/aflw.dir/build
+.PHONY : aflw/fast
+
+#=============================================================================
+# Target rules for targets named test1
+
+# Build rule for target.
+test1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test1
+.PHONY : test1
+
+# fast build rule for target.
+test1/fast:
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
+.PHONY : test1/fast
+
+aflwFace.o: aflwFace.cpp.o
+
+.PHONY : aflwFace.o
+
+# target to build an object file
+aflwFace.cpp.o:
+	$(MAKE) -f CMakeFiles/aflw.dir/build.make CMakeFiles/aflw.dir/aflwFace.cpp.o
+.PHONY : aflwFace.cpp.o
+
+aflwFace.i: aflwFace.cpp.i
+
+.PHONY : aflwFace.i
+
+# target to preprocess a source file
+aflwFace.cpp.i:
+	$(MAKE) -f CMakeFiles/aflw.dir/build.make CMakeFiles/aflw.dir/aflwFace.cpp.i
+.PHONY : aflwFace.cpp.i
+
+aflwFace.s: aflwFace.cpp.s
+
+.PHONY : aflwFace.s
+
+# target to generate assembly for a file
+aflwFace.cpp.s:
+	$(MAKE) -f CMakeFiles/aflw.dir/build.make CMakeFiles/aflw.dir/aflwFace.cpp.s
+.PHONY : aflwFace.cpp.s
+
+gauss.o: gauss.cpp.o
+
+.PHONY : gauss.o
+
+# target to build an object file
+gauss.cpp.o:
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/gauss.cpp.o
+.PHONY : gauss.cpp.o
+
+gauss.i: gauss.cpp.i
+
+.PHONY : gauss.i
+
+# target to preprocess a source file
+gauss.cpp.i:
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/gauss.cpp.i
+.PHONY : gauss.cpp.i
+
+gauss.s: gauss.cpp.s
+
+.PHONY : gauss.s
+
+# target to generate assembly for a file
+gauss.cpp.s:
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/gauss.cpp.s
+.PHONY : gauss.cpp.s
+
 readlist.o: readlist.cpp.o
 
 .PHONY : readlist.o
@@ -157,8 +237,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
 	@echo "... readlist"
+	@echo "... aflw"
+	@echo "... test1"
+	@echo "... rebuild_cache"
+	@echo "... aflwFace.o"
+	@echo "... aflwFace.i"
+	@echo "... aflwFace.s"
+	@echo "... gauss.o"
+	@echo "... gauss.i"
+	@echo "... gauss.s"
 	@echo "... readlist.o"
 	@echo "... readlist.i"
 	@echo "... readlist.s"

@@ -3,9 +3,8 @@ project(myapp)
 
 # set(OpenCV_DIR "/home/lxg/app/opencv-2.4.9/debug/")
 
-
 add_definitions(-std=c++11) 
-find_package(OpenCV REQUIRED)
+find_package(OpenCV 2.4.9 REQUIRED)
 
 add_executable(openCamera openCamera.cpp)
 target_link_libraries(openCamera ${OpenCV_LIBS})
