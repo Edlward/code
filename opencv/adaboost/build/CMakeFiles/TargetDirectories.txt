@@ -1,0 +1,4 @@
+/home/lxg/code/opencv/adaboost/build/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/opencv/adaboost/build/CMakeFiles/detect.dir
+/home/lxg/code/opencv/adaboost/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/opencv/adaboost/build/CMakeFiles/track.dir
