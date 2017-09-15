@@ -6,6 +6,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
+#include <iostream>
 
 // 读取鼠标的相对位置
 int main(int argc, char **argv)
