@@ -114,7 +114,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=crop
+CMAKE_PROJECT_NAME:STATIC=tool
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -174,6 +174,12 @@ crop_BINARY_DIR:STATIC=/home/lxg/code/opencv/tool/build
 //Value Computed by CMake
 crop_SOURCE_DIR:STATIC=/home/lxg/code/opencv/tool
 
+//Value Computed by CMake
+tool_BINARY_DIR:STATIC=/home/lxg/code/opencv/tool/build
+
+//Value Computed by CMake
+tool_SOURCE_DIR:STATIC=/home/lxg/code/opencv/tool
+
 
 ########################
 # INTERNAL cache entries
@@ -221,6 +227,8 @@ CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
 CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
 CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//Path to cache edit program executable.
+CMAKE_EDIT_COMMAND:INTERNAL=/usr/bin/cmake-gui
 //Executable file format
 CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
 //ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS

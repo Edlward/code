@@ -8,7 +8,7 @@ using namespace cv::dnn;
 
 int main()
 {
-    String model_file = "/home/lxg/codedata/head/head2.pkl";
+    // String model_file = "/home/lxg/codedata/head/head2.pkl";
     String image_file = "/home/lxg/codedata/head/";
 
     dnn::Net net = dnn::readNetFromTorch(model_file);

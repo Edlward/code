@@ -58,8 +58,8 @@ CMAKE_BINARY_DIR = /home/lxg/code/opencv/tool/build
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,6 +111,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named sample
+
+# Build rule for target.
+sample: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sample
+.PHONY : sample
+
+# fast build rule for target.
+sample/fast:
+	$(MAKE) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/build
+.PHONY : sample/fast
+
+#=============================================================================
+# Target rules for targets named tensorflow
+
+# Build rule for target.
+tensorflow: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tensorflow
+.PHONY : tensorflow
+
+# fast build rule for target.
+tensorflow/fast:
+	$(MAKE) -f CMakeFiles/tensorflow.dir/build.make CMakeFiles/tensorflow.dir/build
+.PHONY : tensorflow/fast
+
+#=============================================================================
 # Target rules for targets named crop
 
 # Build rule for target.
@@ -150,6 +176,60 @@ crop.cpp.s:
 	$(MAKE) -f CMakeFiles/crop.dir/build.make CMakeFiles/crop.dir/crop.cpp.s
 .PHONY : crop.cpp.s
 
+sample.o: sample.cpp.o
+
+.PHONY : sample.o
+
+# target to build an object file
+sample.cpp.o:
+	$(MAKE) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/sample.cpp.o
+.PHONY : sample.cpp.o
+
+sample.i: sample.cpp.i
+
+.PHONY : sample.i
+
+# target to preprocess a source file
+sample.cpp.i:
+	$(MAKE) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/sample.cpp.i
+.PHONY : sample.cpp.i
+
+sample.s: sample.cpp.s
+
+.PHONY : sample.s
+
+# target to generate assembly for a file
+sample.cpp.s:
+	$(MAKE) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/sample.cpp.s
+.PHONY : sample.cpp.s
+
+tensorflow.o: tensorflow.cpp.o
+
+.PHONY : tensorflow.o
+
+# target to build an object file
+tensorflow.cpp.o:
+	$(MAKE) -f CMakeFiles/tensorflow.dir/build.make CMakeFiles/tensorflow.dir/tensorflow.cpp.o
+.PHONY : tensorflow.cpp.o
+
+tensorflow.i: tensorflow.cpp.i
+
+.PHONY : tensorflow.i
+
+# target to preprocess a source file
+tensorflow.cpp.i:
+	$(MAKE) -f CMakeFiles/tensorflow.dir/build.make CMakeFiles/tensorflow.dir/tensorflow.cpp.i
+.PHONY : tensorflow.cpp.i
+
+tensorflow.s: tensorflow.cpp.s
+
+.PHONY : tensorflow.s
+
+# target to generate assembly for a file
+tensorflow.cpp.s:
+	$(MAKE) -f CMakeFiles/tensorflow.dir/build.make CMakeFiles/tensorflow.dir/tensorflow.cpp.s
+.PHONY : tensorflow.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -157,11 +237,19 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... rebuild_cache"
+	@echo "... sample"
+	@echo "... tensorflow"
 	@echo "... crop"
+	@echo "... rebuild_cache"
 	@echo "... crop.o"
 	@echo "... crop.i"
 	@echo "... crop.s"
+	@echo "... sample.o"
+	@echo "... sample.i"
+	@echo "... sample.s"
+	@echo "... tensorflow.o"
+	@echo "... tensorflow.i"
+	@echo "... tensorflow.s"
 .PHONY : help
 
 

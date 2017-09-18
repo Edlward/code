@@ -6,7 +6,13 @@
 using namespace std;
 using namespace cv;
 
-string path = "/home/lxg/codedata/";
+/*
+* 扣图程序，同一张图片可以进行多次抠图，
+* esc键进行下一张
+* space键保存本次抠图框
+*/
+
+string path = "/home/lxg/codedata/headXml/";
 string name = "src";
 string pre_image = "gxl";
 
@@ -17,6 +23,10 @@ int main()
 
     ifstream in;
     in.open((path+"tmp.txt").c_str());
+    if(!in)
+    {
+        printf("can not open tmp.txt\n");
+    }
     
     char str[100];
     vector<string> vname;
@@ -54,11 +64,23 @@ int main()
                 continue;
             }
 
-            imwrite(path + "test5_cut/test5_" + to_string(num_image) + ".jpg" , im(roi));
+            if(roi.x < 0) 
+            {
+                roi.x = 0;
+            }
+            if(roi.y < 0)
+            {
+                roi.y = 0;
+            }
+
+            imwrite(path + "bg/bg_10_" + to_string(num_image) + ".jpg" , im(roi));
+            // imwrite(path + "head/walmat_2_" + to_string(num_image) + ".jpg" , im(roi));
+            
             ++num_image;
             imshow("roi", im(roi));
             key = waitKey(1);
             printf("get %c\n", key);
         }
+        printf("%d\n", (int)i);
     }
 }

@@ -1,0 +1,5 @@
+/home/lxg/code/opencv/tool/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/opencv/tool/build/CMakeFiles/sample.dir
+/home/lxg/code/opencv/tool/build/CMakeFiles/tensorflow.dir
+/home/lxg/code/opencv/tool/build/CMakeFiles/crop.dir
+/home/lxg/code/opencv/tool/build/CMakeFiles/rebuild_cache.dir

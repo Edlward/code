@@ -46,8 +46,9 @@ int main(int , char** )
     // VideoCapture VideoStream("/home/lxg/zqq2017090802.avi");
     // VideoCapture VideoStream("/home/lxg/livet2.avi");
     // VideoCapture VideoStream("/home/lxg/zqq2017090804.avi");
-    VideoCapture VideoStream("/home/lxg/zqq2017090802.avi");
-
+    // VideoCapture VideoStream("/home/lxg/zqq2017090802.avi");
+    VideoCapture VideoStream("/home/lxg/codedata/walmat.mp4");
+    
     if (!VideoStream.isOpened())
     {
         printf("Error: Cannot open video stream from camera\n");
