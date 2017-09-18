@@ -11,4 +11,4 @@ add_executable(track boost.cpp)
 target_link_libraries(track ${OpenCV_LIBS})
 
 add_executable(detect detect.cpp)
-target_link_libraries(detect ${OpenCV_LIBS})
+target_link_libraries(detect ${OpenCV_LIBS} )

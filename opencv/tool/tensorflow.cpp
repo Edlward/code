@@ -56,11 +56,11 @@ int main(int argc, char **argv)
     // String outBlobName = "softmax2";
 
     // String modelFile = "/home/lxg/codedata/tensorflow/frozen_inference_graph.pb";
-    String modelFile = "/home/lxg/code/python/tensorflow/minist.pb";
-    
+    // String modelFile = "/home/lxg/code/python/tensorflow/minist.pb";
+    String modelFile = "/home/lxg/codetest/tensorflow-vgg16-train-and-test/vggs.pb";
     String imageFile = "/home/lxg/codedata/hiker_235.bmp";
-    String inBlobName = "input:0";
-    String outBlobName = "fc22";
+    String inBlobName = "input";
+    String outBlobName = "softmax";
 
     if (!parser.check())
     {
@@ -71,11 +71,11 @@ int main(int argc, char **argv)
     // String classNamesFile = parser.get<String>("c_names");
     // String resultFile = parser.get<String>("result");
 
+    String classNamesFile = "/home/lxg/codedata/tensorflow/imagenet_comp_graph_label_strings.txt";
+    String resultFile = parser.get<String>("result");
+
     // String classNamesFile = "/home/lxg/codedata/tensorflow/1.txt";
     // String resultFile = parser.get<String>("result");
-
-    String classNamesFile = "/home/lxg/codedata/tensorflow/1.txt";
-    String resultFile = parser.get<String>("result");
     
     //! [Create the importer of TensorFlow model]
     Ptr<dnn::Importer> importer;
@@ -103,6 +103,15 @@ int main(int argc, char **argv)
     importer.release();                     //We don't need importer anymore
     //! [Initialize network]
     
+    std::vector<String> p;
+    p = net.getLayerNames();
+    for(size_t i = 0; i < p.size(); ++i)
+    {
+        String s = p[i];
+
+        printf("%d, name:%s\n", (int)i, s.c_str());
+    }
+
     printf("read image\n");
     //! [Prepare blob]
     Mat img = imread(imageFile);
@@ -116,21 +125,25 @@ int main(int argc, char **argv)
 
     if (inputImgSize != img.size())
         resize(img, img, inputImgSize);       //Resize image to input size
+    printf("%d  %d  %d\n", img.cols, img.rows, img.channels());
 
     Mat inputBlob = blobFromImage(img);   //Convert Mat to image batchgoods_label_map.pbtxt
     //! [Prepare blob]
     inputBlob -= 117.0;
     //! [Set input blob]
+    printf("setinput %d  %d  %d\n", inputBlob.cols, inputBlob.rows, inputBlob.channels());
     net.setInput(inputBlob, inBlobName);        //set the network input
     //! [Set input blob]
 
     cv::TickMeter tm;
     tm.start();
 
+    printf("tick\n");
     //! [Make forward pass]
     Mat result = net.forward(outBlobName);                          //compute output
     //! [Make forward pass]
-
+    printf("stop\n");
+    std::cout << result << endl;
     tm.stop();
 
     if (!resultFile.empty()) {

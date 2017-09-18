@@ -3,6 +3,9 @@ project(tool)
 
 set(CMAKE_CXX_FLAGS -std=c++11)
 
+set(CMAKE_BUILD_TYPE "Debug")
+set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -Wall -g -ggdb")
+
 set(OpenCV_DIR "/home/lxg/app/opencv-3.3.0/build")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
