@@ -73,7 +73,7 @@ int main()
                 roi.y = 0;
             }
 
-            imwrite(path + "bg/bg_10_" + to_string(num_image) + ".jpg" , im(roi));
+            imwrite(path + "bg/bg_15_" + to_string(num_image) + ".jpg" , im(roi));
             // imwrite(path + "head/walmat_2_" + to_string(num_image) + ".jpg" , im(roi));
             
             ++num_image;

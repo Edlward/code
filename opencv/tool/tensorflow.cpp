@@ -56,9 +56,11 @@ int main(int argc, char **argv)
     // String outBlobName = "softmax2";
 
     // String modelFile = "/home/lxg/codedata/tensorflow/frozen_inference_graph.pb";
-    // String modelFile = "/home/lxg/code/python/tensorflow/minist.pb";
-    String modelFile = "/home/lxg/codetest/tensorflow-vgg16-train-and-test/vggs.pb";
-    String imageFile = "/home/lxg/codedata/hiker_235.bmp";
+    String modelFile = "/home/lxg/code/python/tensorflow/headDetect/vggs.pb";
+    // String modelFile = "/home/lxg/codetest/tensorflow-vgg16-train-and-test/vggs.pb";
+    // String imageFile = "/home/lxg/codedata/headXml/headPos/9.jpg";
+    String imageFile = "/home/lxg/codedata/headXml/headNeg/3.jpg";
+    
     String inBlobName = "input";
     String outBlobName = "softmax";
 
@@ -121,7 +123,7 @@ int main(int argc, char **argv)
         exit(-1);
     }
 
-    cv::Size inputImgSize = cv::Size(224, 224);
+    cv::Size inputImgSize = cv::Size(24, 24);
 
     if (inputImgSize != img.size())
         resize(img, img, inputImgSize);       //Resize image to input size
@@ -129,7 +131,7 @@ int main(int argc, char **argv)
 
     Mat inputBlob = blobFromImage(img);   //Convert Mat to image batchgoods_label_map.pbtxt
     //! [Prepare blob]
-    inputBlob -= 117.0;
+    // inputBlob -= 117.0;
     //! [Set input blob]
     printf("setinput %d  %d  %d\n", inputBlob.cols, inputBlob.rows, inputBlob.channels());
     net.setInput(inputBlob, inBlobName);        //set the network input

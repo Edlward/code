@@ -8,7 +8,7 @@ int main()
 {
     VideoCapture cap;
     // cap.open("/home/lxg/codedata/headXml/output.avi");
-    cap.open("/home/lxg/output201703.avi");
+    cap.open("/home/lxg/output.avi");
     // cap.open("/home/lxg/codedata/walmat.mp4");
     
     
@@ -35,7 +35,7 @@ int main()
             break;
         }
 
-        if(interval == 90)
+        if(interval == 5)
         {
             imwrite((path + "videoNeg/vi_0_" + to_string(num) + ".jpg").c_str(), im);
             ++num;

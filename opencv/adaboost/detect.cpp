@@ -16,7 +16,7 @@ void detectAndDisplay( Mat frame );
 // String face_cascade_name = "/home/lxg/codedata/headXml/goodClassifier/cascade_hog__1950_10000_24_24.xml";
 // String face_cascade_name = "/home/lxg/codedata/headXml/goodClassifier/cascade_lbp_1200_6000_24_24.xml";
 // String face_cascade_name = "/home/lxg/codedata/headXml/cascade_tbb_haar_2800_6000.xml";
-String face_cascade_name = "/home/lxg/codedata/headXml/cascade_tbb_haar_3200_16000_15.xml";
+String face_cascade_name = "/home/lxg/codedata/headXml/cascade_haarall.xml";
 
 
 // String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";
@@ -35,9 +35,9 @@ int main( void )
     // if( !eyes_cascade.load( eyes_cascade_name ) ){ printf("--(!)Error loading eyes cascade\n"); return -1; };
 
     //-- 2. Read the video stream
-    // capture.open( "/home/lxg/livet2.avi" );
-    // capture.open( "/home/lxg/zqq2017090802.avi" );
-    capture.open("/home/lxg/codedata/walmat.mp4");
+    // capture.open( "/home/lxg/zqq2017090803.avi" );
+    capture.open( "/home/lxg/zqq2017090801.avi" );
+    // capture.open("/home/lxg/codedata/walmat.mp4");
     
 
     // VideoCapture VideoStream();
