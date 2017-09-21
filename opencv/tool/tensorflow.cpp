@@ -62,7 +62,7 @@ int main(int argc, char **argv)
     String imageFile = "/home/lxg/codedata/headXml/headNeg/3.jpg";
     
     String inBlobName = "input";
-    String outBlobName = "softmax";
+    String outBlobName = "conv1_3";
 
     if (!parser.check())
     {

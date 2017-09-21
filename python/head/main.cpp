@@ -69,40 +69,60 @@ int main(int argc, char **argv)
 
     printf("read image\n");
     //! [Prepare blob]
-    Mat img = imread(imageFile);
-    if (img.empty())
+    
+    ifstream in;
+    in.open("/home/lxg/codedata/headXml/tmp.txt");
+    char str[100];
+    String path = "/home/lxg/codedata/headXml/";
+
+    int posnum = 0;
+    int total = 0;
+
+    while(in.getline(str, 100))
     {
-        std::cerr << "Can't read image from the file: " << imageFile << std::endl;
-        exit(-1);
+        Mat img = imread(path + str);
+        if (img.empty())
+        {
+            std::cerr << "Can't read image from the file: " << imageFile << std::endl;
+            exit(-1);
+        }
+
+        cv::Size inputImgSize = cv::Size(24, 24);
+
+        if (inputImgSize != img.size())
+            resize(img, img, inputImgSize);       //Resize image to input size
+        printf("%d  %d  %d\n", img.cols, img.rows, img.channels());
+
+        Mat inputBlob = blobFromImage(img);   //Convert Mat to image batchgoods_label_map.pbtxt
+        //! [Prepare blob]
+        // inputBlob -= 117.0;
+        //! [Set input blob]
+        printf("setinput %d  %d  %d\n", inputBlob.cols, inputBlob.rows, inputBlob.channels());
+        net.setInput(inputBlob, inBlobName);        //set the network input
+        //! [Set input blob]
+
+        cv::TickMeter tm;
+        tm.start();
+
+        printf("tick\n");
+        //! [Make forward pass]
+        Mat result = net.forward(outBlobName); //compute output
+        //! [Make forward pass]
+        printf("stop\n");
+        std::cout << result << endl;
+        tm.stop();
+
+        std::cout << "Output blob shape " << result.size[0] << " x " << result.size[1] << " x " << result.size[2] << " x " << result.size[3] << std::endl;
+        std::cout << "Inference time, ms: " << tm.getTimeMilli()  << std::endl;
+
+        if(*result.data < 0.5)
+        {
+            ++posnum;
+        }
+        ++total;
     }
 
-    cv::Size inputImgSize = cv::Size(24, 24);
-
-    if (inputImgSize != img.size())
-        resize(img, img, inputImgSize);       //Resize image to input size
-    printf("%d  %d  %d\n", img.cols, img.rows, img.channels());
-
-    Mat inputBlob = blobFromImage(img);   //Convert Mat to image batchgoods_label_map.pbtxt
-    //! [Prepare blob]
-    // inputBlob -= 117.0;
-    //! [Set input blob]
-    printf("setinput %d  %d  %d\n", inputBlob.cols, inputBlob.rows, inputBlob.channels());
-    net.setInput(inputBlob, inBlobName);        //set the network input
-    //! [Set input blob]
-
-    cv::TickMeter tm;
-    tm.start();
-
-    printf("tick\n");
-    //! [Make forward pass]
-    Mat result = net.forward(outBlobName); //compute output
-    //! [Make forward pass]
-    printf("stop\n");
-    std::cout << result << endl;
-    tm.stop();
-
-    std::cout << "Output blob shape " << result.size[0] << " x " << result.size[1] << " x " << result.size[2] << " x " << result.size[3] << std::endl;
-    std::cout << "Inference time, ms: " << tm.getTimeMilli()  << std::endl;
+    printf("total: %d ratio %f\n", total, 1.0 * posnum / total);
 
     return 0;
 } //main

@@ -10,11 +10,11 @@ num_epochs = 100
 batch_size = 50
 learning_rate = 0.0001
 momentum = 0.5  #SGD
-use_cuda = False
+use_cuda = True
 
 
 transform = transforms.Compose([
-    transforms.RandomCrop(20),
+    transforms.RandomCrop(24),
     # transforms.Scale(20),
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor()
@@ -55,7 +55,7 @@ class testNet(nn.Module):
             nn.ReLU(),
             nn.MaxPool2d(2)
         )
-        self.fc1 = nn.Linear(32*3*3, 2)
+        self.fc1 = nn.Linear(32*4*4, 2)
         # self.fc2 = nn.Linear(1024, 2)
     def forward(self, x):
         out = self.layer1(x)

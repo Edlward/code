@@ -7,8 +7,8 @@ message(STATUS 'found')
 message(STATUS ${OpenCV_INCLUDE_DIRS})
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
-add_executable(a.out forward.cpp)
-target_link_libraries(a.out ${OpenCV_LIBS})
+# add_executable(a.out forward.cpp)
+# target_link_libraries(a.out ${OpenCV_LIBS})
 
 add_executable(test1 main.cpp)
 target_link_libraries(test1 ${OpenCV_LIBS})

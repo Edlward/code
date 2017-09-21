@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -123,46 +123,6 @@ test1/fast:
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
 .PHONY : test1/fast
 
-#=============================================================================
-# Target rules for targets named a.out
-
-# Build rule for target.
-a.out: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 a.out
-.PHONY : a.out
-
-# fast build rule for target.
-a.out/fast:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/build
-.PHONY : a.out/fast
-
-forward.o: forward.cpp.o
-
-.PHONY : forward.o
-
-# target to build an object file
-forward.cpp.o:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/forward.cpp.o
-.PHONY : forward.cpp.o
-
-forward.i: forward.cpp.i
-
-.PHONY : forward.i
-
-# target to preprocess a source file
-forward.cpp.i:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/forward.cpp.i
-.PHONY : forward.cpp.i
-
-forward.s: forward.cpp.s
-
-.PHONY : forward.s
-
-# target to generate assembly for a file
-forward.cpp.s:
-	$(MAKE) -f CMakeFiles/a.out.dir/build.make CMakeFiles/a.out.dir/forward.cpp.s
-.PHONY : forward.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -199,10 +159,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test1"
-	@echo "... a.out"
-	@echo "... forward.o"
-	@echo "... forward.i"
-	@echo "... forward.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

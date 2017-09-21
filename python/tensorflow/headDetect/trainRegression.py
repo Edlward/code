@@ -155,18 +155,27 @@ def build_network(height, width, channel):
         output_conv1_2 = tf.nn.relu(conv, name = scope)
 
     pool2 = pool_max(output_conv1_2)
-
+    
+    # conv3
+    with tf.name_scope('conv1_3') as scope:
+        kernel = weight_variable([3, 3, 32, 1])
+        biases = bias_variable([1])
+        # output_conv5_1 = tf.nn.relu(conv2d(pool4, kernel) + biases, name=scope)
+        conv = conv2d(pool2, kernel)
+        # bias = tf.nn.bias_add(conv, biases)
+        output_conv1_3 = tf.nn.relu(conv, name = scope)
+    
     #fc1
     with tf.name_scope('fc1') as scope:
         
-        shape = int(np.prod(pool2.get_shape()[1:]))
+        shape = int(np.prod(output_conv1_3.get_shape()[1:]))
         print("fc1 shape")
         print(shape)
         print()
         kernel = weight_variable([shape, 2])
         # kernel = weight_variable([25088, 4096])
         biases = bias_variable([2])
-        pool2_flat = tf.reshape(pool2, [-1, shape])
+        pool2_flat = tf.reshape(output_conv1_3, [-1, shape])
         # pool2_flat = tf.reshape(pool2, [-1, 25088])
         # output_fc6 = tf.nn.relu(fc(pool2_flat, kernel, biases), name=scope)
         matmu = tf.matmul(pool2_flat, kernel)
@@ -273,7 +282,7 @@ def train_network(graph, batch_size, num_epochs, pb_file_path):
 
             writer = tf.summary.FileWriter("/home/lxg/codedata/tensorflow/log", tf.get_default_graph())
 
-            constant_graph = graph_util.convert_variables_to_constants(sess, sess.graph_def, ["softmax"])
+            constant_graph = graph_util.convert_variables_to_constants(sess, sess.graph_def, ["conv1_3"])
             # constant_graph = graph_util.convert_variables_to_constants(sess, sess.graph_def, ["fc6"])
             
             with tf.gfile.FastGFile(pb_file_path, mode='wb') as f:

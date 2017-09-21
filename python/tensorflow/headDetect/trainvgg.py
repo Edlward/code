@@ -93,6 +93,16 @@ def build_network(height, width, channel):
 
     pool2 = pool_max(output_conv1_2)
 
+    # # conv2
+    # with tf.name_scope('conv1_3') as scope:
+    #     kernel = weight_variable([3, 3, 16, 32])
+    #     biases = bias_variable([32])
+    #     # output_conv5_1 = tf.nn.relu(conv2d(pool4, kernel) + biases, name=scope)
+    #     conv = conv2d(pool1, kernel)
+    #     bias = tf.nn.bias_add(conv, biases)
+    #     output_conv1_2 = tf.nn.relu(bias, name = scope)
+
+
     #fc1
     with tf.name_scope('fc1') as scope:
         

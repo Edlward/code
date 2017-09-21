@@ -17,6 +17,7 @@ void detectAndDisplay( Mat frame );
 // String face_cascade_name = "/home/lxg/codedata/headXml/goodClassifier/cascade_lbp_1200_6000_24_24.xml";
 // String face_cascade_name = "/home/lxg/codedata/headXml/cascade_tbb_haar_2800_6000.xml";
 String face_cascade_name = "/home/lxg/codedata/headXml/cascade_haarall.xml";
+// String face_cascade_name = "/home/lxg/codedata/headXml/cascade_haarbasic.xml";
 
 
 // String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";
@@ -36,8 +37,9 @@ int main( void )
 
     //-- 2. Read the video stream
     // capture.open( "/home/lxg/zqq2017090803.avi" );
-    capture.open( "/home/lxg/zqq2017090801.avi" );
+    // capture.open( "/home/lxg/zqq2017090801.avi" );
     // capture.open("/home/lxg/codedata/walmat.mp4");
+    capture.open("/home/lxg/livet2.avi");
     
 
     // VideoCapture VideoStream();
@@ -55,7 +57,7 @@ int main( void )
         //-- 3. Apply the classifier to the frame
         detectAndDisplay( frame );
 
-        int c = waitKey(30);
+        int c = waitKey(1);
         if( (char)c == 'b' )
         { 
             waitKey(0);
@@ -81,7 +83,7 @@ void detectAndDisplay( Mat frame )
     equalizeHist( frame_gray, frame_gray );
 
     //-- Detect faces
-    face_cascade.detectMultiScale( frame_gray, faces, 1.1, 20, 0|CASCADE_SCALE_IMAGE, Size(30, 30) );
+    face_cascade.detectMultiScale( frame_gray, faces, 1.1, 15, 0|CASCADE_SCALE_IMAGE, Size(30, 30) );
 
     for( size_t i = 0; i < faces.size(); i++ )
     {

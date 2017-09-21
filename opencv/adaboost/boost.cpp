@@ -29,6 +29,8 @@ class CascadeDetectorAdapter: public DetectionBasedTracker::IDetector
         void detect(const cv::Mat &Image, std::vector<cv::Rect> &objects)
         {
             Detector->detectMultiScale(Image, objects, scaleFactor, minNeighbours, 0, minObjSize, maxObjSize);
+            // Detector->detectMultiScale(Image, objects, 1.1, 1, 0, Size(10,10), maxObjSize);
+            
         }
 
         virtual ~CascadeDetectorAdapter()
@@ -46,8 +48,8 @@ int main(int , char** )
     // VideoCapture VideoStream("/home/lxg/zqq2017090802.avi");
     // VideoCapture VideoStream("/home/lxg/livet2.avi");
     // VideoCapture VideoStream("/home/lxg/zqq2017090804.avi");
-    // VideoCapture VideoStream("/home/lxg/zqq2017090802.avi");
-    VideoCapture VideoStream("/home/lxg/codedata/walmat.mp4");
+    VideoCapture VideoStream("/home/lxg/zqq2017090802.avi");
+    // VideoCapture VideoStream("/home/lxg/codedata/walmat.mp4");
     
     if (!VideoStream.isOpened())
     {
@@ -56,7 +58,8 @@ int main(int , char** )
     }
 
     // std::string cascadeFrontalfilename = "../../data/lbpcascades/lbpcascade_frontalface.xml";
-    std::string cascadeFrontalfilename = "/home/lxg/codedata/headXml/goodClassifier/cascade_harr_1950_10000_24_24.xml";
+    // std::string cascadeFrontalfilename = "/home/lxg/codedata/headXml/goodClassifier/cascade_harr_1950_10000_24_24.xml";
+    std::string cascadeFrontalfilename = "/home/lxg/codedata/headXml/cascade_haarbasic.xml";
     
 
     cv::Ptr<cv::CascadeClassifier> cascade = makePtr<cv::CascadeClassifier>(cascadeFrontalfilename);
