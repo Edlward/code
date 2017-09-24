@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named crop
+
+# Build rule for target.
+crop: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 crop
+.PHONY : crop
+
+# fast build rule for target.
+crop/fast:
+	$(MAKE) -f CMakeFiles/crop.dir/build.make CMakeFiles/crop.dir/build
+.PHONY : crop/fast
+
+#=============================================================================
 # Target rules for targets named sample
 
 # Build rule for target.
@@ -137,17 +150,17 @@ tensorflow/fast:
 .PHONY : tensorflow/fast
 
 #=============================================================================
-# Target rules for targets named crop
+# Target rules for targets named label
 
 # Build rule for target.
-crop: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 crop
-.PHONY : crop
+label: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 label
+.PHONY : label
 
 # fast build rule for target.
-crop/fast:
-	$(MAKE) -f CMakeFiles/crop.dir/build.make CMakeFiles/crop.dir/build
-.PHONY : crop/fast
+label/fast:
+	$(MAKE) -f CMakeFiles/label.dir/build.make CMakeFiles/label.dir/build
+.PHONY : label/fast
 
 crop.o: crop.cpp.o
 
@@ -203,6 +216,33 @@ sample.cpp.s:
 	$(MAKE) -f CMakeFiles/sample.dir/build.make CMakeFiles/sample.dir/sample.cpp.s
 .PHONY : sample.cpp.s
 
+showlabel.o: showlabel.cpp.o
+
+.PHONY : showlabel.o
+
+# target to build an object file
+showlabel.cpp.o:
+	$(MAKE) -f CMakeFiles/label.dir/build.make CMakeFiles/label.dir/showlabel.cpp.o
+.PHONY : showlabel.cpp.o
+
+showlabel.i: showlabel.cpp.i
+
+.PHONY : showlabel.i
+
+# target to preprocess a source file
+showlabel.cpp.i:
+	$(MAKE) -f CMakeFiles/label.dir/build.make CMakeFiles/label.dir/showlabel.cpp.i
+.PHONY : showlabel.cpp.i
+
+showlabel.s: showlabel.cpp.s
+
+.PHONY : showlabel.s
+
+# target to generate assembly for a file
+showlabel.cpp.s:
+	$(MAKE) -f CMakeFiles/label.dir/build.make CMakeFiles/label.dir/showlabel.cpp.s
+.PHONY : showlabel.cpp.s
+
 tensorflow.o: tensorflow.cpp.o
 
 .PHONY : tensorflow.o
@@ -237,16 +277,20 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... crop"
 	@echo "... sample"
 	@echo "... tensorflow"
-	@echo "... crop"
-	@echo "... rebuild_cache"
+	@echo "... label"
 	@echo "... crop.o"
 	@echo "... crop.i"
 	@echo "... crop.s"
 	@echo "... sample.o"
 	@echo "... sample.i"
 	@echo "... sample.s"
+	@echo "... showlabel.o"
+	@echo "... showlabel.i"
+	@echo "... showlabel.s"
 	@echo "... tensorflow.o"
 	@echo "... tensorflow.i"
 	@echo "... tensorflow.s"

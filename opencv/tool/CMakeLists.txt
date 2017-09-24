@@ -18,3 +18,6 @@ target_link_libraries(sample ${OpenCV_LIBS})
 
 add_executable(tensorflow tensorflow.cpp)
 target_link_libraries(tensorflow ${OpenCV_LIBS})
+
+add_executable(label showlabel.cpp)
+target_link_libraries(label ${OpenCV_LIBS})

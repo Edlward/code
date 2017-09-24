@@ -9,12 +9,14 @@ using namespace cv;
 /*
 * 扣图程序，同一张图片可以进行多次抠图，
 * esc键进行下一张
-* space键保存本次抠图框
+* space键保存本次抠图框内的图像，并把文件名、坐标写入txt
 */
 
 string path = "/home/lxg/codedata/headXml/";
 string name = "src";
-string pre_image = "gxl";
+string data_txt = "tmp.txt"; //所要抠图的图像序列存储的文件
+string label_txt = "label_india.txt"; //位置信息保存的文件夹
+string file_save = "videoImageCut/";
 
 int main()
 {
@@ -22,12 +24,20 @@ int main()
     resizeWindow(name.c_str(), 800, 800);
 
     ifstream in;
-    in.open((path+"tmp.txt").c_str());
+    in.open((path+data_txt).c_str());
     if(!in)
     {
-        printf("can not open tmp.txt\n");
+        printf("can not open %s\n", (path+data_txt).c_str());
     }
-    
+
+    ofstream out;
+    // out.open((path+label_txt).c_str(), ios_base::ate);
+    out.open((path+label_txt).c_str());
+    if(!out)
+    {
+        printf("can not open %s\n", (path+label_txt).c_str());
+    }
+
     char str[100];
     vector<string> vname;
     while(in.getline(str, 100))
@@ -35,16 +45,9 @@ int main()
         vname.push_back(str);
     }
 
-    Mat im;
+    Mat im, im_src;
     Rect roi;
-    
-    int i = 0;
-    // for(; i < 130; ++i)
-    // {
-    //     in.getline(str, 100);
-    // }
-    // Mat tmp;
-    char key;
+
     string file;
     vector<Rect> vcrop;
     int num_image = 0;
@@ -52,13 +55,21 @@ int main()
     for(size_t i = 0; i < vname.size(); ++i)
     {
         file = vname[i];
-        im = imread((path + file).c_str());
-        resize(im, im, Size(), 3, 3);
-        // imshow(name, im);
+        im_src = imread((path + file).c_str());
+        resize(im_src, im, Size(), 3, 3);
+        imshow(name, im);
+        waitKey(1);
+        
         vcrop.clear();
         selectROIs(name, im, vcrop);
         for(auto roi:vcrop)
         {
+            roi.x = roi.x / 3;
+            roi.y = roi.y / 3;
+
+            roi.width = roi.width / 3;
+            roi.height = roi.height / 3;
+            
             if(roi.width == 0)
             {
                 continue;
@@ -68,19 +79,32 @@ int main()
             {
                 roi.x = 0;
             }
+            else if(roi.x + roi.width > im.cols)
+            {
+                roi.width = im.cols - roi.x;
+            }
+
             if(roi.y < 0)
             {
                 roi.y = 0;
             }
+            else if(roi.y + roi.height > im.rows)
+            {
+                roi.height = im.rows - roi.y;
+            }
 
-            imwrite(path + "bg/bg_15_" + to_string(num_image) + ".jpg" , im(roi));
+            imwrite(path + file_save + "india_" + to_string(num_image) + ".jpg" , im_src(roi));
             // imwrite(path + "head/walmat_2_" + to_string(num_image) + ".jpg" , im(roi));
+            
+            out << vname[i] << "\t" << roi.x << "\t" << roi.y << "\t" << roi.width << "\t" << roi.height << endl; 
+            cout << vname[i] << "\t" << roi.x << "\t" << roi.y << "\t" << roi.width << "\t" << roi.height << endl; 
             
             ++num_image;
             imshow("roi", im(roi));
-            key = waitKey(1);
-            printf("get %c\n", key);
+            waitKey(1);
         }
-        printf("%d\n", (int)i);
+        printf("%d %s select %d heads\n", (int)i, vname[i].c_str(), (int)vcrop.size());
     }
+    in.close();
+    out.close();
 }

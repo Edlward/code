@@ -59,10 +59,12 @@ int main(int argc, char **argv)
     String modelFile = "/home/lxg/code/python/tensorflow/headDetect/vggs.pb";
     // String modelFile = "/home/lxg/codetest/tensorflow-vgg16-train-and-test/vggs.pb";
     // String imageFile = "/home/lxg/codedata/headXml/headPos/9.jpg";
-    String imageFile = "/home/lxg/codedata/headXml/headNeg/3.jpg";
+    // String imageFile = "/home/lxg/codedata/headXml/headNeg/3.jpg";
+    String imageFile = "/home/lxg/codedata/headXml/46.jpg";
+    
     
     String inBlobName = "input";
-    String outBlobName = "conv1_3";
+    String outBlobName = "conv1_2";
 
     if (!parser.check())
     {
@@ -117,13 +119,14 @@ int main(int argc, char **argv)
     printf("read image\n");
     //! [Prepare blob]
     Mat img = imread(imageFile);
+    // Mat img = imread("/home/lxg/codedata/headXml/1319.jpg");
     if (img.empty())
     {
         std::cerr << "Can't read image from the file: " << imageFile << std::endl;
         exit(-1);
     }
 
-    cv::Size inputImgSize = cv::Size(24, 24);
+    cv::Size inputImgSize = cv::Size(320, 240);
 
     if (inputImgSize != img.size())
         resize(img, img, inputImgSize);       //Resize image to input size
@@ -145,18 +148,18 @@ int main(int argc, char **argv)
     Mat result = net.forward(outBlobName);                          //compute output
     //! [Make forward pass]
     printf("stop\n");
-    std::cout << result << endl;
     tm.stop();
+    // std::cout << result << endl;
+    
+    // if (!resultFile.empty()) {
+    //     CV_Assert(result.isContinuous());
 
-    if (!resultFile.empty()) {
-        CV_Assert(result.isContinuous());
+    //     ofstream fout(resultFile.c_str(), ios::out | ios::binary);
+    //     fout.write((char*)result.data, result.total() * sizeof(float));
+    //     fout.close();
+    // }
 
-        ofstream fout(resultFile.c_str(), ios::out | ios::binary);
-        fout.write((char*)result.data, result.total() * sizeof(float));
-        fout.close();
-    }
-
-    std::cout << "Output blob shape " << result.size[0] << " x " << result.size[1] << " x " << result.size[2] << " x " << result.size[3] << std::endl;
+    // std::cout << "Output blob shape " << result.size[0] << " x " << result.size[1] << " x " << result.size[2] << " x " << result.size[3] << std::endl;
     std::cout << "Inference time, ms: " << tm.getTimeMilli()  << std::endl;
 
     if (!classNamesFile.empty()) {

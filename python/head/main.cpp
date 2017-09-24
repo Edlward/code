@@ -30,7 +30,7 @@ int main(int argc, char **argv)
     String modelFile = "/home/lxg/code/python/tensorflow/headDetect/vggs.pb";
     String imageFile = "/home/lxg/codedata/headXml/headNeg/3.jpg";
     String inBlobName = "input";
-    String outBlobName = "softmax";
+    String outBlobName = "conv1_2";
 
     String classNamesFile = "/home/lxg/codedata/tensorflow/imagenet_comp_graph_label_strings.txt";
 
@@ -77,6 +77,7 @@ int main(int argc, char **argv)
 
     int posnum = 0;
     int total = 0;
+    double total_time = 0.0;
 
     while(in.getline(str, 100))
     {
@@ -87,7 +88,7 @@ int main(int argc, char **argv)
             exit(-1);
         }
 
-        cv::Size inputImgSize = cv::Size(24, 24);
+        cv::Size inputImgSize = cv::Size(320, 240);
 
         if (inputImgSize != img.size())
             resize(img, img, inputImgSize);       //Resize image to input size
@@ -109,11 +110,12 @@ int main(int argc, char **argv)
         Mat result = net.forward(outBlobName); //compute output
         //! [Make forward pass]
         printf("stop\n");
-        std::cout << result << endl;
+        // std::cout << result << endl;
         tm.stop();
 
-        std::cout << "Output blob shape " << result.size[0] << " x " << result.size[1] << " x " << result.size[2] << " x " << result.size[3] << std::endl;
+        // std::cout << "Output blob shape " << result.size[0] << " x " << result.size[1] << " x " << result.size[2] << " x " << result.size[3] << std::endl;
         std::cout << "Inference time, ms: " << tm.getTimeMilli()  << std::endl;
+        total_time += tm.getTimeMilli();
 
         if(*result.data < 0.5)
         {
@@ -123,6 +125,6 @@ int main(int argc, char **argv)
     }
 
     printf("total: %d ratio %f\n", total, 1.0 * posnum / total);
-
+    printf("average time %f ms\n", total_time / total);
     return 0;
 } //main

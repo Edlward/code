@@ -16,7 +16,7 @@ from tensorflow.python.framework import graph_util
 import collections
 
 
-path = '/home/lxg/codedata/tensorflow/train/'
+path = '/home/lxg/codedata/headDataset/testHair/'
 w = 24
 h = 24
 c = 3
@@ -51,7 +51,7 @@ y_val   = label[s:]
 
 
 ## loadData
-train_dir = '/home/lxg/codedata/tensorflow/train/'
+train_dir = '/home/lxg/codedata/headDataset/trainHair/'
 
 random_crop_x = 24
 random_crop_y = 24
@@ -273,7 +273,7 @@ def train_network(graph, batch_size, num_epochs, pb_file_path):
 
             writer = tf.summary.FileWriter("/home/lxg/codedata/tensorflow/log", tf.get_default_graph())
 
-            constant_graph = graph_util.convert_variables_to_constants(sess, sess.graph_def, ["softmax"])
+            constant_graph = graph_util.convert_variables_to_constants(sess, sess.graph_def, ["conv1_2"])
             # constant_graph = graph_util.convert_variables_to_constants(sess, sess.graph_def, ["fc6"])
             
             with tf.gfile.FastGFile(pb_file_path, mode='wb') as f:
@@ -282,7 +282,7 @@ def train_network(graph, batch_size, num_epochs, pb_file_path):
 
 def main():
     batch_size = BATCH_SIZE
-    num_epochs = 100
+    num_epochs = 10
 
     pb_file_path = "vggs.pb"
 

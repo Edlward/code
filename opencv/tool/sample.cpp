@@ -8,10 +8,8 @@ int main()
 {
     VideoCapture cap;
     // cap.open("/home/lxg/codedata/headXml/output.avi");
-    cap.open("/home/lxg/output.avi");
-    // cap.open("/home/lxg/codedata/walmat.mp4");
-    
-    
+    // cap.open("/home/lxg/output.avi");
+    cap.open("/home/lxg/codedata/headXml/india.webm");
     if(!cap.isOpened())
     {
         printf("can not open video\n");
@@ -37,7 +35,7 @@ int main()
 
         if(interval == 5)
         {
-            imwrite((path + "videoNeg/vi_0_" + to_string(num) + ".jpg").c_str(), im);
+            imwrite((path + "videoImage/india_0_" + to_string(num) + ".jpg").c_str(), im);
             ++num;
             printf("%d\n", num);
             interval = 0;

@@ -47,7 +47,8 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/crop.dir/DependInfo.cmake"
   "CMakeFiles/sample.dir/DependInfo.cmake"
   "CMakeFiles/tensorflow.dir/DependInfo.cmake"
-  "CMakeFiles/crop.dir/DependInfo.cmake"
+  "CMakeFiles/label.dir/DependInfo.cmake"
   )
