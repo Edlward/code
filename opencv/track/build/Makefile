@@ -111,44 +111,84 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test1
+# Target rules for targets named multi
 
 # Build rule for target.
-test1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test1
-.PHONY : test1
+multi: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 multi
+.PHONY : multi
 
 # fast build rule for target.
-test1/fast:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
-.PHONY : test1/fast
+multi/fast:
+	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/build
+.PHONY : multi/fast
 
-singleObject.o: singleObject.cpp.o
+#=============================================================================
+# Target rules for targets named single
 
-.PHONY : singleObject.o
+# Build rule for target.
+single: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 single
+.PHONY : single
+
+# fast build rule for target.
+single/fast:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/build
+.PHONY : single/fast
+
+multiTrack.o: multiTrack.cpp.o
+
+.PHONY : multiTrack.o
 
 # target to build an object file
-singleObject.cpp.o:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/singleObject.cpp.o
-.PHONY : singleObject.cpp.o
+multiTrack.cpp.o:
+	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/multiTrack.cpp.o
+.PHONY : multiTrack.cpp.o
 
-singleObject.i: singleObject.cpp.i
+multiTrack.i: multiTrack.cpp.i
 
-.PHONY : singleObject.i
+.PHONY : multiTrack.i
 
 # target to preprocess a source file
-singleObject.cpp.i:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/singleObject.cpp.i
-.PHONY : singleObject.cpp.i
+multiTrack.cpp.i:
+	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/multiTrack.cpp.i
+.PHONY : multiTrack.cpp.i
 
-singleObject.s: singleObject.cpp.s
+multiTrack.s: multiTrack.cpp.s
 
-.PHONY : singleObject.s
+.PHONY : multiTrack.s
 
 # target to generate assembly for a file
-singleObject.cpp.s:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/singleObject.cpp.s
-.PHONY : singleObject.cpp.s
+multiTrack.cpp.s:
+	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/multiTrack.cpp.s
+.PHONY : multiTrack.cpp.s
+
+singleTrack.o: singleTrack.cpp.o
+
+.PHONY : singleTrack.o
+
+# target to build an object file
+singleTrack.cpp.o:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/singleTrack.cpp.o
+.PHONY : singleTrack.cpp.o
+
+singleTrack.i: singleTrack.cpp.i
+
+.PHONY : singleTrack.i
+
+# target to preprocess a source file
+singleTrack.cpp.i:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/singleTrack.cpp.i
+.PHONY : singleTrack.cpp.i
+
+singleTrack.s: singleTrack.cpp.s
+
+.PHONY : singleTrack.s
+
+# target to generate assembly for a file
+singleTrack.cpp.s:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/singleTrack.cpp.s
+.PHONY : singleTrack.cpp.s
 
 # Help Target
 help:
@@ -158,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test1"
-	@echo "... singleObject.o"
-	@echo "... singleObject.i"
-	@echo "... singleObject.s"
+	@echo "... multi"
+	@echo "... single"
+	@echo "... multiTrack.o"
+	@echo "... multiTrack.i"
+	@echo "... multiTrack.s"
+	@echo "... singleTrack.o"
+	@echo "... singleTrack.i"
+	@echo "... singleTrack.s"
 .PHONY : help
 
 

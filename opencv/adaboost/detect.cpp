@@ -19,13 +19,16 @@ void detectAndDisplay( Mat frame );
 // String face_cascade_name = "/home/lxg/codedata/headXml/cascade_haarall.xml";
 // String face_cascade_name = "/home/lxg/codedata/headXml/cascade_haarbasic.xml";
 // String face_cascade_name = "/home/lxg/codedata/headXml/cascadeWide_basis.xml";
-String face_cascade_name = "/home/lxg/codedata/headXml/cascadeWide_all.xml";
+// String face_cascade_name = "/home/lxg/codedata/headXml/cascadeWide_all.xml";
+String face_cascade_name = "/home/lxg/codedata/headXml/cascadeWide_1200_6000_haar.xml";
 // String face_cascade_name = "/home/lxg/codedata/headXml/goodClassifier/cascade_harr_1200_7000_bigNegImages.xml";
 
 // String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";
 CascadeClassifier face_cascade;
 // CascadeClassifier eyes_cascade;
 String window_name = "Capture - Face detection";
+
+VideoWriter writeVideo;
 
 /** @function main */
 int main( void )
@@ -48,6 +51,12 @@ int main( void )
     // VideoCapture VideoStream();
     
     if ( ! capture.isOpened() ) { printf("--(!)Error opening video capture\n"); return -1; }
+    
+    int height = capture.get(CAP_PROP_FRAME_HEIGHT);
+    int width = capture.get(CAP_PROP_FRAME_WIDTH);
+
+    int fourcc = CV_FOURCC('X','V','I','D');
+    writeVideo.open("/home/lxg/codedata/headXml/writer.avi",fourcc,25,Size(width,height),true);
 
     while (  capture.read(frame) )
     {
@@ -60,7 +69,7 @@ int main( void )
         //-- 3. Apply the classifier to the frame
         detectAndDisplay( frame );
 
-        int c = waitKey(20);
+        int c = waitKey(10);
         if( (char)c == 'b' )
         { 
             waitKey(0);
@@ -86,13 +95,13 @@ void detectAndDisplay( Mat frame )
     equalizeHist( frame_gray, frame_gray );
 
     //-- Detect faces
-    face_cascade.detectMultiScale( frame_gray, faces, 1.1, 5, 0|CASCADE_SCALE_IMAGE, Size(30, 30) );
+    face_cascade.detectMultiScale( frame_gray, faces, 1.1, 1, 0|CASCADE_SCALE_IMAGE, Size(30, 30) );
 
     for( size_t i = 0; i < faces.size(); i++ )
     {
         Point center( faces[i].x + faces[i].width/2, faces[i].y + faces[i].height/2 );
         // ellipse( frame, center, Size( faces[i].width/2, faces[i].height/2), 0, 0, 360, Scalar( 255, 0, 255 ), 4, 8, 0 );
-        rectangle(frame, faces[i], Scalar(0,255,0));
+        rectangle(frame, faces[i], Scalar(0, 0, 255), 2);
         // Mat faceROI = frame_gray( faces[i] );
         // std::vector<Rect> eyes;
 
@@ -108,5 +117,7 @@ void detectAndDisplay( Mat frame )
     }
     //-- Show what you got
     imshow( window_name, frame );
+    writeVideo << frame;
+
     printf("%f s \n", (getTickCount() - t) / getTickFrequency());
 }

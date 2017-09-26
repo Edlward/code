@@ -57,73 +57,73 @@ include CMakeFiles/test1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/test1.dir/flags.make
 
-CMakeFiles/test1.dir/singleObject.cpp.o: CMakeFiles/test1.dir/flags.make
-CMakeFiles/test1.dir/singleObject.cpp.o: ../singleObject.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test1.dir/singleObject.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test1.dir/singleObject.cpp.o -c /home/lxg/code/opencv/track/singleObject.cpp
+CMakeFiles/test1.dir/Multi.cpp.o: CMakeFiles/test1.dir/flags.make
+CMakeFiles/test1.dir/Multi.cpp.o: ../Multi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/test1.dir/Multi.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test1.dir/Multi.cpp.o -c /home/lxg/code/opencv/track/Multi.cpp
 
-CMakeFiles/test1.dir/singleObject.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test1.dir/singleObject.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/code/opencv/track/singleObject.cpp > CMakeFiles/test1.dir/singleObject.cpp.i
+CMakeFiles/test1.dir/Multi.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test1.dir/Multi.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lxg/code/opencv/track/Multi.cpp > CMakeFiles/test1.dir/Multi.cpp.i
 
-CMakeFiles/test1.dir/singleObject.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test1.dir/singleObject.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/code/opencv/track/singleObject.cpp -o CMakeFiles/test1.dir/singleObject.cpp.s
+CMakeFiles/test1.dir/Multi.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test1.dir/Multi.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lxg/code/opencv/track/Multi.cpp -o CMakeFiles/test1.dir/Multi.cpp.s
 
-CMakeFiles/test1.dir/singleObject.cpp.o.requires:
+CMakeFiles/test1.dir/Multi.cpp.o.requires:
 
-.PHONY : CMakeFiles/test1.dir/singleObject.cpp.o.requires
+.PHONY : CMakeFiles/test1.dir/Multi.cpp.o.requires
 
-CMakeFiles/test1.dir/singleObject.cpp.o.provides: CMakeFiles/test1.dir/singleObject.cpp.o.requires
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/singleObject.cpp.o.provides.build
-.PHONY : CMakeFiles/test1.dir/singleObject.cpp.o.provides
+CMakeFiles/test1.dir/Multi.cpp.o.provides: CMakeFiles/test1.dir/Multi.cpp.o.requires
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/Multi.cpp.o.provides.build
+.PHONY : CMakeFiles/test1.dir/Multi.cpp.o.provides
 
-CMakeFiles/test1.dir/singleObject.cpp.o.provides.build: CMakeFiles/test1.dir/singleObject.cpp.o
+CMakeFiles/test1.dir/Multi.cpp.o.provides.build: CMakeFiles/test1.dir/Multi.cpp.o
 
 
 # Object files for target test1
 test1_OBJECTS = \
-"CMakeFiles/test1.dir/singleObject.cpp.o"
+"CMakeFiles/test1.dir/Multi.cpp.o"
 
 # External object files for target test1
 test1_EXTERNAL_OBJECTS =
 
-test1: CMakeFiles/test1.dir/singleObject.cpp.o
+test1: CMakeFiles/test1.dir/Multi.cpp.o
 test1: CMakeFiles/test1.dir/build.make
-test1: /usr/local/lib/libopencv_ml.so.3.3.0
-test1: /usr/local/lib/libopencv_shape.so.3.3.0
-test1: /usr/local/lib/libopencv_stitching.so.3.3.0
-test1: /usr/local/lib/libopencv_superres.so.3.3.0
-test1: /usr/local/lib/libopencv_videostab.so.3.3.0
-test1: /usr/local/lib/libopencv_aruco.so.3.3.0
-test1: /usr/local/lib/libopencv_bgsegm.so.3.3.0
-test1: /usr/local/lib/libopencv_bioinspired.so.3.3.0
-test1: /usr/local/lib/libopencv_ccalib.so.3.3.0
-test1: /usr/local/lib/libopencv_dpm.so.3.3.0
-test1: /usr/local/lib/libopencv_face.so.3.3.0
-test1: /usr/local/lib/libopencv_fuzzy.so.3.3.0
-test1: /usr/local/lib/libopencv_img_hash.so.3.3.0
-test1: /usr/local/lib/libopencv_line_descriptor.so.3.3.0
-test1: /usr/local/lib/libopencv_phase_unwrapping.so.3.3.0
-test1: /usr/local/lib/libopencv_reg.so.3.3.0
-test1: /usr/local/lib/libopencv_rgbd.so.3.3.0
-test1: /usr/local/lib/libopencv_saliency.so.3.3.0
-test1: /usr/local/lib/libopencv_tracking.so.3.3.0
-test1: /usr/local/lib/libopencv_xobjdetect.so.3.3.0
-test1: /usr/local/lib/libopencv_xphoto.so.3.3.0
-test1: /usr/local/lib/libopencv_photo.so.3.3.0
-test1: /usr/local/lib/libopencv_calib3d.so.3.3.0
-test1: /usr/local/lib/libopencv_features2d.so.3.3.0
-test1: /usr/local/lib/libopencv_flann.so.3.3.0
-test1: /usr/local/lib/libopencv_highgui.so.3.3.0
-test1: /usr/local/lib/libopencv_videoio.so.3.3.0
-test1: /usr/local/lib/libopencv_dnn.so.3.3.0
-test1: /usr/local/lib/libopencv_video.so.3.3.0
-test1: /usr/local/lib/libopencv_plot.so.3.3.0
-test1: /usr/local/lib/libopencv_imgcodecs.so.3.3.0
-test1: /usr/local/lib/libopencv_objdetect.so.3.3.0
-test1: /usr/local/lib/libopencv_imgproc.so.3.3.0
-test1: /usr/local/lib/libopencv_core.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_ml.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_shape.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_stitching.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_superres.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_videostab.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_aruco.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_bgsegm.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_bioinspired.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_ccalib.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_dpm.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_face.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_fuzzy.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_img_hash.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_line_descriptor.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_phase_unwrapping.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_reg.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_rgbd.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_saliency.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_tracking.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_xobjdetect.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_xphoto.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_photo.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_calib3d.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_features2d.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_flann.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_highgui.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_videoio.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_dnn.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_video.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_plot.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_imgcodecs.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_objdetect.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_imgproc.so.3.3.0
+test1: /home/lxg/app/opencv-3.3.0/build/lib/libopencv_core.so.3.3.0
 test1: CMakeFiles/test1.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test1.dir/link.txt --verbose=$(VERBOSE)
@@ -133,7 +133,7 @@ CMakeFiles/test1.dir/build: test1
 
 .PHONY : CMakeFiles/test1.dir/build
 
-CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/singleObject.cpp.o.requires
+CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/Multi.cpp.o.requires
 
 .PHONY : CMakeFiles/test1.dir/requires
 

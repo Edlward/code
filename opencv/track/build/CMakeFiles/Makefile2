@@ -60,39 +60,76 @@ CMAKE_SOURCE_DIR = /home/lxg/code/opencv/track
 CMAKE_BINARY_DIR = /home/lxg/code/opencv/track/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/test1.dir
+# Target rules for target CMakeFiles/multi.dir
 
 # All Build rule for target.
-CMakeFiles/test1.dir/all:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/depend
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=1,2 "Built target test1"
-.PHONY : CMakeFiles/test1.dir/all
+CMakeFiles/multi.dir/all:
+	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/depend
+	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=1,2 "Built target multi"
+.PHONY : CMakeFiles/multi.dir/all
 
 # Include target in all.
-all: CMakeFiles/test1.dir/all
+all: CMakeFiles/multi.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test1.dir/rule: cmake_check_build_system
+CMakeFiles/multi.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test1.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/multi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 0
-.PHONY : CMakeFiles/test1.dir/rule
+.PHONY : CMakeFiles/multi.dir/rule
 
 # Convenience name for target.
-test1: CMakeFiles/test1.dir/rule
+multi: CMakeFiles/multi.dir/rule
 
-.PHONY : test1
-
-# clean rule for target.
-CMakeFiles/test1.dir/clean:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/clean
-.PHONY : CMakeFiles/test1.dir/clean
+.PHONY : multi
 
 # clean rule for target.
-clean: CMakeFiles/test1.dir/clean
+CMakeFiles/multi.dir/clean:
+	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/clean
+.PHONY : CMakeFiles/multi.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/multi.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/single.dir
+
+# All Build rule for target.
+CMakeFiles/single.dir/all:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/depend
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=3,4 "Built target single"
+.PHONY : CMakeFiles/single.dir/all
+
+# Include target in all.
+all: CMakeFiles/single.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/single.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/single.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 0
+.PHONY : CMakeFiles/single.dir/rule
+
+# Convenience name for target.
+single: CMakeFiles/single.dir/rule
+
+.PHONY : single
+
+# clean rule for target.
+CMakeFiles/single.dir/clean:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/clean
+.PHONY : CMakeFiles/single.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/single.dir/clean
 
 .PHONY : clean
 

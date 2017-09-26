@@ -20,8 +20,8 @@ int main(int argc, char **argv)
     {
         sscanf(argv[1], "%d", &cnum);
     }
-    // cap.open(cnum);
-    cap.open("rtsp://admin:admin@192.168.31.67:554/h264/ch1/sub/av_stream");
+    cap.open(cnum);
+    // cap.open("rtsp://admin:admin@192.168.31.67:554/h264/ch1/sub/av_stream");
     // cap.open("rtsp://admin:admin@127.0.0.1:554/h264/ch1/sub/av_stream");
     // cap.open("rtsp://127.0.0.1:554/av_stream");
     // cap.open("http://127.0.0.1:8080/?action=stream");
@@ -30,15 +30,18 @@ int main(int argc, char **argv)
         printf("can not open camera %d\n", cnum);
         return -1;
     }
-    // opencv doesn't support this property set
-    // printf("cap_prop_mode: %f\n", cap.get(CAP_PROP_MODE));
-    // cap.set(CAP_PROP_MODE, CAP_MODE_GRAY);
-    // printf("cap_prop_mode: %f\n", cap.get(CAP_PROP_MODE));
-    // int mode = cap.get(CAP_PROP_MODE);
-    // printf("camera mode:%d\n", mode);
-
     // cap.set(CV_CAP_PROP_FRAME_WIDTH, 110 ); //不起作用
     // cap.set(CV_CAP_PROP_FRAME_HEIGHT, 100 );
+
+    // opencv doesn't support this property set
+    printf("cap_prop_mode: %f\n", cap.get(CAP_PROP_MODE));
+    cap.set(CAP_PROP_MODE, CAP_MODE_GRAY);
+    printf("cap_prop_mode: %f\n", cap.get(CAP_PROP_MODE));
+    
+    int mode = cap.get(CAP_PROP_MODE);
+    printf("camera mode:%d\n", mode);
+
+    
     int hue = cap.get(CV_CAP_PROP_HUE);
     printf("hue %d\n", hue);
     
