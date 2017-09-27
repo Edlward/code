@@ -35,7 +35,9 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    Ptr<Tracker> tracker = TrackerKCF::create();
+    Ptr<Tracker> tracker;
+    tracker = TrackerKCF::create();
+    
     Mat im;
     char key = 0;
     Rect2d roi;
@@ -65,6 +67,7 @@ int main(int argc, char **argv)
             tracker = TrackerKCF::create();
             tracker->init(im, roi);
         }
+
         time = (double)getTickCount();
         bool isfound = tracker->update(im, roi);
         time = ((double)getTickCount() - time) / getTickFrequency();

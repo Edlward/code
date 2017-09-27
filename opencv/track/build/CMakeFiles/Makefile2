@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = /home/lxg/code/opencv/track
 CMAKE_BINARY_DIR = /home/lxg/code/opencv/track/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/single.dir
+
+# All Build rule for target.
+CMakeFiles/single.dir/all:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/depend
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=5,6 "Built target single"
+.PHONY : CMakeFiles/single.dir/all
+
+# Include target in all.
+all: CMakeFiles/single.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/single.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/single.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 0
+.PHONY : CMakeFiles/single.dir/rule
+
+# Convenience name for target.
+single: CMakeFiles/single.dir/rule
+
+.PHONY : single
+
+# clean rule for target.
+CMakeFiles/single.dir/clean:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/clean
+.PHONY : CMakeFiles/single.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/single.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/multi.dir
 
 # All Build rule for target.
 CMakeFiles/multi.dir/all:
 	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/depend
 	$(MAKE) -f CMakeFiles/multi.dir/build.make CMakeFiles/multi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=1,2 "Built target multi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=3,4 "Built target multi"
 .PHONY : CMakeFiles/multi.dir/all
 
 # Include target in all.
@@ -97,39 +134,39 @@ clean: CMakeFiles/multi.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/single.dir
+# Target rules for target CMakeFiles/circle.dir
 
 # All Build rule for target.
-CMakeFiles/single.dir/all:
-	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/depend
-	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=3,4 "Built target single"
-.PHONY : CMakeFiles/single.dir/all
+CMakeFiles/circle.dir/all:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/depend
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/opencv/track/build/CMakeFiles --progress-num=1,2 "Built target circle"
+.PHONY : CMakeFiles/circle.dir/all
 
 # Include target in all.
-all: CMakeFiles/single.dir/all
+all: CMakeFiles/circle.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/single.dir/rule: cmake_check_build_system
+CMakeFiles/circle.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/single.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/circle.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/opencv/track/build/CMakeFiles 0
-.PHONY : CMakeFiles/single.dir/rule
+.PHONY : CMakeFiles/circle.dir/rule
 
 # Convenience name for target.
-single: CMakeFiles/single.dir/rule
+circle: CMakeFiles/circle.dir/rule
 
-.PHONY : single
-
-# clean rule for target.
-CMakeFiles/single.dir/clean:
-	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/clean
-.PHONY : CMakeFiles/single.dir/clean
+.PHONY : circle
 
 # clean rule for target.
-clean: CMakeFiles/single.dir/clean
+CMakeFiles/circle.dir/clean:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/clean
+.PHONY : CMakeFiles/circle.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/circle.dir/clean
 
 .PHONY : clean
 

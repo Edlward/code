@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/lxg/code/opencv/track/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named single
+
+# Build rule for target.
+single: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 single
+.PHONY : single
+
+# fast build rule for target.
+single/fast:
+	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/build
+.PHONY : single/fast
+
+#=============================================================================
 # Target rules for targets named multi
 
 # Build rule for target.
@@ -124,17 +137,44 @@ multi/fast:
 .PHONY : multi/fast
 
 #=============================================================================
-# Target rules for targets named single
+# Target rules for targets named circle
 
 # Build rule for target.
-single: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 single
-.PHONY : single
+circle: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 circle
+.PHONY : circle
 
 # fast build rule for target.
-single/fast:
-	$(MAKE) -f CMakeFiles/single.dir/build.make CMakeFiles/single.dir/build
-.PHONY : single/fast
+circle/fast:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/build
+.PHONY : circle/fast
+
+circleTrack.o: circleTrack.cpp.o
+
+.PHONY : circleTrack.o
+
+# target to build an object file
+circleTrack.cpp.o:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/circleTrack.cpp.o
+.PHONY : circleTrack.cpp.o
+
+circleTrack.i: circleTrack.cpp.i
+
+.PHONY : circleTrack.i
+
+# target to preprocess a source file
+circleTrack.cpp.i:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/circleTrack.cpp.i
+.PHONY : circleTrack.cpp.i
+
+circleTrack.s: circleTrack.cpp.s
+
+.PHONY : circleTrack.s
+
+# target to generate assembly for a file
+circleTrack.cpp.s:
+	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/circleTrack.cpp.s
+.PHONY : circleTrack.cpp.s
 
 multiTrack.o: multiTrack.cpp.o
 
@@ -196,10 +236,14 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... multi"
 	@echo "... single"
+	@echo "... multi"
+	@echo "... circle"
+	@echo "... rebuild_cache"
+	@echo "... circleTrack.o"
+	@echo "... circleTrack.i"
+	@echo "... circleTrack.s"
 	@echo "... multiTrack.o"
 	@echo "... multiTrack.i"
 	@echo "... multiTrack.s"
