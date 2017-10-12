@@ -157,14 +157,14 @@ clean: src/CMakeFiles/vibe++_static.dir/clean
 # Directory level rules for directory main
 
 # Convenience name for "all" pass in the directory.
-main/all: main/CMakeFiles/ViBe_8UC1.dir/all
 main/all: main/CMakeFiles/ViBe_8UC3.dir/all
+main/all: main/CMakeFiles/ViBe_8UC1.dir/all
 
 .PHONY : main/all
 
 # Convenience name for "clean" pass in the directory.
-main/clean: main/CMakeFiles/ViBe_8UC1.dir/clean
 main/clean: main/CMakeFiles/ViBe_8UC3.dir/clean
+main/clean: main/CMakeFiles/ViBe_8UC1.dir/clean
 
 .PHONY : main/clean
 
@@ -172,43 +172,6 @@ main/clean: main/CMakeFiles/ViBe_8UC3.dir/clean
 main/preinstall:
 
 .PHONY : main/preinstall
-
-#=============================================================================
-# Target rules for target main/CMakeFiles/ViBe_8UC1.dir
-
-# All Build rule for target.
-main/CMakeFiles/ViBe_8UC1.dir/all: src/CMakeFiles/vibe++_static.dir/all
-	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/depend
-	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/libvibe++/build/CMakeFiles --progress-num=1,2 "Built target ViBe_8UC1"
-.PHONY : main/CMakeFiles/ViBe_8UC1.dir/all
-
-# Include target in all.
-all: main/CMakeFiles/ViBe_8UC1.dir/all
-
-.PHONY : all
-
-# Build rule for subdir invocation for target.
-main/CMakeFiles/ViBe_8UC1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles 4
-	$(MAKE) -f CMakeFiles/Makefile2 main/CMakeFiles/ViBe_8UC1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles 0
-.PHONY : main/CMakeFiles/ViBe_8UC1.dir/rule
-
-# Convenience name for target.
-ViBe_8UC1: main/CMakeFiles/ViBe_8UC1.dir/rule
-
-.PHONY : ViBe_8UC1
-
-# clean rule for target.
-main/CMakeFiles/ViBe_8UC1.dir/clean:
-	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/clean
-.PHONY : main/CMakeFiles/ViBe_8UC1.dir/clean
-
-# clean rule for target.
-clean: main/CMakeFiles/ViBe_8UC1.dir/clean
-
-.PHONY : clean
 
 #=============================================================================
 # Target rules for target main/CMakeFiles/ViBe_8UC3.dir
@@ -244,6 +207,43 @@ main/CMakeFiles/ViBe_8UC3.dir/clean:
 
 # clean rule for target.
 clean: main/CMakeFiles/ViBe_8UC3.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target main/CMakeFiles/ViBe_8UC1.dir
+
+# All Build rule for target.
+main/CMakeFiles/ViBe_8UC1.dir/all: src/CMakeFiles/vibe++_static.dir/all
+	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/depend
+	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/lxg/code/libvibe++/build/CMakeFiles --progress-num=1,2 "Built target ViBe_8UC1"
+.PHONY : main/CMakeFiles/ViBe_8UC1.dir/all
+
+# Include target in all.
+all: main/CMakeFiles/ViBe_8UC1.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+main/CMakeFiles/ViBe_8UC1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles 4
+	$(MAKE) -f CMakeFiles/Makefile2 main/CMakeFiles/ViBe_8UC1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/lxg/code/libvibe++/build/CMakeFiles 0
+.PHONY : main/CMakeFiles/ViBe_8UC1.dir/rule
+
+# Convenience name for target.
+ViBe_8UC1: main/CMakeFiles/ViBe_8UC1.dir/rule
+
+.PHONY : ViBe_8UC1
+
+# clean rule for target.
+main/CMakeFiles/ViBe_8UC1.dir/clean:
+	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/clean
+.PHONY : main/CMakeFiles/ViBe_8UC1.dir/clean
+
+# clean rule for target.
+clean: main/CMakeFiles/ViBe_8UC1.dir/clean
 
 .PHONY : clean
 

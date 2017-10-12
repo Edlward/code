@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall -Wextra -pedantic -g -std=gnu++0x
 
 CXX_DEFINES = -DOPENCV_3
 
-CXX_INCLUDES = -I/home/lxg/code/libvibe++/src -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv 
+CXX_INCLUDES = -I/home/lxg/code/libvibe++/src -isystem /usr/local/include -isystem /usr/local/include/opencv 
 

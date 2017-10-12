@@ -1,5 +1,7 @@
-/home/lxg/code/opencv/track/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/opencv/track/build/CMakeFiles/rebuild_cache.dir
 /home/lxg/code/opencv/track/build/CMakeFiles/single.dir
 /home/lxg/code/opencv/track/build/CMakeFiles/multi.dir
 /home/lxg/code/opencv/track/build/CMakeFiles/circle.dir
-/home/lxg/code/opencv/track/build/CMakeFiles/rebuild_cache.dir
+/home/lxg/code/opencv/track/build/CMakeFiles/edit_cache.dir
+/home/lxg/code/opencv/track/build/CMakeFiles/meanShift.dir
+/home/lxg/code/opencv/track/build/CMakeFiles/camshift.dir

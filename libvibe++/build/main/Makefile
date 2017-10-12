@@ -155,21 +155,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-main/CMakeFiles/ViBe_8UC1.dir/rule:
-	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 main/CMakeFiles/ViBe_8UC1.dir/rule
-.PHONY : main/CMakeFiles/ViBe_8UC1.dir/rule
-
-# Convenience name for target.
-ViBe_8UC1: main/CMakeFiles/ViBe_8UC1.dir/rule
-
-.PHONY : ViBe_8UC1
-
-# fast build rule for target.
-ViBe_8UC1/fast:
-	cd /home/lxg/code/libvibe++/build && $(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/build
-.PHONY : ViBe_8UC1/fast
-
-# Convenience name for target.
 main/CMakeFiles/ViBe_8UC3.dir/rule:
 	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 main/CMakeFiles/ViBe_8UC3.dir/rule
 .PHONY : main/CMakeFiles/ViBe_8UC3.dir/rule
@@ -183,6 +168,21 @@ ViBe_8UC3: main/CMakeFiles/ViBe_8UC3.dir/rule
 ViBe_8UC3/fast:
 	cd /home/lxg/code/libvibe++/build && $(MAKE) -f main/CMakeFiles/ViBe_8UC3.dir/build.make main/CMakeFiles/ViBe_8UC3.dir/build
 .PHONY : ViBe_8UC3/fast
+
+# Convenience name for target.
+main/CMakeFiles/ViBe_8UC1.dir/rule:
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f CMakeFiles/Makefile2 main/CMakeFiles/ViBe_8UC1.dir/rule
+.PHONY : main/CMakeFiles/ViBe_8UC1.dir/rule
+
+# Convenience name for target.
+ViBe_8UC1: main/CMakeFiles/ViBe_8UC1.dir/rule
+
+.PHONY : ViBe_8UC1
+
+# fast build rule for target.
+ViBe_8UC1/fast:
+	cd /home/lxg/code/libvibe++/build && $(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/build
+.PHONY : ViBe_8UC1/fast
 
 ViBe_8UC1.o: ViBe_8UC1.cpp.o
 
@@ -247,9 +247,9 @@ help:
 	@echo "... install"
 	@echo "... list_install_components"
 	@echo "... edit_cache"
-	@echo "... ViBe_8UC1"
 	@echo "... rebuild_cache"
 	@echo "... ViBe_8UC3"
+	@echo "... ViBe_8UC1"
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... ViBe_8UC1.o"

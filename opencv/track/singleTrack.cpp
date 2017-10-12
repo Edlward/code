@@ -24,7 +24,8 @@ int main(int argc, char **argv)
     }
     if(video == NULL)
     {
-        video = (char *)"/home/lxg/livet1.avi";
+        // video = (char *)"/home/lxg/livet1.avi";
+        video = (char *)"/home/lxg/codedata/square/s1.avi";
     }
 
     VideoCapture cap;

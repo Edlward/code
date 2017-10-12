@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/lxg/code/opencv/track/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -77,6 +66,17 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -149,6 +149,59 @@ circle/fast:
 	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/build
 .PHONY : circle/fast
 
+#=============================================================================
+# Target rules for targets named meanShift
+
+# Build rule for target.
+meanShift: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 meanShift
+.PHONY : meanShift
+
+# fast build rule for target.
+meanShift/fast:
+	$(MAKE) -f CMakeFiles/meanShift.dir/build.make CMakeFiles/meanShift.dir/build
+.PHONY : meanShift/fast
+
+#=============================================================================
+# Target rules for targets named camshift
+
+# Build rule for target.
+camshift: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 camshift
+.PHONY : camshift
+
+# fast build rule for target.
+camshift/fast:
+	$(MAKE) -f CMakeFiles/camshift.dir/build.make CMakeFiles/camshift.dir/build
+.PHONY : camshift/fast
+
+camShift.o: camShift.cpp.o
+
+.PHONY : camShift.o
+
+# target to build an object file
+camShift.cpp.o:
+	$(MAKE) -f CMakeFiles/camshift.dir/build.make CMakeFiles/camshift.dir/camShift.cpp.o
+.PHONY : camShift.cpp.o
+
+camShift.i: camShift.cpp.i
+
+.PHONY : camShift.i
+
+# target to preprocess a source file
+camShift.cpp.i:
+	$(MAKE) -f CMakeFiles/camshift.dir/build.make CMakeFiles/camshift.dir/camShift.cpp.i
+.PHONY : camShift.cpp.i
+
+camShift.s: camShift.cpp.s
+
+.PHONY : camShift.s
+
+# target to generate assembly for a file
+camShift.cpp.s:
+	$(MAKE) -f CMakeFiles/camshift.dir/build.make CMakeFiles/camshift.dir/camShift.cpp.s
+.PHONY : camShift.cpp.s
+
 circleTrack.o: circleTrack.cpp.o
 
 .PHONY : circleTrack.o
@@ -175,6 +228,33 @@ circleTrack.s: circleTrack.cpp.s
 circleTrack.cpp.s:
 	$(MAKE) -f CMakeFiles/circle.dir/build.make CMakeFiles/circle.dir/circleTrack.cpp.s
 .PHONY : circleTrack.cpp.s
+
+meanShift.o: meanShift.cpp.o
+
+.PHONY : meanShift.o
+
+# target to build an object file
+meanShift.cpp.o:
+	$(MAKE) -f CMakeFiles/meanShift.dir/build.make CMakeFiles/meanShift.dir/meanShift.cpp.o
+.PHONY : meanShift.cpp.o
+
+meanShift.i: meanShift.cpp.i
+
+.PHONY : meanShift.i
+
+# target to preprocess a source file
+meanShift.cpp.i:
+	$(MAKE) -f CMakeFiles/meanShift.dir/build.make CMakeFiles/meanShift.dir/meanShift.cpp.i
+.PHONY : meanShift.cpp.i
+
+meanShift.s: meanShift.cpp.s
+
+.PHONY : meanShift.s
+
+# target to generate assembly for a file
+meanShift.cpp.s:
+	$(MAKE) -f CMakeFiles/meanShift.dir/build.make CMakeFiles/meanShift.dir/meanShift.cpp.s
+.PHONY : meanShift.cpp.s
 
 multiTrack.o: multiTrack.cpp.o
 
@@ -236,14 +316,22 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
+	@echo "... rebuild_cache"
 	@echo "... single"
 	@echo "... multi"
 	@echo "... circle"
-	@echo "... rebuild_cache"
+	@echo "... edit_cache"
+	@echo "... meanShift"
+	@echo "... camshift"
+	@echo "... camShift.o"
+	@echo "... camShift.i"
+	@echo "... camShift.s"
 	@echo "... circleTrack.o"
 	@echo "... circleTrack.i"
 	@echo "... circleTrack.s"
+	@echo "... meanShift.o"
+	@echo "... meanShift.i"
+	@echo "... meanShift.s"
 	@echo "... multiTrack.o"
 	@echo "... multiTrack.i"
 	@echo "... multiTrack.s"

@@ -15,8 +15,8 @@
 /home/lxg/code/libvibe++/build/main/CMakeFiles/install.dir
 /home/lxg/code/libvibe++/build/main/CMakeFiles/list_install_components.dir
 /home/lxg/code/libvibe++/build/main/CMakeFiles/edit_cache.dir
-/home/lxg/code/libvibe++/build/main/CMakeFiles/ViBe_8UC1.dir
 /home/lxg/code/libvibe++/build/main/CMakeFiles/rebuild_cache.dir
 /home/lxg/code/libvibe++/build/main/CMakeFiles/ViBe_8UC3.dir
+/home/lxg/code/libvibe++/build/main/CMakeFiles/ViBe_8UC1.dir
 /home/lxg/code/libvibe++/build/main/CMakeFiles/install/strip.dir
 /home/lxg/code/libvibe++/build/main/CMakeFiles/install/local.dir

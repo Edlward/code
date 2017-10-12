@@ -51,7 +51,9 @@ int main(int argc, char** argv) {
   /* Random seed. */
   srand(time(NULL));
 
-  cv::VideoCapture decoder("/home/lxg/codedata/track.avi");
+  // cv::VideoCapture decoder("/home/lxg/codedata/track.avi");
+  cv::VideoCapture decoder("/home/lxg/codedata/square/s1.avi");
+  
   cv::Mat frame;
 
   int32_t height = decoder.get(CV_CAP_PROP_FRAME_HEIGHT);

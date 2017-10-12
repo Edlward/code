@@ -181,19 +181,6 @@ vibe++_static/fast:
 .PHONY : vibe++_static/fast
 
 #=============================================================================
-# Target rules for targets named ViBe_8UC1
-
-# Build rule for target.
-ViBe_8UC1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ViBe_8UC1
-.PHONY : ViBe_8UC1
-
-# fast build rule for target.
-ViBe_8UC1/fast:
-	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/build
-.PHONY : ViBe_8UC1/fast
-
-#=============================================================================
 # Target rules for targets named ViBe_8UC3
 
 # Build rule for target.
@@ -205,6 +192,19 @@ ViBe_8UC3: cmake_check_build_system
 ViBe_8UC3/fast:
 	$(MAKE) -f main/CMakeFiles/ViBe_8UC3.dir/build.make main/CMakeFiles/ViBe_8UC3.dir/build
 .PHONY : ViBe_8UC3/fast
+
+#=============================================================================
+# Target rules for targets named ViBe_8UC1
+
+# Build rule for target.
+ViBe_8UC1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ViBe_8UC1
+.PHONY : ViBe_8UC1
+
+# fast build rule for target.
+ViBe_8UC1/fast:
+	$(MAKE) -f main/CMakeFiles/ViBe_8UC1.dir/build.make main/CMakeFiles/ViBe_8UC1.dir/build
+.PHONY : ViBe_8UC1/fast
 
 # Help Target
 help:
@@ -220,8 +220,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... vibe++"
 	@echo "... vibe++_static"
-	@echo "... ViBe_8UC1"
 	@echo "... ViBe_8UC3"
+	@echo "... ViBe_8UC1"
 .PHONY : help
 
 

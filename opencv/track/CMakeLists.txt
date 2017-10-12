@@ -20,3 +20,9 @@ target_link_libraries(multi ${OpenCV_LIBS})
 
 add_executable(circle circleTrack.cpp)
 target_link_libraries(circle ${OpenCV_LIBS})
+
+add_executable(camshift camShift.cpp)
+target_link_libraries(camshift ${OpenCV_LIBS})
+
+add_executable(meanShift meanShift.cpp)
+target_link_libraries(meanShift ${OpenCV_LIBS})
