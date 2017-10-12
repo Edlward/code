@@ -54,9 +54,13 @@ int main(int argc, char **argv)
     forward_list<AnObject> trackers;
 
     VideoCapture cap;
+<<<<<<< HEAD
     // cap.open("/home/lxg/livet1.avi");
     cap.open("/home/lxg/codedata/square/s1.avi");
     
+=======
+    cap.open("/home/lxg/小方坯识别/Origin2017-08-29-23-49-14(1).avi");
+>>>>>>> 546174225c232b5f8a5cb3106b02ad5a67d44324
     if(!cap.isOpened())
     {
         printf("can not open video\n");
