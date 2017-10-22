@@ -10,7 +10,10 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 
 import logging
-logging.basicConfig(level=logging.WARNING)
+# logging.basicConfig(level=logging.INFO)
+# logging.basicConfig(level=logging.WARN)
+logging.basicConfig(level=logging.ERROR)
+
 
 class MultiBoxLoss(nn.Module):
     num_classes = 2
@@ -108,7 +111,9 @@ class MultiBoxLoss(nn.Module):
             x (Variable(tensor)): conf_preds from conf layers
         """
         x_max = x.data.max()
+        # return torch.log(torch.sum(torch.exp(x-x_max), 1, keepdim=True)) + x_max
         return torch.log(torch.sum(torch.exp(x-x_max), 1, keepdim=True)) + x_max
+        
 
     def forward(self, loc_preds, loc_targets, conf_preds, conf_targets):
         '''compute loss between label and predict
@@ -135,7 +140,9 @@ class MultiBoxLoss(nn.Module):
         logging.info(type(conf_preds))
         logging.info('conf_targets')
         logging.info(conf_targets.size())
-        logging.info(type(conf_preds))
+        logging.info(type(conf_targets))
+        logging.info(type(conf_targets.data))  #torch.cuda.LongTensor
+        
 
         # if self.use_gpu:
             # loc_targets = loc_targets.cuda()
@@ -145,9 +152,10 @@ class MultiBoxLoss(nn.Module):
         pos = conf_targets > 0  # pos means the default box matched  [batch_size, M]
     
         num_matched_boxes = pos.data.long().sum()
+        logging.warn('num_matched_boxes:')
+        logging.warn(num_matched_boxes)
         if num_matched_boxes == 0:
-            return Variable(torch.Tensor([0]))
-        
+            return Variable(torch.Tensor([0]).cuda(), requires_grad=True)
 
         # wrap targets
         # loc_targets = Variable(loc_targets, requires_grad=False)
@@ -170,6 +178,8 @@ class MultiBoxLoss(nn.Module):
         #                                     conf_targets)  #[batch_size*M,]
 
         # 预测的有前景、背景之分
+        # 因为这个地方是one-hot编码，所以和cross-entropy-loss公式有出入的地方
+        # cross-entropy-loss = \sum{pi}{log(qi/ \sum qi)} 
         batch_conf = conf_preds.view(-1, self.num_classes)   #[batch_size, M, num_class]
         conf_loss = self.log_sum_exp2(batch_conf) - batch_conf.gather(1, conf_targets.view(-1,1))
         logging.info('conf_loss after cross entropy loss')
@@ -228,4 +238,5 @@ class MultiBoxLoss(nn.Module):
         conf_loss /= num_matched_boxes
         # print('%f %f' % (loc_loss.data[0], conf_loss.data[0]), end=' ')
         # print('%f, %f' % (loc_loss.data[0], conf_loss.data[0]))
+        logging.warn(loc_loss+conf_loss)
         return loc_loss + conf_loss

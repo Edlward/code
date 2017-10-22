@@ -5,28 +5,55 @@ import torchvision.transforms as transforms
 from PIL import Image, ImageOps, ImageDraw
 from simDatagen import ListDataset
 from simEncoder import DataEncoder
+import matplotlib.pyplot as plt
 
+default_box_size = 60
+image_idx = 80
 # test ListDataset
 transform = transforms.Compose([transforms.ToTensor()])
-trainset = ListDataset(root='/home/lxg/codedata/headXml/walmat/',
-                        list_file='/home/lxg/codedata/headXml/walmat/label_walmat_train.txt',
+# trainset = ListDataset(root='/home/lxg/codedata/headXml/walmat/',
+#                         list_file='/home/lxg/codedata/headXml/walmat/label_walmat_train.txt',
+#                         train=True,
+#                         transform=transform,
+#                         enlargeWithBg=False)
+trainset = ListDataset(root='/home/lxg/codedata/headXml/srcImage/',
+                        list_file='/home/lxg/codedata/headXml/srcImage/train_label.txt',
                         train=True,
-                        transform=transform)
-
+                        transform=transform,
+                        enlargeWithBg=True)
 dataencoder = DataEncoder()
 
-# test DataEncoder
+# # test DataEncoder
 # print('dataEncoder', dataencoder.default_boxes.size())
 # pilimg = Image.open('img.jpg')
 # draw = ImageDraw.Draw(pilimg)
 # for item in dataencoder.default_boxes:
 #     w,h = pilimg.size
-#     item *= torch.Tensor([w,h,w,h])
-#     item[2] = item[0]+1
-#     item[3] = item[1]+1
-#     # print(item)
-#     draw.rectangle(item.tolist())
+#     item_box = item * torch.Tensor([w,h,w,h])
+#     item_box[2] = item_box[0]+1
+#     item_box[3] = item_box[1]+1
+#     # print(item_box)
+#     draw.rectangle(item_box.tolist())
+# draw.rectangle([0,0,default_box_size,default_box_size])
 # pilimg.save('pilimgdefault.jpg', 'jpeg')
+
+# # draw label box
+# img, boxes = trainset.idxTest(image_idx)
+# utils.save_image(img, filename='labelimg.jpg')
+# img = Image.open('labelimg.jpg')
+# draw = ImageDraw.Draw(img)
+# print(type(img))
+# print(boxes)
+# print(img.size)
+# for item in boxes:
+#     w,h = img.size
+#     item_box = item * torch.Tensor([w,h,w,h])
+#     # logging.info(item.tolist())
+#     draw.rectangle(item_box.tolist())
+#     # logging.info('boxes')
+#     # logging.info(item)
+# draw.rectangle([0,0,default_box_size,default_box_size])
+# img.save('labelimg.jpg', 'jpeg')
 
 # test iou
 # box1 = trainset.boxes[0]
@@ -84,20 +111,37 @@ dataencoder = DataEncoder()
 # print(iou<0.5)
 
 # test data
-img, loc_target, conf_target = trainset[3]                        
-print('loc_target', type(loc_target), loc_target.size())
-print('conf_target', type(conf_target), conf_target.size(), conf_target)
-utils.save_image(img, filename='img.jpg')
-pilimg = Image.open('img.jpg')
-draw = ImageDraw.Draw(pilimg)
-len = conf_target.size(0)
-for i in range(len):
-    if(conf_target[i] > 0):
+def test_data(image_idx=image_idx):
+    fname, img, boxes, conf_target = trainset.idxTest(image_idx)       
+    # print('loc_target', type(loc_target), loc_target.size())
+    # print('conf_target', type(conf_target), conf_target.size())
+    pos = conf_target > 0
+    num_matched_boxes = pos.long().sum()
+    print('%s \t  matched default boxes num: %d' % (fname, num_matched_boxes))
+    utils.save_image(img, filename='img.jpg')
+    pilimg = Image.open('img.jpg')
+    draw = ImageDraw.Draw(pilimg)
+    draw.rectangle([0,0,default_box_size,default_box_size], outline=255)
+
+    for box in boxes:
         w,h = pilimg.size
-        item = dataencoder.default_boxes[i] * torch.Tensor([w,h,w,h])
-        item[2] = item[0]+1
-        item[3] = item[1]+1
-        # print(item)
-        draw.rectangle(item.tolist())
-pilimg.save('pilimg.jpg', 'jpeg')
+        box *= torch.Tensor([w,h,w,h])
+        draw.rectangle(box.tolist())
+
+    len = conf_target.size(0)
+    for i in range(len):
+        if(conf_target[i] > 0):
+            w,h = pilimg.size
+            item = dataencoder.default_boxes[i] * torch.Tensor([w,h,w,h])
+            item[2] = item[0]+1
+            item[3] = item[1]+1
+            # print(item)
+            draw.rectangle(item.tolist())
+    # pilimg.save('pilimg.jpg', 'jpeg')
+    plt.figure('head', figsize=(6,6))
+    plt.imshow(pilimg)
+    plt.show()
+
+for i in range(len(trainset)):
+    test_data(i)
         

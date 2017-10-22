@@ -6,17 +6,20 @@
 using namespace std;
 using namespace cv;
 
-/*
-* 扣图程序，同一张图片可以进行多次抠图，
-* esc键进行下一张
-* space键保存本次抠图框内的图像，并把文件名、坐标写入txt
-*/
-
-string path = "/home/lxg/codedata/headXml/";
+/*************************************************************
+ * 扣图程序，同一张图片可以进行多次抠图，
+ * esc键进行下一张
+ * space键保存本次抠图框内的图像，并把文件名、坐标写入txt
+ * path 以下所有文件的路径
+ * data_txt 存储图像列表的文件
+ * label_txt 存储label的文件
+ * file_save 保存所扣图片的文件，及前缀
+**************************************************************/
+string path = "/home/lxg/codedata/headXml/srcImage/output201709/";
 string name = "src";
-string data_txt = "tmp.txt"; //所要抠图的图像序列存储的文件
-string label_txt = "label_india.txt"; //位置信息保存的文件夹
-string file_save = "videoImageCut/";
+string data_txt = "tmp.txt"; 
+string label_txt = "label_dark.txt"; 
+string file_save = "videoImageCut/dark_1_";
 
 int main()
 {
@@ -62,6 +65,10 @@ int main()
         
         vcrop.clear();
         selectROIs(name, im, vcrop);
+        if(!vcrop.empty())
+        {
+            out << vname[i] << "\t" << vcrop.size() << "\t";
+        }
         for(auto roi:vcrop)
         {
             roi.x = roi.x / 3;
@@ -93,17 +100,21 @@ int main()
                 roi.height = im.rows - roi.y;
             }
 
-            imwrite(path + file_save + "india_" + to_string(num_image) + ".jpg" , im_src(roi));
+            imwrite(path + file_save + to_string(num_image) + ".jpg" , im_src(roi));
             // imwrite(path + "head/walmat_2_" + to_string(num_image) + ".jpg" , im(roi));
             
-            out << vname[i] << "\t" << roi.x << "\t" << roi.y << "\t" << roi.width << "\t" << roi.height << endl; 
+            out << roi.x << "\t" << roi.y << "\t" << roi.width << "\t" << roi.height << "\t"; 
             cout << vname[i] << "\t" << roi.x << "\t" << roi.y << "\t" << roi.width << "\t" << roi.height << endl; 
             
             ++num_image;
             imshow("roi", im(roi));
             waitKey(1);
         }
-        printf("%d %s select %d heads\n", (int)i, vname[i].c_str(), (int)vcrop.size());
+        printf("%d/%d %s select %d heads\n\n\n", (int)i, (int)vname.size(), vname[i].c_str(), (int)vcrop.size());
+        if(!vcrop.empty())
+        {
+            out << endl;
+        }
     }
     in.close();
     out.close();

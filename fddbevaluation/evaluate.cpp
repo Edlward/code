@@ -58,6 +58,7 @@ void printUsage(){
   cout << "   -i dirName      : directory where the original images are stored (default: ~/scratch/Data/facesInTheWild/)" << endl;
   cout << "   -l fileName     : file with list of images to be evaluated (default: temp.txt)" << endl;
   cout << "   -r fileName     : prefix for files to store the ROC curves (default: temp)" << endl;
+  cout << "   -s showMatchedImage " << endl;
 }
 
 
@@ -202,7 +203,9 @@ int main(int argc, char *argv[]){
     stringstream ss2(imS2);
     ss2 >> nDet;
 
-    string imFullName = imDir + imName + annotImageFormat; 
+    // string imFullName = imDir + imName + annotImageFormat; 
+    string imFullName = imDir + imName; // 修改后支持.jpg
+    
 
     // Read the annotations
     RegionsSingleImage *annot; 

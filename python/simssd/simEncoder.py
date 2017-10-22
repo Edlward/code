@@ -14,10 +14,10 @@ class DataEncoder:
         center, width, height normalized to 1
         '''
         scale = 300. # (float) image width 
-        steps = [s / scale for s in (8,)] # steps 36.5*8=292 because of maxpool2d
-        sizes = [s / scale for s in (30,)] # bounding box size
+        steps = [s / scale for s in (7.8,)] # steps 38*7.9 36*8.3333, 19*15.7 because of maxpool2d
+        sizes = [s / scale for s in (60, 90)] # bounding box size
         aspect_ratios = ((1,)) # width and height ratio
-        feature_map_sizes = (36,)
+        feature_map_sizes = (38,)
 
         num_layers = len(feature_map_sizes)
 
@@ -29,6 +29,10 @@ class DataEncoder:
                 cy = (h+0.5)*steps[i]
 
                 s = sizes[i] # bounding box size
+                boxes.append((cx, cy, s, s))
+
+                # s = math.sqrt(sizes[i] * sizes[i+1])
+                s = sizes[i+1] 
                 boxes.append((cx, cy, s, s))
 
                 '''
@@ -198,17 +202,26 @@ class DataEncoder:
         boxes = torch.cat([cxcy-wh/2, cxcy+wh/2],1)
 
         max_conf, labels = conf.max(1)
+        # print('labels', labels)
         # squeeze是用于多类别的？？？
         # ids = labels.squeeze(1).nonzero().squeeze(1)
         # print('labels', labels)
-        ids = labels.nonzero()
-        if ids.sum() == 0:
-            _,confs = conf.sort(0,descending=True)
-            ids = confs[:3,1]
-            print('has none foreground')
-        else:
+        have_box = True
+        if labels.sum() != 0:
+            ids = labels.nonzero().squeeze(1)
             print('has forground')
-        print('ids', ids)
+        else:
+            _, confs = conf.sort(0,descending=True)
+            ids = confs[:1,1]
+            have_box = False
+            print('has none foreground')
+            # a = torch.LongTensor([1])
+            # return boxes[a][a], labels[a][a], max_conf[a][a], False
+            
         keep = self.nms(boxes[ids], max_conf[ids])
-        print('nms over')
-        return boxes[ids][keep], labels[ids][keep], max_conf[ids][keep]
+        print('nms over', type(keep), type(ids))
+
+        print('ids', ids)
+        print('keep', keep)
+
+        return boxes[ids][keep], labels[ids][keep], max_conf[ids][keep], have_box

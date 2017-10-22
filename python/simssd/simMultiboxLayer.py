@@ -8,7 +8,7 @@ from torch.autograd import Variable
 
 class MultiboxLayer(nn.Module):
     num_classes = 2 # class number
-    num_anchors = [1] # every pixel in the feature map respresent an anchor
+    num_anchors = [2] # every pixel in the feature map respresent an anchor
     in_planes = [32] # input layer's channel
 
     def __init__(self):

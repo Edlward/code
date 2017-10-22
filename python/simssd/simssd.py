@@ -15,17 +15,29 @@ class SIMSSD(nn.Module):
         super(SIMSSD, self).__init__()
 
         # model
-        self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=0, stride=2)
-        self.conv2 = nn.Conv2d(32, 32, kernel_size=3, padding=0, stride=2)
+        self.conv1 = nn.Conv2d(3, 32, kernel_size=3, padding=1, stride=2 )#, dilation=2)
+        self.conv2 = nn.Conv2d(32, 32, kernel_size=3, padding=1, stride=2)#, dilation=2)
+        self.conv3 = nn.Conv2d(32, 32, kernel_size=3, padding=1, stride=2)#, dilation=2)
+        self.conv4 = nn.Conv2d(32, 32, kernel_size=3, padding=1, stride=1)
+        self.conv5 = nn.Conv2d(32, 32, kernel_size=3, padding=1, stride=1)
+        
+        
         self.multibox = MultiboxLayer()
     
     def forward(self, x):
         outs = []
 
         out = F.relu(self.conv1(x))
-        out = F.max_pool2d(out, kernel_size=3, padding=0, stride=2)
+        # out = F.max_pool2d(out, kernel_size=3, padding=1, stride=1)
         out = F.relu(self.conv2(out))
-        # print(out.size())
+        out = F.max_pool2d(out, kernel_size=3, padding=1, stride=1)
+        out = F.relu(self.conv3(out))
+        # out = F.max_pool2d(out, kernel_size=3, padding=1, stride=1)
+        out = F.relu(self.conv4(out))
+        out = F.max_pool2d(out, kernel_size=3, padding=1, stride=1)
+        out = F.relu(self.conv5(out))
+        
+        print(out.size())
         outs.append(out)
         
         loc_preds, conf_preds = self.multibox(outs)
