@@ -2,20 +2,24 @@ import os
 import torch
 import pandas as pd
 from torch.autograd import Variable
-from convNet import convNet
 from torchvision import transforms
+from convNet import convNet
+from resNet import resnet18
+from fcNet import fcNet
 
 use_cuda = True
 path = '/home/lxg/codedata/minist/'
 print('loading data...')
 data = pd.read_csv(os.path.join(path, 'test.csv'))
 data = data.as_matrix()
-data_img = data.reshape(-1,28,28)
+data_img = data.reshape(-1,28,28) # - 33.38  # substract mean value
 
 transform = transforms.Compose([
     transforms.ToTensor()
 ])
-model = convNet()
+# model = convNet()
+model = resnet18()
+
 if use_cuda:
     model.cuda()
 print('loading model...')
