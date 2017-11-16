@@ -101,7 +101,7 @@ class ResNet(nn.Module):
         return out
     
 def resnet18():
-    model = ResNet(BasicBlock, [2,2,2,2])
+    model = ResNet(BasicBlock, [2,2,2,2])  # 2*(2+2+2+2)+2
     return model
 
 if __name__ == '__main__':

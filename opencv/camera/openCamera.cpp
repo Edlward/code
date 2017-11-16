@@ -30,6 +30,11 @@ int main(int argc, char **argv)
         printf("can not open camera %d\n", cnum);
         return -1;
     }
+    else
+    {
+        printf("camera open successfully\n");
+    }
+
     // cap.set(CV_CAP_PROP_FRAME_WIDTH, 110 ); //不起作用
     // cap.set(CV_CAP_PROP_FRAME_HEIGHT, 100 );
 
@@ -56,7 +61,7 @@ int main(int argc, char **argv)
     cap >> src;
 
     printf("height:%d, width:%d，channels:%d\n", src.cols, src.rows, src.channels());
-    
+    printf("come into while\n");
     while(1)
     {
         // double time = (double)getTickCount(); 
