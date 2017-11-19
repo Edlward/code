@@ -1,0 +1,54 @@
+todo:
+1. xception: check multi-gpu eficiency and timing
+2. SE-resnet : check caffe conversion
+3. dilated resdiualnet: small object
+
+
+
+
+
+---------------------------------------------------------------------------------
+- how to do fast without training all layers, how many layers to freeze
+- SE-Resnet50
+
+- multiple-gpu
+- crops 160? 224 , 128?
+
+- fast file loding
+
+
+- stablising with clip gradient?
+- visualisation, class activiation map
+
+- sub sampling/class balancing
+
+- thresholding
+
+- batch renormalization
+ (see pytorch yolo to see cuda bn code)
+  can also use _c_.bn funct
+
+
+
+#------------------------------------------------------------------
+https://arxiv.org/pdf/1710.00935.pdf
+see longtail detection paper
+
+focal loss
+avg+max pool
+pyramid deconv
+norm-L2 loss
+
+https://github.com/soeaver/caffe-model/blob/master/cls/README.md
+
+#------------------------------------------------------------------
+
+
+resnet101
+-->resnext101 is better
+-->se-resnext101 or senet is better
+[waiting to see if small batch size affects results ????]
+
+
+
+

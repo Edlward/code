@@ -1,0 +1,1 @@
+scp  lxg@192.168.123.51:code/python/cdiscount/*jpg .

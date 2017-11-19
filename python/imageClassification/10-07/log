@@ -1,0 +1,13 @@
+version 10-07: -------------------------------------------------------------
+Thanks to @Bruno G. do Amaral, @Human Analog, @Adam Blazek and the rest
+ 
+
+- intial version for debugging, conducting initial experiments, timing, etc
+
+- include se-resnet50 imagenet pretrain model and sample results on validation set.
+  using this version of software, you should get LB 0.63358 forse-resnet50 
+
+-  support various network like resnet, resnext, inception v3, etc. see trainer_xxx.py
+      
+
+ 

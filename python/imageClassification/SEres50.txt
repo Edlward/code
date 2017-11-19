@@ -1,0 +1,98 @@
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+  5.0      0.010000      5.183471      0.192987
+ 10.0      0.010000      6.681103      0.091487
+ 15.0      0.010000      5.824700      0.127626
+ 20.0      0.010000      4.408905      0.272034
+ 25.0      0.010000      4.840761      0.225597
+ 30.0      0.010000      3.960403      0.331531
+ 35.0      0.010000      4.738648      0.242115
+ 40.0      0.010000      4.357906      0.283956
+ 45.0      0.010000      4.092081      0.320304
+ 50.0      0.010000      3.864659      0.347884
+ 55.0      0.010000      3.937146      0.333991
+ 60.0      0.010000      4.664245      0.238380
+ 65.0      0.010000      4.228865      0.301655
+ 70.0      0.010000      3.710047      0.360976
+ 75.0      0.010000      5.149984      0.194594
+ 80.0      0.010000      4.039507      0.323137
+ 85.0      0.010000      3.946873      0.333891
+ 90.0      0.010000      3.993353      0.322117
+ 95.0      0.010000      3.906520      0.334636
+100.0      0.010000      3.658680      0.371128
+105.0      0.010000      3.884090      0.340931
+110.0      0.010000      3.701356      0.368314
+115.0      0.010000      4.634300      0.255051
+120.0      0.010000      4.472448      0.278801
+125.0      0.010000      4.022776      0.326328
+130.0      0.010000      3.690027      0.367608
+135.0      0.010000      3.749237      0.364612
+140.0      0.010000      4.919949      0.225440
+145.0      0.010000      3.603431      0.376921
+150.0      0.010000      3.864881      0.343868
+159.7      0.010000      3.990670      0.324886
+164.7      0.010000      4.961435      0.222177
+169.7      0.010000      4.092790      0.315473
+174.7      0.010000      4.099271      0.318614
+179.7      0.010000      3.819599      0.353102
+184.7      0.010000      3.648209      0.370013
+189.7      0.010000      4.251443      0.297862
+194.7      0.010000      3.568793      0.383693
+199.7      0.010000      3.771448      0.355429
+204.7      0.010000      4.383337      0.286372
+209.7      0.010000      4.089155      0.318313
+214.7      0.010000      4.294583      0.291752
+219.7      0.010000      3.594587      0.380490
+224.7      0.010000      3.858590      0.347955
+229.7      0.010000      5.998262      0.158887
+234.7      0.010000      3.868978      0.346582
+239.7      0.010000      4.075762      0.315091
+244.7      0.010000      3.590142      0.381011
+249.7      0.010000      3.851435      0.345791
+254.7      0.010000      3.934288      0.329979
+259.7      0.010000      4.081417      0.314056
+264.7      0.010000      3.652230      0.374679
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  

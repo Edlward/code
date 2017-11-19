@@ -1,0 +1,141 @@
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+epoch  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter  |  rate  |  train_acc  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+  0.0      0.010000      8.568875      0.000473
+  5.0      0.010000      4.579049      0.298167
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+** resnet network **
+iter_k  |  rate  |  val_loss  |  val_acc  
+  5.0      0.010000      5.700967      0.138902
