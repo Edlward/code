@@ -24,17 +24,11 @@ print('loading model...')
 model.load_state_dict(torch.load(os.path.join(path,'params1.pkl')))
 model.eval()
 
-
-id_total = []
-predicted_total = []
-
 def predict(data, batch_size=32):
     data_loader = torch.utils.data.DataLoader(data, 
                                     batch_size=batch_size,
                                     shuffle=False,
                                     num_workers=2)
-    global id_total
-    global predicted_total
     for batch_idx, (images, ids) in enumerate(data_loader):
         if use_cuda:
             images = images.cuda()
@@ -42,12 +36,15 @@ def predict(data, batch_size=32):
         outputs = model(images)
         out_array = outputs.data.cpu().numpy()
         probability = np.exp(out_array[:,1]) / np.exp(out_array).sum(1)
-        predicted_total.extend(probability)
-        id_total.extend(ids)
+        return probability, ids
 
 transform = transforms.Compose([
     transforms.ToTensor()
 ])
+
+id_total = []
+predicted_total = []
+
 print('loading data...')
 test_data = DataSet(path=path,
                     file='test1.json',
@@ -55,7 +52,9 @@ test_data = DataSet(path=path,
                     transform=transform,
                     predicted=True)
 print('predict.....')
-predict(test_data)
+prob, ids = predict(test_data)
+predicted_total.extend(prob)
+id_total.extend(ids)
 
 print('loading data...')
 test_data = DataSet(path=path,
@@ -64,7 +63,9 @@ test_data = DataSet(path=path,
                     transform=transform,
                     predicted=True)
 print('predict.....')
-predict(test_data)
+prob, ids = predict(test_data)
+predicted_total.extend(prob)
+id_total.extend(ids)
 
 print('loading data...')
 test_data = DataSet(path=path,
@@ -73,7 +74,9 @@ test_data = DataSet(path=path,
                     transform=transform,
                     predicted=True)
 print('predict.....')
-predict(test_data)
+prob, ids = predict(test_data)
+predicted_total.extend(prob)
+id_total.extend(ids)
 
 
 predict_dict = {'id':id_total, 'is_iceberg':predicted_total}

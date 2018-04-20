@@ -204,9 +204,10 @@ int main(int argc, char *argv[]){
     ss2 >> nDet;
 
     // string imFullName = imDir + imName + annotImageFormat; 
-    string imFullName = imDir + imName; // 修改后支持.jpg
+    // string imFullName = imDir + imName; // 修改后支持.jpg
+    string imFullName = imDir + imName + ".jpg"; // 文件不带后缀名.jpg
     
-
+    
     // Read the annotations
     RegionsSingleImage *annot; 
     annot = new EllipsesSingleImage(imFullName);

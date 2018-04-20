@@ -5,7 +5,7 @@ CFLAGS = -O3
 #INCS = `pkg-config --cflags opencv` 
 #LIBS = `pkg-config --libs opencv`
 INCS = -I/usr/local/include/opencv
-LIBS = -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_ml -lopencv_video -lopencv_legacy -lopencv_videoio -lopencv_imgcodecs 
+LIBS = -L/usr/local/lib -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_ml -lopencv_video -lopencv_videoio -lopencv_imgcodecs 
 
 OBJS = OpenCVUtils.o Region.o RegionsSingleImage.o EllipseR.o EllipsesSingleImage.o RectangleR.o RectanglesSingleImage.o Hungarian.o MatchPair.o Matching.o Results.o evaluate.o
 BIN = evaluate

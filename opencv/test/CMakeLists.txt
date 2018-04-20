@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 project(test)
 
-set(OpenCV_DIR "/home/lxg/app/opencv-3.3.0/build/")
+set(OpenCV_DIR "/home/lxg/app/opencv-master/build/")
 
 find_package(OpenCV)
 message(STATUS ${OpenCV_LIBS})

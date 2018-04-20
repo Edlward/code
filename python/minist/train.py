@@ -24,7 +24,7 @@ transform = transforms.Compose([
 ])
 
 train_data = Minist(root='/home/lxg/codedata/minist',
-                    file_list='train.csv',
+                    file_list='train_train.csv',
                     train=True,
                     transform=transform)
 train_loader = torch.utils.data.DataLoader(train_data, 
@@ -46,7 +46,7 @@ test_loader = torch.utils.data.DataLoader(test_data,
 # learning_rate = 0.001; optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=0.01)
 
 # num_epoch = 50; model = convNet(); learning_rate = 0.1; optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay=0.001)
-num_epoch = 50; model = resnet18(); learning_rate = 0.1; optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay=0.0005)
+num_epoch = 50; model = resnet18(); learning_rate = 0.01; optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay=0.0005)
 # num_epoch = 100; model = fcNet(); learning_rate = 0.1; optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay=0.0001)
 
 # model.load_state_dict(torch.load(os.path.join(path,'params.pkl')))  # load pretrained model
@@ -125,8 +125,8 @@ for i in range(num_epoch):
     # learning rate decay
     # if i == 2 or i == 4 or i == 6 or i == 8:
     #     learning_rate *= 0.1
-    if i > 1 and train_loss_all[i] > train_loss_all[i-1]:
-        learning_rate *= 0.1
-
+    # if i > 1 and train_loss_all[i] > train_loss_all[i-1]:
+        # learning_rate *= 0.1
+    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, weight_decay=0.0005)
     # early stop, model with less loss has been saved, so this is not so useful
     
